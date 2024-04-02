@@ -5,23 +5,34 @@ namespace Data
 {
     internal static class Utils
     {
-        public static void ErrorMessages(Type OType,
-                                         Exception OException)
+        #region Constructor Method
+        static Utils()
+        {
+            
+        }
+        #endregion
+
+
+
+        #region Messages
+        public static void ErrorMessages(Exception ex,
+                                         Type OType)
         {
             Console.Error.WriteLine("");
             Console.Error.WriteLine("---");
             Console.Error.WriteLine($"{OType}");
-            Console.Error.WriteLine($"Error message: {OException.Message}");
-            Console.Error.WriteLine($"Stack trace: {OException.StackTrace}");
-            Console.Error.WriteLine($"Complete error: {OException}");
+            Console.Error.WriteLine($"Stack Trace: {ex.StackTrace}");
+            Console.Error.WriteLine($"Error Message: {ex.Message}");
+            Console.Error.WriteLine($"Complete Error: {ex}");
             Console.Error.WriteLine("---");
             Console.Error.WriteLine("");
         }
 
-        public static async Task ErrorMessagesAsync(Type OType,
-                                                    Exception OException)
+        public static async Task ErrorMessagesAsync(Exception ex,
+                                                    Type OType)
         {
-            await Task.Run(action: () => ErrorMessages(OType, OException));
+            await Task.Run(action: () => ErrorMessages(ex, OType));
         }
+        #endregion
     }
 }

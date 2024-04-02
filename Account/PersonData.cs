@@ -183,7 +183,7 @@ namespace Data.Account
             }
             catch (Exception ex)
             {
-                Utils.ErrorMessages(this.GetType(), ex);
+                Utils.ErrorMessages(ex, this.GetType());
                 
                 throw;
             }
@@ -197,7 +197,7 @@ namespace Data.Account
             }
             catch (Exception ex)
             {
-                await Utils.ErrorMessagesAsync(this.GetType(), ex);
+                await Utils.ErrorMessagesAsync(ex, this.GetType());
                 
                 throw;
             }
@@ -240,7 +240,7 @@ namespace Data.Account
             }
             catch (Exception ex)
             {
-                Utils.ErrorMessages(this.GetType(), ex);
+                Utils.ErrorMessages(ex, this.GetType());
                 
                 throw;
             }
@@ -254,7 +254,7 @@ namespace Data.Account
             }
             catch (Exception ex)
             {
-                await Utils.ErrorMessagesAsync(this.GetType(), ex);
+                await Utils.ErrorMessagesAsync(ex, this.GetType());
                 
                 throw;
             }
