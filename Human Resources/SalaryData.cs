@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Data.Human_Resources
 {
@@ -9,6 +10,7 @@ namespace Data.Human_Resources
         private float BaseSalary { get; set; }
         private DateOnly StartDate { get; set; }
         private DateOnly? EndDate { get; set; }
+        private float IncomeTax { get; set; }
         #endregion
 
 
@@ -17,19 +19,25 @@ namespace Data.Human_Resources
         public SalaryData()
             : base()
         {
+            this.ID = ulong.MinValue;
             this.BaseSalary = float.MinValue;
             this.StartDate = DateOnly.MinValue;
             this.EndDate = null;
+            this.IncomeTax = 0;
         }
 
-        public SalaryData(float BaseSalary,
+        public SalaryData(ulong ID,
+                          float BaseSalary,
                           DateOnly StartDate,
-                          DateOnly? EndDate)
+                          DateOnly? EndDate,
+                          float IncomeTax)
             : base()
         {
+            this.ID = ID;
             this.BaseSalary = BaseSalary;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
+            this.IncomeTax = IncomeTax;
         }
         #endregion
 
@@ -84,6 +92,33 @@ namespace Data.Human_Resources
         {
             this.EndDate = EndDate;
         }
+
+        public float GetIncomeTax()
+        {
+            return this.IncomeTax;
+        }
+
+        public void SetIncomeTax(float IncomeTax)
+        {
+            this.IncomeTax = IncomeTax;
+        }
         #endregion
+
+
+
+
+        public float NetSalary()
+        {
+            float TotalSalaryAssets;
+
+            TotalSalaryAssets = this.BaseSalary * IncomeTax / 100;
+
+            return this.BaseSalary - TotalSalaryAssets;
+        }
+
+        public async Task<float> NetSalaryAsync()
+        {
+            return await Task.Run<float>(function: () => this.NetSalary());
+        }
     }
 }
