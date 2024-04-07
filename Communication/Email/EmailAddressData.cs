@@ -5,7 +5,10 @@
         #region Variables
         private ulong ID { get; set; }
         private string Email { get; set; }
-        private string Type { get; set; }
+        #endregion
+
+        #region Objects
+        private EmailAddressTypeData OEmailAddressType { get; set; }
         #endregion
 
 
@@ -16,17 +19,17 @@
         {
             ID = ulong.MinValue;
             Email = string.Empty;
-            Type = string.Empty;
+            this.OEmailAddressType = new EmailAddressTypeData();
         }
 
         public EmailAddressData(ulong ID,
                                 string Email,
-                                string Type)
+                                EmailAddressTypeData OEmailAddressType)
             : base()
         {
             this.ID = ID;
             this.Email = Email;
-            this.Type = Type;
+            this.OEmailAddressType = OEmailAddressType;
         }
         #endregion
 
@@ -42,6 +45,7 @@
 
 
         #region Getters and Setters
+        #region Variables
         public ulong GetID()
         {
             return ID;
@@ -61,16 +65,19 @@
         {
             this.Email = Email;
         }
+        #endregion
 
-        public string GetEmailType()
+        #region Objects
+        public EmailAddressTypeData GetOEmailAddressType()
         {
-            return Type;
+            return this.OEmailAddressType;
         }
 
-        public void SetEmailType(string Type)
+        public void SetEmailType(EmailAddressTypeData OEmailAddressType)
         {
-            this.Type = Type;
+            this.OEmailAddressType = OEmailAddressType;
         }
+        #endregion
         #endregion
     }
 }
