@@ -3,8 +3,26 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    internal static class Utils
+    public static class Utils
     {
+        #region Enums
+        public enum EmailTypeEnum
+        {
+            Personal,
+            Work,
+            University,
+            School
+        }
+
+        public enum SexEnum
+        {
+            Female,
+            Male
+        }
+        #endregion
+
+
+
         #region Constructor Method
         static Utils()
         {

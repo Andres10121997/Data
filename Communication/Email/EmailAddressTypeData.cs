@@ -4,44 +4,39 @@
     {
         #region Variables
         private byte ID { get; set; }
-        private EmailTypeEnum Type { get; set; }
-        #endregion
-
-        #region Enums
-        public enum EmailTypeEnum
-        {
-            Personal,
-            Work,
-            University,
-            School
-        }
+        private string Type { get; set; }
         #endregion
 
 
 
+        #region Constructor Method
         public EmailAddressTypeData()
             : base()
         {
             this.ID = byte.MinValue;
-            this.Type = EmailTypeEnum.Personal;
+            this.Type = string.Empty;
         }
 
         public EmailAddressTypeData(byte ID,
-                                    EmailTypeEnum Type)
+                                    string Type)
         {
             this.ID = ID;
             this.Type = Type;
         }
+        #endregion
 
 
 
+        #region Destroyer Method
         ~EmailAddressTypeData()
         {
 
         }
+        #endregion
 
 
 
+        #region Getters and Setters
         public byte GetEmailTypeID()
         {
             return this.ID;
@@ -52,14 +47,15 @@
             this.ID = ID;
         }
 
-        public EmailTypeEnum GetEmailType()
+        public string GetEmailType()
         {
             return this.Type;
         }
 
-        public void SetEmailType(EmailTypeEnum Type)
+        public void SetEmailType(string Type)
         {
             this.Type = Type;
         }
+        #endregion
     }
 }

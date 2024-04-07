@@ -7,14 +7,6 @@
         private string Name { get; set; }
         #endregion
 
-        #region Enums
-        public enum SexEnum
-        {
-            Female,
-            Male
-        }
-        #endregion
-
 
 
         #region Constructor Method
