@@ -70,6 +70,16 @@ namespace Data.Human_Resources
 
         public void SetBaseSalary(float BaseSalary)
         {
+            if (float.IsNaN(BaseSalary))
+            {
+                throw new Exception(nameof(BaseSalary));
+            }
+            else
+            if (float.IsNegative(BaseSalary))
+            {
+                throw new Exception(nameof(BaseSalary));
+            }
+            
             this.BaseSalary = BaseSalary;
         }
 

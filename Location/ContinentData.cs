@@ -1,4 +1,6 @@
-﻿namespace Data.Location
+﻿using System;
+
+namespace Data.Location
 {
     public class ContinentData
     {
@@ -66,6 +68,13 @@
 
         public void SetName(string Name)
         {
+            if (string.IsNullOrEmpty(Name)
+                ||
+                string.IsNullOrWhiteSpace(Name))
+            {
+                throw new ArgumentNullException(paramName: nameof(Name), message: "The Name cannot be null or empty or white spaces.");
+            }
+            
             this.Name = Name;
         }
         #endregion

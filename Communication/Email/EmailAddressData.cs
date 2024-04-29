@@ -1,4 +1,6 @@
-﻿namespace Data.Communication.Email
+﻿using System;
+
+namespace Data.Communication.Email
 {
     public class EmailAddressData
     {
@@ -63,6 +65,13 @@
 
         public void SetEmail(string Email)
         {
+            if (string.IsNullOrEmpty(Email)
+                ||
+                string.IsNullOrWhiteSpace(Email))
+            {
+                throw new ArgumentNullException(paramName: nameof(Email), message: "The email cannot be null or empty or white spaces.");
+            }
+            
             this.Email = Email;
         }
         #endregion
