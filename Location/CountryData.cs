@@ -87,7 +87,12 @@ namespace Data.Location
                 ||
                 string.IsNullOrWhiteSpace(Iso))
             {
-                throw new ArgumentNullException(nameof(Iso), "The ISO cannot be null or empty or have white space.");
+                throw new ArgumentNullException(nameof(Iso), "The Iso cannot be null or empty or have white space.");
+            }
+            else
+            if (Iso.Length < 2)
+            {
+                throw new Exception(nameof(Iso));
             }
             else
             if (Iso.Length > 2)
@@ -105,6 +110,23 @@ namespace Data.Location
 
         public void SetIso3(string Iso3)
         {
+            if (string.IsNullOrEmpty(Iso3)
+                ||
+                string.IsNullOrWhiteSpace(Iso3))
+            {
+                throw new ArgumentNullException(nameof(Iso3), "The Iso3 cannot be null or empty or have white space.");
+            }
+            else
+            if (Iso3.Length < 3)
+            {
+                throw new Exception(nameof(Iso3));
+            }
+            else
+            if (Iso3.Length > 3)
+            {
+                throw new Exception(nameof(Iso3));
+            }
+            
             this.Iso3 = Iso3;
         }
         #endregion
