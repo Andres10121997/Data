@@ -1,4 +1,6 @@
-﻿namespace Data.Account
+﻿using System;
+
+namespace Data.Account
 {
     public class SexData
     {
@@ -55,6 +57,13 @@
 
         public void SetSex(string Name)
         {
+            if (string.IsNullOrEmpty(Name)
+                ||
+                string.IsNullOrWhiteSpace(Name))
+            {
+                throw new ArgumentNullException(nameof(Name), "\"Sex\" cannot be null or empty or have whitespace.");
+            }
+            
             this.Name = Name;
         }
         #endregion

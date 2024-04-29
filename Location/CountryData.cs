@@ -1,4 +1,6 @@
-﻿namespace Data.Location
+﻿using System;
+
+namespace Data.Location
 {
     public class CountryData
     {
@@ -81,6 +83,18 @@
 
         public void SetIso(string Iso)
         {
+            if (string.IsNullOrEmpty(Iso)
+                ||
+                string.IsNullOrWhiteSpace(Iso))
+            {
+                throw new ArgumentNullException(nameof(Iso), "The ISO cannot be null or empty or have white space.");
+            }
+            else
+            if (Iso.Length > 2)
+            {
+                throw new Exception(nameof(Iso));
+            }
+            
             this.Iso = Iso;
         }
 
