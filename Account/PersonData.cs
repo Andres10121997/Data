@@ -82,6 +82,13 @@ namespace Data.Account
 
         public void SetFirstName(string FirstName)
         {
+            if (string.IsNullOrEmpty(FirstName)
+                ||
+                string.IsNullOrWhiteSpace(FirstName))
+            {
+                throw new ArgumentNullException(paramName: nameof(FirstName), message: "The first name cannot be null or empty or have empty spaces.");
+            }
+
             this.FirstName = FirstName;
         }
 
@@ -102,6 +109,13 @@ namespace Data.Account
 
         public void SetFirstLastName(string FirstLastName)
         {
+            if (string.IsNullOrEmpty(FirstLastName)
+                ||
+                string.IsNullOrWhiteSpace(FirstLastName))
+            {
+                throw new ArgumentNullException(paramName: nameof(FirstName), message: "The first last name cannot be null or empty or have empty spaces.");
+            }
+            
             this.FirstLastName = FirstLastName;
         }
 
