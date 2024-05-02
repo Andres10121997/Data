@@ -84,6 +84,13 @@ namespace Data.Account
 
         public void SetIP(string IP)
         {
+            if (string.IsNullOrEmpty(IP)
+                ||
+                string.IsNullOrWhiteSpace(IP))
+            {
+                throw new ArgumentNullException(paramName: nameof(IP));
+            }
+            
             this.IP = IP;
         }
 
@@ -94,6 +101,13 @@ namespace Data.Account
 
         public void SetLogin(string Login)
         {
+            if (string.IsNullOrEmpty(Login)
+                ||
+                string.IsNullOrWhiteSpace(Login))
+            {
+                throw new ArgumentNullException(paramName: nameof(Login));
+            }
+            
             this.Login = Login;
         }
         #endregion

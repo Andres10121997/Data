@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public static class Utils
+    internal static class Utils
     {
         #region Enums
         public enum EmailTypeEnum
@@ -33,8 +33,8 @@ namespace Data
 
 
         #region Messages
-        public static void ErrorMessages(Exception ex,
-                                         Type OType)
+        internal static void ErrorMessages(Exception ex,
+                                           Type OType)
         {
             Console.Error.WriteLine("");
             Console.Error.WriteLine("---");
@@ -46,10 +46,11 @@ namespace Data
             Console.Error.WriteLine("");
         }
 
-        public static async Task ErrorMessagesAsync(Exception ex,
-                                                    Type OType)
+        internal static async Task ErrorMessagesAsync(Exception ex,
+                                                      Type OType)
         {
-            await Task.Run(action: () => ErrorMessages(ex, OType));
+            await Task.Run(action: () => ErrorMessages(ex: ex,
+                                                       OType: OType));
         }
         #endregion
     }

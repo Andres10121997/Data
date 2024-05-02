@@ -57,11 +57,12 @@ namespace Data.Account
 
         public void SetSex(string Name)
         {
-            if (string.IsNullOrEmpty(Name)
+            if (string.IsNullOrEmpty(value: Name)
                 ||
-                string.IsNullOrWhiteSpace(Name))
+                string.IsNullOrWhiteSpace(value: Name))
             {
-                throw new ArgumentNullException(nameof(Name), "\"Sex\" cannot be null or empty or have whitespace.");
+                throw new ArgumentNullException(paramName: nameof(Name),
+                                                message: "\"Sex\" cannot be null or empty or have whitespace.");
             }
             
             this.Name = Name;

@@ -1,4 +1,6 @@
-﻿namespace Data.Account
+﻿using System;
+
+namespace Data.Account
 {
     public class UsernameData : UserData
     {
@@ -68,6 +70,13 @@
 
         public void SetUsername(string Username)
         {
+            if (string.IsNullOrEmpty(Username)
+                ||
+                string.IsNullOrWhiteSpace(Username))
+            {
+                throw new ArgumentNullException(paramName: nameof(Username));
+            }
+            
             this.Username = Username;
         }
         #endregion

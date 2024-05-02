@@ -228,9 +228,9 @@ namespace Data.Account
 
             try
             {
-                if (this.MiddleName == null
-                ||
-                this.MiddleName.Equals(null))
+                if (string.IsNullOrEmpty(value: this.MiddleName)
+                    ||
+                    string.IsNullOrWhiteSpace(value: this.MiddleName))
                 {
                     Name = this.FirstName.Trim();
                 }
@@ -239,9 +239,9 @@ namespace Data.Account
                     Name = $"{this.FirstName.Trim()} {this.MiddleName.Trim()}";
                 }
 
-                if (this.SecondLastName == null
+                if (string.IsNullOrEmpty(value: this.SecondLastName)
                     ||
-                    this.SecondLastName.Equals(null))
+                    string.IsNullOrWhiteSpace(value: this.SecondLastName))
                 {
                     LastName = this.FirstLastName.Trim();
                 }
@@ -268,7 +268,8 @@ namespace Data.Account
             }
             catch (Exception ex)
             {
-                await Utils.ErrorMessagesAsync(ex, this.GetType());
+                await Utils.ErrorMessagesAsync(ex: ex,
+                                               OType: this.GetType());
                 
                 throw;
             }
