@@ -69,11 +69,12 @@ namespace Data.Project
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(Name)
+            if (string.IsNullOrEmpty(value: Name)
                 ||
-                string.IsNullOrWhiteSpace(Name))
+                string.IsNullOrWhiteSpace(value: Name))
             {
-                throw new ArgumentNullException(paramName: nameof(Name), message: "The project name cannot be null, empty, or have whitespace.");
+                throw new ArgumentNullException(paramName: nameof(Name),
+                                                message: "The project name cannot be null, empty, or have whitespace.");
             }
             
             this.Name = Name;

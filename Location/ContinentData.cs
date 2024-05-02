@@ -72,7 +72,8 @@ namespace Data.Location
                 ||
                 string.IsNullOrWhiteSpace(Name))
             {
-                throw new ArgumentNullException(paramName: nameof(Name), message: "The Name cannot be null or empty or white spaces.");
+                throw new ArgumentNullException(paramName: nameof(Name),
+                                                message: "The Name cannot be null or empty or white spaces.");
             }
             
             this.Name = Name;

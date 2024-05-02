@@ -84,9 +84,9 @@ namespace Data.Account
 
         public void SetIP(string IP)
         {
-            if (string.IsNullOrEmpty(IP)
+            if (string.IsNullOrEmpty(value: IP)
                 ||
-                string.IsNullOrWhiteSpace(IP))
+                string.IsNullOrWhiteSpace(value: IP))
             {
                 throw new ArgumentNullException(paramName: nameof(IP));
             }
@@ -101,9 +101,9 @@ namespace Data.Account
 
         public void SetLogin(string Login)
         {
-            if (string.IsNullOrEmpty(Login)
+            if (string.IsNullOrEmpty(value: Login)
                 ||
-                string.IsNullOrWhiteSpace(Login))
+                string.IsNullOrWhiteSpace(value: Login))
             {
                 throw new ArgumentNullException(paramName: nameof(Login));
             }

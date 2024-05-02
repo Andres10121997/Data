@@ -70,9 +70,9 @@ namespace Data.Account
 
         public void SetUsername(string Username)
         {
-            if (string.IsNullOrEmpty(Username)
+            if (string.IsNullOrEmpty(value: Username)
                 ||
-                string.IsNullOrWhiteSpace(Username))
+                string.IsNullOrWhiteSpace(value: Username))
             {
                 throw new ArgumentNullException(paramName: nameof(Username));
             }

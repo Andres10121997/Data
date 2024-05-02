@@ -73,6 +73,14 @@ namespace Data.Location
 
         public void SetName(string Name)
         {
+            if (string.IsNullOrEmpty(value: Name)
+                ||
+                string.IsNullOrWhiteSpace(value: Name))
+            {
+                throw new ArgumentNullException(paramName: nameof(Name),
+                                                message: "The Name cannot be null or empty or have white space.");
+            }
+            
             this.Name = Name;
         }
 
@@ -83,11 +91,12 @@ namespace Data.Location
 
         public void SetIso(string Iso)
         {
-            if (string.IsNullOrEmpty(Iso)
+            if (string.IsNullOrEmpty(value: Iso)
                 ||
-                string.IsNullOrWhiteSpace(Iso))
+                string.IsNullOrWhiteSpace(value: Iso))
             {
-                throw new ArgumentNullException(nameof(Iso), "The Iso cannot be null or empty or have white space.");
+                throw new ArgumentNullException(paramName: nameof(Iso),
+                                                message: "The Iso cannot be null or empty or have white space.");
             }
             else
             if (Iso.Length < 2)
@@ -110,11 +119,12 @@ namespace Data.Location
 
         public void SetIso3(string Iso3)
         {
-            if (string.IsNullOrEmpty(Iso3)
+            if (string.IsNullOrEmpty(value: Iso3)
                 ||
-                string.IsNullOrWhiteSpace(Iso3))
+                string.IsNullOrWhiteSpace(value: Iso3))
             {
-                throw new ArgumentNullException(nameof(Iso3), "The Iso3 cannot be null or empty or have white space.");
+                throw new ArgumentNullException(paramName: nameof(Iso3),
+                                                message: "The Iso3 cannot be null or empty or have white space.");
             }
             else
             if (Iso3.Length < 3)
