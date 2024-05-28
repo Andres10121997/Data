@@ -19,8 +19,8 @@ namespace Data.Communication.Email
         public EmailAddressData()
             : base()
         {
-            ID = ulong.MinValue;
-            Email = string.Empty;
+            this.ID = ulong.MinValue;
+            this.Email = string.Empty;
             this.OEmailAddressType = new EmailAddressTypeData();
         }
 
@@ -48,12 +48,12 @@ namespace Data.Communication.Email
 
         #region Getters and Setters
         #region Variables
-        public ulong GetID()
+        public ulong GetEmailID()
         {
             return ID;
         }
 
-        public void SetID(ulong ID)
+        public void SetEmailID(ulong ID)
         {
             this.ID = ID;
         }
@@ -69,7 +69,8 @@ namespace Data.Communication.Email
                 ||
                 string.IsNullOrWhiteSpace(Email))
             {
-                throw new ArgumentNullException(paramName: nameof(Email), message: "The email cannot be null or empty or white spaces.");
+                throw new ArgumentNullException(paramName: nameof(Email),
+                                                message: "The email cannot be null or empty or white spaces.");
             }
             
             this.Email = Email;
@@ -82,7 +83,7 @@ namespace Data.Communication.Email
             return this.OEmailAddressType;
         }
 
-        public void SetEmailType(EmailAddressTypeData OEmailAddressType)
+        public void SetEmailAddressType(EmailAddressTypeData OEmailAddressType)
         {
             this.OEmailAddressType = OEmailAddressType;
         }

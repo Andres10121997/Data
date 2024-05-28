@@ -113,22 +113,5 @@ namespace Data.Human_Resources
             this.IncomeTax = IncomeTax;
         }
         #endregion
-
-
-
-
-        public float NetSalary()
-        {
-            float TotalSalaryAssets;
-
-            TotalSalaryAssets = this.BaseSalary * IncomeTax / 100;
-
-            return this.BaseSalary - TotalSalaryAssets;
-        }
-
-        public async Task<float> NetSalaryAsync()
-        {
-            return await Task.Run<float>(function: () => this.NetSalary());
-        }
     }
 }

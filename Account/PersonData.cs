@@ -72,6 +72,11 @@ namespace Data.Account
 
         public void SetPersonID(ulong ID)
         {
+            if (ID < 0)
+            {
+                throw new Exception(nameof(ID));
+            }
+            
             this.ID = ID;
         }
 

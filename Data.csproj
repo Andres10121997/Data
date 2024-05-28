@@ -7,6 +7,9 @@
     <ErrorReport>send</ErrorReport>
     <Title>Data</Title>
     <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/Multiple-Technologies/Data</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Multiple-Technologies/Data</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
