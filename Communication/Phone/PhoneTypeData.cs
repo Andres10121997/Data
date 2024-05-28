@@ -1,31 +1,27 @@
-﻿namespace Data.Communication
+﻿namespace Data.Communication.Phone
 {
-    public class PhoneData
+    public class PhoneTypeData
     {
         #region Variables
-        private ulong ID { get; set; }
-        private string PhoneNumber { get; set; }
+        private byte ID { get; set; }
         private string Type { get; set; }
         #endregion
 
 
 
         #region Constructor Method
-        public PhoneData()
+        public PhoneTypeData()
             : base()
         {
-            this.ID = ulong.MinValue;
-            this.PhoneNumber = string.Empty;
+            this.ID = byte.MinValue;
             this.Type = string.Empty;
         }
 
-        public PhoneData(ulong ID,
-                         string PhoneNumber,
-                         string Type)
+        public PhoneTypeData(byte ID,
+                             string Type)
             : base()
         {
             this.ID = ID;
-            this.PhoneNumber = PhoneNumber;
             this.Type = Type;
         }
         #endregion
@@ -33,7 +29,7 @@
 
 
         #region Destroyer Method
-        ~PhoneData()
+        ~PhoneTypeData()
         {
 
         }
@@ -42,24 +38,14 @@
 
 
         #region Getters and Setters
-        public ulong GetID()
+        public byte GetPhoneTypeID()
         {
             return this.ID;
         }
 
-        public void SetID(ulong ID)
+        public void SetPhoneTypeID(byte ID)
         {
             this.ID = ID;
-        }
-
-        public string GetPhoneNumber()
-        {
-            return this.PhoneNumber;
-        }
-
-        public void SetPhoneNumber(string PhoneNumber)
-        {
-            this.PhoneNumber = PhoneNumber;
         }
 
         public string GetPhoneType()
