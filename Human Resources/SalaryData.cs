@@ -70,12 +70,12 @@ namespace Data.Human_Resources
 
         public void SetBaseSalary(float BaseSalary)
         {
-            if (float.IsNaN(BaseSalary))
+            if (float.IsNaN(f: BaseSalary))
             {
                 throw new Exception(nameof(BaseSalary));
             }
             else
-            if (float.IsNegative(BaseSalary))
+            if (float.IsNegative(f: BaseSalary))
             {
                 throw new Exception(nameof(BaseSalary));
             }
@@ -110,6 +110,16 @@ namespace Data.Human_Resources
 
         public void SetIncomeTax(float IncomeTax)
         {
+            if (float.IsNaN(f: IncomeTax))
+            {
+                throw new Exception(nameof(IncomeTax));
+            }
+            else
+            if (float.IsNegative(f: IncomeTax))
+            {
+                throw new Exception(nameof(IncomeTax));
+            }
+            
             this.IncomeTax = IncomeTax;
         }
         #endregion
