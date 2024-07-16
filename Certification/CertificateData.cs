@@ -1,4 +1,6 @@
-﻿namespace Data.Certification
+﻿using System;
+
+namespace Data.Certification
 {
     public class CertificateData
     {
@@ -63,6 +65,13 @@
 
         public void SetTitle(string Title)
         {
+            if (string.IsNullOrEmpty(value: Title)
+                ||
+                string.IsNullOrWhiteSpace(value: Title))
+            {
+                throw new ArgumentNullException(paramName: nameof(Title));
+            }
+            
             this.Title = Title;
         }
 
@@ -73,6 +82,11 @@
 
         public void SetFolio(ulong Folio)
         {
+            if (Folio < 0)
+            {
+                throw new ArithmeticException(message: nameof(Folio));
+            }
+            
             this.Folio = Folio;
         }
 
@@ -83,6 +97,11 @@
 
         public void SetPrice(float Price)
         {
+            if (float.IsNegative(f: Price))
+            {
+                throw new ArithmeticException(message: nameof(Price));
+            }
+            
             this.Price = Price;
         }
         #endregion

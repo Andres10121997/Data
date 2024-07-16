@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Data</id>
+    <version>1.0.0</version>
+    <title>Data</title>
+    <authors>Andres101297</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="8b57ea57e1c6bfae3edd495cc7e620487ec3fd82" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\bin\Debug\net8.0\Data.dll" target="lib\net8.0\Data.dll" />
+  </files>
+</package>

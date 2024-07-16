@@ -11,14 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Data")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Andres101297")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c2c58010c8ceb390e272c240e8651a4af67c8b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b57ea57e1c6bfae3edd495cc7e620487ec3fd82")]
 [assembly: System.Reflection.AssemblyProductAttribute("Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/Multiple-Technologies/Data")]
 [assembly: System.Resources.NeutralResourcesLanguageAttribute("en")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
