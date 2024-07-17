@@ -55,6 +55,11 @@ namespace Data.Certification
 
         public void SetCertificateID(ulong ID)
         {
+            if (ID < 0)
+            {
+                throw new ArithmeticException(message: nameof(ID));
+            }
+            
             this.ID = ID;
         }
 

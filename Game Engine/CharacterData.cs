@@ -93,6 +93,11 @@ namespace Data.Game_Engine
 
         public void SetAmountOfDamage(byte AmountOfDamage)
         {
+            if (AmountOfDamage < 0)
+            {
+                throw new ArithmeticException(message: "The \"AmountOfDamage\" variable cannot be less than 0.");
+            }
+            
             this.AmountOfDamage = AmountOfDamage;
         }
         #endregion
