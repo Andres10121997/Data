@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Data.Account
@@ -170,8 +171,9 @@ namespace Data.Account
         #region Age
         public byte Age()
         {
-            DateOnly Today = DateOnly.FromDateTime(DateTime.Now);
             byte Age;
+            List<bool> ListOfValidations = new List<bool>();
+            DateOnly Today = DateOnly.FromDateTime(DateTime.Now);
 
             try
             {
@@ -180,25 +182,17 @@ namespace Data.Account
                     throw new Exception("The Date of Birth cannot exceed the current date.");
                 }
 
-
-
                 Age = Convert.ToByte(value: Today.Year - this.DateOfBirth.Year);
 
+                ListOfValidations.Add(item: this.DateOfBirth.Month > Today.Month);
+                ListOfValidations.Add(item: this.DateOfBirth.Month == Today.Month
+                                            &&
+                                            this.DateOfBirth.Day > Today.Day);
 
-
-                if (this.DateOfBirth.Month > Today.Month)
+                if (ListOfValidations.Contains(item: true))
                 {
                     --Age;
                 }
-                else
-                if (this.DateOfBirth.Month == Today.Month
-                    &&
-                    this.DateOfBirth.Day > Today.Day)
-                {
-                    --Age;
-                }
-
-
 
                 return Age;
             }
