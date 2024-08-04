@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Data.Account
@@ -191,7 +192,7 @@ namespace Data.Account
                                             &&
                                             this.DateOfBirth.Day > Today.Day);
 
-                if (ListOfValidations.Contains(item: true))
+                if (ListOfValidations.AsParallel().Contains(true))
                 {
                     --Age;
                 }

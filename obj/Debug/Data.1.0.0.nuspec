@@ -6,7 +6,7 @@
     <title>Data</title>
     <authors>Andres101297</authors>
     <description>Package Description</description>
-    <repository type="git" commit="8acd8d11cd952a5a8d4d36d55221d3875146ffb0" />
+    <repository type="git" commit="b34cbb00c1294e59bfc10ee1b86d64d7ef45f8fa" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>
