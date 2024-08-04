@@ -172,11 +172,13 @@ namespace Data.Account
         public byte Age()
         {
             byte Age;
+            DateOnly Today;
             List<bool> ListOfValidations = new List<bool>();
-            DateOnly Today = DateOnly.FromDateTime(DateTime.Now);
 
             try
             {
+                Today = DateOnly.FromDateTime(DateTime.Now);
+
                 if (this.DateOfBirth > Today)
                 {
                     throw new Exception("The Date of Birth cannot exceed the current date.");
