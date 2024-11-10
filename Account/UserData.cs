@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Other;
+using System;
 
 namespace Data.Account
 {
@@ -8,6 +9,7 @@ namespace Data.Account
         private ulong ID { get; set; }
         private string IP { get; set; }
         private string Login { get; set; }
+        private string Username { get; set; }
         #endregion
 
 
@@ -19,16 +21,19 @@ namespace Data.Account
             this.ID = ulong.MinValue;
             this.IP = string.Empty;
             this.Login = string.Empty;
+            this.Username = string.Empty;
         }
 
         public UserData(ulong ID,
                         string IP,
-                        string Login)
+                        string Login,
+                        string Username)
             : base()
         {
             this.ID = ID;
             this.IP = IP;
             this.Login = Login;
+            this.Username = Username;
         }
 
         public UserData(ulong PersonID,
@@ -40,7 +45,8 @@ namespace Data.Account
                         SexData OSex,
                         ulong UserID,
                         string IP,
-                        string Login)
+                        string Login,
+                        string Username)
             : base(ID: PersonID,
                    FirstName: FirstName,
                    MiddleName: MiddleName,
@@ -52,6 +58,7 @@ namespace Data.Account
             this.ID = UserID;
             this.IP = IP;
             this.Login = Login;
+            this.Username = Username;
         }
         #endregion
 
@@ -109,6 +116,23 @@ namespace Data.Account
             }
             
             this.Login = Login;
+        }
+
+        public string GetUsername()
+        {
+            return this.Username;
+        }
+
+        public void SetUsername(string Username)
+        {
+            if (string.IsNullOrEmpty(value: Username)
+                ||
+                string.IsNullOrWhiteSpace(value: Username))
+            {
+                throw new ArgumentNullException(paramName: nameof(Username));
+            }
+            
+            this.Username = Username;
         }
         #endregion
     }

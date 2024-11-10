@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Data.Account;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Data.Account
+namespace Data.Other
 {
     public class PersonData
     {
@@ -227,8 +228,8 @@ namespace Data.Account
         #region FullName
         public string FullName()
         {
-            string Name;
-            string LastName;
+            string Name = string.Empty;
+            string LastName = string.Empty;
 
             try
             {
@@ -279,6 +280,6 @@ namespace Data.Account
                 throw;
             }
         }
-        #endregion
+#endregion
     }
 }

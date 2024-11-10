@@ -14,10 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Andres101297")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b34cbb00c1294e59bfc10ee1b86d64d7ef45f8fa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5bf45654f2abe4160f1c85b0e51e6c588790d47")]
 [assembly: System.Reflection.AssemblyProductAttribute("Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/Andres10121997/Data")]
 [assembly: System.Resources.NeutralResourcesLanguageAttribute("en")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.

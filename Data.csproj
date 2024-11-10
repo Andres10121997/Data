@@ -12,6 +12,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Data</PackageId>
     <Authors>Andres101297</Authors>
+    <RepositoryUrl>https://github.com/Andres10121997/Data</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
