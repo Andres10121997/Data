@@ -1,4 +1,6 @@
-﻿using Data.Other;
+﻿using Data.Communication.Email;
+using Data.Communication.Phone;
+using Data.Other;
 using System;
 
 namespace Data.Account
@@ -12,6 +14,11 @@ namespace Data.Account
         private string Username { get; set; }
         #endregion
 
+        #region Objects
+        private EmailAddressData EmailAddress { get; set; }
+        private PhoneData Phone { get; set; }
+        #endregion
+
 
 
         #region Constructor Method
@@ -22,18 +29,24 @@ namespace Data.Account
             this.IP = string.Empty;
             this.Login = string.Empty;
             this.Username = string.Empty;
+            this.EmailAddress = new EmailAddressData();
+            this.Phone = new PhoneData();
         }
 
         public UserData(ulong ID,
                         string IP,
                         string Login,
-                        string Username)
+                        string Username,
+                        EmailAddressData EmailAddress,
+                        PhoneData Phone)
             : base()
         {
             this.ID = ID;
-            this.IP = IP;
-            this.Login = Login;
-            this.Username = Username;
+            this.IP = IP.Trim();
+            this.Login = Login.Trim();
+            this.Username = Username.Trim();
+            this.EmailAddress = EmailAddress;
+            this.Phone = Phone;
         }
 
         public UserData(ulong PersonID,
@@ -46,19 +59,23 @@ namespace Data.Account
                         ulong UserID,
                         string IP,
                         string Login,
-                        string Username)
+                        string Username,
+                        EmailAddressData EmailAddress,
+                        PhoneData Phone)
             : base(ID: PersonID,
-                   FirstName: FirstName,
-                   MiddleName: MiddleName,
-                   FirstLastName: FirstLastName,
-                   SecondLastName: SecondLastName,
+                   FirstName: FirstName.Trim(),
+                   MiddleName: MiddleName?.Trim(),
+                   FirstLastName: FirstLastName.Trim(),
+                   SecondLastName: SecondLastName?.Trim(),
                    DateOfBirth: DateOfBirth,
                    OSex: OSex)
         {
             this.ID = UserID;
-            this.IP = IP;
-            this.Login = Login;
-            this.Username = Username;
+            this.IP = IP.Trim();
+            this.Login = Login.Trim();
+            this.Username = Username.Trim();
+            this.EmailAddress = EmailAddress;
+            this.Phone = Phone;
         }
         #endregion
 
@@ -74,6 +91,7 @@ namespace Data.Account
 
 
         #region Getters and Setters
+        #region Variables
         public ulong GetUserID()
         {
             return this.ID;
@@ -98,7 +116,7 @@ namespace Data.Account
                 throw new ArgumentNullException(paramName: nameof(IP));
             }
             
-            this.IP = IP;
+            this.IP = IP.Trim();
         }
 
         public string GetLogin()
@@ -115,7 +133,7 @@ namespace Data.Account
                 throw new ArgumentNullException(paramName: nameof(Login));
             }
             
-            this.Login = Login;
+            this.Login = Login.Trim();
         }
 
         public string GetUsername()
@@ -132,8 +150,31 @@ namespace Data.Account
                 throw new ArgumentNullException(paramName: nameof(Username));
             }
             
-            this.Username = Username;
+            this.Username = Username.Trim();
         }
+        #endregion
+
+        #region Objects
+        public EmailAddressData GetEmailAddress()
+        {
+            return this.EmailAddress;
+        }
+
+        public void SetEmailAddress(EmailAddressData EmailAddress)
+        {
+            this.EmailAddress = EmailAddress;
+        }
+
+        public PhoneData GetPhone()
+        {
+            return this.Phone;
+        }
+
+        public void SetPhone(PhoneData Phone)
+        {
+            this.Phone = Phone;
+        }
+        #endregion
         #endregion
     }
 }

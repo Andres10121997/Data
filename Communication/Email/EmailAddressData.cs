@@ -2,11 +2,15 @@
 
 namespace Data.Communication.Email
 {
-    public class EmailAddressData : EmailAddressTypeData
+    public class EmailAddressData
     {
         #region Variables
         private ulong ID { get; set; }
         private string Email { get; set; }
+        #endregion
+
+        #region Objects
+        private EmailAddressTypeData EmailAddressType { get; set; }
         #endregion
 
 
@@ -17,25 +21,17 @@ namespace Data.Communication.Email
         {
             this.ID = ulong.MinValue;
             this.Email = string.Empty;
-        }
-
-        public EmailAddressData(ulong ID,
-                                string Email)
-            : base()
-        {
-            this.ID = ID;
-            this.Email = Email.Trim();
+            this.EmailAddressType = new EmailAddressTypeData();
         }
 
         public EmailAddressData(ulong ID,
                                 string Email,
-                                byte EmailAddressTypeID,
-                                string Type)
-            : base(ID: EmailAddressTypeID,
-                   Type: Type)
+                                EmailAddressTypeData EmailAddressType)
+            : base()
         {
             this.ID = ID;
             this.Email = Email.Trim();
+            this.EmailAddressType = EmailAddressType;
         }
         #endregion
 
@@ -78,6 +74,18 @@ namespace Data.Communication.Email
             }
             
             this.Email = Email;
+        }
+        #endregion
+
+        #region Objects
+        public EmailAddressTypeData GetEmailAddressType()
+        {
+            return this.EmailAddressType;
+        }
+
+        public void SetEmailAddressType(EmailAddressTypeData EmailAddressType)
+        {
+            this.EmailAddressType = EmailAddressType;
         }
         #endregion
         #endregion

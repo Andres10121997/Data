@@ -30,7 +30,7 @@ namespace Data.GameEngine
             : base()
         {
             this.ID = ID;
-            this.Name = Name;
+            this.Name = Name.Trim();
             this.QuantityOfLife = QuantityOfLife;
             this.AmountOfDamage = AmountOfDamage;
         }
@@ -65,9 +65,9 @@ namespace Data.GameEngine
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(Name)
+            if (string.IsNullOrEmpty(value: Name)
                 ||
-                string.IsNullOrWhiteSpace(Name))
+                string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
                                                 message: "The name cannot be null or empty or have empty spaces.");
