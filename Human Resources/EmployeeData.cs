@@ -13,7 +13,8 @@ namespace Data.Human_Resources
         #endregion
 
         #region Objects
-        private SalaryData OSalary { get; set; }
+        private DepartmentData Department { get; set; }
+        private SalaryData Salary { get; set; }
         #endregion
 
         #region Arrays
@@ -29,21 +30,24 @@ namespace Data.Human_Resources
             this.ID = ulong.MinValue;
             this.HiringDate = DateOnly.MinValue;
             this.ContractEndDate = null;
-            this.OSalary = new SalaryData();
+            this.Salary = new SalaryData();
+            this.Department = new DepartmentData();
             this.SalaryHistory = null;
         }
 
         public EmployeeData(ulong ID,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
-                            SalaryData OSalary,
+                            SalaryData Salary,
+                            DepartmentData Department,
                             SalaryData[]? SalaryHistory)
             : base()
         {
             this.ID = ID;
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
-            this.OSalary = OSalary;
+            this.Salary = Salary;
+            this.Department = Department;
             this.SalaryHistory = SalaryHistory;
         }
 
@@ -57,7 +61,8 @@ namespace Data.Human_Resources
                             ulong EmployeeID,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
-                            SalaryData OSalary,
+                            SalaryData Salary,
+                            DepartmentData Department,
                             SalaryData[]? SalaryHistory)
             : base(ID: PersonID,
                    FirstName: FirstName,
@@ -70,7 +75,8 @@ namespace Data.Human_Resources
             this.ID = EmployeeID;
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
-            this.OSalary = OSalary;
+            this.Salary = Salary;
+            this.Department = Department;
             this.SalaryHistory = SalaryHistory;
         }
         #endregion
@@ -120,14 +126,24 @@ namespace Data.Human_Resources
         #endregion
 
         #region Objects
-        public SalaryData GetOSalary()
+        public SalaryData GetSalary()
         {
-            return this.OSalary;
+            return this.Salary;
         }
 
-        public void SetOSalary(SalaryData OSalary)
+        public void SetSalary(SalaryData Salary)
         {
-            this.OSalary = OSalary;
+            this.Salary = Salary;
+        }
+
+        public DepartmentData GetDepartment()
+        {
+            return this.Department;
+        }
+
+        public void SetDepartment(DepartmentData Department)
+        {
+            this.Department = Department;
         }
         #endregion
 
