@@ -65,6 +65,13 @@ namespace Data.Other
 
         public void SetName(string Name)
         {
+            if (string.IsNullOrEmpty(value: Name)
+                ||
+                string.IsNullOrWhiteSpace(value: Name))
+            {
+                throw new ArgumentNullException(paramName: nameof(Name));
+            }
+            
             this.Name = Name;
         }
 
@@ -85,6 +92,11 @@ namespace Data.Other
 
         public void SetCreationDate(DateOnly CreationDate)
         {
+            if (CreationDate > DateOnly.FromDateTime(dateTime: DateTime.Now))
+            {
+                throw new Exception();
+            }
+            
             this.CreationDate = CreationDate;
         }
         #endregion

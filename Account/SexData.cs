@@ -6,7 +6,7 @@ namespace Data.Account
     {
         #region Variables
         private byte ID { get; set; }
-        private string Name { get; set; }
+        private string Gender { get; set; }
         #endregion
 
 
@@ -16,7 +16,7 @@ namespace Data.Account
             : base()
         {
             this.ID = byte.MinValue;
-            this.Name = string.Empty;
+            this.Gender = string.Empty;
         }
 
         public SexData(byte ID,
@@ -24,7 +24,7 @@ namespace Data.Account
             : base()
         {
             this.ID = ID;
-            this.Name = Name;
+            this.Gender = Name;
         }
         #endregion
 
@@ -50,22 +50,22 @@ namespace Data.Account
             this.ID = ID;
         }
 
-        public string GetSex()
+        public string GetGender()
         {
-            return this.Name;
+            return this.Gender;
         }
 
-        public void SetSex(string Name)
+        public void SetGender(string Gender)
         {
-            if (string.IsNullOrEmpty(value: Name)
+            if (string.IsNullOrEmpty(value: Gender)
                 ||
-                string.IsNullOrWhiteSpace(value: Name))
+                string.IsNullOrWhiteSpace(value: Gender))
             {
-                throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: "\"Sex\" cannot be null or empty or have whitespace.");
+                throw new ArgumentNullException(paramName: nameof(Gender),
+                                                message: $"\"{nameof(Gender)}\" cannot be null or empty or have whitespace.");
             }
             
-            this.Name = Name;
+            this.Gender = Gender;
         }
         #endregion
     }

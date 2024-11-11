@@ -1,6 +1,5 @@
 ﻿using Data.Account;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -98,7 +97,7 @@ namespace Data.Other
                                                 message: "The first name cannot be null or empty or have empty spaces.");
             }
 
-            this.FirstName = FirstName;
+            this.FirstName = FirstName.Trim();
         }
 
         public string? GetMiddleName()
@@ -126,7 +125,7 @@ namespace Data.Other
                                                 message: "The first last name cannot be null or empty or have empty spaces.");
             }
             
-            this.FirstLastName = FirstLastName;
+            this.FirstLastName = FirstLastName.Trim();
         }
 
         public string? GetSecondLastName()
@@ -173,9 +172,14 @@ namespace Data.Other
         #region Age
         public byte Age()
         {
+            #region Variables
             byte Age;
             DateOnly Today;
-            List<bool> ListOfValidations = new List<bool>();
+            #endregion
+
+            #region Arrays
+            bool[] ListOfValidations;
+            #endregion
 
             try
             {
@@ -188,12 +192,15 @@ namespace Data.Other
 
                 Age = Convert.ToByte(value: Today.Year - this.DateOfBirth.Year);
 
-                ListOfValidations.Add(item: this.DateOfBirth.Month > Today.Month);
-                ListOfValidations.Add(item: this.DateOfBirth.Month == Today.Month
-                                            &&
-                                            this.DateOfBirth.Day > Today.Day);
-
-                if (ListOfValidations.AsParallel().Contains(true))
+                ListOfValidations = new bool[2]
+                {
+                    this.DateOfBirth.Month > Today.Month,
+                    this.DateOfBirth.Month == Today.Month
+                    &&
+                    this.DateOfBirth.Day > Today.Day
+                };
+                
+                if (ListOfValidations.AsParallel().Contains(value: true))
                 {
                     --Age;
                 }

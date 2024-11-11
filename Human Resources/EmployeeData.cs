@@ -1,7 +1,6 @@
 ﻿using Data.Account;
 using Data.Other;
 using System;
-using System.Collections.Generic;
 
 namespace Data.Human_Resources
 {
@@ -17,8 +16,8 @@ namespace Data.Human_Resources
         private SalaryData OSalary { get; set; }
         #endregion
 
-        #region List
-        private List<SalaryData> SalaryHistory { get; set; }
+        #region Arrays
+        private SalaryData[]? SalaryHistory { get; set; }
         #endregion
 
 
@@ -31,14 +30,14 @@ namespace Data.Human_Resources
             this.HiringDate = DateOnly.MinValue;
             this.ContractEndDate = null;
             this.OSalary = new SalaryData();
-            this.SalaryHistory = new List<SalaryData>();
+            this.SalaryHistory = null;
         }
 
         public EmployeeData(ulong ID,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
                             SalaryData OSalary,
-                            List<SalaryData> SalaryHistory)
+                            SalaryData[]? SalaryHistory)
             : base()
         {
             this.ID = ID;
@@ -59,7 +58,7 @@ namespace Data.Human_Resources
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
                             SalaryData OSalary,
-                            List<SalaryData> SalaryHistory)
+                            SalaryData[]? SalaryHistory)
             : base(ID: PersonID,
                    FirstName: FirstName,
                    MiddleName: MiddleName,
@@ -132,13 +131,13 @@ namespace Data.Human_Resources
         }
         #endregion
 
-        #region List
-        public List<SalaryData> GetSalaryHistory()
+        #region Arrays
+        public SalaryData[]? GetSalaryHistory()
         {
             return this.SalaryHistory;
         }
 
-        public void SetSalaryHistory(List<SalaryData> SalaryHistory)
+        public void SetSalaryHistory(SalaryData[]? SalaryHistory)
         {
             this.SalaryHistory = SalaryHistory;
         }

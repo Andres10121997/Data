@@ -7,7 +7,7 @@ namespace Data.Certification
         #region Variables
         private ulong ID { get; set; }
         private string Title { get; set; }
-        private ulong Folio { get; set; }
+        private uint Folio { get; set; }
         private float Price { get; set; }
         #endregion
 
@@ -19,13 +19,13 @@ namespace Data.Certification
         {
             this.ID = ulong.MinValue;
             this.Title = string.Empty;
-            this.Folio = ulong.MinValue;
+            this.Folio = uint.MinValue;
             this.Price = float.MinValue;
         }
 
         public CertificateData(ulong ID,
                                string Title,
-                               ulong Folio,
+                               uint Folio,
                                float Price)
             : base()
         {
@@ -85,7 +85,7 @@ namespace Data.Certification
             return this.Folio;
         }
 
-        public void SetFolio(ulong Folio)
+        public void SetFolio(uint Folio)
         {
             if (Folio < 0)
             {

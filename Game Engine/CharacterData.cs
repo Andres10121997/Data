@@ -95,7 +95,7 @@ namespace Data.Game_Engine
         {
             if (AmountOfDamage < 0)
             {
-                throw new ArithmeticException(message: "The \"AmountOfDamage\" variable cannot be less than 0.");
+                throw new ArithmeticException(message: $"The \"${nameof(AmountOfDamage)}\" variable cannot be less than 0.");
             }
             
             this.AmountOfDamage = AmountOfDamage;
