@@ -71,7 +71,7 @@ namespace Data.Multimedia
                                                 message: "The video title cannot be null or empty or have empty spaces.");
             }
             
-            this.Title = Title;
+            this.Title = Title.Trim();
         }
 
         public string? GetDescription()

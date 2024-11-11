@@ -19,9 +19,10 @@
 
         public EmailAddressTypeData(byte ID,
                                     string Type)
+            : base()
         {
             this.ID = ID;
-            this.Type = Type;
+            this.Type = Type.Trim();
         }
         #endregion
 
@@ -54,7 +55,7 @@
 
         public void SetEmailType(string Type)
         {
-            this.Type = Type;
+            this.Type = Type.Trim();
         }
         #endregion
     }

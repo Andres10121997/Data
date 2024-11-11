@@ -24,7 +24,7 @@ namespace Data.Communication.Email
             : base()
         {
             this.ID = ID;
-            this.Email = Email;
+            this.Email = Email.Trim();
         }
 
         public EmailAddressData(ulong ID,
@@ -35,7 +35,7 @@ namespace Data.Communication.Email
                    Type: Type)
         {
             this.ID = ID;
-            this.Email = Email;
+            this.Email = Email.Trim();
         }
         #endregion
 
@@ -74,7 +74,7 @@ namespace Data.Communication.Email
                 string.IsNullOrWhiteSpace(Email))
             {
                 throw new ArgumentNullException(paramName: nameof(Email),
-                                                message: "The email cannot be null or empty or white spaces.");
+                                                message: $"The {nameof(Email)} cannot be null or empty or white spaces.");
             }
             
             this.Email = Email;

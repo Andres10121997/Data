@@ -72,7 +72,7 @@ namespace Data.Other
                 throw new ArgumentNullException(paramName: nameof(Name));
             }
             
-            this.Name = Name;
+            this.Name = Name.Trim();
         }
 
         public string? GetDescription()

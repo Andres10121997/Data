@@ -63,7 +63,7 @@ namespace Data.Multimedia
                                                 message: "The channel name cannot be null or empty or have empty spaces.");
             }
             
-            this.Name = Name;
+            this.Name = Name.Trim();
         }
 
         public string? GetDescription()

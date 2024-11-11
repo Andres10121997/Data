@@ -7,6 +7,15 @@ namespace Data.Human_Resources
         #region Variables
         private byte ID { get; set; }
         private string Name { get; set; }
+        private string? Description { get; set; }
+        #endregion
+
+        #region Enum
+        public enum TypeOfDepartment
+        {
+            Department,
+            Subdepartment
+        }
         #endregion
 
 
@@ -17,14 +26,17 @@ namespace Data.Human_Resources
         {
             this.ID = byte.MinValue;
             this.Name = string.Empty;
+            this.Description = null;
         }
 
         public DepartmentData(byte ID,
-                              string Name)
+                              string Name,
+                              string? Description)
             : base()
         {
             this.ID = ID;
             this.Name = Name;
+            this.Description = Description;
         }
         #endregion
 
@@ -65,6 +77,16 @@ namespace Data.Human_Resources
             }
             
             this.Name = Name.Trim();
+        }
+
+        public string? GetDescription()
+        {
+            return this.Description;
+        }
+
+        public void SetDescription(string? Description)
+        {
+            this.Description = Description?.Trim();
         }
         #endregion
     }

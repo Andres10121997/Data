@@ -235,8 +235,8 @@ namespace Data.Other
         #region FullName
         public string FullName()
         {
-            string Name = string.Empty;
-            string LastName = string.Empty;
+            string Name;
+            string LastName;
 
             try
             {

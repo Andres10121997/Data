@@ -1,10 +1,14 @@
 ﻿namespace Data.Communication.Phone
 {
-    public class PhoneData : PhoneTypeData
+    public class PhoneData
     {
         #region Variables
         private ulong ID { get; set; }
         private string PhoneNumber { get; set; }
+        #endregion
+
+        #region Objects
+        private PhoneTypeData PhoneType { get; set; }
         #endregion
 
 
@@ -13,27 +17,19 @@
         public PhoneData()
             : base()
         {
-            ID = ulong.MinValue;
-            PhoneNumber = string.Empty;
-        }
-
-        public PhoneData(ulong ID,
-                         string PhoneNumber)
-            : base()
-        {
-            this.ID = ID;
-            this.PhoneNumber = PhoneNumber;
+            this.ID = ulong.MinValue;
+            this.PhoneNumber = string.Empty;
+            this.PhoneType = new PhoneTypeData();
         }
 
         public PhoneData(ulong ID,
                          string PhoneNumber,
-                         byte PhoneTypeID,
-                         string Type)
-            : base(ID: PhoneTypeID,
-                   Type: Type)
+                         PhoneTypeData PhoneType)
+            : base()
         {
             this.ID = ID;
-            this.PhoneNumber = PhoneNumber;
+            this.PhoneNumber = PhoneNumber.Trim();
+            this.PhoneType = PhoneType;
         }
         #endregion
 
@@ -49,6 +45,7 @@
 
 
         #region Getters and Setters
+        #region Variables
         public ulong GetPhoneID()
         {
             return ID;
@@ -66,8 +63,21 @@
 
         public void SetPhoneNumber(string PhoneNumber)
         {
-            this.PhoneNumber = PhoneNumber;
+            this.PhoneNumber = PhoneNumber.Trim();
         }
+        #endregion
+
+        #region Objects
+        public PhoneTypeData GetPhoneType()
+        {
+            return this.PhoneType;
+        }
+
+        public void SetPhoneType(PhoneTypeData PhoneType)
+        {
+            this.PhoneType = PhoneType;
+        }
+        #endregion
         #endregion
     }
 }
