@@ -87,7 +87,7 @@ namespace Data.Certification
 
         public void SetFolio(uint Folio)
         {
-            if (Folio < 0)
+            if (Folio <= 0)
             {
                 throw new ArithmeticException(message: nameof(Folio));
             }
@@ -103,6 +103,11 @@ namespace Data.Certification
         public void SetPrice(float Price)
         {
             if (float.IsNegative(f: Price))
+            {
+                throw new ArithmeticException(message: nameof(Price));
+            }
+            else
+            if (Price < 0)
             {
                 throw new ArithmeticException(message: nameof(Price));
             }

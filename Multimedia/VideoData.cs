@@ -25,7 +25,7 @@ namespace Data.Multimedia
             this.Description = null;
             this.UploadDate = new DateOnly();
             this.UploadTime = new TimeOnly();
-            this.Video = new byte[] { };
+            this.Video = Array.Empty<byte>();
         }
 
         public VideoData(string Title,

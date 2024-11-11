@@ -9,7 +9,7 @@
         #endregion
 
         #region Enum
-        public enum PhoneTypeEnum
+        public enum PhoneTypeEnum : byte
         {
             Personal,
             Work

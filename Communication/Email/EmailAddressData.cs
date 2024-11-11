@@ -11,7 +11,7 @@ namespace Data.Communication.Email
         #endregion
 
         #region Enum
-        public enum EmailAddressTypeEnum
+        public enum EmailAddressTypeEnum : byte
         {
             Educational,
             Personal,

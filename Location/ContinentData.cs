@@ -14,6 +14,7 @@ namespace Data.Location
         {
             Africa,
             America,
+            Antartica,
             Asia,
             Europe,
             Oceania
