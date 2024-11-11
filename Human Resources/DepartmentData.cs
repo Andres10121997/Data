@@ -8,10 +8,11 @@ namespace Data.Human_Resources
         private byte ID { get; set; }
         private string Name { get; set; }
         private string? Description { get; set; }
+        private DepartmentTypeEnum DepartmentType { get; set; }
         #endregion
 
         #region Enum
-        public enum TypeOfDepartment
+        public enum DepartmentTypeEnum
         {
             Department,
             Subdepartment
@@ -27,16 +28,19 @@ namespace Data.Human_Resources
             this.ID = byte.MinValue;
             this.Name = string.Empty;
             this.Description = null;
+            this.DepartmentType = DepartmentTypeEnum.Department;
         }
 
         public DepartmentData(byte ID,
                               string Name,
-                              string? Description)
+                              string? Description,
+                              DepartmentTypeEnum DepartmentType)
             : base()
         {
             this.ID = ID;
             this.Name = Name;
             this.Description = Description;
+            this.DepartmentType = DepartmentType;
         }
         #endregion
 
@@ -87,6 +91,16 @@ namespace Data.Human_Resources
         public void SetDescription(string? Description)
         {
             this.Description = Description?.Trim();
+        }
+
+        public DepartmentTypeEnum GetDepartmentType()
+        {
+            return this.DepartmentType;
+        }
+
+        public void SetDepartmentType(DepartmentTypeEnum DepartmentType)
+        {
+            this.DepartmentType = DepartmentType;
         }
         #endregion
     }

@@ -28,13 +28,21 @@ namespace Data.Human_Resources
         public EmployeeData()
             : base()
         {
+            #region Variables
             this.ID = ulong.MinValue;
             this.HiringDate = DateOnly.MinValue;
             this.ContractEndDate = null;
+            #endregion
+
+            #region Objects
             this.Department = new DepartmentData();
             this.Job = new JobData();
             this.Salary = new SalaryData();
+            #endregion
+
+            #region Arrays
             this.SalaryHistory = null;
+            #endregion
         }
 
         public EmployeeData(ulong ID,
@@ -46,13 +54,21 @@ namespace Data.Human_Resources
                             SalaryData[]? SalaryHistory)
             : base()
         {
+            #region Variables
             this.ID = ID;
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
+            #endregion
+
+            #region Objects
             this.Department = Department;
             this.Job = Job;
             this.Salary = Salary;
+            #endregion
+
+            #region Arrays
             this.SalaryHistory = SalaryHistory;
+            #endregion
         }
 
         public EmployeeData(ulong PersonID,
@@ -77,13 +93,21 @@ namespace Data.Human_Resources
                    DateOfBirth: DateOfBirth,
                    OSex: OSex)
         {
+            #region Variables
             this.ID = EmployeeID;
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
+            #endregion
+
+            #region Objects
             this.Department = Department;
             this.Job = Job;
             this.Salary = Salary;
+            #endregion
+
+            #region Arrays
             this.SalaryHistory = SalaryHistory;
+            #endregion
         }
         #endregion
 

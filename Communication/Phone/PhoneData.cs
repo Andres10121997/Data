@@ -5,10 +5,15 @@
         #region Variables
         private ulong ID { get; set; }
         private string PhoneNumber { get; set; }
+        private PhoneTypeEnum PhoneType { get; set; }
         #endregion
 
-        #region Objects
-        private PhoneTypeData PhoneType { get; set; }
+        #region Enum
+        public enum PhoneTypeEnum
+        {
+            Personal,
+            Work
+        }
         #endregion
 
 
@@ -19,12 +24,12 @@
         {
             this.ID = ulong.MinValue;
             this.PhoneNumber = string.Empty;
-            this.PhoneType = new PhoneTypeData();
+            this.PhoneType = PhoneTypeEnum.Personal;
         }
 
         public PhoneData(ulong ID,
                          string PhoneNumber,
-                         PhoneTypeData PhoneType)
+                         PhoneTypeEnum PhoneType)
             : base()
         {
             this.ID = ID;
@@ -48,7 +53,7 @@
         #region Variables
         public ulong GetPhoneID()
         {
-            return ID;
+            return this.ID;
         }
 
         public void SetPhoneID(ulong ID)
@@ -58,22 +63,20 @@
 
         public string GetPhoneNumber()
         {
-            return PhoneNumber;
+            return this.PhoneNumber;
         }
 
         public void SetPhoneNumber(string PhoneNumber)
         {
             this.PhoneNumber = PhoneNumber.Trim();
         }
-        #endregion
 
-        #region Objects
-        public PhoneTypeData GetPhoneType()
+        public PhoneTypeEnum GetPhoneType()
         {
             return this.PhoneType;
         }
 
-        public void SetPhoneType(PhoneTypeData PhoneType)
+        public void SetPhoneType(PhoneTypeEnum PhoneType)
         {
             this.PhoneType = PhoneType;
         }

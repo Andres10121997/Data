@@ -7,10 +7,16 @@ namespace Data.Communication.Email
         #region Variables
         private ulong ID { get; set; }
         private string Email { get; set; }
+        private EmailAddressTypeEnum EmailType { get; set; }
         #endregion
 
-        #region Objects
-        private EmailAddressTypeData EmailAddressType { get; set; }
+        #region Enum
+        public enum EmailAddressTypeEnum
+        {
+            Educational,
+            Personal,
+            Work
+        }
         #endregion
 
 
@@ -21,17 +27,17 @@ namespace Data.Communication.Email
         {
             this.ID = ulong.MinValue;
             this.Email = string.Empty;
-            this.EmailAddressType = new EmailAddressTypeData();
+            this.EmailType = EmailAddressTypeEnum.Personal;
         }
 
         public EmailAddressData(ulong ID,
                                 string Email,
-                                EmailAddressTypeData EmailAddressType)
+                                EmailAddressTypeEnum EmailType)
             : base()
         {
             this.ID = ID;
             this.Email = Email.Trim();
-            this.EmailAddressType = EmailAddressType;
+            this.EmailType = EmailType;
         }
         #endregion
 
@@ -75,17 +81,15 @@ namespace Data.Communication.Email
             
             this.Email = Email;
         }
-        #endregion
 
-        #region Objects
-        public EmailAddressTypeData GetEmailAddressType()
+        public EmailAddressTypeEnum GetEmailType()
         {
-            return this.EmailAddressType;
+            return this.EmailType;
         }
 
-        public void SetEmailAddressType(EmailAddressTypeData EmailAddressType)
+        public void SetEmailType(EmailAddressTypeEnum EmailType)
         {
-            this.EmailAddressType = EmailAddressType;
+            this.EmailType = EmailType;
         }
         #endregion
         #endregion
