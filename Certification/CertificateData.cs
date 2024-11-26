@@ -48,12 +48,12 @@ namespace Data.Certification
 
 
         #region Getters and Setters
-        public ulong GetCertificateID()
+        public ulong GetID()
         {
             return this.ID;
         }
 
-        public void SetCertificateID(ulong ID)
+        public void SetID(ulong ID)
         {
             if (ID < 0)
             {
@@ -74,10 +74,11 @@ namespace Data.Certification
                 ||
                 string.IsNullOrWhiteSpace(value: Title))
             {
-                throw new ArgumentNullException(paramName: nameof(Title));
+                throw new ArgumentNullException(paramName: nameof(Title),
+                                                message: $"The variable \"{nameof(Title)}\", of the CertificateData class, cannot be null or empty or have blank spaces.");
             }
             
-            this.Title = Title;
+            this.Title = Title.Trim();
         }
 
         public ulong GetFolio()

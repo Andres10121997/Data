@@ -69,7 +69,8 @@ namespace Data.Other
                 ||
                 string.IsNullOrWhiteSpace(value: Name))
             {
-                throw new ArgumentNullException(paramName: nameof(Name));
+                throw new ArgumentNullException(paramName: nameof(Name),
+                                                message: $"The variable \"{nameof(Name)}\", of the ProjectData class, cannot be null or empty or have blank fields.");
             }
             
             this.Name = Name.Trim();
@@ -82,7 +83,7 @@ namespace Data.Other
 
         public void SetDescription(string? Description)
         {
-            this.Description = Description;
+            this.Description = Description?.Trim();
         }
 
         public DateOnly GetCreationDate()

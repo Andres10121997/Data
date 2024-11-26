@@ -60,7 +60,7 @@ namespace Data.Multimedia
                 string.IsNullOrWhiteSpace(Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: "The channel name cannot be null or empty or have empty spaces.");
+                                                message: $"The variable \"{nameof(Name)}\", of the ChannelData class, cannot be null or empty or have blank spaces.");
             }
             
             this.Name = Name.Trim();

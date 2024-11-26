@@ -78,10 +78,10 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: "The Name cannot be null or empty or have white space.");
+                                                message: $"The variable \"{nameof(Name)}\", of the CountryData class, cannot be null or empty or have blank spaces.");
             }
             
-            this.Name = Name;
+            this.Name = Name.Trim();
         }
 
         public string GetIso()
@@ -96,7 +96,7 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(value: Iso))
             {
                 throw new ArgumentNullException(paramName: nameof(Iso),
-                                                message: "The Iso cannot be null or empty or have white space.");
+                                                message: $"The variable \"{nameof(Iso)}\", of the CountryData class, cannot be null or empty or have blank spaces.");
             }
             else
             if (Iso.Length < 2)
@@ -109,7 +109,7 @@ namespace Data.Location
                 throw new Exception(nameof(Iso));
             }
             
-            this.Iso = Iso;
+            this.Iso = Iso.Trim();
         }
 
         public string GetIso3()
@@ -124,7 +124,7 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(value: Iso3))
             {
                 throw new ArgumentNullException(paramName: nameof(Iso3),
-                                                message: "The Iso3 cannot be null or empty or have white space.");
+                                                message: $"The variable \"{nameof(Iso3)}\", of the CountryData class, cannot be null or empty or have blank spaces.");
             }
             else
             if (Iso3.Length < 3)
@@ -137,7 +137,7 @@ namespace Data.Location
                 throw new Exception(nameof(Iso3));
             }
             
-            this.Iso3 = Iso3;
+            this.Iso3 = Iso3.Trim();
         }
         #endregion
 

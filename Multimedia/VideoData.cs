@@ -68,7 +68,7 @@ namespace Data.Multimedia
                 string.IsNullOrWhiteSpace(value: Title))
             {
                 throw new ArgumentNullException(paramName: nameof(Title),
-                                                message: "The video title cannot be null or empty or have empty spaces.");
+                                                message: $"The variable \"{nameof(Title)}\", of the VideoData class, cannot be null or empty or have blank spaces.");
             }
             
             this.Title = Title.Trim();

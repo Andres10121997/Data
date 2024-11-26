@@ -40,12 +40,12 @@ namespace Data.Account
 
 
         #region Getters and Setters
-        public byte GetSexID()
+        public byte GetID()
         {
             return this.ID;
         }
 
-        public void SetSexID(byte ID)
+        public void SetID(byte ID)
         {
             this.ID = ID;
         }
@@ -62,10 +62,10 @@ namespace Data.Account
                 string.IsNullOrWhiteSpace(value: Gender))
             {
                 throw new ArgumentNullException(paramName: nameof(Gender),
-                                                message: $"\"{nameof(Gender)}\" cannot be null or empty or have whitespace.");
+                                                message: $"The variable \"{nameof(Gender)}\", of the SexData class, cannot be null or empty or have blank spaces.");
             }
             
-            this.Gender = Gender;
+            this.Gender = Gender.Trim();
         }
         #endregion
     }

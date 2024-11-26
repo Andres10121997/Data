@@ -60,10 +60,11 @@ namespace Data.Human_Resources
                 ||
                 string.IsNullOrWhiteSpace(value: Name))
             {
-                throw new ArgumentNullException(paramName: nameof(Name));
+                throw new ArgumentNullException(paramName: nameof(Name),
+                                                message: $"The variable \"{nameof(Name)}\", of the JobData class, cannot be null or empty or have blank spaces.");
             }
             
-            this.Name = Name;
+            this.Name = Name.Trim();
         }
         #endregion
     }

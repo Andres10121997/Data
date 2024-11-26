@@ -1,4 +1,6 @@
-﻿namespace Data.Communication.Phone
+﻿using System;
+
+namespace Data.Communication.Phone
 {
     public class PhoneData
     {
@@ -11,6 +13,7 @@
         #region Enum
         public enum PhoneTypeEnum : byte
         {
+            None,
             Personal,
             Work
         }
@@ -24,7 +27,7 @@
         {
             this.ID = ulong.MinValue;
             this.PhoneNumber = string.Empty;
-            this.PhoneType = PhoneTypeEnum.Personal;
+            this.PhoneType = PhoneTypeEnum.None;
         }
 
         public PhoneData(ulong ID,
@@ -68,6 +71,14 @@
 
         public void SetPhoneNumber(string PhoneNumber)
         {
+            if (string.IsNullOrEmpty(value: PhoneNumber)
+                ||
+                string.IsNullOrWhiteSpace(value: PhoneNumber))
+            {
+                throw new ArgumentNullException(paramName: nameof(PhoneNumber),
+                                                message: $"The variable \"{nameof(PhoneNumber)}\", of the PhoneData class, cannot be null or empty or have blank spaces.");
+            }
+            
             this.PhoneNumber = PhoneNumber.Trim();
         }
 

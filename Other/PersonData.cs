@@ -94,7 +94,7 @@ namespace Data.Other
                 string.IsNullOrWhiteSpace(value: FirstName))
             {
                 throw new ArgumentNullException(paramName: nameof(FirstName),
-                                                message: "The first name cannot be null or empty or have empty spaces.");
+                                                message: $"The variable \"{nameof(FirstLastName)}\", of the PersonData class, cannot be null or empty or have blank fields.");
             }
 
             this.FirstName = FirstName.Trim();
@@ -107,7 +107,7 @@ namespace Data.Other
 
         public void SetMiddleName(string? MiddleName)
         {
-            this.MiddleName = MiddleName;
+            this.MiddleName = MiddleName?.Trim();
         }
 
         public string GetFirstLastName()
@@ -135,7 +135,7 @@ namespace Data.Other
 
         public void SetSecondLastName(string? SecondLastName)
         {
-            this.SecondLastName = SecondLastName;
+            this.SecondLastName = SecondLastName?.Trim();
         }
 
         public DateOnly GetDateOfBirth()
@@ -147,7 +147,7 @@ namespace Data.Other
         {
             if (DateOfBirth > DateOnly.FromDateTime(DateTime.Now))
             {
-                throw new Exception("The birthday date cannot be greater than the current date.");
+                throw new Exception(message: "The birthday date cannot be greater than the current date.");
             }
             
             this.DateOfBirth = DateOfBirth;

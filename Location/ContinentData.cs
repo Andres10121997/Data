@@ -74,10 +74,10 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: "The Name cannot be null or empty or white spaces.");
+                                                message: $"The variable \"{nameof(Name)}\", of the ContinentData class, cannot be null or empty or have blank spaces.");
             }
             
-            this.Name = Name;
+            this.Name = Name.Trim();
         }
         #endregion
     }

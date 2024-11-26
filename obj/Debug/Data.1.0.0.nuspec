@@ -6,12 +6,12 @@
     <title>Data</title>
     <authors>Andres101297</authors>
     <description>Package Description</description>
-    <repository type="git" url="https://github.com/Andres10121997/Data" commit="d5056ac42d725e54372638a477a2ee6928478cdd" />
+    <repository type="git" url="https://github.com/Andres10121997/Data" commit="65a4707e9e6fa447628b51638bce2b2a8a1f1bc1" />
     <dependencies>
-      <group targetFramework="net8.0" />
+      <group targetFramework="net9.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\bin\Debug\net8.0\Data.dll" target="lib\net8.0\Data.dll" />
+    <file src="C:\Users\Andrés\Desktop\Proyectos\Data\bin\Debug\net9.0\Data.dll" target="lib\net9.0\Data.dll" />
   </files>
 </package>

@@ -13,6 +13,7 @@ namespace Data.Communication.Email
         #region Enum
         public enum EmailAddressTypeEnum : byte
         {
+            None,
             Educational,
             Personal,
             Work
@@ -27,7 +28,7 @@ namespace Data.Communication.Email
         {
             this.ID = ulong.MinValue;
             this.Email = string.Empty;
-            this.EmailType = EmailAddressTypeEnum.Personal;
+            this.EmailType = EmailAddressTypeEnum.None;
         }
 
         public EmailAddressData(ulong ID,
@@ -76,10 +77,10 @@ namespace Data.Communication.Email
                 string.IsNullOrWhiteSpace(Email))
             {
                 throw new ArgumentNullException(paramName: nameof(Email),
-                                                message: $"The {nameof(Email)} cannot be null or empty or white spaces.");
+                                                message: $"The variable \"{nameof(Email)}\", of the EmailAddressData class, cannot be null or empty or have blank spaces.");
             }
             
-            this.Email = Email;
+            this.Email = Email.Trim();
         }
 
         public EmailAddressTypeEnum GetEmailType()
