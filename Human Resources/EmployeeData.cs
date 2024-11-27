@@ -7,7 +7,6 @@ namespace Data.Human_Resources
     public class EmployeeData : PersonData
     {
         #region Variables
-        private ulong ID { get; set; }
         private DateOnly HiringDate { get; set; }
         private DateOnly? ContractEndDate { get; set; }
         #endregion
@@ -29,7 +28,6 @@ namespace Data.Human_Resources
             : base()
         {
             #region Variables
-            this.ID = ulong.MinValue;
             this.HiringDate = DateOnly.MinValue;
             this.ContractEndDate = null;
             #endregion
@@ -45,8 +43,7 @@ namespace Data.Human_Resources
             #endregion
         }
 
-        public EmployeeData(ulong ID,
-                            DateOnly HiringDate,
+        public EmployeeData(DateOnly HiringDate,
                             DateOnly? ContractEndDate,
                             DepartmentData Department,
                             JobData Job,
@@ -55,7 +52,6 @@ namespace Data.Human_Resources
             : base()
         {
             #region Variables
-            this.ID = ID;
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
             #endregion
@@ -71,21 +67,20 @@ namespace Data.Human_Resources
             #endregion
         }
 
-        public EmployeeData(ulong PersonID,
+        public EmployeeData(ulong ID,
                             string FirstName,
                             string? MiddleName,
                             string FirstLastName,
                             string? SecondLastName,
                             DateOnly DateOfBirth,
                             SexData OSex,
-                            ulong EmployeeID,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
                             DepartmentData Department,
                             JobData Job,
                             SalaryData Salary,
                             SalaryData[]? SalaryHistory)
-            : base(ID: PersonID,
+            : base(ID: ID,
                    FirstName: FirstName,
                    MiddleName: MiddleName,
                    FirstLastName: FirstLastName,
@@ -94,7 +89,6 @@ namespace Data.Human_Resources
                    OSex: OSex)
         {
             #region Variables
-            this.ID = EmployeeID;
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
             #endregion
@@ -124,16 +118,6 @@ namespace Data.Human_Resources
 
         #region Getters and Setters
         #region Variables
-        public ulong GetEmployeeID()
-        {
-            return this.ID;
-        }
-
-        public void SetEmployeeID(ulong ID)
-        {
-            this.ID = ID;
-        }
-
         public DateOnly GetHiringDate()
         {
             return HiringDate;

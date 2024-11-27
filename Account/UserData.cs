@@ -8,7 +8,6 @@ namespace Data.Account
     public class UserData : PersonData
     {
         #region Variables
-        private ulong ID { get; set; }
         private string IP { get; set; }
         private string Login { get; set; }
         private string Username { get; set; }
@@ -25,7 +24,6 @@ namespace Data.Account
         public UserData()
             : base()
         {
-            this.ID = ulong.MinValue;
             this.IP = string.Empty;
             this.Login = string.Empty;
             this.Username = string.Empty;
@@ -33,15 +31,13 @@ namespace Data.Account
             this.Phone = new PhoneData();
         }
 
-        public UserData(ulong ID,
-                        string IP,
+        public UserData(string IP,
                         string Login,
                         string Username,
                         EmailAddressData EmailAddress,
                         PhoneData Phone)
             : base()
         {
-            this.ID = ID;
             this.IP = IP.Trim();
             this.Login = Login.Trim();
             this.Username = Username.Trim();
@@ -49,20 +45,19 @@ namespace Data.Account
             this.Phone = Phone;
         }
 
-        public UserData(ulong PersonID,
+        public UserData(ulong ID,
                         string FirstName,
                         string? MiddleName,
                         string FirstLastName,
                         string? SecondLastName,
                         DateOnly DateOfBirth,
                         SexData OSex,
-                        ulong UserID,
                         string IP,
                         string Login,
                         string Username,
                         EmailAddressData EmailAddress,
                         PhoneData Phone)
-            : base(ID: PersonID,
+            : base(ID: ID,
                    FirstName: FirstName.Trim(),
                    MiddleName: MiddleName?.Trim(),
                    FirstLastName: FirstLastName.Trim(),
@@ -70,7 +65,6 @@ namespace Data.Account
                    DateOfBirth: DateOfBirth,
                    OSex: OSex)
         {
-            this.ID = UserID;
             this.IP = IP.Trim();
             this.Login = Login.Trim();
             this.Username = Username.Trim();
@@ -92,16 +86,6 @@ namespace Data.Account
 
         #region Getters and Setters
         #region Variables
-        public ulong GetUserID()
-        {
-            return this.ID;
-        }
-
-        public void SetUserID(ulong ID)
-        {
-            this.ID = ID;
-        }
-        
         public string GetIP()
         {
             return this.IP;
