@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Data.Other
 {
@@ -9,6 +10,7 @@ namespace Data.Other
         private string Name { get; set; }
         private string? Description { get; set; }
         private DateOnly CreationDate { get; set; }
+        private TimeOnly CreationTime { get; set; }
         #endregion
 
 
@@ -21,18 +23,21 @@ namespace Data.Other
             this.Name = string.Empty;
             this.Description = null;
             this.CreationDate = new DateOnly();
+            this.CreationTime = new TimeOnly();
         }
 
         public ProjectData(ulong ID,
                            string Name,
                            string? Description,
-                           DateOnly CreationDate)
+                           DateOnly CreationDate,
+                           TimeOnly CreationTime)
             : base()
         {
             this.ID = ID;
             this.Name = Name;
             this.Description = Description;
             this.CreationDate = CreationDate;
+            this.CreationTime = CreationTime;
         }
         #endregion
 
@@ -99,6 +104,41 @@ namespace Data.Other
             }
             
             this.CreationDate = CreationDate;
+        }
+
+        public TimeOnly GetCreationTime()
+        {
+            return this.CreationTime;
+        }
+
+        public void SetCreationTime(TimeOnly CreationTime)
+        {
+            this.CreationTime = CreationTime;
+        }
+        #endregion
+
+
+
+        #region To
+        public DateTime ToCreationDateTime()
+        {
+            DateTime CreationDateTime = this.CreationDate.ToDateTime(time: this.CreationTime);
+
+            return CreationDateTime;
+        }
+
+        public async Task<DateTime> ToCreationDateTimeAsync()
+        {
+            try
+            {
+                return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
+            }
+            catch (Exception ex)
+            {
+                await Utils.ErrorMessagesAsync(ex: ex, OType: this.GetType());
+                
+                throw;
+            }
         }
         #endregion
     }

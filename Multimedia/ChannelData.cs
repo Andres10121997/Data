@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Data.Multimedia
 {
@@ -94,6 +95,31 @@ namespace Data.Multimedia
         public void SetCreationTime(TimeOnly CreationTime)
         {
             this.CreationTime = CreationTime;
+        }
+        #endregion
+
+
+
+        #region To
+        public DateTime ToCreationDateTime()
+        {
+            DateTime CreationDateTime = this.CreationDate.ToDateTime(time: this.CreationTime);
+
+            return CreationDateTime;
+        }
+
+        public async Task<DateTime> ToCreationDateTimeAsync()
+        {
+            try
+            {
+                return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
+            }
+            catch (Exception ex)
+            {
+                await Utils.ErrorMessagesAsync(ex: ex, OType: this.GetType());
+                
+                throw;
+            }
         }
         #endregion
     }
