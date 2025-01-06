@@ -5,7 +5,7 @@ namespace Data.Account
     public class SexData
     {
         #region Variables
-        private byte ID { get; set; }
+        private byte? ID { get; set; }
         private string Gender { get; set; }
         #endregion
 
@@ -15,11 +15,11 @@ namespace Data.Account
         public SexData()
             : base()
         {
-            this.ID = byte.MinValue;
+            this.ID = null;
             this.Gender = string.Empty;
         }
 
-        public SexData(byte ID,
+        public SexData(byte? ID,
                        string Name)
             : base()
         {
@@ -40,12 +40,12 @@ namespace Data.Account
 
 
         #region Getters and Setters
-        public byte GetID()
+        public byte? GetID()
         {
             return this.ID;
         }
 
-        public void SetID(byte ID)
+        public void SetID(byte? ID)
         {
             this.ID = ID;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Data.Multimedia
 {
@@ -116,6 +117,31 @@ namespace Data.Multimedia
             this.Video = Video;
         }
         #endregion
+        #endregion
+
+
+
+        #region To
+        public DateTime ToUploadDateTime()
+        {
+            DateTime UploadDateTime = this.UploadDate.ToDateTime(time: this.UploadTime);
+
+            return UploadDateTime;
+        }
+
+        public async Task<DateTime> ToUploadDateTimeAsync()
+        {
+            try
+            {
+                return await Task.Run<DateTime>(function: () => this.ToUploadDateTime());
+            }
+            catch (ArgumentNullException ane)
+            {
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
+                
+                throw;
+            }
+        }
         #endregion
     }
 }

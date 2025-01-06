@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Andr\u00E9s\\Desktop\\Proyectos\\Data\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{48B0CCDA-A693-4C44-8A1D-24C7144FB98B}|Data.csproj|c:\\users\\andr\u00E9s\\desktop\\proyectos\\data\\other\\projectdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48B0CCDA-A693-4C44-8A1D-24C7144FB98B}|Data.csproj|solutionrelative:other\\projectdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,24 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProjectData.cs",
-              "DocumentMoniker": "C:\\Users\\Andr\u00E9s\\Desktop\\Proyectos\\Data\\Other\\ProjectData.cs",
-              "RelativeDocumentMoniker": "Other\\ProjectData.cs",
-              "ToolTip": "C:\\Users\\Andr\u00E9s\\Desktop\\Proyectos\\Data\\Other\\ProjectData.cs",
-              "RelativeToolTip": "Other\\ProjectData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T13:41:16.979Z",
-              "EditorCaption": ""
             }
           ]
         }

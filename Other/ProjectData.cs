@@ -133,9 +133,9 @@ namespace Data.Other
             {
                 return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ane)
             {
-                await Utils.ErrorMessagesAsync(ex: ex, OType: this.GetType());
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
                 
                 throw;
             }
