@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Data.Human_Resources
+namespace Data.HumanResources
 {
     public class SalaryData
     {
         #region Variables
-        private ulong ID { get; set; }
+        private ulong? ID { get; set; }
         private float BaseSalary { get; set; }
         private DateOnly StartDate { get; set; }
         private DateOnly? EndDate { get; set; }
@@ -18,14 +18,14 @@ namespace Data.Human_Resources
         public SalaryData()
             : base()
         {
-            this.ID = ulong.MinValue;
+            this.ID = null;
             this.BaseSalary = float.MinValue;
             this.StartDate = DateOnly.MinValue;
             this.EndDate = null;
             this.IncomeTax = 0;
         }
 
-        public SalaryData(ulong ID,
+        public SalaryData(ulong? ID,
                           float BaseSalary,
                           DateOnly StartDate,
                           DateOnly? EndDate,
@@ -52,12 +52,12 @@ namespace Data.Human_Resources
 
 
         #region Getters and Setters
-        public ulong GetSalaryID()
+        public ulong? GetID()
         {
             return ID;
         }
 
-        public void SetSalaryID(ulong ID)
+        public void SetSalaryID(ulong? ID)
         {
             this.ID = ID;
         }

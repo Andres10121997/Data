@@ -5,7 +5,7 @@ namespace Data.Communication.Email
     public class EmailAddressData
     {
         #region Variables
-        private ulong ID { get; set; }
+        private ulong? ID { get; set; }
         private string Email { get; set; }
         private EmailAddressTypeEnum EmailType { get; set; }
         #endregion
@@ -26,12 +26,12 @@ namespace Data.Communication.Email
         public EmailAddressData()
             : base()
         {
-            this.ID = ulong.MinValue;
+            this.ID = null;
             this.Email = string.Empty;
             this.EmailType = EmailAddressTypeEnum.None;
         }
 
-        public EmailAddressData(ulong ID,
+        public EmailAddressData(ulong? ID,
                                 string Email,
                                 EmailAddressTypeEnum EmailType)
             : base()
@@ -55,12 +55,12 @@ namespace Data.Communication.Email
 
         #region Getters and Setters
         #region Variables
-        public ulong GetEmailID()
+        public ulong? GetID()
         {
             return ID;
         }
 
-        public void SetEmailID(ulong ID)
+        public void SetID(ulong? ID)
         {
             this.ID = ID;
         }

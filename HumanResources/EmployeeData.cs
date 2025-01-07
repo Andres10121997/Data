@@ -2,7 +2,7 @@
 using Data.Other;
 using System;
 
-namespace Data.Human_Resources
+namespace Data.HumanResources
 {
     public class EmployeeData : PersonData
     {
@@ -67,7 +67,7 @@ namespace Data.Human_Resources
             #endregion
         }
 
-        public EmployeeData(ulong ID,
+        public EmployeeData(ulong? ID,
                             string FirstName,
                             string? MiddleName,
                             string FirstLastName,

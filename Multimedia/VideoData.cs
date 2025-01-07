@@ -6,6 +6,7 @@ namespace Data.Multimedia
     public class VideoData
     {
         #region Variables
+        private ulong? ID { get; set; }
         private string Title { get; set; }
         private string? Description { get; set; }
         private DateOnly UploadDate { get; set; }
@@ -22,6 +23,7 @@ namespace Data.Multimedia
         public VideoData()
             : base()
         {
+            this.ID = null;
             this.Title = string.Empty;
             this.Description = null;
             this.UploadDate = new DateOnly();
@@ -29,13 +31,15 @@ namespace Data.Multimedia
             this.Video = Array.Empty<byte>();
         }
 
-        public VideoData(string Title,
+        public VideoData(ulong? ID,
+                         string Title,
                          string? Description,
                          DateOnly UploadDate,
                          TimeOnly UploadTime,
                          byte[] Video)
             : base()
         {
+            this.ID = ID;
             this.Title = Title;
             this.Description = Description;
             this.UploadDate = UploadDate;
@@ -57,6 +61,16 @@ namespace Data.Multimedia
 
         #region Getters and Setters
         #region Variables
+        public ulong? GetID()
+        {
+            return this.ID;
+        }
+        
+        public void SetID(ulong? ID)
+        {
+            this.ID = ID;
+        }
+
         public string GetTitle()
         {
             return this.Title;

@@ -6,7 +6,7 @@ namespace Data.Other
     public class ProjectData
     {
         #region Variables
-        private ulong ID { get; set; }
+        private ulong? ID { get; set; }
         private string Name { get; set; }
         private string? Description { get; set; }
         private DateOnly CreationDate { get; set; }
@@ -19,14 +19,14 @@ namespace Data.Other
         public ProjectData()
             : base()
         {
-            this.ID = ulong.MinValue;
+            this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
             this.CreationDate = new DateOnly();
             this.CreationTime = new TimeOnly();
         }
 
-        public ProjectData(ulong ID,
+        public ProjectData(ulong? ID,
                            string Name,
                            string? Description,
                            DateOnly CreationDate,
@@ -53,12 +53,12 @@ namespace Data.Other
 
 
         #region Getters and Setters
-        public ulong GetProjectID()
+        public ulong? GetID()
         {
             return this.ID;
         }
 
-        public void SetProjectID(ulong ID)
+        public void SetID(ulong? ID)
         {
             this.ID = ID;
         }

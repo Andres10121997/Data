@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Data.Human_Resources
+namespace Data.HumanResources
 {
     public class JobData
     {
         #region Variables
-        private byte ID { get; set; }
+        private byte? ID { get; set; }
         private string Name { get; set; }
         #endregion
 
@@ -15,11 +15,11 @@ namespace Data.Human_Resources
         public JobData()
             : base()
         {
-            this.ID = byte.MinValue;
+            this.ID = null;
             this.Name = string.Empty;
         }
 
-        public JobData(byte ID,
+        public JobData(byte? ID,
                        string Name)
         {
             this.ID = ID;
@@ -39,12 +39,12 @@ namespace Data.Human_Resources
 
 
         #region Getters and Setters
-        public byte GetID()
+        public byte? GetID()
         {
             return this.ID;
         }
 
-        public void SetID(byte ID)
+        public void SetID(byte? ID)
         {
             this.ID = ID;
         }

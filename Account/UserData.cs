@@ -24,11 +24,16 @@ namespace Data.Account
         public UserData()
             : base()
         {
+            #region Variables
             this.IP = string.Empty;
             this.Login = string.Empty;
             this.Username = string.Empty;
+            #endregion
+
+            #region Objects
             this.EmailAddress = new EmailAddressData();
             this.Phone = new PhoneData();
+            #endregion
         }
 
         public UserData(string IP,
@@ -38,14 +43,19 @@ namespace Data.Account
                         PhoneData Phone)
             : base()
         {
+            #region Variables
             this.IP = IP.Trim();
             this.Login = Login.Trim();
             this.Username = Username.Trim();
+            #endregion
+
+            #region Objects
             this.EmailAddress = EmailAddress;
             this.Phone = Phone;
+            #endregion
         }
 
-        public UserData(ulong ID,
+        public UserData(ulong? ID,
                         string FirstName,
                         string? MiddleName,
                         string FirstLastName,
@@ -65,11 +75,16 @@ namespace Data.Account
                    DateOfBirth: DateOfBirth,
                    OSex: OSex)
         {
+            #region Variables
             this.IP = IP.Trim();
             this.Login = Login.Trim();
             this.Username = Username.Trim();
+            #endregion
+
+            #region Objects
             this.EmailAddress = EmailAddress;
             this.Phone = Phone;
+            #endregion
         }
         #endregion
 

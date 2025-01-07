@@ -6,6 +6,7 @@ namespace Data.Multimedia
     public class ChannelData
     {
         #region Variables
+        private ulong? ID { get; set; }
         private string Name { get; set; }
         private string? Description { get; set; }
         private DateOnly CreationDate { get; set; }
@@ -18,18 +19,21 @@ namespace Data.Multimedia
         public ChannelData()
             : base()
         {
+            this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
             this.CreationDate = new DateOnly();
             this.CreationTime = new TimeOnly();
         }
 
-        public ChannelData(string Name,
+        public ChannelData(ulong? ID,
+                           string Name,
                            string? Description,
                            DateOnly CreationDate,
                            TimeOnly CreationTime)
             : base()
         {
+            this.ID = ID;
             this.Name = Name;
             this.Description = Description;
             this.CreationDate = CreationDate;
@@ -49,6 +53,16 @@ namespace Data.Multimedia
 
 
         #region Getters and Setters
+        public ulong? GetID()
+        {
+            return this.ID;
+        }
+        
+        public void SetID(ulong? ID)
+        {
+            this.ID = ID;
+        }
+
         public string GetName()
         {
             return this.Name;

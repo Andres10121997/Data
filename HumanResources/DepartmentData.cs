@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Data.Human_Resources
+namespace Data.HumanResources
 {
     public class DepartmentData
     {
         #region Variables
-        private byte ID { get; set; }
+        private byte? ID { get; set; }
         private string Name { get; set; }
         private string? Description { get; set; }
         private DepartmentTypeEnum DepartmentType { get; set; }
@@ -25,13 +25,13 @@ namespace Data.Human_Resources
         public DepartmentData()
             : base()
         {
-            this.ID = byte.MinValue;
+            this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
             this.DepartmentType = DepartmentTypeEnum.Department;
         }
 
-        public DepartmentData(byte ID,
+        public DepartmentData(byte? ID,
                               string Name,
                               string? Description,
                               DepartmentTypeEnum DepartmentType)
@@ -56,12 +56,12 @@ namespace Data.Human_Resources
 
 
         #region Getters and Setters
-        public byte GetID()
+        public byte? GetID()
         {
             return this.ID;
         }
         
-        public void SetID(byte ID)
+        public void SetID(byte? ID)
         {
             this.ID = ID;
         }

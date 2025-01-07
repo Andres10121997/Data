@@ -8,7 +8,7 @@ namespace Data.Other
     public class PersonData
     {
         #region Variables
-        private ulong ID { get; set; }
+        private ulong? ID { get; set; }
         private string FirstName { get; set; }
         private string? MiddleName { get; set; }
         private string FirstLastName { get; set; }
@@ -26,7 +26,7 @@ namespace Data.Other
         public PersonData()
             : base()
         {
-            this.ID = ulong.MinValue;
+            this.ID = null;
             this.FirstName = string.Empty;
             this.MiddleName = null;
             this.FirstLastName = string.Empty;
@@ -35,7 +35,7 @@ namespace Data.Other
             this.OSex = new SexData();
         }
 
-        public PersonData(ulong ID,
+        public PersonData(ulong? ID,
                           string FirstName,
                           string? MiddleName,
                           string FirstLastName,
@@ -67,12 +67,12 @@ namespace Data.Other
 
         #region Getters and Setters
         #region Variables
-        public ulong GetPersonID()
+        public ulong? GetID()
         {
             return this.ID;
         }
 
-        public void SetPersonID(ulong ID)
+        public void SetID(ulong? ID)
         {
             if (ID < 0)
             {
