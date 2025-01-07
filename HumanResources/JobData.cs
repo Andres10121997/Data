@@ -7,6 +7,7 @@ namespace Data.HumanResources
         #region Variables
         private byte? ID { get; set; }
         private string Name { get; set; }
+        private string? Description { get; set; }
         #endregion
 
 
@@ -17,13 +18,16 @@ namespace Data.HumanResources
         {
             this.ID = null;
             this.Name = string.Empty;
+            this.Description = null;
         }
 
         public JobData(byte? ID,
-                       string Name)
+                       string Name,
+                       string? Description)
         {
             this.ID = ID;
             this.Name = Name;
+            this.Description = Description;
         }
         #endregion
 
@@ -65,6 +69,16 @@ namespace Data.HumanResources
             }
             
             this.Name = Name.Trim();
+        }
+
+        public string? GetDescription()
+        {
+            return this.Description;
+        }
+
+        public void SetDescription(string? Description)
+        {
+            this.Description = Description;
         }
         #endregion
     }

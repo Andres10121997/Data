@@ -13,6 +13,10 @@ namespace Data.Multimedia
         private TimeOnly CreationTime { get; set; }
         #endregion
 
+        #region Arrays
+        private VideoData[]? VideoList { get; set; }
+        #endregion
+
 
 
         #region Constructor Method
@@ -24,13 +28,15 @@ namespace Data.Multimedia
             this.Description = null;
             this.CreationDate = new DateOnly();
             this.CreationTime = new TimeOnly();
+            this.VideoList = null;
         }
 
         public ChannelData(ulong? ID,
                            string Name,
                            string? Description,
                            DateOnly CreationDate,
-                           TimeOnly CreationTime)
+                           TimeOnly CreationTime,
+                           VideoData[] VideoList)
             : base()
         {
             this.ID = ID;
@@ -38,6 +44,7 @@ namespace Data.Multimedia
             this.Description = Description;
             this.CreationDate = CreationDate;
             this.CreationTime = CreationTime;
+            this.VideoList = VideoList;
         }
         #endregion
 
@@ -53,6 +60,7 @@ namespace Data.Multimedia
 
 
         #region Getters and Setters
+        #region Variables
         public ulong? GetID()
         {
             return this.ID;
@@ -110,6 +118,19 @@ namespace Data.Multimedia
         {
             this.CreationTime = CreationTime;
         }
+        #endregion
+
+        #region Arrays
+        public VideoData[]? GetVideoList()
+        {
+            return this.VideoList;
+        }
+
+        public void SetVideoList(VideoData[]? VideoList)
+        {
+            this.VideoList = VideoList;
+        }
+        #endregion
         #endregion
 
 
