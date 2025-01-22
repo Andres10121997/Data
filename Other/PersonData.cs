@@ -191,10 +191,10 @@ namespace Data.Other
             bool[] ListOfValidations;
             #endregion
 
+            Today = DateOnly.FromDateTime(DateTime.Now);
+
             try
             {
-                Today = DateOnly.FromDateTime(DateTime.Now);
-
                 if (this.DateOfBirth > Today)
                 {
                     throw new Exception("The Date of Birth cannot exceed the current date.");
@@ -219,7 +219,7 @@ namespace Data.Other
             }
             catch (Exception ex)
             {
-                Utils.ErrorMessages(ex, this.GetType());
+                Utils.ErrorMessages(ex: ex, OType: this.GetType());
                 
                 throw;
             }

@@ -26,8 +26,8 @@ namespace Data.HumanResources
                        string? Description)
         {
             this.ID = ID;
-            this.Name = Name;
-            this.Description = Description;
+            this.Name = Name.Trim();
+            this.Description = Description?.Trim();
         }
         #endregion
 

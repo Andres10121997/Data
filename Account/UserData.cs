@@ -113,7 +113,7 @@ namespace Data.Account
                 string.IsNullOrWhiteSpace(value: IP))
             {
                 throw new ArgumentNullException(paramName: nameof(IP),
-                                                message: $"The variable \"{nameof(IP)}\", of the UserData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(IP)}\", of the {nameof(UserData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.IP = IP.Trim();
@@ -131,7 +131,7 @@ namespace Data.Account
                 string.IsNullOrWhiteSpace(value: Login))
             {
                 throw new ArgumentNullException(paramName: nameof(Login),
-                                                message: $"The variable \"{nameof(Login)}\", of the UserData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Login)}\", of the {nameof(UserData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.Login = Login.Trim();
@@ -149,7 +149,7 @@ namespace Data.Account
                 string.IsNullOrWhiteSpace(value: Username))
             {
                 throw new ArgumentNullException(paramName: nameof(Username),
-                                                message: $"The variable \"{nameof(Login)}\", of the UserData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Login)}\", of the {nameof(UserData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.Username = Username.Trim();

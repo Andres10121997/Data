@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Data.Other
+namespace Data.Project
 {
     public class ProjectData
     {
@@ -11,6 +11,16 @@ namespace Data.Other
         private string? Description { get; set; }
         private DateOnly CreationDate { get; set; }
         private TimeOnly CreationTime { get; set; }
+        private AccessLevelEnum AccessLevel { get; set; }
+        #endregion
+
+        #region Enum
+        public enum AccessLevelEnum : byte
+        {
+            Private,
+            Protected,
+            Public
+        }
         #endregion
 
 
@@ -24,13 +34,15 @@ namespace Data.Other
             this.Description = null;
             this.CreationDate = new DateOnly();
             this.CreationTime = new TimeOnly();
+            this.AccessLevel = AccessLevelEnum.Private;
         }
 
         public ProjectData(ulong? ID,
                            string Name,
                            string? Description,
                            DateOnly CreationDate,
-                           TimeOnly CreationTime)
+                           TimeOnly CreationTime,
+                           AccessLevelEnum AccessLevel)
             : base()
         {
             this.ID = ID;
@@ -38,6 +50,7 @@ namespace Data.Other
             this.Description = Description;
             this.CreationDate = CreationDate;
             this.CreationTime = CreationTime;
+            this.AccessLevel = AccessLevel;
         }
         #endregion
 
@@ -55,7 +68,7 @@ namespace Data.Other
         #region Getters and Setters
         public ulong? GetID()
         {
-            return this.ID;
+            return ID;
         }
 
         public void SetID(ulong? ID)
@@ -65,7 +78,7 @@ namespace Data.Other
 
         public string GetName()
         {
-            return this.Name;
+            return Name;
         }
 
         public void SetName(string Name)
@@ -77,13 +90,13 @@ namespace Data.Other
                 throw new ArgumentNullException(paramName: nameof(Name),
                                                 message: $"The variable \"{nameof(Name)}\", of the ProjectData class, cannot be null or empty or have blank fields.");
             }
-            
+
             this.Name = Name.Trim();
         }
 
         public string? GetDescription()
         {
-            return this.Description;
+            return Description;
         }
 
         public void SetDescription(string? Description)
@@ -93,7 +106,7 @@ namespace Data.Other
 
         public DateOnly GetCreationDate()
         {
-            return this.CreationDate;
+            return CreationDate;
         }
 
         public void SetCreationDate(DateOnly CreationDate)
@@ -102,18 +115,28 @@ namespace Data.Other
             {
                 throw new Exception();
             }
-            
+
             this.CreationDate = CreationDate;
         }
 
         public TimeOnly GetCreationTime()
         {
-            return this.CreationTime;
+            return CreationTime;
         }
 
         public void SetCreationTime(TimeOnly CreationTime)
         {
             this.CreationTime = CreationTime;
+        }
+
+        public AccessLevelEnum GetAccessLevel()
+        {
+            return this.AccessLevel;
+        }
+
+        public void SetAccessLevel(AccessLevelEnum AccessLevel)
+        {
+            this.AccessLevel = AccessLevel;
         }
         #endregion
 
@@ -122,7 +145,7 @@ namespace Data.Other
         #region To
         public DateTime ToCreationDateTime()
         {
-            DateTime CreationDateTime = this.CreationDate.ToDateTime(time: this.CreationTime);
+            DateTime CreationDateTime = CreationDate.ToDateTime(time: CreationTime);
 
             return CreationDateTime;
         }
@@ -131,12 +154,12 @@ namespace Data.Other
         {
             try
             {
-                return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
+                return await Task.Run(function: () => this.ToCreationDateTime());
             }
             catch (ArgumentNullException ane)
             {
                 await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
-                
+
                 throw;
             }
         }

@@ -46,8 +46,8 @@ namespace Data.Multimedia
         {
             #region Variables
             this.ID = ID;
-            this.Name = Name;
-            this.Description = Description;
+            this.Name = Name.Trim();
+            this.Description = Description?.Trim();
             this.CreationDate = CreationDate;
             this.CreationTime = CreationTime;
             #endregion
@@ -106,7 +106,7 @@ namespace Data.Multimedia
 
         public void SetDescription(string? Description)
         {
-            this.Description = Description;
+            this.Description = Description?.Trim();
         }
 
         public DateOnly GetCreationDate()

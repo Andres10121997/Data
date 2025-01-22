@@ -40,8 +40,8 @@ namespace Data.Multimedia
             : base()
         {
             this.ID = ID;
-            this.Title = Title;
-            this.Description = Description;
+            this.Title = Title.Trim();
+            this.Description = Description?.Trim();
             this.UploadDate = UploadDate;
             this.UploadTime = UploadTime;
             this.Video = Video;

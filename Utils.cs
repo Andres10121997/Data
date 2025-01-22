@@ -13,12 +13,6 @@ namespace Data
             University,
             School
         }
-
-        public enum SexEnum
-        {
-            Female,
-            Male
-        }
         #endregion
 
 

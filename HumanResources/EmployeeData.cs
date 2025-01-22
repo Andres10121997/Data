@@ -120,7 +120,7 @@ namespace Data.HumanResources
         #region Variables
         public DateOnly GetHiringDate()
         {
-            return HiringDate;
+            return this.HiringDate;
         }
 
         public void SetHiringDate(DateOnly HiringDate)
@@ -130,7 +130,7 @@ namespace Data.HumanResources
 
         public DateOnly? GetContractEndDate()
         {
-            return ContractEndDate;
+            return this.ContractEndDate;
         }
 
         public void SetContractEndDate(DateOnly? ContractEndDate)

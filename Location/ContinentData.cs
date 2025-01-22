@@ -36,7 +36,7 @@ namespace Data.Location
             : base()
         {
             this.ID = ID;
-            this.Name = Name;
+            this.Name = Name.Trim();
         }
         #endregion
 

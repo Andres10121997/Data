@@ -36,9 +36,9 @@ namespace Data.Location
             : base()
         {
             this.ID = ID;
-            this.Name = Name;
-            this.Iso = Iso;
-            this.Iso3 = Iso3;
+            this.Name = Name.Trim();
+            this.Iso = Iso.Trim();
+            this.Iso3 = Iso3.Trim();
             this.OContinent = OContinent;
         }
         #endregion
@@ -101,12 +101,12 @@ namespace Data.Location
             else
             if (Iso.Length < 2)
             {
-                throw new Exception(nameof(Iso));
+                throw new Exception(message: nameof(Iso));
             }
             else
             if (Iso.Length > 2)
             {
-                throw new Exception(nameof(Iso));
+                throw new Exception(message: nameof(Iso));
             }
             
             this.Iso = Iso.Trim();
@@ -129,12 +129,12 @@ namespace Data.Location
             else
             if (Iso3.Length < 3)
             {
-                throw new Exception(nameof(Iso3));
+                throw new Exception(message: nameof(Iso3));
             }
             else
             if (Iso3.Length > 3)
             {
-                throw new Exception(nameof(Iso3));
+                throw new Exception(message: nameof(Iso3));
             }
             
             this.Iso3 = Iso3.Trim();
