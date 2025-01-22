@@ -5,7 +5,7 @@ namespace Data.Location
     public class ContinentData
     {
         #region Variables
-        private byte ID { get; set; }
+        private byte? ID { get; set; }
         private string Name { get; set; }
         #endregion
 
@@ -27,11 +27,11 @@ namespace Data.Location
         public ContinentData()
             : base()
         {
-            this.ID = byte.MinValue;
+            this.ID = null;
             this.Name = string.Empty;
         }
 
-        public ContinentData(byte ID,
+        public ContinentData(byte? ID,
                              string Name)
             : base()
         {
@@ -52,12 +52,12 @@ namespace Data.Location
 
 
         #region Getters and Setters
-        public byte GetContinentID()
+        public byte? GetID()
         {
             return this.ID;
         }
 
-        public void SetContinentID(byte ID)
+        public void SetID(byte? ID)
         {
             this.ID = ID;
         }
@@ -69,9 +69,9 @@ namespace Data.Location
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(Name)
+            if (string.IsNullOrEmpty(value: Name)
                 ||
-                string.IsNullOrWhiteSpace(Name))
+                string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
                                                 message: $"The variable \"{nameof(Name)}\", of the ContinentData class, cannot be null or empty or have blank spaces.");

@@ -96,7 +96,7 @@ namespace Data.Multimedia
 
         public void SetDescription(string? Description)
         {
-            this.Description = Description;
+            this.Description = Description?.Trim();
         }
 
         public DateOnly GetUploadDate()

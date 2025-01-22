@@ -26,13 +26,18 @@ namespace Data.Other
         public PersonData()
             : base()
         {
+            #region Variables
             this.ID = null;
             this.FirstName = string.Empty;
             this.MiddleName = null;
             this.FirstLastName = string.Empty;
             this.SecondLastName = null;
             this.DateOfBirth = DateOnly.MinValue;
+            #endregion
+
+            #region Objects
             this.OSex = new SexData();
+            #endregion
         }
 
         public PersonData(ulong? ID,
@@ -44,13 +49,18 @@ namespace Data.Other
                           SexData OSex)
             : base()
         {
+            #region Variables
             this.ID = ID;
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
             this.FirstLastName = FirstLastName;
             this.SecondLastName = SecondLastName;
             this.DateOfBirth = DateOfBirth;
+            #endregion
+
+            #region Objects
             this.OSex = OSex;
+            #endregion
         }
         #endregion
 

@@ -23,12 +23,17 @@ namespace Data.Multimedia
         public ChannelData()
             : base()
         {
+            #region Variables
             this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
             this.CreationDate = new DateOnly();
             this.CreationTime = new TimeOnly();
+            #endregion
+
+            #region Objects
             this.VideoList = null;
+            #endregion
         }
 
         public ChannelData(ulong? ID,
@@ -39,12 +44,17 @@ namespace Data.Multimedia
                            VideoData[] VideoList)
             : base()
         {
+            #region Variables
             this.ID = ID;
             this.Name = Name;
             this.Description = Description;
             this.CreationDate = CreationDate;
             this.CreationTime = CreationTime;
+            #endregion
+
+            #region Objects
             this.VideoList = VideoList;
+            #endregion
         }
         #endregion
 

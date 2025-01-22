@@ -5,7 +5,7 @@ namespace Data.Certification
     public class CertificateData
     {
         #region Variables
-        private ulong ID { get; set; }
+        private ulong? ID { get; set; }
         private string Title { get; set; }
         private uint Folio { get; set; }
         private float Price { get; set; }
@@ -17,13 +17,13 @@ namespace Data.Certification
         public CertificateData()
             : base()
         {
-            this.ID = ulong.MinValue;
+            this.ID = null;
             this.Title = string.Empty;
             this.Folio = uint.MinValue;
             this.Price = float.MinValue;
         }
 
-        public CertificateData(ulong ID,
+        public CertificateData(ulong? ID,
                                string Title,
                                uint Folio,
                                float Price)
@@ -48,18 +48,13 @@ namespace Data.Certification
 
 
         #region Getters and Setters
-        public ulong GetID()
+        public ulong? GetID()
         {
             return this.ID;
         }
 
-        public void SetID(ulong ID)
+        public void SetID(ulong? ID)
         {
-            if (ID < 0)
-            {
-                throw new ArithmeticException(message: nameof(ID));
-            }
-            
             this.ID = ID;
         }
 

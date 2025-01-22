@@ -5,7 +5,7 @@ namespace Data.Location
     public class CountryData
     {
         #region Variables
-        private ulong ID { get; set; }
+        private byte? ID { get; set; }
         private string Name { get; set; }
         private string Iso { get; set; }
         private string Iso3 { get; set; }
@@ -21,14 +21,14 @@ namespace Data.Location
         public CountryData()
             : base()
         {
-            this.ID = ulong.MinValue;
+            this.ID = null;
             this.Name = string.Empty;
             this.Iso = string.Empty;
             this.Iso3 = string.Empty;
             this.OContinent = new ContinentData();
         }
 
-        public CountryData(ulong ID,
+        public CountryData(byte? ID,
                            string Name,
                            string Iso,
                            string Iso3,
@@ -56,12 +56,12 @@ namespace Data.Location
 
         #region Getters and Setters
         #region Variables
-        public ulong GetCountryID()
+        public byte? GetID()
         {
             return this.ID;
         }
 
-        public void SetCountryID(ulong ID)
+        public void SetID(byte? ID)
         {
             this.ID = ID;
         }

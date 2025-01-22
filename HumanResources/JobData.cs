@@ -78,7 +78,7 @@ namespace Data.HumanResources
 
         public void SetDescription(string? Description)
         {
-            this.Description = Description;
+            this.Description = Description?.Trim();
         }
         #endregion
     }
