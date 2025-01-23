@@ -62,7 +62,7 @@ namespace Data.Account
                 string.IsNullOrWhiteSpace(value: Gender))
             {
                 throw new ArgumentNullException(paramName: nameof(Gender),
-                                                message: $"The variable \"{nameof(Gender)}\", of the SexData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Gender)}\", of the {nameof(SexData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.Gender = Gender.Trim();

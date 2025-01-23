@@ -23,12 +23,17 @@ namespace Data.Multimedia
         public VideoData()
             : base()
         {
+            #region Variables
             this.ID = null;
             this.Title = string.Empty;
             this.Description = null;
             this.UploadDate = new DateOnly();
             this.UploadTime = new TimeOnly();
+            #endregion
+
+            #region Arrays
             this.Video = Array.Empty<byte>();
+            #endregion
         }
 
         public VideoData(ulong? ID,
@@ -39,12 +44,17 @@ namespace Data.Multimedia
                          byte[] Video)
             : base()
         {
+            #region Variables
             this.ID = ID;
             this.Title = Title.Trim();
             this.Description = Description?.Trim();
             this.UploadDate = UploadDate;
             this.UploadTime = UploadTime;
+            #endregion
+
+            #region Arrays
             this.Video = Video;
+            #endregion
         }
         #endregion
 

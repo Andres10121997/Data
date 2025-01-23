@@ -76,7 +76,7 @@ namespace Data.Communication.Phone
                 string.IsNullOrWhiteSpace(value: PhoneNumber))
             {
                 throw new ArgumentNullException(paramName: nameof(PhoneNumber),
-                                                message: $"The variable \"{nameof(PhoneNumber)}\", of the PhoneData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(PhoneNumber)}\", of the {nameof(PhoneData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.PhoneNumber = PhoneNumber.Trim();

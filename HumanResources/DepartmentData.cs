@@ -38,8 +38,8 @@ namespace Data.HumanResources
             : base()
         {
             this.ID = ID;
-            this.Name = Name;
-            this.Description = Description;
+            this.Name = Name.Trim();
+            this.Description = Description?.Trim();
             this.DepartmentType = DepartmentType;
         }
         #endregion
@@ -78,7 +78,7 @@ namespace Data.HumanResources
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the DepartmentData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Name)}\", of the {nameof(DepartmentData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.Name = Name.Trim();

@@ -7,9 +7,16 @@ namespace Data.HumanResources
         #region Variables
         private ulong? ID { get; set; }
         private float BaseSalary { get; set; }
+        private float Gratification { get; set; }
+        private float SnackBonus { get; set; }
+        private float MobilizationBonus { get; set; }
         private DateOnly StartDate { get; set; }
         private DateOnly? EndDate { get; set; }
         private float IncomeTax { get; set; }
+        #endregion
+
+        #region Arrays
+        private float[] BonusList { get; set; }
         #endregion
 
 
@@ -20,23 +27,35 @@ namespace Data.HumanResources
         {
             this.ID = null;
             this.BaseSalary = float.MinValue;
+            this.Gratification = float.MinValue;
+            this.SnackBonus = float.MinValue;
+            this.MobilizationBonus = float.MinValue;
             this.StartDate = DateOnly.MinValue;
             this.EndDate = null;
             this.IncomeTax = 0;
+            this.BonusList = Array.Empty<float>();
         }
 
         public SalaryData(ulong? ID,
                           float BaseSalary,
+                          float Gratification,
+                          float SnackBonus,
+                          float MobilizationBonus,
                           DateOnly StartDate,
                           DateOnly? EndDate,
-                          float IncomeTax)
+                          float IncomeTax,
+                          float[] BonusList)
             : base()
         {
             this.ID = ID;
             this.BaseSalary = BaseSalary;
+            this.Gratification = Gratification;
+            this.SnackBonus = SnackBonus;
+            this.MobilizationBonus = MobilizationBonus;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
             this.IncomeTax = IncomeTax;
+            this.BonusList = BonusList;
         }
         #endregion
 
@@ -52,6 +71,7 @@ namespace Data.HumanResources
 
 
         #region Getters and Setters
+        #region Variables
         public ulong? GetID()
         {
             return ID;
@@ -80,6 +100,51 @@ namespace Data.HumanResources
             }
             
             this.BaseSalary = BaseSalary;
+        }
+
+        public float GetGratification()
+        {
+            return this.Gratification;
+        }
+
+        public void SetGratification(float Gratification)
+        {
+            if (float.IsNegative(f: Gratification))
+            {
+                throw new ArithmeticException(message: nameof(Gratification));
+            }
+            
+            this.Gratification = Gratification;
+        }
+
+        public float GetSnackBonus()
+        {
+            return this.SnackBonus;
+        }
+
+        public void SetSnackBonus(float SnackBonus)
+        {
+            if (float.IsNegative(f: SnackBonus))
+            {
+                throw new ArithmeticException(message: nameof(SnackBonus));
+            }
+            
+            this.SnackBonus = SnackBonus;
+        }
+
+        public float GetMobilizationBonus()
+        {
+            return this.MobilizationBonus;
+        }
+
+        public void SetMobilizationBonus(float MobilizationBonus)
+        {
+            if (float.IsNegative(f: MobilizationBonus))
+            {
+                throw new ArithmeticException(message: nameof(MobilizationBonus));
+            }
+            
+            this.MobilizationBonus = MobilizationBonus;
         }
 
         public DateOnly GetStartDate()
@@ -121,6 +186,19 @@ namespace Data.HumanResources
             
             this.IncomeTax = IncomeTax;
         }
+        #endregion
+
+        #region Arrays
+        public float[] GetBonusList()
+        {
+            return this.BonusList;
+        }
+
+        public void SetBonusList(float[] BonusList)
+        {
+            this.BonusList = BonusList;
+        }
+        #endregion
         #endregion
     }
 }

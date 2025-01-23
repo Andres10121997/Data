@@ -72,12 +72,12 @@ namespace Data.Communication.Email
 
         public void SetEmail(string Email)
         {
-            if (string.IsNullOrEmpty(Email)
+            if (string.IsNullOrEmpty(value: Email)
                 ||
-                string.IsNullOrWhiteSpace(Email))
+                string.IsNullOrWhiteSpace(value: Email))
             {
                 throw new ArgumentNullException(paramName: nameof(Email),
-                                                message: $"The variable \"{nameof(Email)}\", of the EmailAddressData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Email)}\", of the {nameof(EmailAddressData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.Email = Email.Trim();
