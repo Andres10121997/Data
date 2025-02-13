@@ -6,7 +6,7 @@ namespace Data.Account
     {
         #region Variables
         private byte? ID { get; set; }
-        private string Gender { get; set; }
+        private string Sex { get; set; }
         #endregion
 
 
@@ -16,15 +16,15 @@ namespace Data.Account
             : base()
         {
             this.ID = null;
-            this.Gender = string.Empty;
+            this.Sex = string.Empty;
         }
 
         public SexData(byte? ID,
-                       string Name)
+                       string Sex)
             : base()
         {
             this.ID = ID;
-            this.Gender = Name;
+            this.Sex = Sex;
         }
         #endregion
 
@@ -50,22 +50,22 @@ namespace Data.Account
             this.ID = ID;
         }
 
-        public string GetGender()
+        public string GetSex()
         {
-            return this.Gender;
+            return this.Sex;
         }
 
-        public void SetGender(string Gender)
+        public void SetSex(string Sex)
         {
-            if (string.IsNullOrEmpty(value: Gender)
+            if (string.IsNullOrEmpty(value: Sex)
                 ||
-                string.IsNullOrWhiteSpace(value: Gender))
+                string.IsNullOrWhiteSpace(value: Sex))
             {
-                throw new ArgumentNullException(paramName: nameof(Gender),
-                                                message: $"The variable \"{nameof(Gender)}\", of the {nameof(SexData)} class, cannot be null or empty or have blank spaces.");
+                throw new ArgumentNullException(paramName: nameof(Sex),
+                                                message: $"The variable \"{nameof(Sex)}\", of the {nameof(SexData)} class, cannot be null or empty or have blank spaces.");
             }
             
-            this.Gender = Gender.Trim();
+            this.Sex = Sex.Trim();
         }
         #endregion
     }

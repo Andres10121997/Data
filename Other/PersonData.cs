@@ -103,8 +103,8 @@ namespace Data.Other
                 ||
                 string.IsNullOrWhiteSpace(value: FirstName))
             {
-                throw new ArgumentNullException(paramName: nameof(FirstName),
-                                                message: $"The variable \"{nameof(FirstLastName)}\", of the PersonData class, cannot be null or empty or have blank fields.");
+                throw new ArgumentNullException(message: $"The variable \"{nameof(FirstName)}\", of the {nameof(PersonData)} class, cannot be null or empty or have blank fields.",
+                                                paramName: nameof(FirstName));
             }
 
             this.FirstName = FirstName.Trim();
@@ -131,8 +131,8 @@ namespace Data.Other
                 ||
                 string.IsNullOrWhiteSpace(value: FirstLastName))
             {
-                throw new ArgumentNullException(paramName: nameof(FirstName),
-                                                message: "The first last name cannot be null or empty or have empty spaces.");
+                throw new ArgumentNullException(message: $"The {nameof(FirstLastName)} cannot be null or empty or have empty spaces.",
+                                                paramName: nameof(FirstName));
             }
             
             this.FirstLastName = FirstLastName.Trim();
@@ -155,9 +155,12 @@ namespace Data.Other
 
         public void SetDateOfBirth(DateOnly DateOfBirth)
         {
-            if (DateOfBirth > DateOnly.FromDateTime(DateTime.Now))
+            DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
+
+            if (DateOfBirth > Today)
             {
-                throw new Exception(message: "The birthday date cannot be greater than the current date.");
+                throw new ArgumentException(message: $"The \"{nameof(DateOnly)}\" variable cannot be later than the current date.",
+                                            paramName: nameof(DateOfBirth));
             }
             
             this.DateOfBirth = DateOfBirth;
@@ -245,8 +248,10 @@ namespace Data.Other
         #region FullName
         public string FullName()
         {
+            #region Variables
             string Name = string.Empty;
             string LastName = string.Empty;
+            #endregion
 
             try
             {

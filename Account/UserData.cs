@@ -149,7 +149,7 @@ namespace Data.Account
                 string.IsNullOrWhiteSpace(value: Username))
             {
                 throw new ArgumentNullException(paramName: nameof(Username),
-                                                message: $"The variable \"{nameof(Login)}\", of the {nameof(UserData)} class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Username)}\", of the {nameof(UserData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.Username = Username.Trim();

@@ -92,8 +92,8 @@ namespace Data.Multimedia
                 ||
                 string.IsNullOrWhiteSpace(value: Title))
             {
-                throw new ArgumentNullException(paramName: nameof(Title),
-                                                message: $"The variable \"{nameof(Title)}\", of the VideoData class, cannot be null or empty or have blank spaces.");
+                throw new ArgumentNullException(message: $"The variable \"{nameof(Title)}\", of the {nameof(VideoData)} class, cannot be null or empty or have blank spaces.",
+                                                paramName: nameof(Title));
             }
             
             this.Title = Title.Trim();
@@ -116,6 +116,14 @@ namespace Data.Multimedia
 
         public void SetUploadDate(DateOnly UploadDate)
         {
+            DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
+            
+            if (UploadDate > Today)
+            {
+                throw new ArgumentException(message: $"The \"{UploadDate}\" cannot be after the current date.",
+                                            paramName: nameof(UploadDate));
+            }
+            
             this.UploadDate = UploadDate;
         }
 

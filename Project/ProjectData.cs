@@ -154,7 +154,7 @@ namespace Data.Project
         {
             try
             {
-                return await Task.Run(function: () => this.ToCreationDateTime());
+                return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
             }
             catch (ArgumentNullException ane)
             {
