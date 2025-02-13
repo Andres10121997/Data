@@ -83,6 +83,11 @@ namespace Data.GameEngine
 
         public void SetQuantityOfLife(byte QuantityOfLife)
         {
+            if (QuantityOfLife < 0)
+            {
+                throw new ArithmeticException(message: $"The \"${nameof(QuantityOfLife)}\" variable cannot be less than 0.");
+            }
+            
             this.QuantityOfLife = QuantityOfLife;
         }
 

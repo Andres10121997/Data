@@ -57,7 +57,7 @@ namespace Data.Communication.Email
         #region Variables
         public ulong? GetID()
         {
-            return ID;
+            return this.ID;
         }
 
         public void SetID(ulong? ID)
@@ -67,7 +67,7 @@ namespace Data.Communication.Email
 
         public string GetEmail()
         {
-            return Email;
+            return this.Email;
         }
 
         public void SetEmail(string Email)
@@ -76,10 +76,18 @@ namespace Data.Communication.Email
                 ||
                 string.IsNullOrWhiteSpace(value: Email))
             {
-                throw new ArgumentNullException(paramName: nameof(Email),
-                                                message: $"The variable \"{nameof(Email)}\", of the {nameof(EmailAddressData)} class, cannot be null or empty or have blank spaces.");
+                throw new ArgumentNullException(message: $"The variable \"{nameof(Email)}\", of the {nameof(EmailAddressData)} class, cannot be null or empty or have blank spaces.",
+                                                paramName: nameof(Email));
             }
-            
+            else
+            if (Email.Trim().Length == 0
+                ||
+                Email.Trim().Length.Equals(obj: 0))
+            {
+                throw new ArgumentException(message: $"The number of characters in the variable \"{nameof(Email)}\", of the class \"{nameof(EmailAddressData)}\", cannot be 0.",
+                                            paramName: nameof(Email));
+            }
+
             this.Email = Email.Trim();
         }
 

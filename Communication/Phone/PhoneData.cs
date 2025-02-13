@@ -75,8 +75,16 @@ namespace Data.Communication.Phone
                 ||
                 string.IsNullOrWhiteSpace(value: PhoneNumber))
             {
-                throw new ArgumentNullException(paramName: nameof(PhoneNumber),
-                                                message: $"The variable \"{nameof(PhoneNumber)}\", of the {nameof(PhoneData)} class, cannot be null or empty or have blank spaces.");
+                throw new ArgumentNullException(message: $"The variable \"{nameof(PhoneNumber)}\", of the {nameof(PhoneData)} class, cannot be null or empty or have blank spaces.",
+                                                paramName: nameof(PhoneNumber));
+            }
+            else
+            if (PhoneNumber.Trim().Length == 0
+                ||
+                PhoneNumber.Trim().Length.Equals(obj: 0))
+            {
+                throw new ArgumentException(message: $"The number of characters in the variable \"{nameof(PhoneNumber)}\", of the class \"{nameof(PhoneData)}\", cannot be 0.",
+                                            paramName: nameof(PhoneNumber));
             }
             
             this.PhoneNumber = PhoneNumber.Trim();
