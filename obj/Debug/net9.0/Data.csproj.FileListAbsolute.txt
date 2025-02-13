@@ -10,3 +10,15 @@ C:\Users\Andrés\Desktop\Proyectos\Data\obj\Debug\net9.0\Data.dll
 C:\Users\Andrés\Desktop\Proyectos\Data\obj\Debug\net9.0\refint\Data.dll
 C:\Users\Andrés\Desktop\Proyectos\Data\obj\Debug\net9.0\Data.pdb
 C:\Users\Andrés\Desktop\Proyectos\Data\obj\Debug\net9.0\ref\Data.dll
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\bin\Debug\net9.0\Data.deps.json
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\bin\Debug\net9.0\Data.dll
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\bin\Debug\net9.0\Data.pdb
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\Data.AssemblyInfoInputs.cache
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\Data.AssemblyInfo.cs
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\Data.sourcelink.json
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\Data.dll
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\refint\Data.dll
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\Data.pdb
+C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\obj\Debug\net9.0\ref\Data.dll

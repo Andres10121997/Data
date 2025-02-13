@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andrés\\Desktop\\Proyectos\\Data\\Data.csproj": {}
+    "C:\\Users\\andre\\OneDrive\\Escritorio\\Proyecto\\Data\\Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andrés\\Desktop\\Proyectos\\Data\\Data.csproj": {
+    "C:\\Users\\andre\\OneDrive\\Escritorio\\Proyecto\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andrés\\Desktop\\Proyectos\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Escritorio\\Proyecto\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\Andrés\\Desktop\\Proyectos\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\Andrés\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andrés\\Desktop\\Proyectos\\Data\\obj\\",
+        "projectPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\Proyecto\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\Proyecto\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Andrés\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
