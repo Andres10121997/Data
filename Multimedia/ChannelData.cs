@@ -146,6 +146,10 @@ namespace Data.Multimedia
 
 
         #region To
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns> DateTime </returns>
         public DateTime ToCreationDateTime()
         {
             DateTime CreationDateTime = this.CreationDate.ToDateTime(time: this.CreationTime);
@@ -153,6 +157,10 @@ namespace Data.Multimedia
             return CreationDateTime;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns> Task<DateTime> </returns>
         public async Task<DateTime> ToCreationDateTimeAsync()
         {
             try

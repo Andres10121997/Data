@@ -74,7 +74,7 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the ContinentData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Name)}\", of the ${nameof(ContinentData)} class, cannot be null or empty or have blank spaces.");
             }
             
             this.Name = Name.Trim();

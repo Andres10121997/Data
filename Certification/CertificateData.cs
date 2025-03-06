@@ -98,12 +98,14 @@ namespace Data.Certification
 
         public void SetPrice(float Price)
         {
-            if (float.IsNegative(f: Price))
+            if (float.IsNegative(f: Price)
+                ||
+                Price < 0)
             {
                 throw new ArithmeticException(message: nameof(Price));
             }
             else
-            if (Price < 0)
+            if (float.IsNaN(f: Price))
             {
                 throw new ArithmeticException(message: nameof(Price));
             }

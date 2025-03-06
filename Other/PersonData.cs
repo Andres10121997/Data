@@ -234,9 +234,9 @@ namespace Data.Other
             {
                 return await Task.Run<byte>(function: () => this.Age());
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ane)
             {
-                await Utils.ErrorMessagesAsync(ex: ex, OType: this.GetType());
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
                 
                 throw;
             }
@@ -294,14 +294,14 @@ namespace Data.Other
             {
                 return await Task.Run<string>(function: () => this.FullName());
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ane)
             {
-                await Utils.ErrorMessagesAsync(ex: ex,
+                await Utils.ErrorMessagesAsync(ex: ane,
                                                OType: this.GetType());
                 
                 throw;
             }
         }
-#endregion
+        #endregion
     }
 }
