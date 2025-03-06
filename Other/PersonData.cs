@@ -296,8 +296,7 @@ namespace Data.Other
             }
             catch (ArgumentNullException ane)
             {
-                await Utils.ErrorMessagesAsync(ex: ane,
-                                               OType: this.GetType());
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
                 
                 throw;
             }

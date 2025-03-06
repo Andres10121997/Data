@@ -6,11 +6,20 @@ namespace Data.Mathematics
 {
     public class Statistics
     {
-        #region Constructor methods
+        #region ConstructorMethods
         public Statistics()
             : base()
         {
             
+        }
+        #endregion
+
+
+
+        #region DestroyerMethod
+        ~Statistics()
+        {
+
         }
         #endregion
 
@@ -24,7 +33,16 @@ namespace Data.Mathematics
 
         public async Task<float> StandardDeviationAsync(float[] Values)
         {
-            return await Task.Run<float>(function: () => this.StandardDeviation(Values: Values));
+            try
+            {
+                return await Task.Run<float>(function: () => this.StandardDeviation(Values: Values));
+            }
+            catch (ArgumentNullException ane)
+            {
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
+
+                throw;
+            }
         }
 
         public double StandardDeviation(double[] Values)
@@ -34,7 +52,16 @@ namespace Data.Mathematics
 
         public async Task<double> StandardDeviationAsync(double[] Values)
         {
-            return await Task.Run<double>(function: () => this.StandardDeviation(Values: Values));
+            try
+            {
+                return await Task.Run<double>(function: () => this.StandardDeviation(Values: Values));
+            }
+            catch (ArgumentNullException ane)
+            {
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
+                
+                throw;
+            }
         }
         #endregion
 
@@ -43,30 +70,48 @@ namespace Data.Mathematics
         #region Variance
         public float Variance(float[] Values)
         {
-            var average = Values.Average();
-            var sumOfSquares = Values.Select(selector: value => Math.Pow(x: value - average, y: 2)).Sum();
-            var variance = sumOfSquares / Values.Length;
+            float average = Values.Average();
+            double sumOfSquares = Values.Select(selector: value => Math.Pow(x: value - average, y: 2)).Sum();
+            double variance = sumOfSquares / Values.Length;
 
             return Convert.ToSingle(value: variance);
         }
 
         public async Task<float> VarianceAsync(float[] Values)
         {
-            return await Task.Run<float>(function: () => this.Variance(Values: Values));
+            try
+            {
+                return await Task.Run<float>(function: () => this.Variance(Values: Values));
+            }
+            catch (ArgumentNullException ane)
+            {
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
+                
+                throw;
+            }
         }
 
         public double Variance(double[] Values)
         {
-            var average = Values.Average();
-            var sumOfSquares = Values.Select(selector: value => Math.Pow(x: value - average, y: 2)).Sum();
-            var variance = sumOfSquares / Values.Length;
+            double average = Values.Average();
+            double sumOfSquares = Values.Select(selector: value => Math.Pow(x: value - average, y: 2)).Sum();
+            double variance = sumOfSquares / Values.Length;
 
             return variance;
         }
 
         public async Task<double> VarianceAsync(double[] Values)
         {
-            return await Task.Run<double>(function: () => this.Variance(Values: Values));
+            try
+            {
+                return await Task.Run<double>(function: () => this.Variance(Values: Values));
+            }
+            catch (ArgumentNullException ane)
+            {
+                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
+                
+                throw;
+            }
         }
         #endregion
     }
