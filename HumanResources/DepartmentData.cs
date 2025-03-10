@@ -25,10 +25,15 @@ namespace Data.HumanResources
         public DepartmentData()
             : base()
         {
+            #region Variables
             this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
+            #endregion
+
+            #region Enum
             this.DepartmentType = DepartmentTypeEnum.Department;
+            #endregion
         }
 
         public DepartmentData(byte? ID,
@@ -37,10 +42,15 @@ namespace Data.HumanResources
                               DepartmentTypeEnum DepartmentType)
             : base()
         {
+            #region Variables
             this.ID = ID;
             this.Name = Name.Trim();
             this.Description = Description?.Trim();
+            #endregion
+
+            #region Enum
             this.DepartmentType = DepartmentType;
+            #endregion
         }
         #endregion
 
@@ -56,6 +66,7 @@ namespace Data.HumanResources
 
 
         #region Getters and Setters
+        #region Variables
         public byte? GetID()
         {
             return this.ID;
@@ -93,7 +104,9 @@ namespace Data.HumanResources
         {
             this.Description = Description?.Trim();
         }
+        #endregion
 
+        #region Enum
         public DepartmentTypeEnum GetDepartmentType()
         {
             return this.DepartmentType;
@@ -103,6 +116,7 @@ namespace Data.HumanResources
         {
             this.DepartmentType = DepartmentType;
         }
+        #endregion
         #endregion
     }
 }

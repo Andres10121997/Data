@@ -21,11 +21,16 @@ namespace Data.Location
         public CountryData()
             : base()
         {
+            #region Variables
             this.ID = null;
             this.Name = string.Empty;
             this.Iso = string.Empty;
             this.Iso3 = string.Empty;
+            #endregion
+
+            #region Objects
             this.OContinent = new ContinentData();
+            #endregion
         }
 
         public CountryData(byte? ID,
@@ -35,11 +40,16 @@ namespace Data.Location
                            ContinentData OContinent)
             : base()
         {
+            #region Variables
             this.ID = ID;
             this.Name = Name.Trim();
             this.Iso = Iso.Trim();
             this.Iso3 = Iso3.Trim();
+            #endregion
+
+            #region Objects
             this.OContinent = OContinent;
+            #endregion
         }
         #endregion
 

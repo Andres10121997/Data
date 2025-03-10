@@ -1,9 +1,8 @@
-﻿using Data.Account;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Data.Other
+namespace Data.Account
 {
     public class PersonData
     {
@@ -79,7 +78,7 @@ namespace Data.Other
         #region Variables
         public ulong? GetID()
         {
-            return this.ID;
+            return ID;
         }
 
         public void SetID(ulong? ID)
@@ -94,7 +93,7 @@ namespace Data.Other
 
         public string GetFirstName()
         {
-            return this.FirstName;
+            return FirstName;
         }
 
         public void SetFirstName(string FirstName)
@@ -112,7 +111,7 @@ namespace Data.Other
 
         public string? GetMiddleName()
         {
-            return this.MiddleName;
+            return MiddleName;
         }
 
         public void SetMiddleName(string? MiddleName)
@@ -122,7 +121,7 @@ namespace Data.Other
 
         public string GetFirstLastName()
         {
-            return this.FirstLastName;
+            return FirstLastName;
         }
 
         public void SetFirstLastName(string FirstLastName)
@@ -140,7 +139,7 @@ namespace Data.Other
 
         public string? GetSecondLastName()
         {
-            return this.SecondLastName;
+            return SecondLastName;
         }
 
         public void SetSecondLastName(string? SecondLastName)
@@ -150,7 +149,7 @@ namespace Data.Other
 
         public DateOnly GetDateOfBirth()
         {
-            return this.DateOfBirth;
+            return DateOfBirth;
         }
 
         public void SetDateOfBirth(DateOnly DateOfBirth)
@@ -170,7 +169,7 @@ namespace Data.Other
         #region Objects
         public SexData GetOSex()
         {
-            return this.OSex;
+            return OSex;
         }
 
         public void SetOSex(SexData OSex)
@@ -194,26 +193,26 @@ namespace Data.Other
             bool[] ListOfValidations;
             #endregion
 
-            Today = DateOnly.FromDateTime(DateTime.Now);
+            Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
             try
             {
-                if (this.DateOfBirth > Today)
+                if (DateOfBirth > Today)
                 {
                     throw new Exception("The Date of Birth cannot exceed the current date.");
                 }
 
-                Age = Convert.ToByte(value: Today.Year - this.DateOfBirth.Year);
+                Age = Convert.ToByte(value: Today.Year - DateOfBirth.Year);
 
                 ListOfValidations = new bool[2]
                 {
-                    this.DateOfBirth.Month > Today.Month,
-                    this.DateOfBirth.Month == Today.Month
+                    DateOfBirth.Month > Today.Month,
+                    DateOfBirth.Month == Today.Month
                     &&
-                    this.DateOfBirth.Day > Today.Day
+                    DateOfBirth.Day > Today.Day
                 };
                 
-                if (ListOfValidations.AsParallel().Contains(value: true))
+                if (ListOfValidations.AsParallel<bool>().Contains<bool>(value: true))
                 {
                     --Age;
                 }
@@ -222,7 +221,7 @@ namespace Data.Other
             }
             catch (Exception ex)
             {
-                Utils.ErrorMessages(ex: ex, OType: this.GetType());
+                Utils.ErrorMessages(ex: ex, OType: GetType());
                 
                 throw;
             }
@@ -255,26 +254,26 @@ namespace Data.Other
 
             try
             {
-                if (string.IsNullOrEmpty(value: this.MiddleName)
+                if (string.IsNullOrEmpty(value: MiddleName)
                     ||
-                    string.IsNullOrWhiteSpace(value: this.MiddleName))
+                    string.IsNullOrWhiteSpace(value: MiddleName))
                 {
-                    Name = this.FirstName.Trim();
+                    Name = FirstName.Trim();
                 }
                 else
                 {
-                    Name = $"{this.FirstName.Trim()} {this.MiddleName.Trim()}";
+                    Name = $"{FirstName.Trim()} {MiddleName.Trim()}";
                 }
 
-                if (string.IsNullOrEmpty(value: this.SecondLastName)
+                if (string.IsNullOrEmpty(value: SecondLastName)
                     ||
-                    string.IsNullOrWhiteSpace(value: this.SecondLastName))
+                    string.IsNullOrWhiteSpace(value: SecondLastName))
                 {
-                    LastName = this.FirstLastName.Trim();
+                    LastName = FirstLastName.Trim();
                 }
                 else
                 {
-                    LastName = $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}";
+                    LastName = $"{FirstLastName.Trim()} {SecondLastName.Trim()}";
                 }
 
                 return $"{Name.Trim()} {LastName.Trim()}";
@@ -282,7 +281,7 @@ namespace Data.Other
             catch (Exception ex)
             {
                 Utils.ErrorMessages(ex: ex,
-                                    OType: this.GetType());
+                                    OType: GetType());
                 
                 throw;
             }

@@ -25,6 +25,7 @@ namespace Data.HumanResources
         public SalaryData()
             : base()
         {
+            #region Variables
             this.ID = null;
             this.BaseSalary = float.MinValue;
             this.Gratification = float.MinValue;
@@ -33,7 +34,11 @@ namespace Data.HumanResources
             this.StartDate = DateOnly.MinValue;
             this.EndDate = null;
             this.IncomeTax = 0;
+            #endregion
+
+            #region Arrays
             this.BonusList = Array.Empty<float>();
+            #endregion
         }
 
         public SalaryData(ulong? ID,
@@ -47,6 +52,7 @@ namespace Data.HumanResources
                           float[] BonusList)
             : base()
         {
+            #region Variables
             this.ID = ID;
             this.BaseSalary = BaseSalary;
             this.Gratification = Gratification;
@@ -55,7 +61,11 @@ namespace Data.HumanResources
             this.StartDate = StartDate;
             this.EndDate = EndDate;
             this.IncomeTax = IncomeTax;
+            #endregion
+
+            #region Arrays
             this.BonusList = BonusList;
+            #endregion
         }
         #endregion
 
