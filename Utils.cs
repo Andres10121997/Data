@@ -5,18 +5,6 @@ namespace Data
 {
     internal static class Utils
     {
-        #region Enums
-        public enum EmailTypeEnum
-        {
-            Personal,
-            Work,
-            University,
-            School
-        }
-        #endregion
-
-
-
         #region Constructor Method
         static Utils()
         {
