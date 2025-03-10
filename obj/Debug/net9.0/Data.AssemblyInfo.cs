@@ -13,8 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Andres101297")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute(@"This package provides structured and reusable data classes to represent information in an organized way across different projects. Its purpose is to standardize the management of variables, grouping them in a logical way to facilitate their use and maintenance. By defining common and reusable structures, consistency in data handling within applications is improved, promoting modularity and clarity in the code.
+
+Este paquete proporciona clases de datos estructuradas y reutilizables para representar información de manera organizada en distintos proyectos. Su propósito es estandarizar la gestión de variables, agrupándolas de forma lógica para facilitar su uso y mantenimiento. Al definir estructuras comunes y reutilizables, se mejora la coherencia en el manejo de datos dentro de las aplicaciones, promoviendo la modularidad y la claridad en el código.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c05d171d64fb15f0c1a0400f535f77dbc1f5cebb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e3aad4ed531ae935918e03bf5ed6ec34b43f00b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

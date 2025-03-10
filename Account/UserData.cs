@@ -1,5 +1,6 @@
 ﻿using Data.Communication.Email;
 using Data.Communication.Phone;
+using Data.Location;
 using System;
 
 namespace Data.Account
@@ -15,6 +16,7 @@ namespace Data.Account
         #region Objects
         private EmailAddressData EmailAddress { get; set; }
         private PhoneData Phone { get; set; }
+        private CountryData Country { get; set; }
         #endregion
 
 
@@ -32,6 +34,7 @@ namespace Data.Account
             #region Objects
             this.EmailAddress = new EmailAddressData();
             this.Phone = new PhoneData();
+            this.Country = new CountryData();
             #endregion
         }
 
@@ -39,7 +42,8 @@ namespace Data.Account
                         string Login,
                         string Username,
                         EmailAddressData EmailAddress,
-                        PhoneData Phone)
+                        PhoneData Phone,
+                        CountryData Country)
             : base()
         {
             #region Variables
@@ -51,6 +55,7 @@ namespace Data.Account
             #region Objects
             this.EmailAddress = EmailAddress;
             this.Phone = Phone;
+            this.Country = Country;
             #endregion
         }
 
@@ -65,7 +70,8 @@ namespace Data.Account
                         string Login,
                         string Username,
                         EmailAddressData EmailAddress,
-                        PhoneData Phone)
+                        PhoneData Phone,
+                        CountryData Country)
             : base(ID: ID,
                    FirstName: FirstName.Trim(),
                    MiddleName: MiddleName?.Trim(),
@@ -83,6 +89,7 @@ namespace Data.Account
             #region Objects
             this.EmailAddress = EmailAddress;
             this.Phone = Phone;
+            this.Country = Country;
             #endregion
         }
         #endregion
@@ -174,6 +181,16 @@ namespace Data.Account
         public void SetPhone(PhoneData Phone)
         {
             this.Phone = Phone;
+        }
+
+        public CountryData GetCountry()
+        {
+            return this.Country;
+        }
+
+        public void SetCountry(CountryData Country)
+        {
+            this.Country = Country;
         }
         #endregion
         #endregion

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Data.Mathematics.Geometry.TwoDimensions
 {
@@ -66,6 +67,12 @@ namespace Data.Mathematics.Geometry.TwoDimensions
 
         public void SetLengthOfEdges(ushort[] LengthOfEdges)
         {
+            if (LengthOfEdges.Contains<ushort>(value: 0))
+            {
+                throw new ArgumentException(message: "The edge length cannot be 0.",
+                                            paramName: nameof(LengthOfEdges));
+            }
+
             this.LengthOfEdges = LengthOfEdges;
         }
         #endregion
