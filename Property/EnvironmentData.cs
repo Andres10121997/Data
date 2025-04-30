@@ -3,26 +3,26 @@
     public class EnvironmentData // Ambientes
     {
         #region Variables
-        private bool Grill { get; set; } // Parrilla
-        private bool Pool { get; set; } // Piscina
-        private bool Closet { get; set; }
-        private bool GuestBathroom { get; set; } // Baño de visitas
-        private bool Terrace { get; set; } // Terraza
-        private bool DiningRoom { get; set; } // Comedor
-        private bool WalkInCloset { get; set; } // Vestidor
-        private bool Homeoffice { get; set; } // Oficina en casa
-        private bool Living { get; set; }
-        private bool Yard { get; set; } // Patio
-        private bool BedroomDuite { get; set; } // Dormitorio en suite
-        private bool Balcony { get; set; } // Balcón
-        private bool Mansard { get; set; } // Mansarda
-        private bool Garden { get; set; } // Jardín
-        private bool Kitchen { get; set; } // Cocina
-        private bool ServiceBedroom { get; set; } // Dormitorio de servicio
-        private bool ServiceBathroom { get; set; } // Baño de servicio
-        private bool Playroom { get; set; } // Cuarto de juego
-        private bool WithLodge { get; set; } // Con logia
-        private bool EverydayDiningRoom { get; set; } // Comedor de diario
+        private bool IsThereGrill { get; set; } // Parrilla
+        private bool IsTherePool { get; set; } // Piscina
+        private bool IsThereCloset { get; set; }
+        private bool IsThereGuestBathroom { get; set; } // Baño de visitas
+        private bool IsThereTerrace { get; set; } // Terraza
+        private bool IsThereDiningRoom { get; set; } // Comedor
+        private bool IsThereWalkInCloset { get; set; } // Vestidor
+        private bool IsThereHomeoffice { get; set; } // Oficina en casa
+        private bool IsThereLiving { get; set; }
+        private bool IsThereYard { get; set; } // Patio
+        private bool IsThereBedroomDuite { get; set; } // Dormitorio en suite
+        private bool IsThereBalcony { get; set; } // Balcón
+        private bool IsThereMansard { get; set; } // Mansarda
+        private bool IsThereGarden { get; set; } // Jardín
+        private bool IsThereKitchen { get; set; } // Cocina
+        private bool IsThereServiceBedroom { get; set; } // Dormitorio de servicio
+        private bool IsThereServiceBathroom { get; set; } // Baño de servicio
+        private bool IsTherePlayroom { get; set; } // Cuarto de juego
+        private bool IsThereWithLodge { get; set; } // Con logia
+        private bool IsThereEverydayDiningRoom { get; set; } // Comedor de diario
         #endregion
 
 
@@ -31,70 +31,70 @@
         public EnvironmentData()
             : base()
         {
-            this.Grill = false;
-            this.Pool = false;
-            this.Closet = false;
-            this.GuestBathroom = false;
-            this.Terrace = false;
-            this.DiningRoom = false;
-            this.WalkInCloset = false;
-            this.Homeoffice = false;
-            this.Living = false;
-            this.Yard = false;
-            this.BedroomDuite = false;
-            this.Balcony = false;
-            this.Mansard = false;
-            this.Garden = false;
-            this.Kitchen = false;
-            this.ServiceBedroom = false;
-            this.ServiceBathroom = false;
-            this.Playroom = false;
-            this.WithLodge = false;
-            this.EverydayDiningRoom = false;
+            this.IsThereGrill = false;
+            this.IsTherePool = false;
+            this.IsThereCloset = false;
+            this.IsThereGuestBathroom = false;
+            this.IsThereTerrace = false;
+            this.IsThereDiningRoom = false;
+            this.IsThereWalkInCloset = false;
+            this.IsThereHomeoffice = false;
+            this.IsThereLiving = false;
+            this.IsThereYard = false;
+            this.IsThereBedroomDuite = false;
+            this.IsThereBalcony = false;
+            this.IsThereMansard = false;
+            this.IsThereGarden = false;
+            this.IsThereKitchen = false;
+            this.IsThereServiceBedroom = false;
+            this.IsThereServiceBathroom = false;
+            this.IsTherePlayroom = false;
+            this.IsThereWithLodge = false;
+            this.IsThereEverydayDiningRoom = false;
         }
 
-        public EnvironmentData(bool Grill,
-                               bool Pool,
-                               bool Closet,
-                               bool GuestBathroom,
-                               bool Terrace,
-                               bool DiningRoom,
-                               bool WalkInCloset,
-                               bool Homeoffice,
-                               bool Living,
-                               bool Yard,
-                               bool BedroomDuite,
-                               bool Balcony,
-                               bool Mansard,
-                               bool Garden,
-                               bool Kitchen,
-                               bool ServiceBedroom,
-                               bool ServiceBathroom,
-                               bool Playroom,
-                               bool WithLodge,
-                               bool EverydayDiningRoom)
+        public EnvironmentData(bool IsThereGrill,
+                               bool IsTherePool,
+                               bool IsThereCloset,
+                               bool IsThereGuestBathroom,
+                               bool IsThereTerrace,
+                               bool IsThereDiningRoom,
+                               bool IsThereWalkInCloset,
+                               bool IsThereHomeoffice,
+                               bool IsThereLiving,
+                               bool IsThereYard,
+                               bool IsThereBedroomDuite,
+                               bool IsThereBalcony,
+                               bool IsThereMansard,
+                               bool IsThereGarden,
+                               bool IsThereKitchen,
+                               bool IsThereServiceBedroom,
+                               bool IsThereServiceBathroom,
+                               bool IsTherePlayroom,
+                               bool IsThereWithLodge,
+                               bool IsThereEverydayDiningRoom)
             : base()
         {
-            this.Grill = Grill;
-            this.Pool = Pool;
-            this.Closet = Closet;
-            this.GuestBathroom = GuestBathroom;
-            this.Terrace = Terrace;
-            this.DiningRoom = DiningRoom;
-            this.WalkInCloset = WalkInCloset;
-            this.Homeoffice = Homeoffice;
-            this.Living = Living;
-            this.Yard = Yard;
-            this.BedroomDuite = BedroomDuite;
-            this.Balcony = Balcony;
-            this.Mansard = Mansard;
-            this.Garden = Garden;
-            this.Kitchen = Kitchen;
-            this.ServiceBedroom = ServiceBedroom;
-            this.ServiceBathroom = ServiceBathroom;
-            this.Playroom = Playroom;
-            this.WithLodge = WithLodge;
-            this.EverydayDiningRoom = EverydayDiningRoom;
+            this.IsThereGrill = IsThereGrill;
+            this.IsTherePool = IsTherePool;
+            this.IsThereCloset = IsThereCloset;
+            this.IsThereGuestBathroom = IsThereGuestBathroom;
+            this.IsThereTerrace = IsThereTerrace;
+            this.IsThereDiningRoom = IsThereDiningRoom;
+            this.IsThereWalkInCloset = IsThereWalkInCloset;
+            this.IsThereHomeoffice = IsThereHomeoffice;
+            this.IsThereLiving = IsThereLiving;
+            this.IsThereYard = IsThereYard;
+            this.IsThereBedroomDuite = IsThereBedroomDuite;
+            this.IsThereBalcony = IsThereBalcony;
+            this.IsThereMansard = IsThereMansard;
+            this.IsThereGarden = IsThereGarden;
+            this.IsThereKitchen = IsThereKitchen;
+            this.IsThereServiceBedroom = IsThereServiceBedroom;
+            this.IsThereServiceBathroom = IsThereServiceBathroom;
+            this.IsTherePlayroom = IsTherePlayroom;
+            this.IsThereWithLodge = IsThereWithLodge;
+            this.IsThereEverydayDiningRoom = IsThereEverydayDiningRoom;
         }
         #endregion
 
@@ -110,204 +110,204 @@
 
 
         #region Getters and Setters
-        public bool GetGrill()
+        public bool GetIsThereGrill()
         {
-            return this.Grill;
+            return this.IsThereGrill;
         }
 
-        public void SetGrill(bool Grill)
+        public void SetIsThereGrill(bool IsThereGrill)
         {
-            this.Grill = Grill;
+            this.IsThereGrill = IsThereGrill;
         }
 
-        public bool GetPool()
+        public bool GetIsTherePool()
         {
-            return this.Pool;
+            return this.IsTherePool;
         }
 
-        public void SetPool(bool Pool)
+        public void SetIsTherePool(bool IsTherePool)
         {
-            this.Pool = Pool;
+            this.IsTherePool = IsTherePool;
         }
 
-        public bool GetCloset()
+        public bool GetIsThereCloset()
         {
-            return this.Closet;
+            return this.IsThereCloset;
         }
 
-        public void SetCloset(bool Closet)
+        public void SetIsThereCloset(bool IsThereCloset)
         {
-            this.Closet = Closet;
+            this.IsThereCloset = IsThereCloset;
         }
 
-        public bool GetGuestBathroom()
+        public bool GetIsThereGuestBathroom()
         {
-            return this.GuestBathroom;
+            return this.IsThereGuestBathroom;
         }
 
-        public void SetGuestBathroom(bool GuestBathroom)
+        public void SetIsThereGuestBathroom(bool IsThereGuestBathroom)
         {
-            this.GuestBathroom = GuestBathroom;
+            this.IsThereGuestBathroom = IsThereGuestBathroom;
         }
 
-        public bool GetTerrace()
+        public bool GetIsThereTerrace()
         {
-            return this.Terrace;
+            return this.IsThereTerrace;
         }
 
-        public void SetTerrace(bool Terrace)
+        public void SetIsThereTerrace(bool IsThereTerrace)
         {
-            this.Terrace = Terrace;
+            this.IsThereTerrace = IsThereTerrace;
         }
 
-        public bool GetDiningRoom()
+        public bool GetIsThereDiningRoom()
         {
-            return this.DiningRoom;
+            return this.IsThereDiningRoom;
         }
 
-        public void SetDiningRoom(bool DiningRoom)
+        public void SetIsThereDiningRoom(bool IsThereDiningRoom)
         {
-            this.DiningRoom = DiningRoom;
+            this.IsThereDiningRoom = IsThereDiningRoom;
         }
 
-        public bool GetWalkInCloset()
+        public bool GetIsThereWalkInCloset()
         {
-            return this.WalkInCloset;
+            return this.IsThereWalkInCloset;
         }
 
-        public void SetWalkInCloset(bool WalkInCloset)
+        public void SetIsThereWalkInCloset(bool IsThereWalkInCloset)
         {
-            this.WalkInCloset = WalkInCloset;
+            this.IsThereWalkInCloset = IsThereWalkInCloset;
         }
 
-        public bool GetHomeoffice()
+        public bool GetIsThereHomeoffice()
         {
-            return this.Homeoffice;
+            return this.IsThereHomeoffice;
         }
 
-        public void SetHomeoffice(bool Homeoffice)
+        public void SetIsThereHomeoffice(bool IsThereHomeoffice)
         {
-            this.Homeoffice = Homeoffice;
+            this.IsThereHomeoffice = IsThereHomeoffice;
         }
 
-        public bool GetLiving()
+        public bool GetIsThereLiving()
         {
-            return this.Living;
+            return this.IsThereLiving;
         }
 
-        public void SetLiving(bool Living)
+        public void SetIsThereLiving(bool IsThereLiving)
         {
-            this.Living = Living;
+            this.IsThereLiving = IsThereLiving;
         }
 
-        public bool GetYard()
+        public bool GetIsThereYard()
         {
-            return this.Yard;
+            return this.IsThereYard;
         }
 
-        public void SetYard(bool Yard)
+        public void SetIsThereYard(bool IsThereYard)
         {
-            this.Yard = Yard;
+            this.IsThereYard = IsThereYard;
         }
 
-        public bool GetBedroomDuite()
+        public bool GetIsThereBedroomDuite()
         {
-            return this.BedroomDuite;
+            return this.IsThereBedroomDuite;
         }
 
-        public void SetBedroomDuite(bool BedroomDuite)
+        public void SetIsThereBedroomDuite(bool IsThereBedroomDuite)
         {
-            this.BedroomDuite = BedroomDuite;
+            this.IsThereBedroomDuite = IsThereBedroomDuite;
         }
 
-        public bool GetBalcony()
+        public bool GetIsThereBalcony()
         {
-            return this.Balcony;
+            return this.IsThereBalcony;
         }
 
-        public void SetBalcony(bool Balcony)
+        public void SetIsThereBalcony(bool IsThereBalcony)
         {
-            this.Balcony = Balcony;
+            this.IsThereBalcony = IsThereBalcony;
         }
 
-        public bool GetMansard()
+        public bool GetIsThereMansard()
         {
-            return this.Mansard;
+            return this.IsThereMansard;
         }
 
-        public void SetMansard(bool Mansard)
+        public void SetIsThereMansard(bool IsThereMansard)
         {
-            this.Mansard = Mansard;
+            this.IsThereMansard = IsThereMansard;
         }
 
-        public bool GetGarden()
+        public bool GetIsThereGarden()
         {
-            return this.Garden;
+            return this.IsThereGarden;
         }
 
-        public void SetGarden(bool Garden)
+        public void SetIsThereGarden(bool IsThereGarden)
         {
-            this.Garden = Garden;
+            this.IsThereGarden = IsThereGarden;
         }
 
-        public bool GetKitchen()
+        public bool GetIsThereKitchen()
         {
-            return this.Kitchen;
+            return this.IsThereKitchen;
         }
 
-        public void SetKitchen(bool Kitchen)
+        public void SetIsThereKitchen(bool IsThereKitchen)
         {
-            this.Kitchen = Kitchen;
+            this.IsThereKitchen = IsThereKitchen;
         }
 
-        public bool GetServiceBedroom()
+        public bool GetIsThereServiceBedroom()
         {
-            return this.ServiceBedroom;
+            return this.IsThereServiceBedroom;
         }
 
-        public void SetServiceBedroom(bool ServiceBedroom)
+        public void SetIsThereServiceBedroom(bool IsThereServiceBedroom)
         {
-            this.ServiceBedroom = ServiceBedroom;
+            this.IsThereServiceBedroom = IsThereServiceBedroom;
         }
 
-        public bool GetServiceBathroom()
+        public bool GetIsThereServiceBathroom()
         {
-            return this.ServiceBathroom;
+            return this.IsThereServiceBathroom;
         }
 
-        public void SetServiceBathroom(bool ServiceBathroom)
+        public void SetIsThereServiceBathroom(bool IsThereServiceBathroom)
         {
-            this.ServiceBathroom = ServiceBathroom;
+            this.IsThereServiceBathroom = IsThereServiceBathroom;
         }
 
-        public bool GetPlayroom()
+        public bool GetIsTherePlayroom()
         {
-            return this.Playroom;
+            return this.IsTherePlayroom;
         }
 
-        public void SetPlayroom(bool Playroom)
+        public void SetIsTherePlayroom(bool IsTherePlayroom)
         {
-            this.Playroom = Playroom;
+            this.IsTherePlayroom = IsTherePlayroom;
         }
 
-        public bool GetWithLodge()
+        public bool GetIsThereWithLodge()
         {
-            return this.WithLodge;
+            return this.IsThereWithLodge;
         }
 
-        public void SetWithLodge(bool WithLodge)
+        public void SetIsThereWithLodge(bool IsThereWithLodge)
         {
-            this.WithLodge = WithLodge;
+            this.IsThereWithLodge = IsThereWithLodge;
         }
 
-        public bool GetEverydayDiningRoom()
+        public bool GetIsThereEverydayDiningRoom()
         {
-            return this.EverydayDiningRoom;
+            return this.IsThereEverydayDiningRoom;
         }
 
-        public void SetEverydayDiningRoom(bool EverydayDiningRoom)
+        public void SetIsThereEverydayDiningRoom(bool IsThereEverydayDiningRoom)
         {
-            this.EverydayDiningRoom = EverydayDiningRoom;
+            this.IsThereEverydayDiningRoom = IsThereEverydayDiningRoom;
         }
         #endregion
     }

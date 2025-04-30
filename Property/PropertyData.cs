@@ -5,7 +5,6 @@
         #region Variables
         private ushort UsableArea { get; set; }
         private ushort TotalArea { get; set; }
-        private bool IsThereABalcony { get; set; }
         private byte NumberOfBedrooms { get; set; }
         private byte NumberOfBathrooms { get; set; }
         private byte NumberOfWarehouses { get; set; }
@@ -27,7 +26,6 @@
         {
             this.UsableArea = ushort.MinValue;
             this.TotalArea = ushort.MinValue;
-            this.IsThereABalcony = false;
             this.NumberOfBedrooms = byte.MinValue;
             this.NumberOfBathrooms = byte.MinValue;
             this.NumberOfWarehouses = byte.MinValue;
@@ -53,7 +51,6 @@
         {
             this.UsableArea = UsableArea;
             this.TotalArea = TotalArea;
-            this.IsThereABalcony = IsThereABalcony;
             this.NumberOfBedrooms = NumberOfBedrooms;
             this.NumberOfBathrooms = NumberOfBathrooms;
             this.NumberOfWarehouses = NumberOfWarehouses;
@@ -96,16 +93,6 @@
         public void SetTotalArea(ushort TotalArea)
         {
             this.TotalArea = TotalArea;
-        }
-
-        public bool GetIsThereABalcony()
-        {
-            return this.IsThereABalcony;
-        }
-
-        public void SetIsThereABalcony(bool IsThereABalcony)
-        {
-            this.IsThereABalcony = IsThereABalcony;
         }
 
         public byte GetNumberOfBedrooms()

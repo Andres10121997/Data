@@ -3,12 +3,12 @@
     public class SecurityData
     {
         #region Variables
-        private bool Alarm { get; set; } // Alarma
-        private bool Concierge { get; set; } // Conserjería
-        private bool AutomaticGate { get; set; } // Portón automático
+        private bool IsThereAlarm { get; set; } // Alarma
+        private bool IsThereConcierge { get; set; } // Conserjería
+        private bool IsThereAutomaticGate { get; set; } // Portón automático
         private string SecurityType { get; set; } // Tipo de seguridad (vigilancia con camaras municipales y guardia)
-        private bool WithClosedCondominium { get; set; } // Con condominio cerrado
-        private bool ControlledAccess { get; set; } // Acceso controlado
+        private bool IsThereWithClosedCondominium { get; set; } // Con condominio cerrado
+        private bool IsThereControlledAccess { get; set; } // Acceso controlado
         #endregion
 
 
@@ -17,28 +17,28 @@
         public SecurityData()
             : base()
         {
-            this.Alarm = false;
-            this.Concierge = false;
-            this.AutomaticGate = false;
+            this.IsThereAlarm = false;
+            this.IsThereConcierge = false;
+            this.IsThereAutomaticGate = false;
             this.SecurityType = string.Empty;
-            this.WithClosedCondominium = false;
-            this.ControlledAccess = false;
+            this.IsThereWithClosedCondominium = false;
+            this.IsThereControlledAccess = false;
         }
 
-        public SecurityData(bool Alarm,
-                            bool Concierge,
-                            bool AutomaticGate,
+        public SecurityData(bool IsThereAlarm,
+                            bool IsThereConcierge,
+                            bool IsThereAutomaticGate,
                             string SecurityType,
-                            bool WithClosedCondominium,
-                            bool ControlledAccess)
+                            bool IsThereWithClosedCondominium,
+                            bool IsThereControlledAccess)
             : base()
         {
-            this.Alarm = Alarm;
-            this.Concierge = Concierge;
-            this.AutomaticGate = AutomaticGate;
+            this.IsThereAlarm = IsThereAlarm;
+            this.IsThereConcierge = IsThereConcierge;
+            this.IsThereAutomaticGate = IsThereAutomaticGate;
             this.SecurityType = SecurityType;
-            this.WithClosedCondominium = WithClosedCondominium;
-            this.ControlledAccess = ControlledAccess;
+            this.IsThereWithClosedCondominium = IsThereWithClosedCondominium;
+            this.IsThereControlledAccess = IsThereControlledAccess;
         }
         #endregion
 
@@ -54,34 +54,34 @@
 
 
         #region Getters and Setters
-        public bool GetAlarm()
+        public bool GetIsThereAlarm()
         {
-            return this.Alarm;
+            return this.IsThereAlarm;
         }
 
-        public void SetAlarm(bool Alarm)
+        public void SetIsThereAlarm(bool Alarm)
         {
-            this.Alarm |= Alarm;
+            this.IsThereAlarm = Alarm;
         }
 
-        public bool GetConcierge()
+        public bool GetIsThereConcierge()
         {
-            return this.Concierge;
+            return this.IsThereConcierge;
         }
 
-        public void SetConcierge(bool Concierge)
+        public void SetIsThereConcierge(bool Concierge)
         {
-            this.Concierge = Concierge;
+            this.IsThereConcierge = Concierge;
         }
 
-        public bool GetAutomaticGate()
+        public bool GetIsThereAutomaticGate()
         {
-            return this.AutomaticGate;
+            return this.IsThereAutomaticGate;
         }
 
-        public void SetAutomaticGate(bool AutomaticGate)
+        public void SetIsThereAutomaticGate(bool IsThereAutomaticGate)
         {
-            this.AutomaticGate = AutomaticGate;
+            this.IsThereAutomaticGate = IsThereAutomaticGate;
         }
 
         public string GetSecurityType()
@@ -94,24 +94,24 @@
             this.SecurityType = SecurityType;
         }
 
-        public bool GetWithClosedCondominium()
+        public bool GetIsThereWithClosedCondominium()
         {
-            return this.WithClosedCondominium;
+            return this.IsThereWithClosedCondominium;
         }
 
-        public void SetWithClosedCondominium(bool WithClosedCondominium)
+        public void SetIsThereWithClosedCondominium(bool IsThereWithClosedCondominium)
         {
-            this.WithClosedCondominium = WithClosedCondominium;
+            this.IsThereWithClosedCondominium = IsThereWithClosedCondominium;
         }
 
-        public bool GetControlledAccess()
+        public bool GetIsThereControlledAccess()
         {
-            return this.ControlledAccess;
+            return this.IsThereControlledAccess;
         }
 
-        public void SetControlledAccess(bool ControlledAccess)
+        public void SetIsThereControlledAccess(bool IsThereControlledAccess)
         {
-            this.ControlledAccess = ControlledAccess;
+            this.IsThereControlledAccess = IsThereControlledAccess;
         }
         #endregion
     }
