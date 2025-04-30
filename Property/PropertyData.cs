@@ -13,6 +13,10 @@
         private byte NumberOfFloors { get; set; }
         #endregion
 
+        #region Objects
+        private SecurityData Security { get; set; }
+        #endregion
+
 
 
         #region ConstructorMethods
@@ -27,6 +31,7 @@
             this.NumberOfWarehouses = byte.MinValue;
             this.NumberOfParkingSpaces = byte.MinValue;
             this.NumberOfFloors = byte.MinValue;
+            this.Security = new SecurityData();
         }
 
         public PropertyData(ushort UsableArea,
@@ -36,7 +41,8 @@
                             byte NumberOfBathrooms,
                             byte NumberOfWarehouses,
                             byte NumberOfParkingSpaces,
-                            byte NumberOfFloors)
+                            byte NumberOfFloors,
+                            SecurityData Security)
             : base()
         {
             this.UsableArea = UsableArea;
@@ -47,6 +53,7 @@
             this.NumberOfWarehouses = NumberOfWarehouses;
             this.NumberOfParkingSpaces = NumberOfParkingSpaces;
             this.NumberOfFloors = NumberOfFloors;
+            this.Security = Security;
         }
         #endregion
 
@@ -62,6 +69,7 @@
 
 
         #region Getters and Setters
+        #region Variables
         public ushort GetUsableArea()
         {
             return this.UsableArea;
@@ -141,6 +149,19 @@
         {
             this.NumberOfFloors = NumberOfFloors;
         }
+        #endregion
+
+        #region Objects
+        public SecurityData GetSecurity()
+        {
+            return this.Security;
+        }
+
+        public void SetSecurity(SecurityData Security)
+        {
+            this.Security = Security;
+        }
+        #endregion
         #endregion
     }
 }
