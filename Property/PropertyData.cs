@@ -16,6 +16,7 @@
         #region Objects
         private SecurityData Security { get; set; }
         private ServiceData Service { get; set; }
+        private EnvironmentData Environment { get; set; }
         #endregion
 
 
@@ -34,6 +35,7 @@
             this.NumberOfFloors = byte.MinValue;
             this.Security = new SecurityData();
             this.Service = new ServiceData();
+            this.Environment = new EnvironmentData();
         }
 
         public PropertyData(ushort UsableArea,
@@ -45,7 +47,8 @@
                             byte NumberOfParkingSpaces,
                             byte NumberOfFloors,
                             SecurityData Security,
-                            ServiceData Service)
+                            ServiceData Service,
+                            EnvironmentData Environment)
             : base()
         {
             this.UsableArea = UsableArea;
@@ -58,6 +61,7 @@
             this.NumberOfFloors = NumberOfFloors;
             this.Security = Security;
             this.Service = Service;
+            this.Environment = Environment;
         }
         #endregion
 
@@ -174,6 +178,16 @@
         public void SetService(ServiceData Service)
         {
             this.Service = Service;
+        }
+
+        public EnvironmentData GetEnvironment()
+        {
+            return this.Environment;
+        }
+
+        public void SetEnvironment(EnvironmentData Environment)
+        {
+            this.Environment = Environment;
         }
         #endregion
         #endregion
