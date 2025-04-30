@@ -15,6 +15,7 @@
 
         #region Objects
         private SecurityData Security { get; set; }
+        private ServiceData Service { get; set; }
         #endregion
 
 
@@ -32,6 +33,7 @@
             this.NumberOfParkingSpaces = byte.MinValue;
             this.NumberOfFloors = byte.MinValue;
             this.Security = new SecurityData();
+            this.Service = new ServiceData();
         }
 
         public PropertyData(ushort UsableArea,
@@ -42,7 +44,8 @@
                             byte NumberOfWarehouses,
                             byte NumberOfParkingSpaces,
                             byte NumberOfFloors,
-                            SecurityData Security)
+                            SecurityData Security,
+                            ServiceData Service)
             : base()
         {
             this.UsableArea = UsableArea;
@@ -54,6 +57,7 @@
             this.NumberOfParkingSpaces = NumberOfParkingSpaces;
             this.NumberOfFloors = NumberOfFloors;
             this.Security = Security;
+            this.Service = Service;
         }
         #endregion
 
@@ -160,6 +164,16 @@
         public void SetSecurity(SecurityData Security)
         {
             this.Security = Security;
+        }
+
+        public ServiceData GetService()
+        {
+            return this.Service;
+        }
+
+        public void SetService(ServiceData Service)
+        {
+            this.Service = Service;
         }
         #endregion
         #endregion
