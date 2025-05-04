@@ -5,14 +5,9 @@ namespace Data.Location
     public class CountryData
     {
         #region Variables
-        private byte? ID { get; set; }
         private string Name { get; set; }
         private string Iso { get; set; }
         private string Iso3 { get; set; }
-        #endregion
-
-        #region Objects
-        private ContinentData OContinent { get; set; }
         #endregion
 
 
@@ -22,33 +17,22 @@ namespace Data.Location
             : base()
         {
             #region Variables
-            this.ID = null;
             this.Name = string.Empty;
             this.Iso = string.Empty;
             this.Iso3 = string.Empty;
-            #endregion
-
-            #region Objects
-            this.OContinent = new ContinentData();
             #endregion
         }
 
         public CountryData(byte? ID,
                            string Name,
                            string Iso,
-                           string Iso3,
-                           ContinentData OContinent)
+                           string Iso3)
             : base()
         {
             #region Variables
-            this.ID = ID;
             this.Name = Name.Trim();
             this.Iso = Iso.Trim();
             this.Iso3 = Iso3.Trim();
-            #endregion
-
-            #region Objects
-            this.OContinent = OContinent;
             #endregion
         }
         #endregion
@@ -66,16 +50,6 @@ namespace Data.Location
 
         #region Getters and Setters
         #region Variables
-        public byte? GetID()
-        {
-            return this.ID;
-        }
-
-        public void SetID(byte? ID)
-        {
-            this.ID = ID;
-        }
-
         public string GetName()
         {
             return this.Name;
@@ -148,18 +122,6 @@ namespace Data.Location
             }
             
             this.Iso3 = Iso3.Trim();
-        }
-        #endregion
-
-        #region Objects
-        public ContinentData GetOContinent()
-        {
-            return this.OContinent;
-        }
-
-        public void SetOContinent(ContinentData OContinent)
-        {
-            this.OContinent = OContinent;
         }
         #endregion
         #endregion

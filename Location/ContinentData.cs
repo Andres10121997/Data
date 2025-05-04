@@ -5,8 +5,11 @@ namespace Data.Location
     public class ContinentData
     {
         #region Variables
-        private byte? ID { get; set; }
-        private string Name { get; set; }
+        private ContinentEnum Name { get; set; }
+        #endregion
+
+        #region Arrays
+        CountryData[] ListOfCountries { get; set; }
         #endregion
 
         #region Enums
@@ -27,16 +30,16 @@ namespace Data.Location
         public ContinentData()
             : base()
         {
-            this.ID = null;
-            this.Name = string.Empty;
+            this.Name = ContinentEnum.America;
+            this.ListOfCountries = Array.Empty<CountryData>();
         }
 
-        public ContinentData(byte? ID,
-                             string Name)
+        public ContinentData(ContinentEnum Name,
+                             CountryData[] ListOfCountries)
             : base()
         {
-            this.ID = ID;
-            this.Name = Name.Trim();
+            this.Name = Name;
+            this.ListOfCountries = ListOfCountries;
         }
         #endregion
 
@@ -52,32 +55,24 @@ namespace Data.Location
 
 
         #region Getters and Setters
-        public byte? GetID()
-        {
-            return this.ID;
-        }
-
-        public void SetID(byte? ID)
-        {
-            this.ID = ID;
-        }
-
-        public string GetName()
+        public ContinentEnum GetName()
         {
             return this.Name;
         }
 
-        public void SetName(string Name)
+        public void SetName(ContinentEnum Name)
         {
-            if (string.IsNullOrEmpty(value: Name)
-                ||
-                string.IsNullOrWhiteSpace(value: Name))
-            {
-                throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the ${nameof(ContinentData)} class, cannot be null or empty or have blank spaces.");
-            }
-            
-            this.Name = Name.Trim();
+            this.Name = Name;
+        }
+
+        public CountryData[] GetListOfCountries()
+        {
+            return this.ListOfCountries;
+        }
+
+        public void SetListOfCountries(CountryData[] ListOfCountries)
+        {
+            this.ListOfCountries = ListOfCountries;
         }
         #endregion
     }
