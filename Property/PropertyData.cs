@@ -24,6 +24,7 @@
         public PropertyData()
             : base()
         {
+            #region Variables
             this.UsableArea = ushort.MinValue;
             this.TotalArea = ushort.MinValue;
             this.NumberOfBedrooms = byte.MinValue;
@@ -31,9 +32,13 @@
             this.NumberOfWarehouses = byte.MinValue;
             this.NumberOfParkingSpaces = byte.MinValue;
             this.NumberOfFloors = byte.MinValue;
+            #endregion
+
+            #region Objects
             this.Security = new SecurityData();
             this.Service = new ServiceData();
             this.Environment = new EnvironmentData();
+            #endregion
         }
 
         public PropertyData(ushort UsableArea,
@@ -49,6 +54,7 @@
                             EnvironmentData Environment)
             : base()
         {
+            #region Variables
             this.UsableArea = UsableArea;
             this.TotalArea = TotalArea;
             this.NumberOfBedrooms = NumberOfBedrooms;
@@ -56,9 +62,13 @@
             this.NumberOfWarehouses = NumberOfWarehouses;
             this.NumberOfParkingSpaces = NumberOfParkingSpaces;
             this.NumberOfFloors = NumberOfFloors;
+            #endregion
+
+            #region Objects
             this.Security = Security;
             this.Service = Service;
             this.Environment = Environment;
+            #endregion
         }
         #endregion
 

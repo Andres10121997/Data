@@ -248,33 +248,23 @@ namespace Data.Account
         public string FullName()
         {
             #region Variables
-            string Name = string.Empty;
-            string LastName = string.Empty;
+            string Name;
+            string LastName;
             #endregion
 
             try
             {
-                if (string.IsNullOrEmpty(value: MiddleName)
-                    ||
-                    string.IsNullOrWhiteSpace(value: MiddleName))
-                {
-                    Name = FirstName.Trim();
-                }
-                else
-                {
-                    Name = $"{FirstName.Trim()} {MiddleName.Trim()}";
-                }
-
-                if (string.IsNullOrEmpty(value: SecondLastName)
-                    ||
-                    string.IsNullOrWhiteSpace(value: SecondLastName))
-                {
-                    LastName = FirstLastName.Trim();
-                }
-                else
-                {
-                    LastName = $"{FirstLastName.Trim()} {SecondLastName.Trim()}";
-                }
+                Name = (
+                    string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
+                    ?
+                    this.FirstName.Trim() : $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
+                );
+                
+                LastName = (
+                    string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
+                    ?
+                    this.FirstLastName.Trim() : $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
+                );
 
                 return $"{Name.Trim()} {LastName.Trim()}";
             }

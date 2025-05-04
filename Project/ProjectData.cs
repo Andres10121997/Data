@@ -145,7 +145,9 @@ namespace Data.Project
         #region To
         public DateTime ToCreationDateTime()
         {
-            DateTime CreationDateTime = CreationDate.ToDateTime(time: CreationTime);
+            DateTime CreationDateTime;
+
+            CreationDateTime = CreationDate.ToDateTime(time: CreationTime);
 
             return CreationDateTime;
         }
