@@ -20,15 +20,15 @@ Este proyecto está diseñado para ser flexible y escalable, permitiendo su integr
 ## Technologies Used / Tecnologías Utilizadas
 ### English
 
-- **[C#](https://dotnet.microsoft.com/en-us/languages/csharp)**: Primary language for developing the solution.
-- **.NET Core**: Framework used for creating modular and scalable applications.
-- **[Visual Studio](https://visualstudio.microsoft.com/)**: Recommended development environment for project management.
+- **<ins>[C#](https://dotnet.microsoft.com/en-us/languages/csharp)</ins>:** Primary language for developing the solution.
+- **<ins>.NET Core</ins>:** Framework used for creating modular and scalable applications.
+- **<ins>[Visual Studio](https://visualstudio.microsoft.com/)</ins>:** Recommended development environment for project management.
 
 ### Spanish
 
-- **[C#](https://dotnet.microsoft.com/es-es/languages/csharp)**: Lenguaje principal para el desarrollo de la solución.
-- **.NET Core**: Framework utilizado para la creación de aplicaciones modulares y escalables.
-- **[Visual Studio](https://visualstudio.microsoft.com/es/)**: Entorno de desarrollo recomendado para la gestión del proyecto.
+- **<ins>[C#](https://dotnet.microsoft.com/es-es/languages/csharp)</ins>:** Lenguaje principal para el desarrollo de la solución.
+- **<ins>.NET Core</ins>:** Framework utilizado para la creación de aplicaciones modulares y escalables.
+- **<ins>[Visual Studio](https://visualstudio.microsoft.com/es/)</ins>:** Entorno de desarrollo recomendado para la gestión del proyecto.
 
 ---
 
