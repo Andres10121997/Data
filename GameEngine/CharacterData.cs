@@ -5,7 +5,6 @@ namespace Data.GameEngine
     public class CharacterData
     {
         #region Variables
-        private ulong? ID { get; set; }
         private string Name { get; set; }
         private byte QuantityOfLife { get; set; }
         private byte AmountOfDamage { get; set; }
@@ -17,19 +16,16 @@ namespace Data.GameEngine
         public CharacterData()
             : base()
         {
-            this.ID = null;
             this.Name = string.Empty;
             this.QuantityOfLife = byte.MinValue;
             this.AmountOfDamage = byte.MinValue;
         }
 
-        public CharacterData(ulong? ID,
-                             string Name,
+        public CharacterData(string Name,
                              byte QuantityOfLife,
                              byte AmountOfDamage)
             : base()
         {
-            this.ID = ID;
             this.Name = Name.Trim();
             this.QuantityOfLife = QuantityOfLife;
             this.AmountOfDamage = AmountOfDamage;
@@ -48,16 +44,6 @@ namespace Data.GameEngine
 
 
         #region Getters and Setters
-        public ulong? GetID()
-        {
-            return this.ID;
-        }
-
-        public void SetID(ulong? ID)
-        {
-            this.ID = ID;
-        }
-
         public string GetName()
         {
             return this.Name;

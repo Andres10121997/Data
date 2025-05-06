@@ -5,7 +5,6 @@ namespace Data.HumanResources
     public class SalaryData
     {
         #region Variables
-        private ulong? ID { get; set; }
         private float BaseSalary { get; set; }
         private float Gratification { get; set; }
         private float SnackBonus { get; set; }
@@ -26,7 +25,6 @@ namespace Data.HumanResources
             : base()
         {
             #region Variables
-            this.ID = null;
             this.BaseSalary = float.MinValue;
             this.Gratification = float.MinValue;
             this.SnackBonus = float.MinValue;
@@ -41,8 +39,7 @@ namespace Data.HumanResources
             #endregion
         }
 
-        public SalaryData(ulong? ID,
-                          float BaseSalary,
+        public SalaryData(float BaseSalary,
                           float Gratification,
                           float SnackBonus,
                           float MobilizationBonus,
@@ -53,7 +50,6 @@ namespace Data.HumanResources
             : base()
         {
             #region Variables
-            this.ID = ID;
             this.BaseSalary = BaseSalary;
             this.Gratification = Gratification;
             this.SnackBonus = SnackBonus;
@@ -82,16 +78,6 @@ namespace Data.HumanResources
 
         #region Getters and Setters
         #region Variables
-        public ulong? GetID()
-        {
-            return ID;
-        }
-
-        public void SetSalaryID(ulong? ID)
-        {
-            this.ID = ID;
-        }
-        
         public float GetBaseSalary()
         {
             return this.BaseSalary;

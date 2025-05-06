@@ -195,50 +195,32 @@ namespace Data.Account
 
             Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            try
+            if (DateOfBirth > Today)
             {
-                if (DateOfBirth > Today)
-                {
-                    throw new Exception("The Date of Birth cannot exceed the current date.");
-                }
+                throw new Exception("The Date of Birth cannot exceed the current date.");
+            }
 
-                Age = Convert.ToByte(value: Today.Year - DateOfBirth.Year);
+            Age = Convert.ToByte(value: Today.Year - DateOfBirth.Year);
 
-                ListOfValidations = new bool[2]
-                {
+            ListOfValidations = new bool[2]
+            {
                     DateOfBirth.Month > Today.Month,
                     DateOfBirth.Month == Today.Month
                     &&
                     DateOfBirth.Day > Today.Day
-                };
-                
-                if (ListOfValidations.AsParallel<bool>().Contains<bool>(value: true))
-                {
-                    --Age;
-                }
+            };
 
-                return Age;
-            }
-            catch (Exception ex)
+            if (ListOfValidations.AsParallel<bool>().Contains<bool>(value: true))
             {
-                Utils.ErrorMessages(ex: ex, OType: GetType());
-                
-                throw;
+                --Age;
             }
+
+            return Age;
         }
 
         public async Task<byte> AgeAsync()
         {
-            try
-            {
-                return await Task.Run<byte>(function: () => this.Age());
-            }
-            catch (ArgumentNullException ane)
-            {
-                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
-                
-                throw;
-            }
+            return await Task.Run<byte>(function: () => this.Age());
         }
         #endregion
 
@@ -252,43 +234,24 @@ namespace Data.Account
             string LastName;
             #endregion
 
-            try
-            {
-                Name = (
-                    string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
-                    ?
-                    this.FirstName.Trim() : $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
-                );
-                
-                LastName = (
-                    string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
-                    ?
-                    this.FirstLastName.Trim() : $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
-                );
+            Name = (
+                string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
+                ?
+                this.FirstName.Trim() : $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
+            );
 
-                return $"{Name.Trim()} {LastName.Trim()}";
-            }
-            catch (Exception ex)
-            {
-                Utils.ErrorMessages(ex: ex,
-                                    OType: GetType());
-                
-                throw;
-            }
+            LastName = (
+                string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
+                ?
+                this.FirstLastName.Trim() : $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
+            );
+
+            return $"{Name.Trim()} {LastName.Trim()}";
         }
 
         public async Task<string> FirstNameAsync()
         {
-            try
-            {
-                return await Task.Run<string>(function: () => this.FullName());
-            }
-            catch (ArgumentNullException ane)
-            {
-                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
-                
-                throw;
-            }
+            return await Task.Run<string>(function: () => this.FullName());
         }
         #endregion
     }

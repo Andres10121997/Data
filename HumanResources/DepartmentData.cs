@@ -5,7 +5,6 @@ namespace Data.HumanResources
     public class DepartmentData
     {
         #region Variables
-        private byte? ID { get; set; }
         private string Name { get; set; }
         private string? Description { get; set; }
         private DepartmentTypeEnum DepartmentType { get; set; }
@@ -26,7 +25,6 @@ namespace Data.HumanResources
             : base()
         {
             #region Variables
-            this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
             #endregion
@@ -36,14 +34,12 @@ namespace Data.HumanResources
             #endregion
         }
 
-        public DepartmentData(byte? ID,
-                              string Name,
+        public DepartmentData(string Name,
                               string? Description,
                               DepartmentTypeEnum DepartmentType)
             : base()
         {
             #region Variables
-            this.ID = ID;
             this.Name = Name.Trim();
             this.Description = Description?.Trim();
             #endregion
@@ -67,16 +63,6 @@ namespace Data.HumanResources
 
         #region Getters and Setters
         #region Variables
-        public byte? GetID()
-        {
-            return this.ID;
-        }
-        
-        public void SetID(byte? ID)
-        {
-            this.ID = ID;
-        }
-
         public string GetName()
         {
             return this.Name;

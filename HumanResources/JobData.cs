@@ -5,7 +5,6 @@ namespace Data.HumanResources
     public class JobData
     {
         #region Variables
-        private byte? ID { get; set; }
         private string Name { get; set; }
         private string? Description { get; set; }
         #endregion
@@ -16,7 +15,6 @@ namespace Data.HumanResources
         public JobData()
             : base()
         {
-            this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
         }
@@ -25,7 +23,6 @@ namespace Data.HumanResources
                        string Name,
                        string? Description)
         {
-            this.ID = ID;
             this.Name = Name.Trim();
             this.Description = Description?.Trim();
         }
@@ -43,16 +40,6 @@ namespace Data.HumanResources
 
 
         #region Getters and Setters
-        public byte? GetID()
-        {
-            return this.ID;
-        }
-
-        public void SetID(byte? ID)
-        {
-            this.ID = ID;
-        }
-
         public string GetName()
         {
             return this.Name;

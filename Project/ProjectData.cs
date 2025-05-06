@@ -6,7 +6,6 @@ namespace Data.Project
     public class ProjectData
     {
         #region Variables
-        private ulong? ID { get; set; }
         private string Name { get; set; }
         private string? Description { get; set; }
         private DateOnly CreationDate { get; set; }
@@ -29,7 +28,6 @@ namespace Data.Project
         public ProjectData()
             : base()
         {
-            this.ID = null;
             this.Name = string.Empty;
             this.Description = null;
             this.CreationDate = new DateOnly();
@@ -37,15 +35,13 @@ namespace Data.Project
             this.AccessLevel = AccessLevelEnum.Private;
         }
 
-        public ProjectData(ulong? ID,
-                           string Name,
+        public ProjectData(string Name,
                            string? Description,
                            DateOnly CreationDate,
                            TimeOnly CreationTime,
                            AccessLevelEnum AccessLevel)
             : base()
         {
-            this.ID = ID;
             this.Name = Name;
             this.Description = Description;
             this.CreationDate = CreationDate;
@@ -66,19 +62,9 @@ namespace Data.Project
 
 
         #region Getters and Setters
-        public ulong? GetID()
-        {
-            return ID;
-        }
-
-        public void SetID(ulong? ID)
-        {
-            this.ID = ID;
-        }
-
         public string GetName()
         {
-            return Name;
+            return this.Name;
         }
 
         public void SetName(string Name)
@@ -96,7 +82,7 @@ namespace Data.Project
 
         public string? GetDescription()
         {
-            return Description;
+            return this.Description;
         }
 
         public void SetDescription(string? Description)
@@ -106,7 +92,7 @@ namespace Data.Project
 
         public DateOnly GetCreationDate()
         {
-            return CreationDate;
+            return this.CreationDate;
         }
 
         public void SetCreationDate(DateOnly CreationDate)
@@ -121,7 +107,7 @@ namespace Data.Project
 
         public TimeOnly GetCreationTime()
         {
-            return CreationTime;
+            return this.CreationTime;
         }
 
         public void SetCreationTime(TimeOnly CreationTime)
@@ -154,16 +140,7 @@ namespace Data.Project
 
         public async Task<DateTime> ToCreationDateTimeAsync()
         {
-            try
-            {
-                return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
-            }
-            catch (ArgumentNullException ane)
-            {
-                await Utils.ErrorMessagesAsync(ex: ane, OType: this.GetType());
-
-                throw;
-            }
+            return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
         }
         #endregion
     }
