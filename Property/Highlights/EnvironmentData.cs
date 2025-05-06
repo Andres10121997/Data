@@ -31,26 +31,26 @@
         public EnvironmentData()
             : base()
         {
-            IsThereGrill = false;
-            IsTherePool = false;
-            IsThereCloset = false;
-            IsThereGuestBathroom = false;
-            IsThereTerrace = false;
-            IsThereDiningRoom = false;
-            IsThereWalkInCloset = false;
-            IsThereHomeoffice = false;
-            IsThereLiving = false;
-            IsThereYard = false;
-            IsThereBedroomDuite = false;
-            IsThereBalcony = false;
-            IsThereMansard = false;
-            IsThereGarden = false;
-            IsThereKitchen = false;
-            IsThereServiceBedroom = false;
-            IsThereServiceBathroom = false;
-            IsTherePlayroom = false;
-            IsThereWithLodge = false;
-            IsThereEverydayDiningRoom = false;
+            this.IsThereGrill = false;
+            this.IsTherePool = false;
+            this.IsThereCloset = false;
+            this.IsThereGuestBathroom = false;
+            this.IsThereTerrace = false;
+            this.IsThereDiningRoom = false;
+            this.IsThereWalkInCloset = false;
+            this.IsThereHomeoffice = false;
+            this.IsThereLiving = false;
+            this.IsThereYard = false;
+            this.IsThereBedroomDuite = false;
+            this.IsThereBalcony = false;
+            this.IsThereMansard = false;
+            this.IsThereGarden = false;
+            this.IsThereKitchen = false;
+            this.IsThereServiceBedroom = false;
+            this.IsThereServiceBathroom = false;
+            this.IsTherePlayroom = false;
+            this.IsThereWithLodge = false;
+            this.IsThereEverydayDiningRoom = false;
         }
 
         public EnvironmentData(bool IsThereGrill,
@@ -112,7 +112,7 @@
         #region Getters and Setters
         public bool GetIsThereGrill()
         {
-            return IsThereGrill;
+            return this.IsThereGrill;
         }
 
         public void SetIsThereGrill(bool IsThereGrill)
@@ -122,7 +122,7 @@
 
         public bool GetIsTherePool()
         {
-            return IsTherePool;
+            return this.IsTherePool;
         }
 
         public void SetIsTherePool(bool IsTherePool)
@@ -132,7 +132,7 @@
 
         public bool GetIsThereCloset()
         {
-            return IsThereCloset;
+            return this.IsThereCloset;
         }
 
         public void SetIsThereCloset(bool IsThereCloset)
@@ -142,7 +142,7 @@
 
         public bool GetIsThereGuestBathroom()
         {
-            return IsThereGuestBathroom;
+            return this.IsThereGuestBathroom;
         }
 
         public void SetIsThereGuestBathroom(bool IsThereGuestBathroom)
@@ -152,7 +152,7 @@
 
         public bool GetIsThereTerrace()
         {
-            return IsThereTerrace;
+            return this.IsThereTerrace;
         }
 
         public void SetIsThereTerrace(bool IsThereTerrace)
@@ -162,7 +162,7 @@
 
         public bool GetIsThereDiningRoom()
         {
-            return IsThereDiningRoom;
+            return this.IsThereDiningRoom;
         }
 
         public void SetIsThereDiningRoom(bool IsThereDiningRoom)
@@ -172,7 +172,7 @@
 
         public bool GetIsThereWalkInCloset()
         {
-            return IsThereWalkInCloset;
+            return this.IsThereWalkInCloset;
         }
 
         public void SetIsThereWalkInCloset(bool IsThereWalkInCloset)
@@ -182,7 +182,7 @@
 
         public bool GetIsThereHomeoffice()
         {
-            return IsThereHomeoffice;
+            return this.IsThereHomeoffice;
         }
 
         public void SetIsThereHomeoffice(bool IsThereHomeoffice)
@@ -192,7 +192,7 @@
 
         public bool GetIsThereLiving()
         {
-            return IsThereLiving;
+            return this.IsThereLiving;
         }
 
         public void SetIsThereLiving(bool IsThereLiving)
@@ -202,7 +202,7 @@
 
         public bool GetIsThereYard()
         {
-            return IsThereYard;
+            return this.IsThereYard;
         }
 
         public void SetIsThereYard(bool IsThereYard)
@@ -212,7 +212,7 @@
 
         public bool GetIsThereBedroomDuite()
         {
-            return IsThereBedroomDuite;
+            return this.IsThereBedroomDuite;
         }
 
         public void SetIsThereBedroomDuite(bool IsThereBedroomDuite)
@@ -222,7 +222,7 @@
 
         public bool GetIsThereBalcony()
         {
-            return IsThereBalcony;
+            return this.IsThereBalcony;
         }
 
         public void SetIsThereBalcony(bool IsThereBalcony)
@@ -232,7 +232,7 @@
 
         public bool GetIsThereMansard()
         {
-            return IsThereMansard;
+            return this.IsThereMansard;
         }
 
         public void SetIsThereMansard(bool IsThereMansard)
@@ -242,7 +242,7 @@
 
         public bool GetIsThereGarden()
         {
-            return IsThereGarden;
+            return this.IsThereGarden;
         }
 
         public void SetIsThereGarden(bool IsThereGarden)
@@ -252,7 +252,7 @@
 
         public bool GetIsThereKitchen()
         {
-            return IsThereKitchen;
+            return this.IsThereKitchen;
         }
 
         public void SetIsThereKitchen(bool IsThereKitchen)
@@ -262,7 +262,7 @@
 
         public bool GetIsThereServiceBedroom()
         {
-            return IsThereServiceBedroom;
+            return this.IsThereServiceBedroom;
         }
 
         public void SetIsThereServiceBedroom(bool IsThereServiceBedroom)
@@ -272,7 +272,7 @@
 
         public bool GetIsThereServiceBathroom()
         {
-            return IsThereServiceBathroom;
+            return this.IsThereServiceBathroom;
         }
 
         public void SetIsThereServiceBathroom(bool IsThereServiceBathroom)
@@ -282,7 +282,7 @@
 
         public bool GetIsTherePlayroom()
         {
-            return IsTherePlayroom;
+            return this.IsTherePlayroom;
         }
 
         public void SetIsTherePlayroom(bool IsTherePlayroom)
@@ -292,7 +292,7 @@
 
         public bool GetIsThereWithLodge()
         {
-            return IsThereWithLodge;
+            return this.IsThereWithLodge;
         }
 
         public void SetIsThereWithLodge(bool IsThereWithLodge)
@@ -302,7 +302,7 @@
 
         public bool GetIsThereEverydayDiningRoom()
         {
-            return IsThereEverydayDiningRoom;
+            return this.IsThereEverydayDiningRoom;
         }
 
         public void SetIsThereEverydayDiningRoom(bool IsThereEverydayDiningRoom)

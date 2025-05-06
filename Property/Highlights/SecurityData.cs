@@ -17,12 +17,12 @@
         public SecurityData()
             : base()
         {
-            IsThereAlarm = false;
-            IsThereConcierge = false;
-            IsThereAutomaticGate = false;
-            SecurityType = string.Empty;
-            IsThereWithClosedCondominium = false;
-            IsThereControlledAccess = false;
+            this.IsThereAlarm = false;
+            this.IsThereConcierge = false;
+            this.IsThereAutomaticGate = false;
+            this.SecurityType = string.Empty;
+            this.IsThereWithClosedCondominium = false;
+            this.IsThereControlledAccess = false;
         }
 
         public SecurityData(bool IsThereAlarm,
@@ -56,27 +56,27 @@
         #region Getters and Setters
         public bool GetIsThereAlarm()
         {
-            return IsThereAlarm;
+            return this.IsThereAlarm;
         }
 
-        public void SetIsThereAlarm(bool Alarm)
+        public void SetIsThereAlarm(bool IsThereAlarm)
         {
-            IsThereAlarm = Alarm;
+            this.IsThereAlarm = IsThereAlarm;
         }
 
         public bool GetIsThereConcierge()
         {
-            return IsThereConcierge;
+            return this.IsThereConcierge;
         }
 
-        public void SetIsThereConcierge(bool Concierge)
+        public void SetIsThereConcierge(bool IsThereConcierge)
         {
-            IsThereConcierge = Concierge;
+            this.IsThereConcierge = IsThereConcierge;
         }
 
         public bool GetIsThereAutomaticGate()
         {
-            return IsThereAutomaticGate;
+            return this.IsThereAutomaticGate;
         }
 
         public void SetIsThereAutomaticGate(bool IsThereAutomaticGate)
@@ -86,7 +86,7 @@
 
         public string GetSecurityType()
         {
-            return SecurityType;
+            return this.SecurityType;
         }
 
         public void SetSecurityType(string SecurityType)
@@ -96,7 +96,7 @@
 
         public bool GetIsThereWithClosedCondominium()
         {
-            return IsThereWithClosedCondominium;
+            return this.IsThereWithClosedCondominium;
         }
 
         public void SetIsThereWithClosedCondominium(bool IsThereWithClosedCondominium)
@@ -106,7 +106,7 @@
 
         public bool GetIsThereControlledAccess()
         {
-            return IsThereControlledAccess;
+            return this.IsThereControlledAccess;
         }
 
         public void SetIsThereControlledAccess(bool IsThereControlledAccess)

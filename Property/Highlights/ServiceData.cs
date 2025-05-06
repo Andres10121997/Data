@@ -23,18 +23,18 @@
         public ServiceData()
             : base()
         {
-            InternetAccess = false;
-            AirConditioning = false;
-            Heating = false;
-            CableTV = false;
-            TelephoneLine = false;
-            NaturalGas = false;
-            ElectricGenerator = false;
-            SolarPowered = false;
-            WithWashingMachineConnection = false;
-            RunningWater = false;
-            Tank = false;
-            Boiler = false;
+            this.InternetAccess = false;
+            this.AirConditioning = false;
+            this.Heating = false;
+            this.CableTV = false;
+            this.TelephoneLine = false;
+            this.NaturalGas = false;
+            this.ElectricGenerator = false;
+            this.SolarPowered = false;
+            this.WithWashingMachineConnection = false;
+            this.RunningWater = false;
+            this.Tank = false;
+            this.Boiler = false;
         }
 
         public ServiceData(bool InternetAccess,
@@ -80,7 +80,7 @@
         #region Getters and Setters
         public bool GetInternetAccess()
         {
-            return InternetAccess;
+            return this.InternetAccess;
         }
 
         public void SetInternetAccess(bool InternetAccess)
@@ -90,7 +90,7 @@
 
         public bool GetAirConditioning()
         {
-            return AirConditioning;
+            return this.AirConditioning;
         }
 
         public void SetAirConditioning(bool AirConditioning)
@@ -100,7 +100,7 @@
 
         public bool GetHeating()
         {
-            return Heating;
+            return this.Heating;
         }
 
         public void SetHeating(bool Heating)
@@ -110,7 +110,7 @@
 
         public bool GetCableTV()
         {
-            return CableTV;
+            return this.CableTV;
         }
 
         public void SetCableTV(bool CableTV)
@@ -120,7 +120,7 @@
 
         public bool GetTelephoneLine()
         {
-            return TelephoneLine;
+            return this.TelephoneLine;
         }
 
         public void SetTelephoneLine(bool TelephoneLine)
@@ -130,7 +130,7 @@
 
         public bool GetNaturalGas()
         {
-            return NaturalGas;
+            return this.NaturalGas;
         }
 
         public void SetNaturalGas(bool NaturalGas)
@@ -140,7 +140,7 @@
 
         public bool GetElectricGenerator()
         {
-            return ElectricGenerator;
+            return this.ElectricGenerator;
         }
 
         public void SetElectricGenerator(bool ElectricGenerator)
@@ -150,7 +150,7 @@
 
         public bool GetSolarPowered()
         {
-            return SolarPowered;
+            return this.SolarPowered;
         }
 
         public void SetSolarPowered(bool SolarPowered)
@@ -160,7 +160,7 @@
 
         public bool GetWithWashingMachineConnection()
         {
-            return WithWashingMachineConnection;
+            return this.WithWashingMachineConnection;
         }
 
         public void SetWithWashingMachineConnection(bool WithWashingMachineConnection)
@@ -170,7 +170,7 @@
 
         public bool GetRunningWater()
         {
-            return RunningWater;
+            return this.RunningWater;
         }
 
         public void SetRunningWater(bool RunningWater)
@@ -180,7 +180,7 @@
 
         public bool GetTank()
         {
-            return Tank;
+            return this.Tank;
         }
 
         public void SetTank(bool Tank)
@@ -190,7 +190,7 @@
 
         public bool GetBoiler()
         {
-            return Boiler;
+            return this.Boiler;
         }
 
         public void SetBoiler(bool Boiler)
