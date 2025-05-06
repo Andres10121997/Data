@@ -3,7 +3,6 @@
     public class VehicleData
     {
         #region Variables
-        private byte? ID { get; set; }
         private byte NumberOfDoors { get; set; }
         private byte NumberOfWheels { get; set; }
         private ushort OverallLength { get; set; } // Longitud general
@@ -17,7 +16,6 @@
         public VehicleData()
             : base()
         {
-            this.ID = null;
             this.NumberOfDoors = byte.MinValue;
             this.NumberOfWheels = byte.MinValue;
             this.OverallLength = ushort.MinValue;
@@ -25,15 +23,13 @@
             this.OverallHeight = ushort.MinValue;
         }
 
-        public VehicleData(byte? ID,
-                           byte NumberOfDoors,
+        public VehicleData(byte NumberOfDoors,
                            byte NumberOfWheels,
                            ushort OverallLength,
                            ushort OverallWidth,
                            ushort OverallHeight)
             : base()
         {
-            this.ID = ID;
             this.NumberOfDoors = NumberOfDoors;
             this.NumberOfWheels = NumberOfWheels;
             this.OverallLength = OverallLength;
@@ -54,16 +50,6 @@
 
 
         #region Getters and Setters
-        public byte? GetID()
-        {
-            return this.ID;
-        }
-
-        public void SetID(byte? ID)
-        {
-            this.ID = ID;
-        }
-
         public byte GetNumberOfDoors()
         {
             return this.NumberOfDoors;

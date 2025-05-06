@@ -43,7 +43,6 @@
 
         public PropertyData(ushort UsableArea,
                             ushort TotalArea,
-                            bool IsThereABalcony,
                             byte NumberOfBedrooms,
                             byte NumberOfBathrooms,
                             byte NumberOfWarehouses,
