@@ -1,4 +1,6 @@
-﻿namespace Data.Property
+﻿using Data.Property.Highlights;
+
+namespace Data.Property
 {
     public class PropertyData
     {
@@ -16,6 +18,7 @@
         private SecurityData Security { get; set; }
         private ServiceData Service { get; set; }
         private EnvironmentData Environment { get; set; }
+        private EquipmentData Equipment { get; set; }
         #endregion
 
 
@@ -38,6 +41,7 @@
             this.Security = new SecurityData();
             this.Service = new ServiceData();
             this.Environment = new EnvironmentData();
+            this.Equipment = new EquipmentData();
             #endregion
         }
 
@@ -50,7 +54,8 @@
                             byte NumberOfFloors,
                             SecurityData Security,
                             ServiceData Service,
-                            EnvironmentData Environment)
+                            EnvironmentData Environment,
+                            EquipmentData Equipment)
             : base()
         {
             #region Variables
@@ -67,6 +72,7 @@
             this.Security = Security;
             this.Service = Service;
             this.Environment = Environment;
+            this.Equipment = Equipment;
             #endregion
         }
         #endregion
@@ -184,6 +190,16 @@
         public void SetEnvironment(EnvironmentData Environment)
         {
             this.Environment = Environment;
+        }
+
+        public EquipmentData GetEquipment()
+        {
+            return this.Equipment;
+        }
+
+        public void SetEquipment(EquipmentData Equipment)
+        {
+            this.Equipment = Equipment;
         }
         #endregion
         #endregion
