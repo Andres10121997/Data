@@ -1,4 +1,4 @@
-﻿using Data.HumanResources;
+﻿using Data.Company.HumanResources;
 
 namespace Data.Certification
 {

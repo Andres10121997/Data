@@ -1,7 +1,7 @@
 ﻿using Data.Account;
 using System;
 
-namespace Data.HumanResources
+namespace Data.Company.HumanResources
 {
     public class EmployeeData : PersonData
     {

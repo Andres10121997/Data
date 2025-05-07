@@ -1,15 +1,18 @@
 ﻿using System;
 
-namespace Data.HumanResources
+namespace Data.Company
 {
     public class WorkExperienceData
     {
         #region Variables
-        private string Company { get; set; }
         private string Position { get; set; }
         private DateOnly StartDate { get; set; }
         private DateOnly? EndDate { get; set; }
         private string Description { get; set; }
+        #endregion
+
+        #region Object
+        private CompanyData Company { get; set; }
         #endregion
 
 
@@ -18,25 +21,25 @@ namespace Data.HumanResources
         public WorkExperienceData()
             : base()
         {
-            this.Company = string.Empty;
             this.Position = string.Empty;
             this.StartDate = new DateOnly();
             this.EndDate = null;
             this.Description = string.Empty;
+            this.Company = new CompanyData();
         }
 
-        public WorkExperienceData(string Company,
-                                  string Position,
+        public WorkExperienceData(string Position,
                                   DateOnly StartDate,
                                   DateOnly? EndDate,
-                                  string Description)
+                                  string Description,
+                                  CompanyData Company)
             : base()
         {
-            this.Company = Company;
             this.Position = Position;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
             this.Description = Description;
+            this.Company = Company;
         }
         #endregion
 
@@ -52,16 +55,7 @@ namespace Data.HumanResources
 
 
         #region Getters and Setters
-        public string GetCompany()
-        {
-            return this.Company;
-        }
-
-        public void SetCompany(string Company)
-        {
-            this.Company = Company;
-        }
-
+        #region Variables
         public string GetPosition()
         {
             return this.Position;
@@ -101,6 +95,19 @@ namespace Data.HumanResources
         {
             this.Description = Description;
         }
+        #endregion
+
+        #region Object
+        public CompanyData GetCompany()
+        {
+            return this.Company;
+        }
+
+        public void SetCompany(CompanyData Company)
+        {
+            this.Company = Company;
+        }
+        #endregion
         #endregion
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data.HumanResources
+namespace Data.Company
 {
     public class JobData
     {
@@ -54,7 +54,7 @@ namespace Data.HumanResources
                 throw new ArgumentNullException(paramName: nameof(Name),
                                                 message: $"The variable \"{nameof(Name)}\", of the JobData class, cannot be null or empty or have blank spaces.");
             }
-            
+
             this.Name = Name.Trim();
         }
 

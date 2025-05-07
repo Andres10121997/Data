@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data.HumanResources
+namespace Data.Company.HumanResources
 {
     public class SalaryData
     {
@@ -94,7 +94,7 @@ namespace Data.HumanResources
             {
                 throw new Exception(nameof(BaseSalary));
             }
-            
+
             this.BaseSalary = BaseSalary;
         }
 
@@ -109,7 +109,7 @@ namespace Data.HumanResources
             {
                 throw new ArithmeticException(message: nameof(Gratification));
             }
-            
+
             this.Gratification = Gratification;
         }
 
@@ -124,7 +124,7 @@ namespace Data.HumanResources
             {
                 throw new ArithmeticException(message: nameof(SnackBonus));
             }
-            
+
             this.SnackBonus = SnackBonus;
         }
 
@@ -139,7 +139,7 @@ namespace Data.HumanResources
             {
                 throw new ArithmeticException(message: nameof(MobilizationBonus));
             }
-            
+
             this.MobilizationBonus = MobilizationBonus;
         }
 
@@ -179,7 +179,7 @@ namespace Data.HumanResources
             {
                 throw new Exception(nameof(IncomeTax));
             }
-            
+
             this.IncomeTax = IncomeTax;
         }
         #endregion
