@@ -7,7 +7,6 @@ namespace Data.Account
     public class PersonData
     {
         #region Variables
-        private ulong? ID { get; set; }
         private string FirstName { get; set; }
         private string? MiddleName { get; set; }
         private string FirstLastName { get; set; }
@@ -16,7 +15,7 @@ namespace Data.Account
         #endregion
 
         #region Objects
-        private SexData OSex { get; set; }
+        private SexData Sex { get; set; }
         #endregion
 
 
@@ -26,7 +25,6 @@ namespace Data.Account
             : base()
         {
             #region Variables
-            this.ID = null;
             this.FirstName = string.Empty;
             this.MiddleName = null;
             this.FirstLastName = string.Empty;
@@ -35,21 +33,19 @@ namespace Data.Account
             #endregion
 
             #region Objects
-            this.OSex = new SexData();
+            this.Sex = new SexData();
             #endregion
         }
 
-        public PersonData(ulong? ID,
-                          string FirstName,
+        public PersonData(string FirstName,
                           string? MiddleName,
                           string FirstLastName,
                           string? SecondLastName,
                           DateOnly DateOfBirth,
-                          SexData OSex)
+                          SexData Sex)
             : base()
         {
             #region Variables
-            this.ID = ID;
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
             this.FirstLastName = FirstLastName;
@@ -58,7 +54,7 @@ namespace Data.Account
             #endregion
 
             #region Objects
-            this.OSex = OSex;
+            this.Sex = Sex;
             #endregion
         }
         #endregion
@@ -76,24 +72,9 @@ namespace Data.Account
 
         #region Getters and Setters
         #region Variables
-        public ulong? GetID()
-        {
-            return ID;
-        }
-
-        public void SetID(ulong? ID)
-        {
-            if (ID < 0)
-            {
-                throw new Exception(nameof(ID));
-            }
-            
-            this.ID = ID;
-        }
-
         public string GetFirstName()
         {
-            return FirstName;
+            return this.FirstName;
         }
 
         public void SetFirstName(string FirstName)
@@ -111,7 +92,7 @@ namespace Data.Account
 
         public string? GetMiddleName()
         {
-            return MiddleName;
+            return this.MiddleName;
         }
 
         public void SetMiddleName(string? MiddleName)
@@ -121,7 +102,7 @@ namespace Data.Account
 
         public string GetFirstLastName()
         {
-            return FirstLastName;
+            return this.FirstLastName;
         }
 
         public void SetFirstLastName(string FirstLastName)
@@ -139,7 +120,7 @@ namespace Data.Account
 
         public string? GetSecondLastName()
         {
-            return SecondLastName;
+            return this.SecondLastName;
         }
 
         public void SetSecondLastName(string? SecondLastName)
@@ -149,7 +130,7 @@ namespace Data.Account
 
         public DateOnly GetDateOfBirth()
         {
-            return DateOfBirth;
+            return this.DateOfBirth;
         }
 
         public void SetDateOfBirth(DateOnly DateOfBirth)
@@ -167,14 +148,14 @@ namespace Data.Account
         #endregion
 
         #region Objects
-        public SexData GetOSex()
+        public SexData GetSex()
         {
-            return OSex;
+            return this.Sex;
         }
 
-        public void SetOSex(SexData OSex)
+        public void SetSex(SexData Sex)
         {
-            this.OSex = OSex;
+            this.Sex = Sex;
         }
         #endregion
         #endregion

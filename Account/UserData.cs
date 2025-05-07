@@ -59,26 +59,24 @@ namespace Data.Account
             #endregion
         }
 
-        public UserData(ulong? ID,
-                        string FirstName,
+        public UserData(string FirstName,
                         string? MiddleName,
                         string FirstLastName,
                         string? SecondLastName,
                         DateOnly DateOfBirth,
-                        SexData OSex,
+                        SexData Sex,
                         string IP,
                         string Login,
                         string Username,
                         EmailAddressData EmailAddress,
                         PhoneData Phone,
                         CountryData Country)
-            : base(ID: ID,
-                   FirstName: FirstName.Trim(),
+            : base(FirstName: FirstName.Trim(),
                    MiddleName: MiddleName?.Trim(),
                    FirstLastName: FirstLastName.Trim(),
                    SecondLastName: SecondLastName?.Trim(),
                    DateOfBirth: DateOfBirth,
-                   OSex: OSex)
+                   Sex: Sex)
         {
             #region Variables
             this.IP = IP.Trim();

@@ -6,7 +6,7 @@ namespace Data.Certification
     {
         #region Variables
         private string Title { get; set; }
-        private nuint Folio { get; set; }
+        private uint Folio { get; set; }
         private float Price { get; set; }
         #endregion
 
@@ -17,12 +17,12 @@ namespace Data.Certification
             : base()
         {
             this.Title = string.Empty;
-            this.Folio = nuint.MinValue;
+            this.Folio = uint.MinValue;
             this.Price = float.MinValue;
         }
 
         public CertificateData(string Title,
-                               nuint Folio,
+                               uint Folio,
                                float Price)
             : base()
         {
@@ -62,12 +62,12 @@ namespace Data.Certification
             this.Title = Title.Trim();
         }
 
-        public nuint GetFolio()
+        public uint GetFolio()
         {
             return this.Folio;
         }
 
-        public void SetFolio(nuint Folio)
+        public void SetFolio(uint Folio)
         {
             if (Folio <= 0)
             {

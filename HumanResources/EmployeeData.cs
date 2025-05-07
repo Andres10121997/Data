@@ -66,26 +66,24 @@ namespace Data.HumanResources
             #endregion
         }
 
-        public EmployeeData(ulong? ID,
-                            string FirstName,
+        public EmployeeData(string FirstName,
                             string? MiddleName,
                             string FirstLastName,
                             string? SecondLastName,
                             DateOnly DateOfBirth,
-                            SexData OSex,
+                            SexData Sex,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
                             DepartmentData Department,
                             JobData Job,
                             SalaryData Salary,
                             SalaryData[]? SalaryHistory)
-            : base(ID: ID,
-                   FirstName: FirstName,
+            : base(FirstName: FirstName,
                    MiddleName: MiddleName,
                    FirstLastName: FirstLastName,
                    SecondLastName: SecondLastName,
                    DateOfBirth: DateOfBirth,
-                   OSex: OSex)
+                   Sex: Sex)
         {
             #region Variables
             this.HiringDate = HiringDate;
