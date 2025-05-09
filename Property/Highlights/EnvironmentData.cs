@@ -75,26 +75,26 @@
                                bool HasEverydayDiningRoom)
             : base()
         {
-            this.HasGrill = HasGrill;
-            this.HasPool = HasPool;
-            this.HasCloset = HasCloset;
-            this.HasGuestBathroom = HasGuestBathroom;
-            this.HasTerrace = HasTerrace;
-            this.HasDiningRoom = HasDiningRoom;
-            this.HasWalkInCloset = HasWalkInCloset;
-            this.HasHomeoffice = HasHomeoffice;
-            this.HasLiving = HasLiving;
-            this.HasYard = HasYard;
-            this.HasBedroomDuite = HasBedroomDuite;
-            this.HasBalcony = HasBalcony;
-            this.HasMansard = HasMansard;
-            this.HasGarden = HasGarden;
-            this.HasKitchen = HasKitchen;
-            this.HasServiceBedroom = HasServiceBedroom;
-            this.HasServiceBathroom = HasServiceBathroom;
-            this.HasPlayroom = HasPlayroom;
-            this.HasWithLodge = HasWithLodge;
-            this.HasEverydayDiningRoom = HasEverydayDiningRoom;
+            this.HasGrill               = HasGrill;
+            this.HasPool                = HasPool;
+            this.HasCloset              = HasCloset;
+            this.HasGuestBathroom       = HasGuestBathroom;
+            this.HasTerrace             = HasTerrace;
+            this.HasDiningRoom          = HasDiningRoom;
+            this.HasWalkInCloset        = HasWalkInCloset;
+            this.HasHomeoffice          = HasHomeoffice;
+            this.HasLiving              = HasLiving;
+            this.HasYard                = HasYard;
+            this.HasBedroomDuite        = HasBedroomDuite;
+            this.HasBalcony             = HasBalcony;
+            this.HasMansard             = HasMansard;
+            this.HasGarden              = HasGarden;
+            this.HasKitchen             = HasKitchen;
+            this.HasServiceBedroom      = HasServiceBedroom;
+            this.HasServiceBathroom     = HasServiceBathroom;
+            this.HasPlayroom            = HasPlayroom;
+            this.HasWithLodge           = HasWithLodge;
+            this.HasEverydayDiningRoom  = HasEverydayDiningRoom;
         }
         #endregion
 

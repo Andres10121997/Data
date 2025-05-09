@@ -26,21 +26,21 @@
         public EquipmentData()
             : base()
         {
-            this.HasChimney = false;
-            this.HasGym = false;
-            this.HasJacuzzi = false;
-            this.HasVisitorParking = false;
-            this.HasCinemaArea = false;
-            this.HasChildrensPlayArea = false;
-            this.HasWithGreenArea = false;
-            this.HasElevator = false;
-            this.HasBasketballCourt = false;
-            this.HasSoccerField = false;
-            this.HasPaddleCourt = false;
-            this.HasTennisCourt = false;
-            this.HasMultiSportCourt = false;
-            this.HasPartyHall = false;
-            this.HasSauna = false;
+            this.HasChimney             = false;
+            this.HasGym                 = false;
+            this.HasJacuzzi             = false;
+            this.HasVisitorParking      = false;
+            this.HasCinemaArea          = false;
+            this.HasChildrensPlayArea   = false;
+            this.HasWithGreenArea       = false;
+            this.HasElevator            = false;
+            this.HasBasketballCourt     = false;
+            this.HasSoccerField         = false;
+            this.HasPaddleCourt         = false;
+            this.HasTennisCourt         = false;
+            this.HasMultiSportCourt     = false;
+            this.HasPartyHall           = false;
+            this.HasSauna               = false;
         }
 
         public EquipmentData(bool HasChimney,

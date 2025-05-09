@@ -23,18 +23,18 @@
         public ServiceData()
             : base()
         {
-            this.HasInternetAccess = false;
-            this.HasAirConditioning = false;
-            this.HasHeating = false;
-            this.HasCableTV = false;
-            this.HasTelephoneLine = false;
-            this.HasNaturalGas = false;
-            this.HasElectricGenerator = false;
-            this.HasSolarPowered = false;
-            this.HasWashingMachineConnection = false;
-            this.HasRunningWater = false;
-            this.HasTank = false;
-            this.HasBoiler = false;
+            this.HasInternetAccess              = false;
+            this.HasAirConditioning             = false;
+            this.HasHeating                     = false;
+            this.HasCableTV                     = false;
+            this.HasTelephoneLine               = false;
+            this.HasNaturalGas                  = false;
+            this.HasElectricGenerator           = false;
+            this.HasSolarPowered                = false;
+            this.HasWashingMachineConnection    = false;
+            this.HasRunningWater                = false;
+            this.HasTank                        = false;
+            this.HasBoiler                      = false;
         }
 
         public ServiceData(bool HasInternetAccess,
@@ -51,18 +51,18 @@
                            bool HasBoiler)
             : base()
         {
-            this.HasInternetAccess = HasInternetAccess;
-            this.HasAirConditioning = HasAirConditioning;
-            this.HasHeating = HasHeating;
-            this.HasCableTV = HasCableTV;
-            this.HasTelephoneLine = HasTelephoneLine;
-            this.HasNaturalGas = HasNaturalGas;
-            this.HasElectricGenerator = HasElectricGenerator;
-            this.HasSolarPowered = HasSolarPowered;
-            this.HasWashingMachineConnection = HasWashingMachineConnection;
-            this.HasRunningWater = HasRunningWater;
-            this.HasTank = HasTank;
-            this.HasBoiler = HasBoiler;
+            this.HasInternetAccess              = HasInternetAccess;
+            this.HasAirConditioning             = HasAirConditioning;
+            this.HasHeating                     = HasHeating;
+            this.HasCableTV                     = HasCableTV;
+            this.HasTelephoneLine               = HasTelephoneLine;
+            this.HasNaturalGas                  = HasNaturalGas;
+            this.HasElectricGenerator           = HasElectricGenerator;
+            this.HasSolarPowered                = HasSolarPowered;
+            this.HasWashingMachineConnection    = HasWashingMachineConnection;
+            this.HasRunningWater                = HasRunningWater;
+            this.HasTank                        = HasTank;
+            this.HasBoiler                      = HasBoiler;
         }
         #endregion
 

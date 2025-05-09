@@ -17,12 +17,12 @@
         public SecurityData()
             : base()
         {
-            this.HasAlarm = false;
-            this.HasConcierge = false;
-            this.HasAutomaticGate = false;
-            this.SecurityType = string.Empty;
-            this.HasWithClosedCondominium = false;
-            this.HasControlledAccess = false;
+            this.HasAlarm                   = false;
+            this.HasConcierge               = false;
+            this.HasAutomaticGate           = false;
+            this.SecurityType               = string.Empty;
+            this.HasWithClosedCondominium   = false;
+            this.HasControlledAccess        = false;
         }
 
         public SecurityData(bool HasAlarm,
@@ -33,12 +33,12 @@
                             bool HasControlledAccess)
             : base()
         {
-            this.HasAlarm = HasAlarm;
-            this.HasConcierge = HasConcierge;
-            this.HasAutomaticGate = HasAutomaticGate;
-            this.SecurityType = SecurityType;
-            this.HasWithClosedCondominium = HasWithClosedCondominium;
-            this.HasControlledAccess = HasControlledAccess;
+            this.HasAlarm                   = HasAlarm;
+            this.HasConcierge               = HasConcierge;
+            this.HasAutomaticGate           = HasAutomaticGate;
+            this.SecurityType               = SecurityType;
+            this.HasWithClosedCondominium   = HasWithClosedCondominium;
+            this.HasControlledAccess        = HasControlledAccess;
         }
         #endregion
 
