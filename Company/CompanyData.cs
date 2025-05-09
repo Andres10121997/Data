@@ -21,7 +21,8 @@ namespace Data.Company
             MutualGuaranteeCorporation,               // Sociedad Anónima de Garantía Recíproca (SAGR)
             GeneralPartnership,                       // Sociedad Colectiva Comercial
             LimitedPartnership,                       // Sociedad en Comandita Simple
-            PartnershipLimitedByShares                // Sociedad en Comandita por Acciones
+            PartnershipLimitedByShares,               // Sociedad en Comandita por Acciones
+            None
         }
         #endregion
 
@@ -34,7 +35,7 @@ namespace Data.Company
             this.Name = string.Empty;
             this.CreationDate = new DateOnly();
             this.EconomicActivity = string.Empty;
-            this.CompanyType = CompanyTypeEnum.IndividualLimitedLiabilityEnterprise;
+            this.CompanyType = CompanyTypeEnum.None;
         }
 
         public CompanyData(string Name,

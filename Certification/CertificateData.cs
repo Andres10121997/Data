@@ -18,7 +18,7 @@ namespace Data.Certification
         {
             this.Title = string.Empty;
             this.Folio = uint.MinValue;
-            this.Price = float.MinValue;
+            this.Price = float.NaN;
         }
 
         public CertificateData(string Title,

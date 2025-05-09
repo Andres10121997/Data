@@ -5,7 +5,6 @@ namespace Data.Communication.Phone
     public class PhoneData
     {
         #region Variables
-        private ulong? ID { get; set; }
         private string PhoneNumber { get; set; }
         private PhoneTypeEnum PhoneType { get; set; }
         #endregion
@@ -25,17 +24,14 @@ namespace Data.Communication.Phone
         public PhoneData()
             : base()
         {
-            this.ID = null;
             this.PhoneNumber = string.Empty;
             this.PhoneType = PhoneTypeEnum.None;
         }
 
-        public PhoneData(ulong? ID,
-                         string PhoneNumber,
+        public PhoneData(string PhoneNumber,
                          PhoneTypeEnum PhoneType)
             : base()
         {
-            this.ID = ID;
             this.PhoneNumber = PhoneNumber.Trim();
             this.PhoneType = PhoneType;
         }
@@ -54,16 +50,6 @@ namespace Data.Communication.Phone
 
         #region Getters and Setters
         #region Variables
-        public ulong? GetID()
-        {
-            return this.ID;
-        }
-
-        public void SetID(ulong? ID)
-        {
-            this.ID = ID;
-        }
-
         public string GetPhoneNumber()
         {
             return this.PhoneNumber;

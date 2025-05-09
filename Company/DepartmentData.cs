@@ -14,7 +14,8 @@ namespace Data.Company
         public enum DepartmentTypeEnum
         {
             Department,
-            Subdepartment
+            Subdepartment,
+            None
         }
         #endregion
 
@@ -27,10 +28,7 @@ namespace Data.Company
             #region Variables
             this.Name = string.Empty;
             this.Description = null;
-            #endregion
-
-            #region Enum
-            this.DepartmentType = DepartmentTypeEnum.Department;
+            this.DepartmentType = DepartmentTypeEnum.None;
             #endregion
         }
 
@@ -42,9 +40,6 @@ namespace Data.Company
             #region Variables
             this.Name = Name.Trim();
             this.Description = Description?.Trim();
-            #endregion
-
-            #region Enum
             this.DepartmentType = DepartmentType;
             #endregion
         }
