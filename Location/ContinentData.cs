@@ -13,7 +13,7 @@ namespace Data.Location
         #endregion
 
         #region Enums
-        public enum ContinentEnum
+        public enum ContinentEnum : byte
         {
             Africa,
             America,

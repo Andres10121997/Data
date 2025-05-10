@@ -8,6 +8,8 @@ namespace Data.Location
         private string Name { get; set; }
         private string Iso { get; set; }
         private string Iso3 { get; set; }
+        private uint Numcode { get; set; }
+        private byte PhoneCode { get; set; }
         #endregion
 
 
@@ -20,19 +22,24 @@ namespace Data.Location
             this.Name = string.Empty;
             this.Iso = string.Empty;
             this.Iso3 = string.Empty;
+            this.Numcode = uint.MinValue;
+            this.PhoneCode = byte.MinValue;
             #endregion
         }
 
-        public CountryData(byte? ID,
-                           string Name,
+        public CountryData(string Name,
                            string Iso,
-                           string Iso3)
+                           string Iso3,
+                           uint Numcode,
+                           byte PhoneCode)
             : base()
         {
             #region Variables
             this.Name = Name.Trim();
             this.Iso = Iso.Trim();
             this.Iso3 = Iso3.Trim();
+            this.Numcode = Numcode;
+            this.PhoneCode = PhoneCode;
             #endregion
         }
         #endregion
@@ -114,6 +121,26 @@ namespace Data.Location
             }
             
             this.Iso3 = Iso3.Trim();
+        }
+
+        public uint GetNumcode()
+        {
+            return this.Numcode;
+        }
+
+        public void SetNumcode(uint Numcode)
+        {
+            this.Numcode = Numcode;
+        }
+
+        public byte GetPhoneCode()
+        {
+            return this.PhoneCode;
+        }
+
+        public void SetPhoneCode(byte PhoneCode)
+        {
+            this.PhoneCode = PhoneCode;
         }
         #endregion
         #endregion

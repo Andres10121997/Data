@@ -11,7 +11,7 @@ namespace Data.Company
         #endregion
 
         #region Enum
-        public enum DepartmentTypeEnum
+        public enum DepartmentTypeEnum : byte
         {
             Department,
             Subdepartment,

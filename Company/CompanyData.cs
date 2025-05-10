@@ -12,7 +12,7 @@ namespace Data.Company
         #endregion
 
         #region Enum
-        public enum CompanyTypeEnum
+        public enum CompanyTypeEnum : byte
         {
             IndividualLimitedLiabilityEnterprise,     // Empresa Individual de Responsabilidad Limitada (EIRL)
             LimitedLiabilityCompany,                  // Sociedad de Responsabilidad Limitada (SRL o Ltda.)
