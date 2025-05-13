@@ -13,7 +13,7 @@
 
 
 
-        #region ConstructorMethods
+        #region Constructor Methods
         public SecurityData()
             : base()
         {
@@ -44,7 +44,7 @@
 
 
 
-        #region DestructorMethods
+        #region Destructor Methods
         ~SecurityData()
         {
 

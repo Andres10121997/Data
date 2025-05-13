@@ -15,7 +15,7 @@ namespace Data.Mathematics.Geometry.TwoDimensions
 
 
 
-        #region ConstructorMethods
+        #region Constructor Methods
         public PolygonData()
             : base()
         {
@@ -34,7 +34,7 @@ namespace Data.Mathematics.Geometry.TwoDimensions
 
 
 
-        #region DestroyerMethod
+        #region Destroyer Method
         ~PolygonData()
         {
 

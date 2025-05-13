@@ -23,7 +23,7 @@ namespace Data.Property
 
 
 
-        #region ConstructorMethods
+        #region Constructor Methods
         public PropertyData()
             : base()
         {
@@ -79,7 +79,7 @@ namespace Data.Property
 
 
 
-        #region DestructorMethods
+        #region Destructor Methods
         ~PropertyData()
         {
 

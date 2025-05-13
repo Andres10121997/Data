@@ -8,10 +8,11 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="file">LICENSE</license>
     <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <readme>README.md</readme>
     <description>This package provides structured and reusable data classes to represent information in an organized way across different projects. Its purpose is to standardize the management of variables, grouping them in a logical way to facilitate their use and maintenance. By defining common and reusable structures, consistency in data handling within applications is improved, promoting modularity and clarity in the code.
 
 Este paquete proporciona clases de datos estructuradas y reutilizables para representar información de manera organizada en distintos proyectos. Su propósito es estandarizar la gestión de variables, agrupándolas de forma lógica para facilitar su uso y mantenimiento. Al definir estructuras comunes y reutilizables, se mejora la coherencia en el manejo de datos dentro de las aplicaciones, promoviendo la modularidad y la claridad en el código.</description>
-    <repository type="git" url="https://github.com/Andres10121997/Data" commit="7461eaaa72692ecc6713f97c27bb9ee5d7fe2e10" />
+    <repository type="git" url="https://github.com/Andres10121997/Data" commit="f983ac6fef2cbf2b4f4b12ac8782f98171acb587" />
     <dependencies>
       <group targetFramework="net9.0" />
     </dependencies>
@@ -19,5 +20,6 @@ Este paquete proporciona clases de datos estructuradas y reutilizables para repr
   <files>
     <file src="C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\bin\Debug\net9.0\Data.dll" target="lib\net9.0\Data.dll" />
     <file src="C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\LICENSE" target="\LICENSE" />
+    <file src="C:\Users\andre\OneDrive\Escritorio\Proyecto\Data\README.md" target="\README.md" />
   </files>
 </package>

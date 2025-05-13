@@ -27,7 +27,7 @@
 
 
 
-        #region ConstructorMethods
+        #region Constructor Methods
         public EnvironmentData()
             : base()
         {
@@ -100,7 +100,7 @@
 
 
 
-        #region DestructorMethods
+        #region Destructor Methods
         ~EnvironmentData()
         {
 

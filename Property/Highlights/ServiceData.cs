@@ -19,7 +19,7 @@
 
 
 
-        #region ConstructorMethods
+        #region Constructor Methods
         public ServiceData()
             : base()
         {
@@ -68,7 +68,7 @@
 
 
 
-        #region DestructorMethods
+        #region Destructor Methods
         ~ServiceData()
         {
 

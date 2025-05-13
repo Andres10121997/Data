@@ -24,7 +24,7 @@ namespace Data.Project
 
 
 
-        #region ConstructorMethods
+        #region Constructor Methods
         public ProjectData()
             : base()
         {
@@ -52,7 +52,7 @@ namespace Data.Project
 
 
 
-        #region DestructorMethods
+        #region Destructor Methods
         ~ProjectData()
         {
 

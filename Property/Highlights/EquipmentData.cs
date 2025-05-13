@@ -22,7 +22,7 @@
 
 
 
-        #region ConstructorMethods
+        #region Constructor Methods
         public EquipmentData()
             : base()
         {
@@ -80,7 +80,7 @@
 
 
 
-        #region DestructorMethods
+        #region Destructor Methods
         ~EquipmentData()
         {
 
