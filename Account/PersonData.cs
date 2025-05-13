@@ -12,10 +12,15 @@ namespace Data.Account
         private string FirstLastName { get; set; }
         private string? SecondLastName { get; set; }
         private DateOnly DateOfBirth { get; set; }
+        private SexEnum Sex { get; set; }
         #endregion
 
-        #region Objects
-        private SexData Sex { get; set; }
+        #region Enum
+        public enum SexEnum : byte
+        {
+            Female,
+            Male
+        }
         #endregion
 
 
@@ -30,10 +35,7 @@ namespace Data.Account
             this.FirstLastName = string.Empty;
             this.SecondLastName = null;
             this.DateOfBirth = DateOnly.MinValue;
-            #endregion
-
-            #region Objects
-            this.Sex = new SexData();
+            this.Sex = SexEnum.Female;
             #endregion
         }
 
@@ -42,7 +44,7 @@ namespace Data.Account
                           string FirstLastName,
                           string? SecondLastName,
                           DateOnly DateOfBirth,
-                          SexData Sex)
+                          SexEnum Sex)
             : base()
         {
             #region Variables
@@ -51,9 +53,6 @@ namespace Data.Account
             this.FirstLastName = FirstLastName;
             this.SecondLastName = SecondLastName;
             this.DateOfBirth = DateOfBirth;
-            #endregion
-
-            #region Objects
             this.Sex = Sex;
             #endregion
         }
@@ -145,15 +144,13 @@ namespace Data.Account
             
             this.DateOfBirth = DateOfBirth;
         }
-        #endregion
 
-        #region Objects
-        public SexData GetSex()
+        public SexEnum GetSex()
         {
             return this.Sex;
         }
 
-        public void SetSex(SexData Sex)
+        public void SetSex(SexEnum Sex)
         {
             this.Sex = Sex;
         }

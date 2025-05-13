@@ -71,7 +71,7 @@ namespace Data.Company.HumanResources
                             string FirstLastName,
                             string? SecondLastName,
                             DateOnly DateOfBirth,
-                            SexData Sex,
+                            SexEnum Sex,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
                             DepartmentData Department,

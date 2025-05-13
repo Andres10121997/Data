@@ -27,12 +27,14 @@ Este paquete proporciona clases de datos estructuradas y reutilizables para repr
     <Optimize>True</Optimize>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <WarningLevel>9999</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <FileAlignment>8192</FileAlignment>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <WarningLevel>9999</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>

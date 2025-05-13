@@ -64,7 +64,7 @@ namespace Data.Account
                         string FirstLastName,
                         string? SecondLastName,
                         DateOnly DateOfBirth,
-                        SexData Sex,
+                        SexEnum Sex,
                         string IP,
                         string Login,
                         string Username,
