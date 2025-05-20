@@ -12,6 +12,7 @@ namespace Data.Property
         private byte NumberOfWarehouses { get; set; }
         private byte NumberOfParkingSpaces { get; set; }
         private byte NumberOfFloors { get; set; }
+        private PropertyTypeEnum PropertyType { get; set; }
         #endregion
 
         #region Objects
@@ -19,6 +20,23 @@ namespace Data.Property
         private ServiceData Service { get; set; }
         private EnvironmentData Environment { get; set; }
         private EquipmentData Equipment { get; set; }
+        #endregion
+
+        #region Enum
+        public enum PropertyTypeEnum
+        {
+            House,          // Casa
+            Apartment,      // Apartamento
+            Office,         // Oficina
+            RetailSpace,    // Local Comercial
+            Land,           // Terreno
+            Plot,           // Parcela
+            Agricultural,   // Agrícola
+            Industrial,     // Industrial
+            Warehouse,      // Bodega
+            Parking,        // Estacionamiento
+            Resort          // Centro Vacacional
+        }
         #endregion
 
 
@@ -158,6 +176,16 @@ namespace Data.Property
         public void SetNumberOfFloors(byte NumberOfFloors)
         {
             this.NumberOfFloors = NumberOfFloors;
+        }
+
+        public PropertyTypeEnum GetPropertyType()
+        {
+            return this.PropertyType;
+        }
+
+        public void SetPropertyType(PropertyTypeEnum PropertyType)
+        {
+            this.PropertyType = PropertyType;
         }
         #endregion
 

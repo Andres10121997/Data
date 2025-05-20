@@ -10,6 +10,10 @@ namespace Data.Company
         private DepartmentTypeEnum DepartmentType { get; set; }
         #endregion
 
+        #region Objects
+        private DepartmentData SubDepartment { get; set; }
+        #endregion
+
         #region Enum
         public enum DepartmentTypeEnum : byte
         {
@@ -30,17 +34,26 @@ namespace Data.Company
             this.Description = null;
             this.DepartmentType = DepartmentTypeEnum.None;
             #endregion
+
+            #region Objects
+            this.SubDepartment = new DepartmentData();
+            #endregion
         }
 
         public DepartmentData(string Name,
                               string? Description,
-                              DepartmentTypeEnum DepartmentType)
+                              DepartmentTypeEnum DepartmentType,
+                              DepartmentData SubDepartment)
             : base()
         {
             #region Variables
             this.Name = Name.Trim();
             this.Description = Description?.Trim();
             this.DepartmentType = DepartmentType;
+            #endregion
+
+            #region Objects
+            this.SubDepartment = SubDepartment;
             #endregion
         }
         #endregion
@@ -85,9 +98,7 @@ namespace Data.Company
         {
             this.Description = Description?.Trim();
         }
-        #endregion
 
-        #region Enum
         public DepartmentTypeEnum GetDepartmentType()
         {
             return this.DepartmentType;
@@ -96,6 +107,18 @@ namespace Data.Company
         public void SetDepartmentType(DepartmentTypeEnum DepartmentType)
         {
             this.DepartmentType = DepartmentType;
+        }
+        #endregion
+
+        #region Objects
+        public DepartmentData GetSubDepartment()
+        {
+            return this.SubDepartment;
+        }
+
+        public void SetSubDepartment(DepartmentData SubDepartment)
+        {
+            this.SubDepartment = SubDepartment;
         }
         #endregion
         #endregion
