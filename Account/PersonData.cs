@@ -173,19 +173,20 @@ namespace Data.Account
 
             Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            if (DateOfBirth > Today)
+            if (this.DateOfBirth > Today)
             {
-                throw new Exception("The Date of Birth cannot exceed the current date.");
+                throw new ArgumentOutOfRangeException(paramName: nameof(this.DateOfBirth),
+                                                      message: $"The \"{nameof(this.DateOfBirth)}\" variable cannot exceed the current date.");
             }
 
-            Age = Convert.ToByte(value: Today.Year - DateOfBirth.Year);
+            Age = Convert.ToByte(value: Today.Year - this.DateOfBirth.Year);
 
             ListOfValidations = new bool[2]
             {
-                    DateOfBirth.Month > Today.Month,
-                    DateOfBirth.Month == Today.Month
-                    &&
-                    DateOfBirth.Day > Today.Day
+                this.DateOfBirth.Month > Today.Month,
+                this.DateOfBirth.Month == Today.Month
+                &&
+                this.DateOfBirth.Day > Today.Day
             };
 
             if (ListOfValidations.AsParallel<bool>().Contains<bool>(value: true))
