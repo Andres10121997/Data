@@ -168,7 +168,7 @@ namespace Data.Account
             #endregion
 
             #region Arrays
-            bool[] ListOfValidations;
+            bool[] ListOfValidations = Array.Empty<bool>();
             #endregion
 
             Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
@@ -176,7 +176,7 @@ namespace Data.Account
             if (this.DateOfBirth > Today)
             {
                 throw new ArgumentOutOfRangeException(paramName: nameof(this.DateOfBirth),
-                                                      message: $"The \"{nameof(this.DateOfBirth)}\" variable cannot exceed the current date.");
+                                                      message: $"The variable \"{nameof(this.DateOfBirth)}\", of the \"{nameof(PersonData)}\" class, cannot have a value after today.");
             }
 
             Age = Convert.ToByte(value: Today.Year - this.DateOfBirth.Year);
