@@ -6,9 +6,10 @@ namespace Data.Property
     public class RentData
     {
         #region Variables
-        private float RentAmount { get; set; }
         private DateOnly StartDate { get; set; }
         private DateOnly EndDate { get; set; }
+        private float RentAmount { get; set; }
+        private float DepositAmount { get; set; }
         #endregion
 
         #region Objects
@@ -22,25 +23,38 @@ namespace Data.Property
         public RentData()
             : base()
         {
-            this.RentAmount = float.NaN;
+            #region Variables
             this.StartDate = new DateOnly();
             this.EndDate = new DateOnly();
+            this.RentAmount = float.NaN;
+            this.DepositAmount = float.NaN;
+            #endregion
+
+            #region Objects
             this.Person = new PersonData();
             this.Property = new PropertyData();
+            #endregion
         }
 
-        public RentData(float RentAmount,
-                        DateOnly StartDate,
+        public RentData(DateOnly StartDate,
                         DateOnly EndDate,
+                        float RentAmount,
+                        float DepositAmount,
                         PersonData Person,
                         PropertyData Property)
             : base()
         {
-            this.RentAmount = RentAmount;
+            #region Variables
             this.StartDate = StartDate;
             this.EndDate = EndDate;
+            this.RentAmount = RentAmount;
+            this.DepositAmount = DepositAmount;
+            #endregion
+
+            #region Objects
             this.Person = Person;
             this.Property = Property;
+            #endregion
         }
         #endregion
 
@@ -57,6 +71,26 @@ namespace Data.Property
 
         #region Getters and Setters
         #region Variables
+        public DateOnly GetStartDate()
+        {
+            return this.StartDate;
+        }
+        
+        public void SetStartDate(DateOnly StartDate)
+        {
+            this.StartDate = StartDate;
+        }
+
+        public DateOnly GetEndDate()
+        {
+            return this.EndDate;
+        }
+        
+        public void SetEndDate(DateOnly EndDate)
+        {
+            this.EndDate = EndDate;
+        }
+
         public float GetRentAmount()
         {
             return this.RentAmount;
@@ -78,25 +112,15 @@ namespace Data.Property
 
             this.RentAmount = RentAmount;
         }
-        
-        public DateOnly GetStartDate()
+
+        public float GetDepositAmount()
         {
-            return this.StartDate;
-        }
-        
-        public void SetStartDate(DateOnly StartDate)
-        {
-            this.StartDate = StartDate;
+            return this.DepositAmount;
         }
 
-        public DateOnly GetEndDate()
+        public void SetDepositAmount(float DepositAmount)
         {
-            return this.EndDate;
-        }
-        
-        public void SetEndDate(DateOnly EndDate)
-        {
-            this.EndDate = EndDate;
+            this.DepositAmount = DepositAmount;
         }
         #endregion
 
