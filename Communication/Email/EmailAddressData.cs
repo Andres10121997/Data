@@ -62,7 +62,7 @@ namespace Data.Communication.Email
                 ||
                 string.IsNullOrWhiteSpace(value: Email))
             {
-                throw new ArgumentNullException(message: $"The variable \"{nameof(Email)}\", of the {nameof(EmailAddressData)} class, cannot be null or empty or have blank spaces.",
+                throw new ArgumentNullException(message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Email), ClassName: nameof(EmailAddressData)),
                                                 paramName: nameof(Email));
             }
             else

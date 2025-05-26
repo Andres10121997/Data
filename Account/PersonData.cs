@@ -82,7 +82,7 @@ namespace Data.Account
                 ||
                 string.IsNullOrWhiteSpace(value: FirstName))
             {
-                throw new ArgumentNullException(message: $"The variable \"{nameof(FirstName)}\", of the {nameof(PersonData)} class, cannot be null or empty or have blank fields.",
+                throw new ArgumentNullException(message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(FirstName), ClassName: nameof(PersonData)),
                                                 paramName: nameof(FirstName));
             }
 
@@ -110,7 +110,7 @@ namespace Data.Account
                 ||
                 string.IsNullOrWhiteSpace(value: FirstLastName))
             {
-                throw new ArgumentNullException(message: $"The {nameof(FirstLastName)} cannot be null or empty or have empty spaces.",
+                throw new ArgumentNullException(message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(FirstLastName), ClassName: nameof(PersonData)),
                                                 paramName: nameof(FirstName));
             }
             

@@ -56,7 +56,7 @@ namespace Data.Certification
                 string.IsNullOrWhiteSpace(value: Title))
             {
                 throw new ArgumentNullException(paramName: nameof(Title),
-                                                message: $"The variable \"{nameof(Title)}\", of the {nameof(CertificateData)} class, cannot be null or empty or have blank spaces.");
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Title), ClassName: nameof(CertificateData)));
             }
             
             this.Title = Title.Trim();
