@@ -1,4 +1,5 @@
 ﻿using Data.Account;
+using Data.Company.Employment;
 using System;
 
 namespace Data.Company.HumanResources

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data.Company
+namespace Data.Company.Employment
 {
     public class JobData
     {
@@ -19,8 +19,7 @@ namespace Data.Company
             this.Description = null;
         }
 
-        public JobData(byte? ID,
-                       string Name,
+        public JobData(string Name,
                        string? Description)
         {
             this.Name = Name.Trim();
@@ -52,7 +51,7 @@ namespace Data.Company
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the JobData class, cannot be null or empty or have blank spaces.");
+                                                message: $"The variable \"{nameof(Name)}\", of the {nameof(JobData)} class, cannot be null or empty or have blank spaces.");
             }
 
             this.Name = Name.Trim();

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data.Company
+namespace Data.Company.Employment
 {
     public class WorkExperienceData
     {
