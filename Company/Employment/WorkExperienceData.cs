@@ -63,6 +63,14 @@ namespace Data.Company.Employment
 
         public void SetPosition(string Position)
         {
+            if (string.IsNullOrEmpty(value: Position)
+                ||
+                string.IsNullOrWhiteSpace(value: Position))
+            {
+                throw new ArgumentNullException(paramName: nameof(Position),
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Position), ClassName: nameof(WorkExperienceData)));
+            }
+            
             this.Position = Position;
         }
 
@@ -93,6 +101,14 @@ namespace Data.Company.Employment
 
         public void SetDescription(string Description)
         {
+            if (string.IsNullOrEmpty(value: Description)
+                ||
+                string.IsNullOrWhiteSpace(value: Description))
+            {
+                throw new ArgumentNullException(paramName: nameof(Description),
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Description), ClassName: nameof(WorkExperienceData)));
+            }
+            
             this.Description = Description;
         }
         #endregion

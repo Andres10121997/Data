@@ -51,7 +51,7 @@ namespace Data.Company.Employment
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the {nameof(JobData)} class, cannot be null or empty or have blank spaces.");
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(JobData)));
             }
 
             this.Name = Name.Trim();

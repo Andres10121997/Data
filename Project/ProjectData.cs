@@ -74,7 +74,7 @@ namespace Data.Project
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the {nameof(ProjectData)} class, cannot be null or empty or have blank fields.");
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(ProjectData)));
             }
 
             this.Name = Name.Trim();

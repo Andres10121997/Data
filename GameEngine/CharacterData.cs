@@ -56,7 +56,7 @@ namespace Data.GameEngine
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the {nameof(CharacterData)} class, cannot be null or empty or have blank spaces.");
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(CharacterData)));
             }
             
             this.Name = Name.Trim();

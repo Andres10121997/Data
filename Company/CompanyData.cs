@@ -70,6 +70,14 @@ namespace Data.Company
 
         public void SetName(string Name)
         {
+            if (string.IsNullOrEmpty(value: Name)
+                ||
+                string.IsNullOrWhiteSpace(value: Name))
+            {
+                throw new ArgumentNullException(paramName: nameof(Name),
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(CompanyData)));
+            }
+            
             this.Name = Name;
         }
 
@@ -90,6 +98,14 @@ namespace Data.Company
 
         public void SetEconomicActivity(string EconomicActivity)
         {
+            if (string.IsNullOrEmpty(value: EconomicActivity)
+                ||
+                string.IsNullOrWhiteSpace(value: EconomicActivity))
+            {
+                throw new ArgumentNullException(paramName: nameof(EconomicActivity),
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(EconomicActivity), ClassName: nameof(CompanyData)));
+            }
+            
             this.EconomicActivity = EconomicActivity;
         }
 

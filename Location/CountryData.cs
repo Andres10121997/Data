@@ -69,7 +69,7 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(value: Name))
             {
                 throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: $"The variable \"{nameof(Name)}\", of the ${nameof(CountryData)} class, cannot be null or empty or have blank spaces.");
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(CountryData)));
             }
             
             this.Name = Name.Trim();
@@ -87,7 +87,7 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(value: Iso))
             {
                 throw new ArgumentNullException(paramName: nameof(Iso),
-                                                message: $"The variable \"{nameof(Iso)}\", of the ${nameof(CountryData)} class, cannot be null or empty or have blank spaces.");
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Iso), ClassName: nameof(CountryData)));
             }
             else
             if (Iso.Length != 2)
@@ -111,7 +111,7 @@ namespace Data.Location
                 string.IsNullOrWhiteSpace(value: Iso3))
             {
                 throw new ArgumentNullException(paramName: nameof(Iso3),
-                                                message: $"The variable \"{nameof(Iso3)}\", of the ${nameof(CountryData)} class, cannot be null or empty or have blank spaces.");
+                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Iso3), ClassName: nameof(CountryData)));
             }
             else
             if (Iso3.Length != 3)

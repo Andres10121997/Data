@@ -53,6 +53,7 @@ namespace Data.Property
             this.NumberOfWarehouses = byte.MinValue;
             this.NumberOfParkingSpaces = byte.MinValue;
             this.NumberOfFloors = byte.MinValue;
+            this.PropertyType = PropertyTypeEnum.House;
             #endregion
 
             #region Objects
@@ -70,6 +71,7 @@ namespace Data.Property
                             byte NumberOfWarehouses,
                             byte NumberOfParkingSpaces,
                             byte NumberOfFloors,
+                            PropertyTypeEnum PropertyType,
                             SecurityData Security,
                             ServiceData Service,
                             EnvironmentData Environment,
@@ -84,6 +86,7 @@ namespace Data.Property
             this.NumberOfWarehouses = NumberOfWarehouses;
             this.NumberOfParkingSpaces = NumberOfParkingSpaces;
             this.NumberOfFloors = NumberOfFloors;
+            this.PropertyType = PropertyType;
             #endregion
 
             #region Objects
