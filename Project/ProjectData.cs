@@ -28,11 +28,13 @@ namespace Data.Project
         public ProjectData()
             : base()
         {
+            #region Variables
             this.Name = string.Empty;
             this.Description = null;
             this.CreationDate = new DateOnly();
             this.CreationTime = new TimeOnly();
             this.AccessLevel = AccessLevelEnum.Private;
+            #endregion
         }
 
         public ProjectData(string Name,
@@ -42,11 +44,13 @@ namespace Data.Project
                            AccessLevelEnum AccessLevel)
             : base()
         {
-            this.Name = Name;
-            this.Description = Description;
+            #region Variables
+            this.Name = Name.Trim();
+            this.Description = Description?.Trim();
             this.CreationDate = CreationDate;
             this.CreationTime = CreationTime;
             this.AccessLevel = AccessLevel;
+            #endregion
         }
         #endregion
 
@@ -62,6 +66,7 @@ namespace Data.Project
 
 
         #region Getters and Setters
+        #region Variables
         public string GetName()
         {
             return this.Name;
@@ -124,6 +129,7 @@ namespace Data.Project
         {
             this.AccessLevel = AccessLevel;
         }
+        #endregion
         #endregion
 
 

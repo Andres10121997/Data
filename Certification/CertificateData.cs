@@ -16,9 +16,11 @@ namespace Data.Certification
         public CertificateData()
             : base()
         {
+            #region Variables
             this.Title = string.Empty;
             this.Folio = uint.MinValue;
             this.Price = float.NaN;
+            #endregion
         }
 
         public CertificateData(string Title,
@@ -26,9 +28,11 @@ namespace Data.Certification
                                float Price)
             : base()
         {
+            #region Variables
             this.Title = Title.Trim();
             this.Folio = Folio;
             this.Price = Price;
+            #endregion
         }
         #endregion
 

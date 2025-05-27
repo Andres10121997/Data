@@ -44,9 +44,9 @@ namespace Data.Company
                            CompanyTypeEnum CompanyType)
             : base()
         {
-            this.Name = Name;
+            this.Name = Name.Trim();
             this.CreationDate = CreationDate;
-            this.EconomicActivity = EconomicActivity;
+            this.EconomicActivity = EconomicActivity.Trim();
             this.CompanyType = CompanyType;
         }
         #endregion
@@ -78,7 +78,7 @@ namespace Data.Company
                                                 message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(CompanyData)));
             }
             
-            this.Name = Name;
+            this.Name = Name.Trim();
         }
 
         public DateOnly GetCreationDate()
@@ -106,7 +106,7 @@ namespace Data.Company
                                                 message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(EconomicActivity), ClassName: nameof(CompanyData)));
             }
             
-            this.EconomicActivity = EconomicActivity;
+            this.EconomicActivity = EconomicActivity.Trim();
         }
 
         public CompanyTypeEnum GetCompanyType()

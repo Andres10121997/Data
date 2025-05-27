@@ -63,7 +63,7 @@ namespace Data.Account
                         string? MiddleName,
                         string FirstLastName,
                         string? SecondLastName,
-                        DateOnly DateOfBirth,
+                        DateOnly BirthDate,
                         SexEnum Sex,
                         string IP,
                         string Login,
@@ -75,7 +75,7 @@ namespace Data.Account
                    MiddleName: MiddleName?.Trim(),
                    FirstLastName: FirstLastName.Trim(),
                    SecondLastName: SecondLastName?.Trim(),
-                   DateOfBirth: DateOfBirth,
+                   BirthDate: BirthDate,
                    Sex: Sex)
         {
             #region Variables

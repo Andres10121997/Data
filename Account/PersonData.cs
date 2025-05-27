@@ -11,7 +11,7 @@ namespace Data.Account
         private string? MiddleName { get; set; }
         private string FirstLastName { get; set; }
         private string? SecondLastName { get; set; }
-        private DateOnly DateOfBirth { get; set; }
+        private DateOnly BirthDate { get; set; }
         private SexEnum Sex { get; set; }
         #endregion
 
@@ -34,7 +34,7 @@ namespace Data.Account
             this.MiddleName = null;
             this.FirstLastName = string.Empty;
             this.SecondLastName = null;
-            this.DateOfBirth = DateOnly.MinValue;
+            this.BirthDate = DateOnly.MinValue;
             this.Sex = SexEnum.Female;
             #endregion
         }
@@ -43,7 +43,7 @@ namespace Data.Account
                           string? MiddleName,
                           string FirstLastName,
                           string? SecondLastName,
-                          DateOnly DateOfBirth,
+                          DateOnly BirthDate,
                           SexEnum Sex)
             : base()
         {
@@ -52,7 +52,7 @@ namespace Data.Account
             this.MiddleName = MiddleName;
             this.FirstLastName = FirstLastName;
             this.SecondLastName = SecondLastName;
-            this.DateOfBirth = DateOfBirth;
+            this.BirthDate = BirthDate;
             this.Sex = Sex;
             #endregion
         }
@@ -127,22 +127,22 @@ namespace Data.Account
             this.SecondLastName = SecondLastName?.Trim();
         }
 
-        public DateOnly GetDateOfBirth()
+        public DateOnly GetBirthDate()
         {
-            return this.DateOfBirth;
+            return this.BirthDate;
         }
 
-        public void SetDateOfBirth(DateOnly DateOfBirth)
+        public void SetBirthDate(DateOnly BirthDate)
         {
             DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            if (DateOfBirth > Today)
+            if (BirthDate > Today)
             {
                 throw new ArgumentException(message: $"The \"{nameof(DateOnly)}\" variable cannot be later than the current date.",
-                                            paramName: nameof(DateOfBirth));
+                                            paramName: nameof(BirthDate));
             }
             
-            this.DateOfBirth = DateOfBirth;
+            this.BirthDate = BirthDate;
         }
 
         public SexEnum GetSex()
@@ -173,20 +173,20 @@ namespace Data.Account
 
             Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            if (this.DateOfBirth > Today)
+            if (this.BirthDate > Today)
             {
-                throw new ArgumentOutOfRangeException(paramName: nameof(this.DateOfBirth),
-                                                      message: $"The variable \"{nameof(this.DateOfBirth)}\", of the \"{nameof(PersonData)}\" class, cannot have a value after today.");
+                throw new ArgumentOutOfRangeException(paramName: nameof(this.BirthDate),
+                                                      message: $"The variable \"{nameof(this.BirthDate)}\", of the \"{nameof(PersonData)}\" class, cannot have a value after today.");
             }
 
-            Age = Convert.ToByte(value: Today.Year - this.DateOfBirth.Year);
+            Age = Convert.ToByte(value: Today.Year - this.BirthDate.Year);
 
             ListOfValidations = new bool[2]
             {
-                this.DateOfBirth.Month > Today.Month,
-                this.DateOfBirth.Month == Today.Month
+                this.BirthDate.Month > Today.Month,
+                this.BirthDate.Month == Today.Month
                 &&
-                this.DateOfBirth.Day > Today.Day
+                this.BirthDate.Day > Today.Day
             };
 
             if (ListOfValidations.AsParallel<bool>().Contains<bool>(value: true))

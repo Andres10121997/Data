@@ -71,7 +71,7 @@ namespace Data.Company.HumanResources
                             string? MiddleName,
                             string FirstLastName,
                             string? SecondLastName,
-                            DateOnly DateOfBirth,
+                            DateOnly BirthDate,
                             SexEnum Sex,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
@@ -83,7 +83,7 @@ namespace Data.Company.HumanResources
                    MiddleName: MiddleName,
                    FirstLastName: FirstLastName,
                    SecondLastName: SecondLastName,
-                   DateOfBirth: DateOfBirth,
+                   BirthDate: BirthDate,
                    Sex: Sex)
         {
             #region Variables
