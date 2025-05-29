@@ -34,7 +34,7 @@ namespace Data.Account
             this.MiddleName = null;
             this.FirstLastName = string.Empty;
             this.SecondLastName = null;
-            this.BirthDate = DateOnly.MinValue;
+            this.BirthDate = new DateOnly();
             this.Sex = SexEnum.Female;
             #endregion
         }

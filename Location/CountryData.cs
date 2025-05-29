@@ -90,7 +90,7 @@ namespace Data.Location
                                                 message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Iso), ClassName: nameof(CountryData)));
             }
             else
-            if (Iso.Length != 2)
+            if (Iso.Trim().Length != 2)
             {
                 throw new ArgumentOutOfRangeException(message: $"The parameter '{nameof(Iso)}' from the class '{nameof(CountryData)}' must be 3 characters long.",
                                                       paramName: nameof(Iso));
@@ -114,7 +114,7 @@ namespace Data.Location
                                                 message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Iso3), ClassName: nameof(CountryData)));
             }
             else
-            if (Iso3.Length != 3)
+            if (Iso3.Trim().Length != 3)
             {
                 throw new ArgumentOutOfRangeException(message: $"The parameter '{nameof(Iso3)}' from the class '{nameof(CountryData)}' must be 3 characters long.",
                                                       paramName: nameof(Iso3));

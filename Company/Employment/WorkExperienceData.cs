@@ -35,10 +35,10 @@ namespace Data.Company.Employment
                                   CompanyData Company)
             : base()
         {
-            this.Position = Position;
+            this.Position = Position.Trim();
             this.StartDate = StartDate;
             this.EndDate = EndDate;
-            this.Description = Description;
+            this.Description = Description.Trim();
             this.Company = Company;
         }
         #endregion
@@ -71,7 +71,7 @@ namespace Data.Company.Employment
                                                 message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Position), ClassName: nameof(WorkExperienceData)));
             }
             
-            this.Position = Position;
+            this.Position = Position.Trim();
         }
 
         public DateOnly GetStartDate()
@@ -109,7 +109,7 @@ namespace Data.Company.Employment
                                                 message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Description), ClassName: nameof(WorkExperienceData)));
             }
             
-            this.Description = Description;
+            this.Description = Description.Trim();
         }
         #endregion
 
