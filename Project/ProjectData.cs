@@ -22,6 +22,10 @@ namespace Data.Project
         }
         #endregion
 
+        #region Objects
+        private VersionData Version { get; set; }
+        #endregion
+
 
 
         #region Constructor Methods
@@ -35,13 +39,18 @@ namespace Data.Project
             this.CreationTime = new TimeOnly();
             this.AccessLevel = AccessLevelEnum.Private;
             #endregion
+
+            #region Objects
+            this.Version = new VersionData();
+            #endregion
         }
 
         public ProjectData(string Name,
                            string? Description,
                            DateOnly CreationDate,
                            TimeOnly CreationTime,
-                           AccessLevelEnum AccessLevel)
+                           AccessLevelEnum AccessLevel,
+                           VersionData Version)
             : base()
         {
             #region Variables
@@ -50,6 +59,10 @@ namespace Data.Project
             this.CreationDate = CreationDate;
             this.CreationTime = CreationTime;
             this.AccessLevel = AccessLevel;
+            #endregion
+
+            #region Objects
+            this.Version = Version;
             #endregion
         }
         #endregion
@@ -130,6 +143,18 @@ namespace Data.Project
             this.AccessLevel = AccessLevel;
         }
         #endregion
+
+        #region Objects
+        public VersionData GetVersion()
+        {
+            return this.Version;
+        }
+
+        public void SetVersion(VersionData Version)
+        {
+            this.Version = Version;
+        }
+        #endregion
         #endregion
 
 
@@ -139,7 +164,7 @@ namespace Data.Project
         {
             DateTime CreationDateTime;
 
-            CreationDateTime = CreationDate.ToDateTime(time: CreationTime);
+            CreationDateTime = this.CreationDate.ToDateTime(time: this.CreationTime);
 
             return CreationDateTime;
         }
