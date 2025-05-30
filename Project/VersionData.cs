@@ -57,6 +57,7 @@ namespace Data.Project
 
 
         #region Getters and Setters
+        #region Variables
         public byte GetMainVersion()
         {
             return this.MainVersion;
@@ -143,27 +144,37 @@ namespace Data.Project
             this.UpdateTime = UpdateTime;
         }
         #endregion
+        #endregion
 
 
 
         #region To
-        public override string ToString()
-        {
-            return $"{this.MainVersion}.{this.SecondaryVersion}.{this.TertiaryVersion}";
-        }
-
         public DateTime ToUpdateDateTime()
         {
-            DateTime dt;
+            DateTime UpdateDateTime;
 
-            dt = this.UpdateDate.ToDateTime(time: this.UpdateTime);
+            UpdateDateTime = this.UpdateDate.ToDateTime(time: this.UpdateTime);
 
-            return dt;
+            return UpdateDateTime;
         }
 
         public async Task<DateTime> ToUpdateDateTimeAsync()
         {
             return await Task.Run<DateTime>(function: () => this.ToUpdateDateTime());
+        }
+        #endregion
+
+
+
+        #region Full Version
+        public string FullVersion()
+        {
+            return $"{this.MainVersion}.{this.SecondaryVersion}.{this.TertiaryVersion}";
+        }
+
+        public async Task<string> FullVersionAsync()
+        {
+            return await Task.Run<string>(function: () => this.FullVersion());
         }
         #endregion
     }
