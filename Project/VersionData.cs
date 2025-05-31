@@ -6,9 +6,10 @@ namespace Data.Project
     public class VersionData
     {
         #region Variables
-        private byte MainVersion { get; set; }
-        private byte SecondaryVersion { get; set; }
-        private byte TertiaryVersion { get; set; }
+        private byte Major { get; set; }
+        private byte Minor { get; set; }
+        private byte Patch { get; set; }
+        private string? PreRelease { get; set; } // Ej. "alpha", "beta", "rc1"
         private string Description { get; set; }
         private DateOnly UpdateDate { get; set; }
         private TimeOnly UpdateTime { get; set; }
@@ -20,25 +21,28 @@ namespace Data.Project
         public VersionData()
             : base()
         {
-            this.MainVersion = 0;
-            this.SecondaryVersion = 0;
-            this.TertiaryVersion = 0;
+            this.Major = 0;
+            this.Minor = 0;
+            this.Patch = 0;
+            this.PreRelease = null;
             this.Description = string.Empty;
             this.UpdateDate = new DateOnly();
             this.UpdateTime = new TimeOnly();
         }
 
-        public VersionData(byte MainVersion,
-                           byte SecondaryVersion,
-                           byte TertiaryVersion,
+        public VersionData(byte Major,
+                           byte Minor,
+                           byte Patch,
+                           string? PreRelease,
                            string Description,
                            DateOnly UpdateDate,
                            TimeOnly UpdateTime)
             : base()
         {
-            this.MainVersion = MainVersion;
-            this.SecondaryVersion = SecondaryVersion;
-            this.TertiaryVersion = TertiaryVersion;
+            this.Major = Major;
+            this.Minor = Minor;
+            this.Patch = Patch;
+            this.PreRelease = PreRelease;
             this.Description = Description;
             this.UpdateDate = UpdateDate;
             this.UpdateTime = UpdateTime;
@@ -58,52 +62,44 @@ namespace Data.Project
 
         #region Getters and Setters
         #region Variables
-        public byte GetMainVersion()
+        public byte GetMajor()
         {
-            return this.MainVersion;
+            return this.Major;
         }
 
-        public void SetMainVersion(byte MainVersion)
+        public void SetMajor(byte Major)
         {
-            if (MainVersion < 0)
-            {
-                throw new ArgumentOutOfRangeException(paramName: nameof(MainVersion),
-                                                      message: $"El parámetro {nameof(MainVersion)}, de la clase {nameof(VersionData)}, no puede ser menor que 0.");
-            }
-            
-            this.MainVersion = MainVersion;
+            this.Major = Major;
         }
 
-        public byte GetSecondaryVersion()
+        public byte GetMinor()
         {
-            return this.SecondaryVersion;
+            return this.Minor;
         }
 
-        public void SetSecondaryVersion(byte SecondaryVersion)
+        public void SetMinor(byte Minor)
         {
-            if (SecondaryVersion < 0)
-            {
-                throw new ArgumentOutOfRangeException(paramName: nameof(SecondaryVersion),
-                                                      message: $"El parámetro {nameof(SecondaryVersion)}, de la clase {nameof(VersionData)}, no puede ser menor que 0.");
-            }
-            
-            this.SecondaryVersion = SecondaryVersion;
+            this.Minor = Minor;
         }
 
-        public byte GetTertiaryVersion()
+        public byte GetPatch()
         {
-            return this.TertiaryVersion;
+            return this.Patch;
         }
 
-        public void SetTertiaryVersion(byte TertiaryVersion)
+        public void SetPatch(byte Patch)
         {
-            if (TertiaryVersion < 0)
-            {
-                throw new ArgumentOutOfRangeException(paramName: nameof(TertiaryVersion),
-                                                      message: $"El parámetro {nameof(TertiaryVersion)}, de la clase {nameof(VersionData)}, no puede ser menor que 0.");
-            }
-            
-            this.TertiaryVersion = TertiaryVersion;
+            this.Patch = Patch;
+        }
+
+        public string? GetPreRelease()
+        {
+            return this.PreRelease;
+        }
+
+        public void SetPreRelease(string? PreRelease)
+        {
+            this.PreRelease = PreRelease;
         }
 
         public string GetDescription()
@@ -162,6 +158,30 @@ namespace Data.Project
         {
             return await Task.Run<DateTime>(function: () => this.ToUpdateDateTime());
         }
+
+        // Convertir VersionData a System.Version
+        public Version ToSystemVersion()
+        {
+            return new Version(Major, Minor, Patch);
+        }
+        #endregion
+
+
+
+        #region From
+        // Convertir System.Version a VersionData
+        public static VersionData FromSystemVersion(Version version, string? preRelease = null, string description = "")
+        {
+            return new VersionData(
+                (byte)version.Major,
+                (byte)version.Minor,
+                (byte)version.Build, // Usamos Build para el 'Patch'
+                preRelease,
+                description,
+                DateOnly.FromDateTime(DateTime.Now),
+                TimeOnly.FromDateTime(DateTime.Now)
+            );
+        }
         #endregion
 
 
@@ -169,7 +189,14 @@ namespace Data.Project
         #region Full Version
         public string FullVersion()
         {
-            return $"{this.MainVersion}.{this.SecondaryVersion}.{this.TertiaryVersion}";
+            string Version = $"{Major}.{Minor}.{Patch}";
+
+            if (!string.IsNullOrWhiteSpace(PreRelease))
+            {
+                Version += $"-{PreRelease}";
+            }
+
+            return Version;
         }
 
         public async Task<string> FullVersionAsync()

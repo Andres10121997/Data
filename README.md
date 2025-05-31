@@ -32,6 +32,13 @@ Este proyecto está diseñado para ser flexible y escalable, permitiendo su inte
 
 ---
 
+## Pattern to use | Patrón a utilizar
+### <ins>Spanish</ins>
+
+En este proyecto se utiliza el Patrón Bean, Bean Pattern en inglés, también conocido como JavaBeans.
+
+---
+
 ## Licencia
 This project is licensed under the [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) license.
 
