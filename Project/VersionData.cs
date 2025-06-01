@@ -162,7 +162,12 @@ namespace Data.Project
         // Convertir VersionData a System.Version
         public Version ToSystemVersion()
         {
-            return new Version(Major, Minor, Patch);
+            return new Version(this.Major, this.Minor, this.Patch);
+        }
+
+        public async Task<Version> ToSystemVersionAsync()
+        {
+            return await Task.Run<Version>(function: () => this.ToSystemVersion());
         }
         #endregion
 
@@ -170,7 +175,9 @@ namespace Data.Project
 
         #region From
         // Convertir System.Version a VersionData
-        public static VersionData FromSystemVersion(Version version, string? preRelease = null, string description = "")
+        public VersionData FromSystemVersion(Version version,
+                                             string? preRelease = null,
+                                             string description = "")
         {
             return new VersionData(
                 (byte)version.Major,
@@ -181,6 +188,13 @@ namespace Data.Project
                 DateOnly.FromDateTime(DateTime.Now),
                 TimeOnly.FromDateTime(DateTime.Now)
             );
+        }
+
+        public async Task<VersionData> FromSystemVersionAsync(Version version,
+                                                              string? preRelease = null,
+                                                              string description = "")
+        {
+            return await Task.Run<VersionData>(function: () => this.FromSystemVersion(version: version, preRelease: preRelease, description: description));
         }
         #endregion
 
