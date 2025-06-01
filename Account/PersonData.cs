@@ -205,27 +205,30 @@ namespace Data.Account
 
 
 
-        #region FullName
+        #region Full Name
         public string FullName()
         {
             #region Variables
             string Name;
             string LastName;
+            string FullName;
             #endregion
 
             Name = (
                 string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
                 ?
                 this.FirstName.Trim() : $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
-            );
+            ).Trim();
 
             LastName = (
                 string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
                 ?
                 this.FirstLastName.Trim() : $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
-            );
+            ).Trim();
 
-            return $"{Name.Trim()} {LastName.Trim()}";
+            FullName = string.Concat(Name, " ", LastName);
+
+            return FullName;
         }
 
         public async Task<string> FirstNameAsync()

@@ -180,9 +180,9 @@ namespace Data.Project
                                              string description = "")
         {
             return new VersionData(
-                (byte)version.Major,
-                (byte)version.Minor,
-                (byte)version.Build, // Usamos Build para el 'Patch'
+                Convert.ToByte(value: version.Major),
+                Convert.ToByte(value: version.Minor),
+                Convert.ToByte(value: version.Build), // Usamos Build para el 'Patch'
                 preRelease,
                 description,
                 DateOnly.FromDateTime(DateTime.Now),
@@ -194,7 +194,11 @@ namespace Data.Project
                                                               string? preRelease = null,
                                                               string description = "")
         {
-            return await Task.Run<VersionData>(function: () => this.FromSystemVersion(version: version, preRelease: preRelease, description: description));
+            return await Task.Run<VersionData>(
+                function: () => this.FromSystemVersion(version: version,
+                                                       preRelease: preRelease,
+                                                       description: description)
+            );
         }
         #endregion
 
@@ -203,14 +207,16 @@ namespace Data.Project
         #region Full Version
         public string FullVersion()
         {
-            string Version = $"{Major}.{Minor}.{Patch}";
+            string Version;
 
-            if (!string.IsNullOrWhiteSpace(PreRelease))
+            Version = $"{Major}.{Minor}.{Patch}";
+
+            if (!string.IsNullOrWhiteSpace(value: PreRelease))
             {
                 Version += $"-{PreRelease}";
             }
 
-            return Version;
+            return Version.Trim();
         }
 
         public async Task<string> FullVersionAsync()
