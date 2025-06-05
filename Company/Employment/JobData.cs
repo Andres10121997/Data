@@ -2,7 +2,7 @@
 
 namespace Data.Company.Employment
 {
-    public class JobData
+    public sealed class JobData
     {
         #region Variables
         private string Name { get; set; }

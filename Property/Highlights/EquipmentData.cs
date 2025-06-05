@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public class EquipmentData
+    public sealed class EquipmentData
     {
         #region Variables
         private bool HasChimney { get; set; } // Chimenea

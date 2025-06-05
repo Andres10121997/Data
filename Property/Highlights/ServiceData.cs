@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public class ServiceData
+    public sealed class ServiceData
     {
         #region Variables
         private bool HasInternetAccess { get; set; } // Acceso a internet

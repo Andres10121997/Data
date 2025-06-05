@@ -3,7 +3,7 @@ using System;
 
 namespace Data.Property
 {
-    public class RentData
+    public sealed class RentData
     {
         #region Variables
         private DateOnly StartDate { get; set; }

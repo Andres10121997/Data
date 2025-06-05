@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public class ProjectData
+    public sealed class ProjectData
     {
         #region Variables
         private string Name { get; set; }

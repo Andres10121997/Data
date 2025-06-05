@@ -2,7 +2,7 @@
 
 namespace Data.Property
 {
-    public class PropertyData
+    public sealed class PropertyData
     {
         #region Variables
         private ushort UsableArea { get; set; }

@@ -3,16 +3,17 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public class VersionData
+    public sealed class VersionData
     {
         #region Variables
-        private byte Major { get; set; }
-        private byte Minor { get; set; }
-        private byte Patch { get; set; }
         private string? PreRelease { get; set; } // Ej. "alpha", "beta", "rc1"
         private string Description { get; set; }
         private DateOnly UpdateDate { get; set; }
         private TimeOnly UpdateTime { get; set; }
+        #endregion
+
+        #region Object
+        private Version OVersion { get; set; }
         #endregion
 
 
@@ -21,31 +22,35 @@ namespace Data.Project
         public VersionData()
             : base()
         {
-            this.Major = 0;
-            this.Minor = 0;
-            this.Patch = 0;
+            #region Variables
             this.PreRelease = null;
             this.Description = string.Empty;
             this.UpdateDate = new DateOnly();
             this.UpdateTime = new TimeOnly();
+            #endregion
+
+            #region Object
+            this.OVersion = new Version();
+            #endregion
         }
 
-        public VersionData(byte Major,
-                           byte Minor,
-                           byte Patch,
-                           string? PreRelease,
+        public VersionData(string? PreRelease,
                            string Description,
                            DateOnly UpdateDate,
-                           TimeOnly UpdateTime)
+                           TimeOnly UpdateTime,
+                           Version OVersion)
             : base()
         {
-            this.Major = Major;
-            this.Minor = Minor;
-            this.Patch = Patch;
+            #region Variables
             this.PreRelease = PreRelease;
             this.Description = Description;
             this.UpdateDate = UpdateDate;
             this.UpdateTime = UpdateTime;
+            #endregion
+
+            #region Object
+            this.OVersion = OVersion;
+            #endregion
         }
         #endregion
 
@@ -62,36 +67,6 @@ namespace Data.Project
 
         #region Getters and Setters
         #region Variables
-        public byte GetMajor()
-        {
-            return this.Major;
-        }
-
-        public void SetMajor(byte Major)
-        {
-            this.Major = Major;
-        }
-
-        public byte GetMinor()
-        {
-            return this.Minor;
-        }
-
-        public void SetMinor(byte Minor)
-        {
-            this.Minor = Minor;
-        }
-
-        public byte GetPatch()
-        {
-            return this.Patch;
-        }
-
-        public void SetPatch(byte Patch)
-        {
-            this.Patch = Patch;
-        }
-
         public string? GetPreRelease()
         {
             return this.PreRelease;
@@ -140,6 +115,18 @@ namespace Data.Project
             this.UpdateTime = UpdateTime;
         }
         #endregion
+
+        #region Object
+        public Version GetOVersion()
+        {
+            return this.OVersion;
+        }
+
+        public void SetOVersion(Version OVersion)
+        {
+            this.OVersion = OVersion;
+        }
+        #endregion
         #endregion
 
 
@@ -158,48 +145,6 @@ namespace Data.Project
         {
             return await Task.Run<DateTime>(function: () => this.ToUpdateDateTime());
         }
-
-        // Convertir VersionData a System.Version
-        public Version ToSystemVersion()
-        {
-            return new Version(this.Major, this.Minor, this.Patch);
-        }
-
-        public async Task<Version> ToSystemVersionAsync()
-        {
-            return await Task.Run<Version>(function: () => this.ToSystemVersion());
-        }
-        #endregion
-
-
-
-        #region From
-        // Convertir System.Version a VersionData
-        public VersionData FromSystemVersion(Version version,
-                                             string? preRelease = null,
-                                             string description = "")
-        {
-            return new VersionData(
-                Convert.ToByte(value: version.Major),
-                Convert.ToByte(value: version.Minor),
-                Convert.ToByte(value: version.Build), // Usamos Build para el 'Patch'
-                preRelease,
-                description,
-                DateOnly.FromDateTime(DateTime.Now),
-                TimeOnly.FromDateTime(DateTime.Now)
-            );
-        }
-
-        public async Task<VersionData> FromSystemVersionAsync(Version version,
-                                                              string? preRelease = null,
-                                                              string description = "")
-        {
-            return await Task.Run<VersionData>(
-                function: () => this.FromSystemVersion(version: version,
-                                                       preRelease: preRelease,
-                                                       description: description)
-            );
-        }
         #endregion
 
 
@@ -209,7 +154,7 @@ namespace Data.Project
         {
             string Version;
 
-            Version = $"{Major}.{Minor}.{Patch}";
+            Version = $"{this.OVersion.Major}.{this.OVersion.Minor}.{this.OVersion.Build}.{this.OVersion.Revision}";
 
             if (!string.IsNullOrWhiteSpace(value: PreRelease))
             {

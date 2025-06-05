@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public class SecurityData
+    public sealed class SecurityData
     {
         #region Variables
         private bool HasAlarm { get; set; } // Alarma

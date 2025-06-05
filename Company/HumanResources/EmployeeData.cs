@@ -4,7 +4,7 @@ using System;
 
 namespace Data.Company.HumanResources
 {
-    public class EmployeeData : PersonData
+    public sealed class EmployeeData : PersonData
     {
         #region Variables
         private DateOnly HiringDate { get; set; }

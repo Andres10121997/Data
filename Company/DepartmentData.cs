@@ -2,7 +2,7 @@
 
 namespace Data.Company
 {
-    public class DepartmentData
+    public sealed class DepartmentData
     {
         #region Variables
         private string Name { get; set; }

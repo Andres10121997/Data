@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public class EnvironmentData // Ambientes
+    public sealed class EnvironmentData // Ambientes
     {
         #region Variables
         private bool HasGrill { get; set; } // Parrilla

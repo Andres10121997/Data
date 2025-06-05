@@ -2,6 +2,7 @@
 using Data.Communication.Phone;
 using Data.Location;
 using System;
+using System.Threading.Tasks;
 
 namespace Data.Account
 {
@@ -11,6 +12,8 @@ namespace Data.Account
         private string IP { get; set; }
         private string Login { get; set; }
         private string Username { get; set; }
+        private DateOnly CreationDate { get; set; }
+        private TimeOnly CreationTime { get; set; }
         #endregion
 
         #region Objects
@@ -29,6 +32,8 @@ namespace Data.Account
             this.IP = string.Empty;
             this.Login = string.Empty;
             this.Username = string.Empty;
+            this.CreationDate = new DateOnly();
+            this.CreationTime = new TimeOnly();
             #endregion
 
             #region Objects
@@ -41,6 +46,8 @@ namespace Data.Account
         public UserData(string IP,
                         string Login,
                         string Username,
+                        DateOnly CreationDate,
+                        TimeOnly CreationTime,
                         EmailAddressData EmailAddress,
                         PhoneData Phone,
                         CountryData Country)
@@ -50,6 +57,8 @@ namespace Data.Account
             this.IP = IP.Trim();
             this.Login = Login.Trim();
             this.Username = Username.Trim();
+            this.CreationDate = CreationDate;
+            this.CreationTime = CreationTime;
             #endregion
 
             #region Objects
@@ -68,6 +77,8 @@ namespace Data.Account
                         string IP,
                         string Login,
                         string Username,
+                        DateOnly CreationDate,
+                        TimeOnly CreationTime,
                         EmailAddressData EmailAddress,
                         PhoneData Phone,
                         CountryData Country)
@@ -82,6 +93,8 @@ namespace Data.Account
             this.IP = IP.Trim();
             this.Login = Login.Trim();
             this.Username = Username.Trim();
+            this.CreationDate = CreationDate;
+            this.CreationTime = CreationTime;
             #endregion
 
             #region Objects
@@ -158,6 +171,26 @@ namespace Data.Account
             
             this.Username = Username.Trim();
         }
+
+        public DateOnly GetCreationDate()
+        {
+            return this.CreationDate;
+        }
+
+        public void SetCreationDate(DateOnly CreationDate)
+        {
+            this.CreationDate = CreationDate;
+        }
+
+        public TimeOnly GetCreationTime()
+        {
+            return this.CreationTime;
+        }
+
+        public void SetCreationTime(TimeOnly CreationTime)
+        {
+            this.CreationTime = CreationTime;
+        }
         #endregion
 
         #region Objects
@@ -191,6 +224,24 @@ namespace Data.Account
             this.Country = Country;
         }
         #endregion
+        #endregion
+
+
+
+        #region To
+        public DateTime ToCreationDateTime()
+        {
+            DateTime CreationDateTime;
+
+            CreationDateTime = this.CreationDate.ToDateTime(time: this.CreationTime);
+
+            return CreationDateTime;
+        }
+
+        public async Task<DateTime> ToCreationDateTimeAsync()
+        {
+            return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
+        }
         #endregion
     }
 }
