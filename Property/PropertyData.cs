@@ -1,4 +1,5 @@
 ﻿using Data.Property.Highlights;
+using System;
 
 namespace Data.Property
 {
@@ -78,6 +79,13 @@ namespace Data.Property
                             EquipmentData Equipment)
             : base()
         {
+            #region Exception
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: UsableArea);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: TotalArea);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: UsableArea, other: TotalArea);
+            ArgumentOutOfRangeException.ThrowIfLessThan(value: TotalArea, other: UsableArea);
+            #endregion
+
             #region Variables
             this.UsableArea = UsableArea;
             this.TotalArea = TotalArea;
@@ -118,6 +126,9 @@ namespace Data.Property
 
         public void SetUsableArea(ushort UsableArea)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: UsableArea);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: UsableArea, other: this.TotalArea);
+            
             this.UsableArea = UsableArea;
         }
 
@@ -128,6 +139,9 @@ namespace Data.Property
 
         public void SetTotalArea(ushort TotalArea)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: TotalArea);
+            ArgumentOutOfRangeException.ThrowIfLessThan(value: TotalArea, other: this.UsableArea);
+            
             this.TotalArea = TotalArea;
         }
 

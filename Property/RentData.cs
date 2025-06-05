@@ -44,6 +44,11 @@ namespace Data.Property
                         PropertyData Property)
             : base()
         {
+            #region Exception
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: RentAmount);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: DepositAmount);
+            #endregion
+
             #region Variables
             this.StartDate = StartDate;
             this.EndDate = EndDate;
@@ -103,12 +108,8 @@ namespace Data.Property
                 throw new ArgumentNullException(paramName: nameof(RentAmount),
                                                 message: $"The parameter \"{nameof(RentAmount)}\", of the \"{nameof(RentData)}\" class, cannot be {float.NaN}.");
             }
-            else
-            if (float.IsNegative(f: RentAmount))
-            {
-                throw new ArgumentOutOfRangeException(paramName: nameof(RentAmount),
-                                                      message: $"The \"{nameof(RentAmount)}\" parameter of the \"{nameof(RentData)}\" class cannot be a negative number.");
-            }
+
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: RentAmount);
 
             this.RentAmount = RentAmount;
         }
@@ -120,6 +121,8 @@ namespace Data.Property
 
         public void SetDepositAmount(float DepositAmount)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: DepositAmount);
+            
             this.DepositAmount = DepositAmount;
         }
         #endregion
