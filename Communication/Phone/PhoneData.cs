@@ -2,7 +2,7 @@
 
 namespace Data.Communication.Phone
 {
-    public class PhoneData
+    public sealed class PhoneData
     {
         #region Variables
         private string PhoneNumber { get; set; }

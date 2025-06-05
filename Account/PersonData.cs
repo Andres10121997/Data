@@ -47,6 +47,13 @@ namespace Data.Account
                           SexEnum Sex)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstName, paramName: nameof(FirstName));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName, paramName: nameof(FirstLastName));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstName, paramName: nameof(FirstName));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstLastName, paramName: nameof(FirstLastName));
+            #endregion
+
             #region Variables
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -217,13 +224,17 @@ namespace Data.Account
             Name = (
                 string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
                 ?
-                this.FirstName.Trim() : $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
+                this.FirstName.Trim()
+                :
+                $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
             ).Trim();
 
             LastName = (
                 string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
                 ?
-                this.FirstLastName.Trim() : $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
+                this.FirstLastName.Trim()
+                :
+                $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
             ).Trim();
 
             FullName = string.Concat(Name, " ", LastName);

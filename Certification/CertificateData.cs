@@ -28,6 +28,11 @@ namespace Data.Certification
                                float Price)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Title);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Title);
+            #endregion
+
             #region Variables
             this.Title = Title.Trim();
             this.Folio = Folio;

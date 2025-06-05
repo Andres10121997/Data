@@ -46,6 +46,11 @@ namespace Data.Company
                               DepartmentData SubDepartment)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
+            #endregion
+
             #region Variables
             this.Name = Name.Trim();
             this.Description = Description?.Trim();

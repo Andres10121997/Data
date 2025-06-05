@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.Account
 {
-    public class UserData : PersonData
+    public sealed class UserData : PersonData
     {
         #region Variables
         private string IP { get; set; }
@@ -53,6 +53,15 @@ namespace Data.Account
                         CountryData Country)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP, paramName: nameof(IP));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login, paramName: nameof(Login));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username, paramName: nameof(Username));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP, paramName: nameof(IP));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login, paramName: nameof(Login));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username, paramName: nameof(Username));
+            #endregion
+
             #region Variables
             this.IP = IP.Trim();
             this.Login = Login.Trim();
@@ -89,6 +98,15 @@ namespace Data.Account
                    BirthDate: BirthDate,
                    Sex: Sex)
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP, paramName: nameof(IP));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login, paramName: nameof(Login));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username, paramName: nameof(Username));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP, paramName: nameof(IP));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login, paramName: nameof(Login));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username, paramName: nameof(Username));
+            #endregion
+
             #region Variables
             this.IP = IP.Trim();
             this.Login = Login.Trim();

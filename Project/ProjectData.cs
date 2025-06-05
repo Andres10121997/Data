@@ -53,6 +53,11 @@ namespace Data.Project
                            VersionData Version)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
+            #endregion
+
             #region Variables
             this.Name = Name.Trim();
             this.Description = Description?.Trim();

@@ -1,6 +1,6 @@
 ﻿namespace Data.Transport
 {
-    public class VehicleData
+    public sealed class VehicleData
     {
         #region Variables
         private byte NumberOfDoors { get; set; }
