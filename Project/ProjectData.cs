@@ -56,6 +56,7 @@ namespace Data.Project
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
 
             #region Variables
@@ -92,13 +93,8 @@ namespace Data.Project
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(value: Name)
-                ||
-                string.IsNullOrWhiteSpace(value: Name))
-            {
-                throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(ProjectData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
 
             this.Name = Name.Trim();
         }
@@ -120,10 +116,7 @@ namespace Data.Project
 
         public void SetCreationDate(DateOnly CreationDate)
         {
-            if (CreationDate > DateOnly.FromDateTime(dateTime: DateTime.Now))
-            {
-                throw new Exception();
-            }
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
 
             this.CreationDate = CreationDate;
         }

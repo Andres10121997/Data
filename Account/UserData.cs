@@ -184,6 +184,8 @@ namespace Data.Account
 
         public void SetCreationDate(DateOnly CreationDate)
         {
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            
             this.CreationDate = CreationDate;
         }
 

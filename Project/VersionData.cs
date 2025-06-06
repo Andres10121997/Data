@@ -41,6 +41,11 @@ namespace Data.Project
                            Version OVersion)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Description);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Description);
+            #endregion
+
             #region Variables
             this.PreRelease = PreRelease;
             this.Description = Description;
@@ -84,13 +89,8 @@ namespace Data.Project
 
         public void SetDescription(string Description)
         {
-            if (string.IsNullOrEmpty(value: Description)
-                ||
-                string.IsNullOrWhiteSpace(value: Description))
-            {
-                throw new ArgumentNullException(paramName: nameof(Description),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Description), ClassName: nameof(VersionData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Description);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Description);
             
             this.Description = Description;
         }
