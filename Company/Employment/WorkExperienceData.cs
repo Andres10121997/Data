@@ -35,11 +35,21 @@ namespace Data.Company.Employment
                                   CompanyData Company)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Position);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Position);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: StartDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Description);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Description);
+            #endregion
+
+            #region Variables
             this.Position = Position.Trim();
             this.StartDate = StartDate;
             this.EndDate = EndDate;
             this.Description = Description.Trim();
             this.Company = Company;
+            #endregion
         }
         #endregion
 
@@ -63,13 +73,8 @@ namespace Data.Company.Employment
 
         public void SetPosition(string Position)
         {
-            if (string.IsNullOrEmpty(value: Position)
-                ||
-                string.IsNullOrWhiteSpace(value: Position))
-            {
-                throw new ArgumentNullException(paramName: nameof(Position),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Position), ClassName: nameof(WorkExperienceData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Position);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Position);
             
             this.Position = Position.Trim();
         }
@@ -81,6 +86,8 @@ namespace Data.Company.Employment
 
         public void SetStartDate(DateOnly StartDate)
         {
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: StartDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            
             this.StartDate = StartDate;
         }
 
@@ -101,13 +108,8 @@ namespace Data.Company.Employment
 
         public void SetDescription(string Description)
         {
-            if (string.IsNullOrEmpty(value: Description)
-                ||
-                string.IsNullOrWhiteSpace(value: Description))
-            {
-                throw new ArgumentNullException(paramName: nameof(Description),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Description), ClassName: nameof(WorkExperienceData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Description);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Description);
             
             this.Description = Description.Trim();
         }

@@ -22,8 +22,15 @@ namespace Data.Company.Employment
         public JobData(string Name,
                        string? Description)
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
+            #endregion
+
+            #region Variables
             this.Name = Name.Trim();
             this.Description = Description?.Trim();
+            #endregion
         }
         #endregion
 
@@ -46,13 +53,8 @@ namespace Data.Company.Employment
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(value: Name)
-                ||
-                string.IsNullOrWhiteSpace(value: Name))
-            {
-                throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(JobData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
 
             this.Name = Name.Trim();
         }

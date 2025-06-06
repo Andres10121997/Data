@@ -32,8 +32,16 @@ namespace Data.Communication.Phone
                          PhoneTypeEnum PhoneType)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: PhoneNumber);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: PhoneNumber);
+            ArgumentOutOfRangeException.ThrowIfZero(value: PhoneNumber.Length);
+            #endregion
+
+            #region Variables
             this.PhoneNumber = PhoneNumber.Trim();
             this.PhoneType = PhoneType;
+            #endregion
         }
         #endregion
 
@@ -57,21 +65,9 @@ namespace Data.Communication.Phone
 
         public void SetPhoneNumber(string PhoneNumber)
         {
-            if (string.IsNullOrEmpty(value: PhoneNumber)
-                ||
-                string.IsNullOrWhiteSpace(value: PhoneNumber))
-            {
-                throw new ArgumentNullException(paramName: nameof(PhoneNumber),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(PhoneNumber), ClassName: nameof(PhoneData)));
-            }
-            else
-            if (PhoneNumber.Trim().Length == 0
-                ||
-                PhoneNumber.Trim().Length.Equals(obj: 0))
-            {
-                throw new ArgumentException(message: $"The number of characters in the variable \"{nameof(PhoneNumber)}\", of the class \"{nameof(PhoneData)}\", cannot be 0.",
-                                            paramName: nameof(PhoneNumber));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: PhoneNumber);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: PhoneNumber);
+            ArgumentOutOfRangeException.ThrowIfZero(value: PhoneNumber.Length);
             
             this.PhoneNumber = PhoneNumber.Trim();
         }

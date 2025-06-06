@@ -33,8 +33,16 @@ namespace Data.Communication.Email
                                 EmailAddressTypeEnum EmailType)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Email);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Email);
+            ArgumentOutOfRangeException.ThrowIfZero(value: Email.Length);
+            #endregion
+
+            #region Variables
             this.Email = Email.Trim();
             this.EmailType = EmailType;
+            #endregion
         }
         #endregion
 
@@ -58,21 +66,9 @@ namespace Data.Communication.Email
 
         public void SetEmail(string Email)
         {
-            if (string.IsNullOrEmpty(value: Email)
-                ||
-                string.IsNullOrWhiteSpace(value: Email))
-            {
-                throw new ArgumentNullException(paramName: nameof(Email),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Email), ClassName: nameof(EmailAddressData)));
-            }
-            else
-            if (Email.Trim().Length == 0
-                ||
-                Email.Trim().Length.Equals(obj: 0))
-            {
-                throw new ArgumentException(message: $"The number of characters in the variable \"{nameof(Email)}\", of the class \"{nameof(EmailAddressData)}\", cannot be 0.",
-                                            paramName: nameof(Email));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Email);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Email);
+            ArgumentOutOfRangeException.ThrowIfZero(value: Email.Length);
 
             this.Email = Email.Trim();
         }

@@ -54,12 +54,13 @@ namespace Data.Account
             : base()
         {
             #region Exception
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP, paramName: nameof(IP));
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login, paramName: nameof(Login));
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username, paramName: nameof(Username));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP, paramName: nameof(IP));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login, paramName: nameof(Login));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username, paramName: nameof(Username));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
 
             #region Variables
@@ -99,12 +100,13 @@ namespace Data.Account
                    Sex: Sex)
         {
             #region Exception
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP, paramName: nameof(IP));
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login, paramName: nameof(Login));
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username, paramName: nameof(Username));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP, paramName: nameof(IP));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login, paramName: nameof(Login));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username, paramName: nameof(Username));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
 
             #region Variables
@@ -143,13 +145,8 @@ namespace Data.Account
 
         public void SetIP(string IP)
         {
-            if (string.IsNullOrEmpty(value: IP)
-                ||
-                string.IsNullOrWhiteSpace(value: IP))
-            {
-                throw new ArgumentNullException(paramName: nameof(IP),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(IP), ClassName: nameof(UserData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP);
             
             this.IP = IP.Trim();
         }
@@ -161,13 +158,8 @@ namespace Data.Account
 
         public void SetLogin(string Login)
         {
-            if (string.IsNullOrEmpty(value: Login)
-                ||
-                string.IsNullOrWhiteSpace(value: Login))
-            {
-                throw new ArgumentNullException(paramName: nameof(Login),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Login), ClassName: nameof(UserData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login);
             
             this.Login = Login.Trim();
         }
@@ -179,13 +171,8 @@ namespace Data.Account
 
         public void SetUsername(string Username)
         {
-            if (string.IsNullOrEmpty(value: Username)
-                ||
-                string.IsNullOrWhiteSpace(value: Username))
-            {
-                throw new ArgumentNullException(paramName: nameof(Username),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Username), ClassName: nameof(UserData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username);
             
             this.Username = Username.Trim();
         }

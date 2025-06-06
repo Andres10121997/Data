@@ -44,10 +44,20 @@ namespace Data.Company
                            CompanyTypeEnum CompanyType)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: EconomicActivity);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: EconomicActivity);
+            #endregion
+
+            #region Variables
             this.Name = Name.Trim();
             this.CreationDate = CreationDate;
             this.EconomicActivity = EconomicActivity.Trim();
             this.CompanyType = CompanyType;
+            #endregion
         }
         #endregion
 
@@ -70,13 +80,8 @@ namespace Data.Company
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(value: Name)
-                ||
-                string.IsNullOrWhiteSpace(value: Name))
-            {
-                throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(CompanyData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
             
             this.Name = Name.Trim();
         }
@@ -88,6 +93,8 @@ namespace Data.Company
 
         public void SetCreationDate(DateOnly CreationDate)
         {
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            
             this.CreationDate = CreationDate;
         }
 
@@ -98,13 +105,8 @@ namespace Data.Company
 
         public void SetEconomicActivity(string EconomicActivity)
         {
-            if (string.IsNullOrEmpty(value: EconomicActivity)
-                ||
-                string.IsNullOrWhiteSpace(value: EconomicActivity))
-            {
-                throw new ArgumentNullException(paramName: nameof(EconomicActivity),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(EconomicActivity), ClassName: nameof(CompanyData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: EconomicActivity);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: EconomicActivity);
             
             this.EconomicActivity = EconomicActivity.Trim();
         }

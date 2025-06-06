@@ -31,6 +31,8 @@ namespace Data.Certification
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: Title);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Title);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: Folio);
+            ArgumentOutOfRangeException.ThrowIfNegative(value: Price);
             #endregion
 
             #region Variables
@@ -60,13 +62,8 @@ namespace Data.Certification
 
         public void SetTitle(string Title)
         {
-            if (string.IsNullOrEmpty(value: Title)
-                ||
-                string.IsNullOrWhiteSpace(value: Title))
-            {
-                throw new ArgumentNullException(paramName: nameof(Title),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Title), ClassName: nameof(CertificateData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Title);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Title);
             
             this.Title = Title.Trim();
         }
@@ -78,10 +75,7 @@ namespace Data.Certification
 
         public void SetFolio(uint Folio)
         {
-            if (Folio <= 0)
-            {
-                throw new ArithmeticException(message: nameof(Folio));
-            }
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: Folio);
             
             this.Folio = Folio;
         }
@@ -93,17 +87,12 @@ namespace Data.Certification
 
         public void SetPrice(float Price)
         {
-            if (float.IsNegative(f: Price)
-                ||
-                Price < 0)
-            {
-                throw new ArithmeticException(message: nameof(Price));
-            }
-            else
             if (float.IsNaN(f: Price))
             {
                 throw new ArithmeticException(message: nameof(Price));
             }
+
+            ArgumentOutOfRangeException.ThrowIfNegative(value: Price);
             
             this.Price = Price;
         }
