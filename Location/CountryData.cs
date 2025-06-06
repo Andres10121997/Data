@@ -34,6 +34,17 @@ namespace Data.Location
                            byte PhoneCode)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Iso);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Iso);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Iso3);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Iso3);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: Numcode);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: PhoneCode);
+            #endregion
+
             #region Variables
             this.Name = Name.Trim();
             this.Iso = Iso.Trim();
@@ -64,13 +75,8 @@ namespace Data.Location
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(value: Name)
-                ||
-                string.IsNullOrWhiteSpace(value: Name))
-            {
-                throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(CountryData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
             
             this.Name = Name.Trim();
         }
@@ -82,19 +88,9 @@ namespace Data.Location
 
         public void SetIso(string Iso)
         {
-            if (string.IsNullOrEmpty(value: Iso)
-                ||
-                string.IsNullOrWhiteSpace(value: Iso))
-            {
-                throw new ArgumentNullException(paramName: nameof(Iso),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Iso), ClassName: nameof(CountryData)));
-            }
-            else
-            if (Iso.Trim().Length != 2)
-            {
-                throw new ArgumentOutOfRangeException(message: $"The parameter '{nameof(Iso)}' from the class '{nameof(CountryData)}' must be 3 characters long.",
-                                                      paramName: nameof(Iso));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Iso);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Iso);
+            ArgumentOutOfRangeException.ThrowIfNotEqual(value: Iso.Trim().Length, other: 2);
             
             this.Iso = Iso.Trim();
         }
@@ -106,19 +102,9 @@ namespace Data.Location
 
         public void SetIso3(string Iso3)
         {
-            if (string.IsNullOrEmpty(value: Iso3)
-                ||
-                string.IsNullOrWhiteSpace(value: Iso3))
-            {
-                throw new ArgumentNullException(paramName: nameof(Iso3),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Iso3), ClassName: nameof(CountryData)));
-            }
-            else
-            if (Iso3.Trim().Length != 3)
-            {
-                throw new ArgumentOutOfRangeException(message: $"The parameter '{nameof(Iso3)}' from the class '{nameof(CountryData)}' must be 3 characters long.",
-                                                      paramName: nameof(Iso3));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Iso3);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Iso3);
+            ArgumentOutOfRangeException.ThrowIfNotEqual(value: Iso3.Trim().Length, other: 3);
             
             this.Iso3 = Iso3.Trim();
         }
@@ -130,6 +116,8 @@ namespace Data.Location
 
         public void SetNumcode(uint Numcode)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: Numcode);
+            
             this.Numcode = Numcode;
         }
 
@@ -140,6 +128,8 @@ namespace Data.Location
 
         public void SetPhoneCode(byte PhoneCode)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: PhoneCode);
+            
             this.PhoneCode = PhoneCode;
         }
         #endregion

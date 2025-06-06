@@ -2,7 +2,7 @@
 
 namespace Data.GameEngine
 {
-    public class CharacterData
+    public sealed class CharacterData
     {
         #region Variables
         private string Name { get; set; }
@@ -26,9 +26,18 @@ namespace Data.GameEngine
                              byte AmountOfDamage)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
+            ArgumentOutOfRangeException.ThrowIfNegative(value: QuantityOfLife);
+            ArgumentOutOfRangeException.ThrowIfNegative(value: AmountOfDamage);
+            #endregion
+
+            #region Variables
             this.Name = Name.Trim();
             this.QuantityOfLife = QuantityOfLife;
             this.AmountOfDamage = AmountOfDamage;
+            #endregion
         }
         #endregion
 
@@ -51,13 +60,8 @@ namespace Data.GameEngine
 
         public void SetName(string Name)
         {
-            if (string.IsNullOrEmpty(value: Name)
-                ||
-                string.IsNullOrWhiteSpace(value: Name))
-            {
-                throw new ArgumentNullException(paramName: nameof(Name),
-                                                message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(Name), ClassName: nameof(CharacterData)));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
             
             this.Name = Name.Trim();
         }
@@ -69,11 +73,8 @@ namespace Data.GameEngine
 
         public void SetQuantityOfLife(byte QuantityOfLife)
         {
-            if (QuantityOfLife < 0)
-            {
-                throw new ArithmeticException(message: $"The \"${nameof(QuantityOfLife)}\" variable cannot be less than 0.");
-            }
-            
+            ArgumentOutOfRangeException.ThrowIfNegative(value: QuantityOfLife);
+
             this.QuantityOfLife = QuantityOfLife;
         }
 
@@ -84,10 +85,7 @@ namespace Data.GameEngine
 
         public void SetAmountOfDamage(byte AmountOfDamage)
         {
-            if (AmountOfDamage < 0)
-            {
-                throw new ArithmeticException(message: $"The \"${nameof(AmountOfDamage)}\" variable cannot be less than 0.");
-            }
+            ArgumentOutOfRangeException.ThrowIfNegative(value: AmountOfDamage);
             
             this.AmountOfDamage = AmountOfDamage;
         }
