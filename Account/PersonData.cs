@@ -48,10 +48,11 @@ namespace Data.Account
             : base()
         {
             #region Exception
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstName, paramName: nameof(FirstName));
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName, paramName: nameof(FirstLastName));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstName, paramName: nameof(FirstName));
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstLastName, paramName: nameof(FirstLastName));
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstName);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstName);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstLastName);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: BirthDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
 
             #region Variables
@@ -85,13 +86,8 @@ namespace Data.Account
 
         public void SetFirstName(string FirstName)
         {
-            if (string.IsNullOrEmpty(value: FirstName)
-                ||
-                string.IsNullOrWhiteSpace(value: FirstName))
-            {
-                throw new ArgumentNullException(message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(FirstName), ClassName: nameof(PersonData)),
-                                                paramName: nameof(FirstName));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstName);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstName);
 
             this.FirstName = FirstName.Trim();
         }
@@ -113,13 +109,8 @@ namespace Data.Account
 
         public void SetFirstLastName(string FirstLastName)
         {
-            if (string.IsNullOrEmpty(value: FirstLastName)
-                ||
-                string.IsNullOrWhiteSpace(value: FirstLastName))
-            {
-                throw new ArgumentNullException(message: ErrorMessage.ParameterIsNullOrEmptyOrWhiteSpace(ParamName: nameof(FirstLastName), ClassName: nameof(PersonData)),
-                                                paramName: nameof(FirstName));
-            }
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstLastName);
             
             this.FirstLastName = FirstLastName.Trim();
         }
@@ -143,11 +134,7 @@ namespace Data.Account
         {
             DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            if (BirthDate > Today)
-            {
-                throw new ArgumentException(message: $"The \"{nameof(DateOnly)}\" variable cannot be later than the current date.",
-                                            paramName: nameof(BirthDate));
-            }
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: BirthDate, other: Today);
             
             this.BirthDate = BirthDate;
         }
@@ -180,11 +167,7 @@ namespace Data.Account
 
             Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            if (this.BirthDate > Today)
-            {
-                throw new ArgumentOutOfRangeException(paramName: nameof(this.BirthDate),
-                                                      message: $"The variable \"{nameof(this.BirthDate)}\", of the \"{nameof(PersonData)}\" class, cannot have a value after today.");
-            }
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: this.BirthDate, other: Today);
 
             Age = Convert.ToByte(value: Today.Year - this.BirthDate.Year);
 
