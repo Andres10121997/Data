@@ -1,4 +1,6 @@
-﻿namespace Data.Property.Highlights
+﻿using System;
+
+namespace Data.Property.Highlights
 {
     public sealed class SecurityData
     {
@@ -33,12 +35,19 @@
                             bool HasControlledAccess)
             : base()
         {
+            #region Exception
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: SecurityType);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: SecurityType);
+            #endregion
+
+            #region Variables
             this.HasAlarm                   = HasAlarm;
             this.HasConcierge               = HasConcierge;
             this.HasAutomaticGate           = HasAutomaticGate;
             this.SecurityType               = SecurityType;
             this.HasWithClosedCondominium   = HasWithClosedCondominium;
             this.HasControlledAccess        = HasControlledAccess;
+            #endregion
         }
         #endregion
 
@@ -91,6 +100,9 @@
 
         public void SetSecurityType(string SecurityType)
         {
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: SecurityType);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: SecurityType);
+            
             this.SecurityType = SecurityType;
         }
 
