@@ -38,7 +38,7 @@ namespace Data.Company.Employment
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: Position);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Position);
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: StartDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: StartDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             ArgumentNullException.ThrowIfNullOrEmpty(argument: Description);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Description);
             #endregion
@@ -86,7 +86,7 @@ namespace Data.Company.Employment
 
         public void SetStartDate(DateOnly StartDate)
         {
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: StartDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: StartDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             
             this.StartDate = StartDate;
         }

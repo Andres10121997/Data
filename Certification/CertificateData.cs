@@ -31,8 +31,9 @@ namespace Data.Certification
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: Title);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Title);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: Folio);
-            ArgumentOutOfRangeException.ThrowIfNegative(value: Price);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<uint>(value: Folio);
+            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: Price, other: float.NaN);
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: Price);
             #endregion
 
             #region Variables
@@ -75,7 +76,7 @@ namespace Data.Certification
 
         public void SetFolio(uint Folio)
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: Folio);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<uint>(value: Folio);
             
             this.Folio = Folio;
         }
@@ -87,12 +88,8 @@ namespace Data.Certification
 
         public void SetPrice(float Price)
         {
-            if (float.IsNaN(f: Price))
-            {
-                throw new ArithmeticException(message: nameof(Price));
-            }
-
-            ArgumentOutOfRangeException.ThrowIfNegative(value: Price);
+            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: Price, other: float.NaN);
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: Price);
             
             this.Price = Price;
         }

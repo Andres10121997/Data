@@ -1,4 +1,6 @@
-﻿namespace Data.Transport
+﻿using System;
+
+namespace Data.Transport
 {
     public sealed class VehicleData
     {
@@ -30,11 +32,21 @@
                            ushort OverallHeight)
             : base()
         {
+            #region Exception
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfDoors);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfWheels);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallLength);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallWidth);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallHeight);
+            #endregion
+
+            #region Variables
             this.NumberOfDoors = NumberOfDoors;
             this.NumberOfWheels = NumberOfWheels;
             this.OverallLength = OverallLength;
             this.OverallWidth = OverallWidth;
             this.OverallHeight = OverallHeight;
+            #endregion
         }
         #endregion
 
@@ -57,6 +69,8 @@
 
         public void SetNumberOfDoors(byte NumberOfDoors)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfDoors);
+            
             this.NumberOfDoors = NumberOfDoors;
         }
 
@@ -67,6 +81,8 @@
 
         public void SetNumberOfWheels(byte NumberOfWheels)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfWheels);
+            
             this.NumberOfWheels = NumberOfWheels;
         }
 
@@ -77,6 +93,8 @@
 
         public void SetOverallLength(byte OverallLength)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallLength);
+            
             this.OverallLength = OverallLength;
         }
 
@@ -87,6 +105,8 @@
 
         public void SetOverallWidth(ushort OverallWidth)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallWidth);
+            
             this.OverallWidth = OverallWidth;
         }
 
@@ -97,6 +117,8 @@
 
         public void SetOverallHeight(ushort OverallHeight)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallHeight);
+            
             this.OverallHeight = OverallHeight;
         }
         #endregion

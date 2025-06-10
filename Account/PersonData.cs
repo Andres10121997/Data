@@ -49,8 +49,8 @@ namespace Data.Account
         {
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstName);
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstName);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstLastName);
             ArgumentOutOfRangeException.ThrowIfGreaterThan(value: BirthDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
@@ -220,7 +220,7 @@ namespace Data.Account
                 $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
             ).Trim();
 
-            FullName = string.Concat(Name, " ", LastName);
+            FullName = string.Concat(str0: Name, str1: " ", str2: LastName);
 
             return FullName;
         }

@@ -47,7 +47,7 @@ namespace Data.Company
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             ArgumentNullException.ThrowIfNullOrEmpty(argument: EconomicActivity);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: EconomicActivity);
             #endregion
@@ -93,7 +93,7 @@ namespace Data.Company
 
         public void SetCreationDate(DateOnly CreationDate)
         {
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             
             this.CreationDate = CreationDate;
         }
