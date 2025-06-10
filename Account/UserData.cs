@@ -55,12 +55,12 @@ namespace Data.Account
         {
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: IP);
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username);
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
 
             #region Variables
@@ -101,12 +101,12 @@ namespace Data.Account
         {
             #region Exception
             ArgumentNullException.ThrowIfNullOrEmpty(argument: IP);
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login);
+            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username);
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
 
             #region Variables
@@ -184,7 +184,7 @@ namespace Data.Account
 
         public void SetCreationDate(DateOnly CreationDate)
         {
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             
             this.CreationDate = CreationDate;
         }

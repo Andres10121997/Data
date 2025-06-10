@@ -49,6 +49,16 @@ namespace Data.Company.HumanResources
                           float[] BonusList)
             : base()
         {
+            #region Exception
+            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: BaseSalary, other: float.NaN);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<float>(value: BaseSalary);
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: Gratification);
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: SnackBonus);
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: MobilizationBonus);
+            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: IncomeTax, other: float.NaN);
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: IncomeTax);
+            #endregion
+
             #region Variables
             this.BaseSalary = BaseSalary;
             this.Gratification = Gratification;
@@ -85,15 +95,8 @@ namespace Data.Company.HumanResources
 
         public void SetBaseSalary(float BaseSalary)
         {
-            if (float.IsNaN(f: BaseSalary))
-            {
-                throw new Exception(nameof(BaseSalary));
-            }
-            else
-            if (float.IsNegative(f: BaseSalary))
-            {
-                throw new Exception(nameof(BaseSalary));
-            }
+            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: BaseSalary, other: float.NaN);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<float>(value: BaseSalary);
 
             this.BaseSalary = BaseSalary;
         }
@@ -105,10 +108,7 @@ namespace Data.Company.HumanResources
 
         public void SetGratification(float Gratification)
         {
-            if (float.IsNegative(f: Gratification))
-            {
-                throw new ArithmeticException(message: nameof(Gratification));
-            }
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: Gratification);
 
             this.Gratification = Gratification;
         }
@@ -120,10 +120,7 @@ namespace Data.Company.HumanResources
 
         public void SetSnackBonus(float SnackBonus)
         {
-            if (float.IsNegative(f: SnackBonus))
-            {
-                throw new ArithmeticException(message: nameof(SnackBonus));
-            }
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: SnackBonus);
 
             this.SnackBonus = SnackBonus;
         }
@@ -135,10 +132,7 @@ namespace Data.Company.HumanResources
 
         public void SetMobilizationBonus(float MobilizationBonus)
         {
-            if (float.IsNegative(f: MobilizationBonus))
-            {
-                throw new ArithmeticException(message: nameof(MobilizationBonus));
-            }
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: MobilizationBonus);
 
             this.MobilizationBonus = MobilizationBonus;
         }
@@ -170,15 +164,8 @@ namespace Data.Company.HumanResources
 
         public void SetIncomeTax(float IncomeTax)
         {
-            if (float.IsNaN(f: IncomeTax))
-            {
-                throw new Exception(nameof(IncomeTax));
-            }
-            else
-            if (float.IsNegative(f: IncomeTax))
-            {
-                throw new Exception(nameof(IncomeTax));
-            }
+            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: IncomeTax, other: float.NaN);
+            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: IncomeTax);
 
             this.IncomeTax = IncomeTax;
         }

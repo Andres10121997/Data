@@ -33,11 +33,11 @@ namespace Data.Transport
             : base()
         {
             #region Exception
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfDoors);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfWheels);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallLength);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallWidth);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallHeight);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfDoors);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfWheels);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallLength);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallWidth);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallHeight);
             #endregion
 
             #region Variables
@@ -69,7 +69,7 @@ namespace Data.Transport
 
         public void SetNumberOfDoors(byte NumberOfDoors)
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfDoors);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfDoors);
             
             this.NumberOfDoors = NumberOfDoors;
         }
@@ -81,7 +81,7 @@ namespace Data.Transport
 
         public void SetNumberOfWheels(byte NumberOfWheels)
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: NumberOfWheels);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfWheels);
             
             this.NumberOfWheels = NumberOfWheels;
         }
@@ -91,9 +91,9 @@ namespace Data.Transport
             return this.OverallLength;
         }
 
-        public void SetOverallLength(byte OverallLength)
+        public void SetOverallLength(ushort OverallLength)
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallLength);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallLength);
             
             this.OverallLength = OverallLength;
         }
@@ -105,7 +105,7 @@ namespace Data.Transport
 
         public void SetOverallWidth(ushort OverallWidth)
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallWidth);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallWidth);
             
             this.OverallWidth = OverallWidth;
         }
@@ -117,7 +117,7 @@ namespace Data.Transport
 
         public void SetOverallHeight(ushort OverallHeight)
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: OverallHeight);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallHeight);
             
             this.OverallHeight = OverallHeight;
         }

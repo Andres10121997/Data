@@ -51,6 +51,10 @@ namespace Data.Company.HumanResources
                             SalaryData[]? SalaryHistory)
             : base()
         {
+            #region Exception
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: HiringDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            #endregion
+
             #region Variables
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
@@ -86,6 +90,10 @@ namespace Data.Company.HumanResources
                    BirthDate: BirthDate,
                    Sex: Sex)
         {
+            #region Exception
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: HiringDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            #endregion
+
             #region Variables
             this.HiringDate = HiringDate;
             this.ContractEndDate = ContractEndDate;
@@ -123,6 +131,10 @@ namespace Data.Company.HumanResources
 
         public void SetHiringDate(DateOnly HiringDate)
         {
+            #region Exception
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: HiringDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
+            #endregion
+
             this.HiringDate = HiringDate;
         }
 

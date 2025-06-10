@@ -17,7 +17,7 @@ using System.Reflection;
 
 Este paquete proporciona clases de datos estructuradas y reutilizables para representar información de manera organizada en distintos proyectos. Su propósito es estandarizar la gestión de variables, agrupándolas de forma lógica para facilitar su uso y mantenimiento. Al definir estructuras comunes y reutilizables, se mejora la coherencia en el manejo de datos dentro de las aplicaciones, promoviendo la modularidad y la claridad en el código.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3dbff306eda874c24e2b889a2af58e8ced161d2f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a83148a2bef7209c20d8d5a40010581453180dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
