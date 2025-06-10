@@ -7,12 +7,12 @@ namespace Data.Account
     public class PersonData
     {
         #region Variables
-        private string FirstName { get; set; }
-        private string? MiddleName { get; set; }
-        private string FirstLastName { get; set; }
-        private string? SecondLastName { get; set; }
-        private DateOnly BirthDate { get; set; }
-        private SexEnum Sex { get; set; }
+        private string _FirstName;
+        private string? _MiddleName;
+        private string _FirstLastName;
+        private string? _SecondLastName;
+        private DateOnly _BirthDate;
+        private SexEnum _Sex;
         #endregion
 
         #region Enum
@@ -30,12 +30,12 @@ namespace Data.Account
             : base()
         {
             #region Variables
-            this.FirstName = string.Empty;
-            this.MiddleName = null;
-            this.FirstLastName = string.Empty;
-            this.SecondLastName = null;
-            this.BirthDate = new DateOnly();
-            this.Sex = SexEnum.Female;
+            this._FirstName = string.Empty;
+            this._MiddleName = null;
+            this._FirstLastName = string.Empty;
+            this._SecondLastName = null;
+            this._BirthDate = new DateOnly();
+            this._Sex = SexEnum.Female;
             #endregion
         }
 
@@ -56,22 +56,13 @@ namespace Data.Account
             #endregion
 
             #region Variables
-            this.FirstName = FirstName;
-            this.MiddleName = MiddleName;
-            this.FirstLastName = FirstLastName;
-            this.SecondLastName = SecondLastName;
-            this.BirthDate = BirthDate;
-            this.Sex = Sex;
+            this._FirstName = FirstName;
+            this._MiddleName = MiddleName;
+            this._FirstLastName = FirstLastName;
+            this._SecondLastName = SecondLastName;
+            this._BirthDate = BirthDate;
+            this._Sex = Sex;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~PersonData()
-        {
-
         }
         #endregion
 
@@ -79,74 +70,69 @@ namespace Data.Account
 
         #region Getters and Setters
         #region Variables
-        public string GetFirstName()
+        public string FirstName
         {
-            return this.FirstName;
+            get => this._FirstName;
+
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this._FirstName = value.Trim();
+            }
         }
 
-        public void SetFirstName(string FirstName)
+        public string? MiddleName
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstName);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstName);
-
-            this.FirstName = FirstName.Trim();
+            get => this._MiddleName;
+            set
+            {
+                this._MiddleName = value?.Trim();
+            }
         }
 
-        public string? GetMiddleName()
+        public string FirstLastName
         {
-            return this.MiddleName;
+            get => this._FirstLastName;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this._FirstLastName = value.Trim();
+            }
         }
 
-        public void SetMiddleName(string? MiddleName)
+        public string? SecondLastName
         {
-            this.MiddleName = MiddleName?.Trim();
+            get => this._SecondLastName;
+            set
+            {
+                this._SecondLastName = value?.Trim();
+            }
+        }
+        
+        public DateOnly BirthDate
+        {
+            get => this._BirthDate;
+            set
+            {
+                DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
+
+                ArgumentOutOfRangeException.ThrowIfGreaterThan(value: value, other: Today);
+
+                this._BirthDate = value;
+            }
         }
 
-        public string GetFirstLastName()
+        public SexEnum Sex
         {
-            return this.FirstLastName;
-        }
-
-        public void SetFirstLastName(string FirstLastName)
-        {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstLastName);
-            
-            this.FirstLastName = FirstLastName.Trim();
-        }
-
-        public string? GetSecondLastName()
-        {
-            return this.SecondLastName;
-        }
-
-        public void SetSecondLastName(string? SecondLastName)
-        {
-            this.SecondLastName = SecondLastName?.Trim();
-        }
-
-        public DateOnly GetBirthDate()
-        {
-            return this.BirthDate;
-        }
-
-        public void SetBirthDate(DateOnly BirthDate)
-        {
-            DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
-
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: BirthDate, other: Today);
-            
-            this.BirthDate = BirthDate;
-        }
-
-        public SexEnum GetSex()
-        {
-            return this.Sex;
-        }
-
-        public void SetSex(SexEnum Sex)
-        {
-            this.Sex = Sex;
+            get => this._Sex;
+            set
+            {
+                this._Sex = Sex;
+            }
         }
         #endregion
         #endregion
@@ -174,12 +160,10 @@ namespace Data.Account
             ListOfValidations = new bool[2]
             {
                 this.BirthDate.Month > Today.Month,
-                this.BirthDate.Month == Today.Month
-                &&
-                this.BirthDate.Day > Today.Day
+                this.BirthDate.Month == Today.Month && this.BirthDate.Day > Today.Day
             };
 
-            if (ListOfValidations.AsParallel<bool>().Contains<bool>(value: true))
+            if (ListOfValidations.Contains<bool>(value: true))
             {
                 --Age;
             }
@@ -189,7 +173,7 @@ namespace Data.Account
 
         public async Task<byte> AgeAsync()
         {
-            return await Task.Run<byte>(function: () => this.Age());
+            return await Task.FromResult<byte>(result: this.Age());
         }
         #endregion
 
@@ -225,9 +209,9 @@ namespace Data.Account
             return FullName;
         }
 
-        public async Task<string> FirstNameAsync()
+        public async Task<string> FullNameAsync()
         {
-            return await Task.Run<string>(function: () => this.FullName());
+            return await Task.FromResult<string>(result: this.FullName());
         }
         #endregion
     }
