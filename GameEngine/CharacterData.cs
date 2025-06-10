@@ -2,12 +2,12 @@
 
 namespace Data.GameEngine
 {
-    public sealed class CharacterData
+    public sealed record CharacterData
     {
         #region Variables
-        private string Name { get; set; }
-        private byte QuantityOfLife { get; set; }
-        private byte AmountOfDamage { get; set; }
+        private string V_Name;
+        private byte V_QuantityOfLife;
+        private byte V_AmountOfDamage;
         #endregion
 
 
@@ -16,9 +16,9 @@ namespace Data.GameEngine
         public CharacterData()
             : base()
         {
-            this.Name = string.Empty;
-            this.QuantityOfLife = byte.MinValue;
-            this.AmountOfDamage = byte.MinValue;
+            this.V_Name = string.Empty;
+            this.V_QuantityOfLife = byte.MinValue;
+            this.V_AmountOfDamage = byte.MinValue;
         }
 
         public CharacterData(string Name,
@@ -34,60 +34,48 @@ namespace Data.GameEngine
             #endregion
 
             #region Variables
-            this.Name = Name.Trim();
-            this.QuantityOfLife = QuantityOfLife;
-            this.AmountOfDamage = AmountOfDamage;
+            this.V_Name = Name.Trim();
+            this.V_QuantityOfLife = QuantityOfLife;
+            this.V_AmountOfDamage = AmountOfDamage;
             #endregion
         }
         #endregion
 
 
 
-        #region Destroyer Method
-        ~CharacterData()
-        {
-
-        }
-        #endregion
-
-
-
         #region Getters and Setters
-        public string GetName()
+        public string Name
         {
-            return this.Name;
+            get => this.V_Name;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Name = value.Trim();
+            }
         }
 
-        public void SetName(string Name)
+        public byte QuantityOfLife
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
-            
-            this.Name = Name.Trim();
+            get => this.V_QuantityOfLife;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative(value: value);
+
+                this.V_QuantityOfLife = value;
+            }
         }
 
-        public byte GetQuantityOfLife()
+        public byte AmountOfDamage
         {
-            return this.QuantityOfLife;
-        }
+            get => this.V_AmountOfDamage;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative(value: value);
 
-        public void SetQuantityOfLife(byte QuantityOfLife)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegative(value: QuantityOfLife);
-
-            this.QuantityOfLife = QuantityOfLife;
-        }
-
-        public byte GetAmountOfDamage()
-        {
-            return this.AmountOfDamage;
-        }
-
-        public void SetAmountOfDamage(byte AmountOfDamage)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegative(value: AmountOfDamage);
-            
-            this.AmountOfDamage = AmountOfDamage;
+                this.V_AmountOfDamage = value;
+            }
         }
         #endregion
     }

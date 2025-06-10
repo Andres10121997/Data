@@ -2,20 +2,20 @@
 
 namespace Data.Company.HumanResources
 {
-    public sealed class SalaryData
+    public sealed record SalaryData
     {
         #region Variables
-        private float BaseSalary { get; set; }
-        private float Gratification { get; set; }
-        private float SnackBonus { get; set; }
-        private float MobilizationBonus { get; set; }
-        private DateOnly StartDate { get; set; }
-        private DateOnly? EndDate { get; set; }
-        private float IncomeTax { get; set; }
+        private float V_BaseSalary;
+        private float V_Gratification;
+        private float V_SnackBonus;
+        private float V_MobilizationBonus;
+        private DateOnly V_StartDate;
+        private DateOnly? V_EndDate;
+        private float V_IncomeTax;
         #endregion
 
         #region Arrays
-        private float[] BonusList { get; set; }
+        private float[] A_BonusList { get; set; }
         #endregion
 
 
@@ -25,17 +25,17 @@ namespace Data.Company.HumanResources
             : base()
         {
             #region Variables
-            this.BaseSalary = float.MinValue;
-            this.Gratification = float.MinValue;
-            this.SnackBonus = float.MinValue;
-            this.MobilizationBonus = float.MinValue;
-            this.StartDate = DateOnly.MinValue;
-            this.EndDate = null;
-            this.IncomeTax = 0;
+            this.V_BaseSalary = float.MinValue;
+            this.V_Gratification = float.MinValue;
+            this.V_SnackBonus = float.MinValue;
+            this.V_MobilizationBonus = float.MinValue;
+            this.V_StartDate = DateOnly.MinValue;
+            this.V_EndDate = null;
+            this.V_IncomeTax = 0;
             #endregion
 
             #region Arrays
-            this.BonusList = Array.Empty<float>();
+            this.A_BonusList = Array.Empty<float>();
             #endregion
         }
 
@@ -60,27 +60,18 @@ namespace Data.Company.HumanResources
             #endregion
 
             #region Variables
-            this.BaseSalary = BaseSalary;
-            this.Gratification = Gratification;
-            this.SnackBonus = SnackBonus;
-            this.MobilizationBonus = MobilizationBonus;
-            this.StartDate = StartDate;
-            this.EndDate = EndDate;
-            this.IncomeTax = IncomeTax;
+            this.V_BaseSalary = BaseSalary;
+            this.V_Gratification = Gratification;
+            this.V_SnackBonus = SnackBonus;
+            this.V_MobilizationBonus = MobilizationBonus;
+            this.V_StartDate = StartDate;
+            this.V_EndDate = EndDate;
+            this.V_IncomeTax = IncomeTax;
             #endregion
 
             #region Arrays
-            this.BonusList = BonusList;
+            this.A_BonusList = BonusList;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~SalaryData()
-        {
-
         }
         #endregion
 
@@ -88,98 +79,96 @@ namespace Data.Company.HumanResources
 
         #region Getters and Setters
         #region Variables
-        public float GetBaseSalary()
+        public float BaseSalary
         {
-            return this.BaseSalary;
+            get => this.V_BaseSalary;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfEqual<float>(
+                    value: value,
+                    other: float.NaN
+                );
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<float>(value: value);
+
+                this.V_BaseSalary = value;
+            }
         }
 
-        public void SetBaseSalary(float BaseSalary)
+        public float Gratification
         {
-            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: BaseSalary, other: float.NaN);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<float>(value: BaseSalary);
+            get => this.V_Gratification;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative<float>(value: value);
 
-            this.BaseSalary = BaseSalary;
+                this.V_Gratification = value;
+            }
         }
 
-        public float GetGratification()
+        public float SnackBonus
         {
-            return this.Gratification;
+            get => this.V_SnackBonus;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative<float>(value: value);
+
+                this.V_SnackBonus = value;
+            }
         }
 
-        public void SetGratification(float Gratification)
+        public float MobilizationBonus
         {
-            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: Gratification);
+            get => this.V_MobilizationBonus;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative<float>(value: value);
 
-            this.Gratification = Gratification;
+                this.V_MobilizationBonus = value;
+            }
         }
 
-        public float GetSnackBonus()
+        public DateOnly StartDate
         {
-            return this.SnackBonus;
+            get => this.V_StartDate;
+            set
+            {
+                this.V_StartDate = value;
+            }
         }
 
-        public void SetSnackBonus(float SnackBonus)
+        public DateOnly? EndDate
         {
-            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: SnackBonus);
-
-            this.SnackBonus = SnackBonus;
+            get => this.V_EndDate;
+            set
+            {
+                this.V_EndDate = value;
+            }
         }
 
-        public float GetMobilizationBonus()
+        public float IncomeTax
         {
-            return this.MobilizationBonus;
-        }
+            get => this.V_IncomeTax;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfEqual<float>(
+                    value: value,
+                    other: float.NaN
+                );
+                ArgumentOutOfRangeException.ThrowIfNegative<float>(value: value);
 
-        public void SetMobilizationBonus(float MobilizationBonus)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: MobilizationBonus);
-
-            this.MobilizationBonus = MobilizationBonus;
-        }
-
-        public DateOnly GetStartDate()
-        {
-            return this.StartDate;
-        }
-
-        public void SetStartDate(DateOnly StartDate)
-        {
-            this.StartDate = StartDate;
-        }
-
-        public DateOnly? GetEndDate()
-        {
-            return this.EndDate;
-        }
-
-        public void SetEndDate(DateOnly? EndDate)
-        {
-            this.EndDate = EndDate;
-        }
-
-        public float GetIncomeTax()
-        {
-            return this.IncomeTax;
-        }
-
-        public void SetIncomeTax(float IncomeTax)
-        {
-            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: IncomeTax, other: float.NaN);
-            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: IncomeTax);
-
-            this.IncomeTax = IncomeTax;
+                this.V_IncomeTax = value;
+            }
         }
         #endregion
 
         #region Arrays
-        public float[] GetBonusList()
+        public float[] BonusList
         {
-            return this.BonusList;
-        }
-
-        public void SetBonusList(float[] BonusList)
-        {
-            this.BonusList = BonusList;
+            get => this.A_BonusList;
+            set
+            {
+                this.A_BonusList = value;
+            }
         }
         #endregion
         #endregion
