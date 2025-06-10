@@ -2,14 +2,14 @@
 
 namespace Data.Location
 {
-    public class CountryData
+    public sealed record CountryData
     {
         #region Variables
-        private string Name { get; set; }
-        private string Iso { get; set; }
-        private string Iso3 { get; set; }
-        private uint Numcode { get; set; }
-        private byte PhoneCode { get; set; }
+        private string V_Name;
+        private string V_Iso;
+        private string V_Iso3;
+        private uint V_Numcode;
+        private byte V_PhoneCode;
         #endregion
 
 
@@ -19,11 +19,11 @@ namespace Data.Location
             : base()
         {
             #region Variables
-            this.Name = string.Empty;
-            this.Iso = string.Empty;
-            this.Iso3 = string.Empty;
-            this.Numcode = uint.MinValue;
-            this.PhoneCode = byte.MinValue;
+            this.V_Name = string.Empty;
+            this.V_Iso = string.Empty;
+            this.V_Iso3 = string.Empty;
+            this.V_Numcode = uint.MinValue;
+            this.V_PhoneCode = byte.MinValue;
             #endregion
         }
 
@@ -46,21 +46,12 @@ namespace Data.Location
             #endregion
 
             #region Variables
-            this.Name = Name.Trim();
-            this.Iso = Iso.Trim();
-            this.Iso3 = Iso3.Trim();
-            this.Numcode = Numcode;
-            this.PhoneCode = PhoneCode;
+            this.V_Name = Name.Trim();
+            this.V_Iso = Iso.Trim();
+            this.V_Iso3 = Iso3.Trim();
+            this.V_Numcode = Numcode;
+            this.V_PhoneCode = PhoneCode;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~CountryData()
-        {
-
         }
         #endregion
 
@@ -68,69 +59,70 @@ namespace Data.Location
 
         #region Getters and Setters
         #region Variables
-        public string GetName()
+        public string Name
         {
-            return this.Name;
+            get => this.V_Name;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Name = value;
+            }
         }
 
-        public void SetName(string Name)
+        public string Iso
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
-            
-            this.Name = Name.Trim();
+            get => this.V_Iso;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+                ArgumentOutOfRangeException.ThrowIfNotEqual(
+                    value: value.Trim().Length,
+                    other: 2
+                );
+
+                this.V_Iso = value;
+            }
         }
 
-        public string GetIso()
+        public string Iso3
         {
-            return this.Iso;
+            get => this.V_Iso3;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+                ArgumentOutOfRangeException.ThrowIfNotEqual(
+                    value: value.Trim().Length,
+                    other: 3
+                );
+
+                this.V_Iso3 = value;
+            }
         }
 
-        public void SetIso(string Iso)
+        public uint Numcode
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Iso);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Iso);
-            ArgumentOutOfRangeException.ThrowIfNotEqual(value: Iso.Trim().Length, other: 2);
-            
-            this.Iso = Iso.Trim();
+            get => this.V_Numcode;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: value);
+
+                this.V_Numcode = value;
+            }
         }
 
-        public string GetIso3()
+        public byte PhoneCode
         {
-            return this.Iso3;
-        }
+            get => this.V_PhoneCode;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: value);
 
-        public void SetIso3(string Iso3)
-        {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Iso3);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Iso3);
-            ArgumentOutOfRangeException.ThrowIfNotEqual(value: Iso3.Trim().Length, other: 3);
-            
-            this.Iso3 = Iso3.Trim();
-        }
-
-        public uint GetNumcode()
-        {
-            return this.Numcode;
-        }
-
-        public void SetNumcode(uint Numcode)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: Numcode);
-            
-            this.Numcode = Numcode;
-        }
-
-        public byte GetPhoneCode()
-        {
-            return this.PhoneCode;
-        }
-
-        public void SetPhoneCode(byte PhoneCode)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: PhoneCode);
-            
-            this.PhoneCode = PhoneCode;
+                this.V_PhoneCode = value;
+            }
         }
         #endregion
         #endregion

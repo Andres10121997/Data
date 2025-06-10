@@ -2,14 +2,14 @@
 
 namespace Data.Location
 {
-    public class ContinentData
+    public sealed record ContinentData
     {
         #region Variables
-        private ContinentEnum Name { get; set; }
+        private ContinentEnum V_Name;
         #endregion
 
         #region Arrays
-        CountryData[] ListOfCountries { get; set; }
+        CountryData[] A_ListOfCountries;
         #endregion
 
         #region Enums
@@ -30,49 +30,38 @@ namespace Data.Location
         public ContinentData()
             : base()
         {
-            this.Name = ContinentEnum.America;
-            this.ListOfCountries = Array.Empty<CountryData>();
+            this.V_Name = ContinentEnum.America;
+            this.A_ListOfCountries = Array.Empty<CountryData>();
         }
 
         public ContinentData(ContinentEnum Name,
                              CountryData[] ListOfCountries)
             : base()
         {
-            this.Name = Name;
-            this.ListOfCountries = ListOfCountries;
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~ContinentData()
-        {
-
+            this.V_Name = Name;
+            this.A_ListOfCountries = ListOfCountries;
         }
         #endregion
 
 
 
         #region Getters and Setters
-        public ContinentEnum GetName()
+        public ContinentEnum Name
         {
-            return this.Name;
+            get => this.V_Name;
+            set
+            {
+                this.V_Name = value;
+            }
         }
 
-        public void SetName(ContinentEnum Name)
+        public CountryData[] ListOfCountries
         {
-            this.Name = Name;
-        }
-
-        public CountryData[] GetListOfCountries()
-        {
-            return this.ListOfCountries;
-        }
-
-        public void SetListOfCountries(CountryData[] ListOfCountries)
-        {
-            this.ListOfCountries = ListOfCountries;
+            get => this.A_ListOfCountries;
+            set
+            {
+                this.A_ListOfCountries = value;
+            }
         }
         #endregion
     }

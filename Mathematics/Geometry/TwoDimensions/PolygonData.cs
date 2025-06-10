@@ -3,14 +3,14 @@ using System.Linq;
 
 namespace Data.Mathematics.Geometry.TwoDimensions
 {
-    public class PolygonData
+    public sealed record PolygonData
     {
         #region Variables
-        private byte NumberOfEdges { get; set; } // Cantidad de Aristas.
+        private byte V_NumberOfEdges; // Cantidad de Aristas.
         #endregion
 
         #region Arrays
-        private ushort[] LengthOfEdges { get; set; }
+        private ushort[] A_LengthOfEdges { get; set; }
         #endregion
 
 
@@ -19,61 +19,48 @@ namespace Data.Mathematics.Geometry.TwoDimensions
         public PolygonData()
             : base()
         {
-            this.NumberOfEdges = byte.MinValue;
-            this.LengthOfEdges = Array.Empty<ushort>();
+            this.V_NumberOfEdges = byte.MinValue;
+            this.A_LengthOfEdges = Array.Empty<ushort>();
         }
 
         public PolygonData(byte NumberOfEdges,
                            ushort[] LengthOfEdges)
             : base()
         {
-            this.NumberOfEdges = NumberOfEdges;
-            this.LengthOfEdges = LengthOfEdges;
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~PolygonData()
-        {
-
+            this.V_NumberOfEdges = NumberOfEdges;
+            this.A_LengthOfEdges = LengthOfEdges;
         }
         #endregion
 
 
 
         #region Getters and Setters
-        public byte GetNumberOfEdges()
+        public byte NumberOfEdges
         {
-            return this.NumberOfEdges;
-        }
-
-        public void SetNumberOfEdges(byte NumberOfEdges)
-        {
-            if (NumberOfEdges < 3)
+            get => this.V_NumberOfEdges;
+            set
             {
-                throw new ArgumentException(message: "The number of edges of the polygon cannot be less than 3.",
-                                            paramName: nameof(LengthOfEdges));
+                ArgumentOutOfRangeException.ThrowIfLessThan(
+                    value: value,
+                    other: 3
+                );
+                
+                this.V_NumberOfEdges = value;
             }
-            
-            this.NumberOfEdges = NumberOfEdges;
         }
 
-        public ushort[] GetLengthOfEdges()
+        public ushort[] LengthOfEdges
         {
-            return this.LengthOfEdges;
-        }
-
-        public void SetLengthOfEdges(ushort[] LengthOfEdges)
-        {
-            if (LengthOfEdges.Contains<ushort>(value: 0))
+            get => this.A_LengthOfEdges;
+            set
             {
-                throw new ArgumentException(message: "The edge length cannot be 0.",
-                                            paramName: nameof(LengthOfEdges));
+                if (value.Contains<ushort>(value: 0))
+                {
+                    throw new ArgumentException(message: "The edge length cannot be 0.");
+                }
+                
+                this.A_LengthOfEdges = value;
             }
-
-            this.LengthOfEdges = LengthOfEdges;
         }
         #endregion
     }
