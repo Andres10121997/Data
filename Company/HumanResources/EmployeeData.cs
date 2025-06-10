@@ -4,21 +4,21 @@ using System;
 
 namespace Data.Company.HumanResources
 {
-    public sealed class EmployeeData : PersonData
+    public sealed record EmployeeData : PersonData
     {
         #region Variables
-        private DateOnly HiringDate { get; set; }
-        private DateOnly? ContractEndDate { get; set; }
+        private DateOnly V_HiringDate;
+        private DateOnly? V_ContractEndDate;
         #endregion
 
         #region Objects
-        private DepartmentData Department { get; set; }
-        private JobData Job { get; set; }
-        private SalaryData Salary { get; set; }
+        private DepartmentData O_Department;
+        private JobData O_Job;
+        private SalaryData O_Salary;
         #endregion
 
         #region Arrays
-        private SalaryData[]? SalaryHistory { get; set; }
+        private SalaryData[]? A_SalaryHistory;
         #endregion
 
 
@@ -28,18 +28,18 @@ namespace Data.Company.HumanResources
             : base()
         {
             #region Variables
-            this.HiringDate = DateOnly.MinValue;
-            this.ContractEndDate = null;
+            this.V_HiringDate = DateOnly.MinValue;
+            this.V_ContractEndDate = null;
             #endregion
 
             #region Objects
-            this.Department = new DepartmentData();
-            this.Job = new JobData();
-            this.Salary = new SalaryData();
+            this.O_Department = new DepartmentData();
+            this.O_Job = new JobData();
+            this.O_Salary = new SalaryData();
             #endregion
 
             #region Arrays
-            this.SalaryHistory = null;
+            this.A_SalaryHistory = null;
             #endregion
         }
 
@@ -56,18 +56,18 @@ namespace Data.Company.HumanResources
             #endregion
 
             #region Variables
-            this.HiringDate = HiringDate;
-            this.ContractEndDate = ContractEndDate;
+            this.V_HiringDate = HiringDate;
+            this.V_ContractEndDate = ContractEndDate;
             #endregion
 
             #region Objects
-            this.Department = Department;
-            this.Job = Job;
-            this.Salary = Salary;
+            this.O_Department = Department;
+            this.O_Job = Job;
+            this.O_Salary = Salary;
             #endregion
 
             #region Arrays
-            this.SalaryHistory = SalaryHistory;
+            this.A_SalaryHistory = SalaryHistory;
             #endregion
         }
 
@@ -95,28 +95,19 @@ namespace Data.Company.HumanResources
             #endregion
 
             #region Variables
-            this.HiringDate = HiringDate;
-            this.ContractEndDate = ContractEndDate;
+            this.V_HiringDate = HiringDate;
+            this.V_ContractEndDate = ContractEndDate;
             #endregion
 
             #region Objects
-            this.Department = Department;
-            this.Job = Job;
-            this.Salary = Salary;
+            this.O_Department = Department;
+            this.O_Job = Job;
+            this.O_Salary = Salary;
             #endregion
 
             #region Arrays
-            this.SalaryHistory = SalaryHistory;
+            this.A_SalaryHistory = SalaryHistory;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~EmployeeData()
-        {
-
         }
         #endregion
 
@@ -124,72 +115,67 @@ namespace Data.Company.HumanResources
 
         #region Getters and Setters
         #region Variables
-        public DateOnly GetHiringDate()
+        public DateOnly HiringDate
         {
-            return this.HiringDate;
+            get => this.V_HiringDate;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
+                    value: value,
+                    other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                );
+
+                this.V_HiringDate = value;
+            }
         }
 
-        public void SetHiringDate(DateOnly HiringDate)
+        public DateOnly? ContractEndDate
         {
-            #region Exception
-            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: HiringDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
-            #endregion
-
-            this.HiringDate = HiringDate;
-        }
-
-        public DateOnly? GetContractEndDate()
-        {
-            return this.ContractEndDate;
-        }
-
-        public void SetContractEndDate(DateOnly? ContractEndDate)
-        {
-            this.ContractEndDate = ContractEndDate;
+            get => this.V_ContractEndDate;
+            set
+            {
+                this.V_ContractEndDate = value;
+            }
         }
         #endregion
 
         #region Objects
-        public DepartmentData GetDepartment()
+        public DepartmentData Department
         {
-            return this.Department;
+            get => this.O_Department;
+            set
+            {
+                this.O_Department = value;
+            }
         }
 
-        public void SetDepartment(DepartmentData Department)
+        public JobData Job
         {
-            this.Department = Department;
+            get => this.O_Job;
+            set
+            {
+                this.O_Job = value;
+            }
         }
 
-        public JobData GetJob()
+        public SalaryData Salary
         {
-            return this.Job;
-        }
-
-        public void SetJob(JobData Job)
-        {
-            this.Job = Job;
-        }
-
-        public SalaryData GetSalary()
-        {
-            return this.Salary;
-        }
-
-        public void SetSalary(SalaryData Salary)
-        {
-            this.Salary = Salary;
+            get => this.O_Salary;
+            set
+            {
+                this.O_Salary = value;
+            }
         }
         #endregion
 
         #region Arrays
-        public SalaryData[]? GetSalaryHistory()
+        public SalaryData[]? SalaryHistory
         {
-            return this.SalaryHistory;
-        }
-
-        public void SetSalaryHistory(SalaryData[]? SalaryHistory)
-        {
-            this.SalaryHistory = SalaryHistory;
+            get => this.A_SalaryHistory;
+            set
+            {
+                this.A_SalaryHistory = value;
+            }
         }
         #endregion
         #endregion

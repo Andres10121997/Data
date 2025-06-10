@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Data.Account
 {
-    public sealed class UserData : PersonData
+    public sealed record UserData : PersonData
     {
         #region Variables
-        private string IP { get; set; }
-        private string Login { get; set; }
-        private string Username { get; set; }
-        private DateOnly CreationDate { get; set; }
-        private TimeOnly CreationTime { get; set; }
+        private string V_IP { get; set; }
+        private string V_Login { get; set; }
+        private string V_Username { get; set; }
+        private DateOnly V_CreationDate { get; set; }
+        private TimeOnly V_CreationTime { get; set; }
         #endregion
 
         #region Objects
-        private EmailAddressData EmailAddress { get; set; }
-        private PhoneData Phone { get; set; }
-        private CountryData Country { get; set; }
+        private EmailAddressData O_EmailAddress { get; set; }
+        private PhoneData O_Phone { get; set; }
+        private CountryData O_Country { get; set; }
         #endregion
 
 
@@ -29,17 +29,17 @@ namespace Data.Account
             : base()
         {
             #region Variables
-            this.IP = string.Empty;
-            this.Login = string.Empty;
-            this.Username = string.Empty;
-            this.CreationDate = new DateOnly();
-            this.CreationTime = new TimeOnly();
+            this.V_IP = string.Empty;
+            this.V_Login = string.Empty;
+            this.V_Username = string.Empty;
+            this.V_CreationDate = new DateOnly();
+            this.V_CreationTime = new TimeOnly();
             #endregion
 
             #region Objects
-            this.EmailAddress = new EmailAddressData();
-            this.Phone = new PhoneData();
-            this.Country = new CountryData();
+            this.O_EmailAddress = new EmailAddressData();
+            this.O_Phone = new PhoneData();
+            this.O_Country = new CountryData();
             #endregion
         }
 
@@ -64,17 +64,17 @@ namespace Data.Account
             #endregion
 
             #region Variables
-            this.IP = IP.Trim();
-            this.Login = Login.Trim();
-            this.Username = Username.Trim();
-            this.CreationDate = CreationDate;
-            this.CreationTime = CreationTime;
+            this.V_IP = IP.Trim();
+            this.V_Login = Login.Trim();
+            this.V_Username = Username.Trim();
+            this.V_CreationDate = CreationDate;
+            this.V_CreationTime = CreationTime;
             #endregion
 
             #region Objects
-            this.EmailAddress = EmailAddress;
-            this.Phone = Phone;
-            this.Country = Country;
+            this.O_EmailAddress = EmailAddress;
+            this.O_Phone = Phone;
+            this.O_Country = Country;
             #endregion
         }
 
@@ -110,27 +110,18 @@ namespace Data.Account
             #endregion
 
             #region Variables
-            this.IP = IP.Trim();
-            this.Login = Login.Trim();
-            this.Username = Username.Trim();
-            this.CreationDate = CreationDate;
-            this.CreationTime = CreationTime;
+            this.V_IP = IP.Trim();
+            this.V_Login = Login.Trim();
+            this.V_Username = Username.Trim();
+            this.V_CreationDate = CreationDate;
+            this.V_CreationTime = CreationTime;
             #endregion
 
             #region Objects
-            this.EmailAddress = EmailAddress;
-            this.Phone = Phone;
-            this.Country = Country;
+            this.O_EmailAddress = EmailAddress;
+            this.O_Phone = Phone;
+            this.O_Country = Country;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~UserData()
-        {
-
         }
         #endregion
 
@@ -138,97 +129,91 @@ namespace Data.Account
 
         #region Getters and Setters
         #region Variables
-        public string GetIP()
+        public string IP
         {
-            return this.IP;
+            get => this.V_IP;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_IP = value.Trim();
+            }
         }
 
-        public void SetIP(string IP)
+        public string Login
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: IP);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: IP);
-            
-            this.IP = IP.Trim();
+            get => this.V_Login;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Login = value.Trim();
+            }
         }
 
-        public string GetLogin()
+        public string Username
         {
-            return this.Login;
+            get => this.V_Username;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Username = value.Trim();
+            }
         }
 
-        public void SetLogin(string Login)
+        public DateOnly CreationDate
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Login);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Login);
-            
-            this.Login = Login.Trim();
+            get => this.V_CreationDate;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
+                    value: value, other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                );
+
+                this.V_CreationDate = value;
+            }
         }
 
-        public string GetUsername()
+        public TimeOnly CreationTime
         {
-            return this.Username;
-        }
-
-        public void SetUsername(string Username)
-        {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Username);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Username);
-            
-            this.Username = Username.Trim();
-        }
-
-        public DateOnly GetCreationDate()
-        {
-            return this.CreationDate;
-        }
-
-        public void SetCreationDate(DateOnly CreationDate)
-        {
-            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
-            
-            this.CreationDate = CreationDate;
-        }
-
-        public TimeOnly GetCreationTime()
-        {
-            return this.CreationTime;
-        }
-
-        public void SetCreationTime(TimeOnly CreationTime)
-        {
-            this.CreationTime = CreationTime;
+            get => this.V_CreationTime;
+            set
+            {
+                this.V_CreationTime = value;
+            }
         }
         #endregion
 
         #region Objects
-        public EmailAddressData GetEmailAddress()
+        public EmailAddressData EmailAddress
         {
-            return this.EmailAddress;
+            get => this.O_EmailAddress;
+            set
+            {
+                this.O_EmailAddress = value;
+            }
         }
 
-        public void SetEmailAddress(EmailAddressData EmailAddress)
+        public PhoneData Phone
         {
-            this.EmailAddress = EmailAddress;
+            get => this.O_Phone;
+            set
+            {
+                this.O_Phone = value;
+            }
         }
 
-        public PhoneData GetPhone()
+        public CountryData Country
         {
-            return this.Phone;
-        }
-
-        public void SetPhone(PhoneData Phone)
-        {
-            this.Phone = Phone;
-        }
-
-        public CountryData GetCountry()
-        {
-            return this.Country;
-        }
-
-        public void SetCountry(CountryData Country)
-        {
-            this.Country = Country;
+            get => this.O_Country;
+            set
+            {
+                this.O_Country = value;
+            }
         }
         #endregion
         #endregion
@@ -247,7 +232,7 @@ namespace Data.Account
 
         public async Task<DateTime> ToCreationDateTimeAsync()
         {
-            return await Task.Run<DateTime>(function: () => this.ToCreationDateTime());
+            return await Task.FromResult<DateTime>(result: this.ToCreationDateTime());
         }
         #endregion
     }

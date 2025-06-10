@@ -4,15 +4,15 @@ using System.Threading.Tasks;
 
 namespace Data.Account
 {
-    public class PersonData
+    public record PersonData
     {
         #region Variables
-        private string _FirstName;
-        private string? _MiddleName;
-        private string _FirstLastName;
-        private string? _SecondLastName;
-        private DateOnly _BirthDate;
-        private SexEnum _Sex;
+        private string V_FirstName;
+        private string? V_MiddleName;
+        private string V_FirstLastName;
+        private string? V_SecondLastName;
+        private DateOnly V_BirthDate;
+        private SexEnum V_Sex;
         #endregion
 
         #region Enum
@@ -30,12 +30,12 @@ namespace Data.Account
             : base()
         {
             #region Variables
-            this._FirstName = string.Empty;
-            this._MiddleName = null;
-            this._FirstLastName = string.Empty;
-            this._SecondLastName = null;
-            this._BirthDate = new DateOnly();
-            this._Sex = SexEnum.Female;
+            this.V_FirstName = string.Empty;
+            this.V_MiddleName = null;
+            this.V_FirstLastName = string.Empty;
+            this.V_SecondLastName = null;
+            this.V_BirthDate = new DateOnly();
+            this.V_Sex = SexEnum.Female;
             #endregion
         }
 
@@ -48,20 +48,20 @@ namespace Data.Account
             : base()
         {
             #region Exception
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstName);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstName);
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: FirstLastName);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: FirstLastName);
+            ArgumentException.ThrowIfNullOrEmpty(argument: FirstName);
+            ArgumentException.ThrowIfNullOrWhiteSpace(argument: FirstName);
+            ArgumentException.ThrowIfNullOrEmpty(argument: FirstLastName);
+            ArgumentException.ThrowIfNullOrWhiteSpace(argument: FirstLastName);
             ArgumentOutOfRangeException.ThrowIfGreaterThan(value: BirthDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
             #endregion
 
             #region Variables
-            this._FirstName = FirstName;
-            this._MiddleName = MiddleName;
-            this._FirstLastName = FirstLastName;
-            this._SecondLastName = SecondLastName;
-            this._BirthDate = BirthDate;
-            this._Sex = Sex;
+            this.V_FirstName = FirstName;
+            this.V_MiddleName = MiddleName;
+            this.V_FirstLastName = FirstLastName;
+            this.V_SecondLastName = SecondLastName;
+            this.V_BirthDate = BirthDate;
+            this.V_Sex = Sex;
             #endregion
         }
         #endregion
@@ -72,66 +72,66 @@ namespace Data.Account
         #region Variables
         public string FirstName
         {
-            get => this._FirstName;
+            get => this.V_FirstName;
 
             set
             {
-                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
-                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+                ArgumentException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentException.ThrowIfNullOrWhiteSpace(argument: value);
 
-                this._FirstName = value.Trim();
+                this.V_FirstName = value.Trim();
             }
         }
 
         public string? MiddleName
         {
-            get => this._MiddleName;
+            get => this.V_MiddleName;
             set
             {
-                this._MiddleName = value?.Trim();
+                this.V_MiddleName = value?.Trim();
             }
         }
 
         public string FirstLastName
         {
-            get => this._FirstLastName;
+            get => this.V_FirstLastName;
             set
             {
-                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
-                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+                ArgumentException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentException.ThrowIfNullOrWhiteSpace(argument: value);
 
-                this._FirstLastName = value.Trim();
+                this.V_FirstLastName = value.Trim();
             }
         }
 
         public string? SecondLastName
         {
-            get => this._SecondLastName;
+            get => this.V_SecondLastName;
             set
             {
-                this._SecondLastName = value?.Trim();
+                this.V_SecondLastName = value?.Trim();
             }
         }
         
         public DateOnly BirthDate
         {
-            get => this._BirthDate;
+            get => this.V_BirthDate;
             set
             {
                 DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-                ArgumentOutOfRangeException.ThrowIfGreaterThan(value: value, other: Today);
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: value, other: Today);
 
-                this._BirthDate = value;
+                this.V_BirthDate = value;
             }
         }
 
         public SexEnum Sex
         {
-            get => this._Sex;
+            get => this.V_Sex;
             set
             {
-                this._Sex = Sex;
+                this.V_Sex = value;
             }
         }
         #endregion
@@ -153,7 +153,7 @@ namespace Data.Account
 
             Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: this.BirthDate, other: Today);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: this.BirthDate, other: Today);
 
             Age = Convert.ToByte(value: Today.Year - this.BirthDate.Year);
 
@@ -211,7 +211,7 @@ namespace Data.Account
 
         public async Task<string> FullNameAsync()
         {
-            return await Task.FromResult<string>(result: this.FullName());
+            return await Task.FromResult(result: this.FullName());
         }
         #endregion
     }

@@ -5,7 +5,7 @@ namespace Data.Certification
     public sealed class SalarySettlementData : CertificateData
     {
         #region Objects
-        private EmployeeData OEmployee { get; set; }
+        private EmployeeData O_Employee;
         #endregion
 
 
@@ -14,36 +14,26 @@ namespace Data.Certification
         public SalarySettlementData()
             : base()
         {
-            this.OEmployee = new EmployeeData();
+            this.O_Employee = new EmployeeData();
         }
 
-        public SalarySettlementData(EmployeeData OEmployee)
+        public SalarySettlementData(EmployeeData Employee)
             : base()
         {
-            this.OEmployee = OEmployee;
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~SalarySettlementData()
-        {
-
+            this.O_Employee = Employee;
         }
         #endregion
 
 
 
         #region Getters and Setters
-        public EmployeeData GetOEmployee()
+        public EmployeeData Employee
         {
-            return this.OEmployee;
-        }
-
-        public void SetOEmployee(EmployeeData OEmployee)
-        {
-            this.OEmployee = OEmployee;
+            get => this.O_Employee;
+            set
+            {
+                this.O_Employee = value;
+            }
         }
         #endregion
     }

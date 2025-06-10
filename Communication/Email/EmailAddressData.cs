@@ -5,8 +5,8 @@ namespace Data.Communication.Email
     public sealed class EmailAddressData
     {
         #region Variables
-        private string Email { get; set; }
-        private EmailAddressTypeEnum EmailType { get; set; }
+        private string V_Email;
+        private EmailAddressTypeEnum V_EmailType;
         #endregion
 
         #region Enum
@@ -25,8 +25,8 @@ namespace Data.Communication.Email
         public EmailAddressData()
             : base()
         {
-            this.Email = string.Empty;
-            this.EmailType = EmailAddressTypeEnum.None;
+            this.V_Email = string.Empty;
+            this.V_EmailType = EmailAddressTypeEnum.None;
         }
 
         public EmailAddressData(string Email,
@@ -40,18 +40,9 @@ namespace Data.Communication.Email
             #endregion
 
             #region Variables
-            this.Email = Email.Trim();
-            this.EmailType = EmailType;
+            this.V_Email = Email.Trim();
+            this.V_EmailType = EmailType;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~EmailAddressData()
-        {
-
         }
         #endregion
 
@@ -59,28 +50,26 @@ namespace Data.Communication.Email
 
         #region Getters and Setters
         #region Variables
-        public string GetEmail()
+        public string Email
         {
-            return this.Email;
+            get => this.V_Email;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+                ArgumentOutOfRangeException.ThrowIfZero(value: value.Length);
+
+                this.V_Email = value.Trim();
+            }
         }
 
-        public void SetEmail(string Email)
+        public EmailAddressTypeEnum EmailType
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Email);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Email);
-            ArgumentOutOfRangeException.ThrowIfZero(value: Email.Length);
-
-            this.Email = Email.Trim();
-        }
-
-        public EmailAddressTypeEnum GetEmailType()
-        {
-            return this.EmailType;
-        }
-
-        public void SetEmailType(EmailAddressTypeEnum EmailType)
-        {
-            this.EmailType = EmailType;
+            get => this.V_EmailType;
+            set
+            {
+                this.V_EmailType = value;
+            }
         }
         #endregion
         #endregion

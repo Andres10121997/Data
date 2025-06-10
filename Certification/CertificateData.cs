@@ -5,9 +5,9 @@ namespace Data.Certification
     public class CertificateData
     {
         #region Variables
-        private string Title { get; set; }
-        private uint Folio { get; set; }
-        private float Price { get; set; }
+        private string V_Title;
+        private uint V_Folio;
+        private float V_Price;
         #endregion
 
 
@@ -17,9 +17,9 @@ namespace Data.Certification
             : base()
         {
             #region Variables
-            this.Title = string.Empty;
-            this.Folio = uint.MinValue;
-            this.Price = float.NaN;
+            this.V_Title = string.Empty;
+            this.V_Folio = uint.MinValue;
+            this.V_Price = float.NaN;
             #endregion
         }
 
@@ -37,61 +37,49 @@ namespace Data.Certification
             #endregion
 
             #region Variables
-            this.Title = Title.Trim();
-            this.Folio = Folio;
-            this.Price = Price;
+            this.V_Title = Title.Trim();
+            this.V_Folio = Folio;
+            this.V_Price = Price;
             #endregion
         }
         #endregion
 
 
 
-        #region Destroyer Method
-        ~CertificateData()
-        {
-
-        }
-        #endregion
-
-
-
         #region Getters and Setters
-        public string GetTitle()
+        public string Title
         {
-            return this.Title;
+            get => this.V_Title;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Title = value.Trim();
+            }
         }
 
-        public void SetTitle(string Title)
+        public uint Folio
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Title);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Title);
-            
-            this.Title = Title.Trim();
+            get => this.V_Folio;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<uint>(value: value);
+
+                this.V_Folio = value;
+            }
         }
 
-        public uint GetFolio()
+        public float Price
         {
-            return this.Folio;
-        }
+            get => this.V_Price;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfEqual<float>(value: value, other: float.NaN);
+                ArgumentOutOfRangeException.ThrowIfNegative<float>(value: value);
 
-        public void SetFolio(uint Folio)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<uint>(value: Folio);
-            
-            this.Folio = Folio;
-        }
-
-        public float GetPrice()
-        {
-            return this.Price;
-        }
-
-        public void SetPrice(float Price)
-        {
-            ArgumentOutOfRangeException.ThrowIfEqual<float>(value: Price, other: float.NaN);
-            ArgumentOutOfRangeException.ThrowIfNegative<float>(value: Price);
-            
-            this.Price = Price;
+                this.V_Price = value;
+            }
         }
         #endregion
     }

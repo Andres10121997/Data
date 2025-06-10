@@ -5,8 +5,8 @@ namespace Data.Communication.Phone
     public sealed class PhoneData
     {
         #region Variables
-        private string PhoneNumber { get; set; }
-        private PhoneTypeEnum PhoneType { get; set; }
+        private string V_PhoneNumber;
+        private PhoneTypeEnum V_PhoneType;
         #endregion
 
         #region Enum
@@ -24,8 +24,8 @@ namespace Data.Communication.Phone
         public PhoneData()
             : base()
         {
-            this.PhoneNumber = string.Empty;
-            this.PhoneType = PhoneTypeEnum.None;
+            this.V_PhoneNumber = string.Empty;
+            this.V_PhoneType = PhoneTypeEnum.None;
         }
 
         public PhoneData(string PhoneNumber,
@@ -39,18 +39,9 @@ namespace Data.Communication.Phone
             #endregion
 
             #region Variables
-            this.PhoneNumber = PhoneNumber.Trim();
-            this.PhoneType = PhoneType;
+            this.V_PhoneNumber = PhoneNumber.Trim();
+            this.V_PhoneType = PhoneType;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~PhoneData()
-        {
-
         }
         #endregion
 
@@ -58,28 +49,26 @@ namespace Data.Communication.Phone
 
         #region Getters and Setters
         #region Variables
-        public string GetPhoneNumber()
+        public string PhoneNumber
         {
-            return this.PhoneNumber;
+            get => this.V_PhoneNumber;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+                ArgumentOutOfRangeException.ThrowIfZero(value: value.Length);
+
+                this.V_PhoneNumber = value;
+            }
         }
 
-        public void SetPhoneNumber(string PhoneNumber)
+        public PhoneTypeEnum PhoneType
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: PhoneNumber);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: PhoneNumber);
-            ArgumentOutOfRangeException.ThrowIfZero(value: PhoneNumber.Length);
-            
-            this.PhoneNumber = PhoneNumber.Trim();
-        }
-
-        public PhoneTypeEnum GetPhoneType()
-        {
-            return this.PhoneType;
-        }
-
-        public void SetPhoneType(PhoneTypeEnum PhoneType)
-        {
-            this.PhoneType = PhoneType;
+            get => this.V_PhoneType;
+            set
+            {
+                this.V_PhoneType = value;
+            }
         }
         #endregion
         #endregion
