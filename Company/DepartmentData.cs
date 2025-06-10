@@ -2,16 +2,16 @@
 
 namespace Data.Company
 {
-    public sealed class DepartmentData
+    public sealed record DepartmentData
     {
         #region Variables
-        private string Name { get; set; }
-        private string? Description { get; set; }
-        private DepartmentTypeEnum DepartmentType { get; set; }
+        private string V_Name;
+        private string? V_Description;
+        private DepartmentTypeEnum V_DepartmentType;
         #endregion
 
         #region Objects
-        private DepartmentData SubDepartment { get; set; }
+        private DepartmentData O_SubDepartment;
         #endregion
 
         #region Enum
@@ -30,13 +30,13 @@ namespace Data.Company
             : base()
         {
             #region Variables
-            this.Name = string.Empty;
-            this.Description = null;
-            this.DepartmentType = DepartmentTypeEnum.None;
+            this.V_Name = string.Empty;
+            this.V_Description = null;
+            this.V_DepartmentType = DepartmentTypeEnum.None;
             #endregion
 
             #region Objects
-            this.SubDepartment = new DepartmentData();
+            this.O_SubDepartment = new DepartmentData();
             #endregion
         }
 
@@ -52,23 +52,14 @@ namespace Data.Company
             #endregion
 
             #region Variables
-            this.Name = Name.Trim();
-            this.Description = Description?.Trim();
-            this.DepartmentType = DepartmentType;
+            this.V_Name = Name.Trim();
+            this.V_Description = Description?.Trim();
+            this.V_DepartmentType = DepartmentType;
             #endregion
 
             #region Objects
-            this.SubDepartment = SubDepartment;
+            this.O_SubDepartment = SubDepartment;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destroyer Method
-        ~DepartmentData()
-        {
-
         }
         #endregion
 
@@ -76,49 +67,45 @@ namespace Data.Company
 
         #region Getters and Setters
         #region Variables
-        public string GetName()
+        public string Name
         {
-            return this.Name;
+            get => this.V_Name;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Name = value;
+            }
         }
 
-        public void SetName(string Name)
+        public string? Description
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
-
-            this.Name = Name.Trim();
+            get => this.V_Description;
+            set
+            {
+                this.V_Description = value;
+            }
         }
 
-        public string? GetDescription()
+        public DepartmentTypeEnum DepartmentType
         {
-            return this.Description;
-        }
-
-        public void SetDescription(string? Description)
-        {
-            this.Description = Description?.Trim();
-        }
-
-        public DepartmentTypeEnum GetDepartmentType()
-        {
-            return this.DepartmentType;
-        }
-
-        public void SetDepartmentType(DepartmentTypeEnum DepartmentType)
-        {
-            this.DepartmentType = DepartmentType;
+            get => this.V_DepartmentType;
+            set
+            {
+                this.V_DepartmentType = value;
+            }
         }
         #endregion
 
         #region Objects
-        public DepartmentData GetSubDepartment()
+        public DepartmentData SubDepartment
         {
-            return this.SubDepartment;
-        }
-
-        public void SetSubDepartment(DepartmentData SubDepartment)
-        {
-            this.SubDepartment = SubDepartment;
+            get => this.O_SubDepartment;
+            set
+            {
+                this.O_SubDepartment = value;
+            }
         }
         #endregion
         #endregion

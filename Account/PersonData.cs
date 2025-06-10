@@ -181,31 +181,47 @@ namespace Data.Account
 
 
         #region Full Name
+        private string Name
+        {
+            get
+            {
+                string Name;
+
+                Name = (
+                    string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
+                    ?
+                    this.FirstName.Trim()
+                    :
+                    $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
+                ).Trim();
+
+                return Name;
+            }
+        }
+
+        private string LastName
+        {
+            get
+            {
+                string LastName;
+
+                LastName = (
+                    string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
+                    ?
+                    this.FirstLastName.Trim()
+                    :
+                    $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
+                ).Trim();
+
+                return LastName;
+            }
+        }
+
         public string FullName()
         {
-            #region Variables
-            string Name;
-            string LastName;
             string FullName;
-            #endregion
 
-            Name = (
-                string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
-                ?
-                this.FirstName.Trim()
-                :
-                $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
-            ).Trim();
-
-            LastName = (
-                string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
-                ?
-                this.FirstLastName.Trim()
-                :
-                $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
-            ).Trim();
-
-            FullName = string.Concat(str0: Name, str1: " ", str2: LastName);
+            FullName = string.Concat(str0: this.Name, str1: " ", str2: LastName);
 
             return FullName;
         }

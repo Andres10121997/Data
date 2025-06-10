@@ -2,13 +2,13 @@
 
 namespace Data.Company
 {
-    public sealed class CompanyData
+    public sealed record CompanyData
     {
         #region Variables
-        private string Name { get; set; }
-        private DateOnly CreationDate { get; set; }
-        private string EconomicActivity { get; set; }
-        private CompanyTypeEnum CompanyType { get; set; }
+        private string V_Name;
+        private DateOnly V_CreationDate;
+        private string V_EconomicActivity;
+        private CompanyTypeEnum V_CompanyType;
         #endregion
 
         #region Enum
@@ -32,10 +32,10 @@ namespace Data.Company
         public CompanyData()
             : base()
         {
-            this.Name = string.Empty;
-            this.CreationDate = new DateOnly();
-            this.EconomicActivity = string.Empty;
-            this.CompanyType = CompanyTypeEnum.None;
+            this.V_Name = string.Empty;
+            this.V_CreationDate = new DateOnly();
+            this.V_EconomicActivity = string.Empty;
+            this.V_CompanyType = CompanyTypeEnum.None;
         }
 
         public CompanyData(string Name,
@@ -53,72 +53,62 @@ namespace Data.Company
             #endregion
 
             #region Variables
-            this.Name = Name.Trim();
-            this.CreationDate = CreationDate;
-            this.EconomicActivity = EconomicActivity.Trim();
-            this.CompanyType = CompanyType;
+            this.V_Name = Name.Trim();
+            this.V_CreationDate = CreationDate;
+            this.V_EconomicActivity = EconomicActivity.Trim();
+            this.V_CompanyType = CompanyType;
             #endregion
         }
         #endregion
 
 
 
-        #region Destroyer Method
-        ~CompanyData()
-        {
-
-        }
-        #endregion
-
-
-
         #region Getters and Setters
-        public string GetName()
+        public string Name
         {
-            return this.Name;
+            get => this.V_Name;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Name = value.Trim();
+            }
         }
 
-        public void SetName(string Name)
+        public DateOnly CreationDate
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
-            
-            this.Name = Name.Trim();
+            get => this.V_CreationDate;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
+                    value: value,
+                    other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                );
+
+                this.V_CreationDate = value;
+            }
         }
 
-        public DateOnly GetCreationDate()
+        public string EconomicActivity
         {
-            return this.CreationDate;
+            get => this.V_EconomicActivity;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_EconomicActivity = value;
+            }
         }
 
-        public void SetCreationDate(DateOnly CreationDate)
+        public CompanyTypeEnum CompanyType
         {
-            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
-            
-            this.CreationDate = CreationDate;
-        }
-
-        public string GetEconomicActivity()
-        {
-            return this.EconomicActivity;
-        }
-
-        public void SetEconomicActivity(string EconomicActivity)
-        {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: EconomicActivity);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: EconomicActivity);
-            
-            this.EconomicActivity = EconomicActivity.Trim();
-        }
-
-        public CompanyTypeEnum GetCompanyType()
-        {
-            return this.CompanyType;
-        }
-
-        public void SetCompanyType(CompanyTypeEnum CompanyType)
-        {
-            this.CompanyType = CompanyType;
+            get => this.V_CompanyType;
+            set
+            {
+                this.V_CompanyType = value;
+            }
         }
         #endregion
     }

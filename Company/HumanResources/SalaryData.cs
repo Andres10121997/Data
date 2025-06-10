@@ -15,7 +15,7 @@ namespace Data.Company.HumanResources
         #endregion
 
         #region Arrays
-        private float[] A_BonusList { get; set; }
+        private float[] A_BonusList;
         #endregion
 
 

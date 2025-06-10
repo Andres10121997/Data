@@ -9,17 +9,17 @@ namespace Data.Account
     public sealed record UserData : PersonData
     {
         #region Variables
-        private string V_IP { get; set; }
-        private string V_Login { get; set; }
-        private string V_Username { get; set; }
-        private DateOnly V_CreationDate { get; set; }
-        private TimeOnly V_CreationTime { get; set; }
+        private string V_IP;
+        private string V_Login;
+        private string V_Username;
+        private DateOnly V_CreationDate;
+        private TimeOnly V_CreationTime;
         #endregion
 
         #region Objects
-        private EmailAddressData O_EmailAddress { get; set; }
-        private PhoneData O_Phone { get; set; }
-        private CountryData O_Country { get; set; }
+        private EmailAddressData O_EmailAddress;
+        private PhoneData O_Phone;
+        private CountryData O_Country;
         #endregion
 
 
@@ -171,7 +171,8 @@ namespace Data.Account
             set
             {
                 ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
-                    value: value, other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                    value: value,
+                    other: DateOnly.FromDateTime(dateTime: DateTime.Now)
                 );
 
                 this.V_CreationDate = value;
