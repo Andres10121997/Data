@@ -118,9 +118,10 @@ namespace Data.Account
             get => this.V_BirthDate;
             set
             {
-                DateOnly Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
-
-                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: value, other: Today);
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
+                    value: value,
+                    other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                );
 
                 this.V_BirthDate = value;
             }

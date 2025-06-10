@@ -2,7 +2,7 @@
 
 namespace Data.Certification
 {
-    public sealed class SalarySettlementData : CertificateData
+    public sealed record SalarySettlementData : CertificateData
     {
         #region Objects
         private EmployeeData O_Employee;

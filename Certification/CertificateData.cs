@@ -2,7 +2,7 @@
 
 namespace Data.Certification
 {
-    public class CertificateData
+    public record CertificateData
     {
         #region Variables
         private string V_Title;
@@ -75,7 +75,10 @@ namespace Data.Certification
             get => this.V_Price;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfEqual<float>(value: value, other: float.NaN);
+                ArgumentOutOfRangeException.ThrowIfEqual<float>(
+                    value: value,
+                    other: float.NaN
+                );
                 ArgumentOutOfRangeException.ThrowIfNegative<float>(value: value);
 
                 this.V_Price = value;

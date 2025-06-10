@@ -2,17 +2,17 @@
 
 namespace Data.Company.Employment
 {
-    public sealed class WorkExperienceData
+    public sealed record WorkExperienceData
     {
         #region Variables
-        private string Position { get; set; }
-        private DateOnly StartDate { get; set; }
-        private DateOnly? EndDate { get; set; }
-        private string Description { get; set; }
+        private string V_Position;
+        private DateOnly V_StartDate;
+        private DateOnly? V_EndDate;
+        private string V_Description;
         #endregion
 
         #region Object
-        private CompanyData Company { get; set; }
+        private CompanyData O_Company;
         #endregion
 
 
@@ -21,11 +21,16 @@ namespace Data.Company.Employment
         public WorkExperienceData()
             : base()
         {
-            this.Position = string.Empty;
-            this.StartDate = new DateOnly();
-            this.EndDate = null;
-            this.Description = string.Empty;
-            this.Company = new CompanyData();
+            #region Variables
+            this.V_Position = string.Empty;
+            this.V_StartDate = new DateOnly();
+            this.V_EndDate = null;
+            this.V_Description = string.Empty;
+            #endregion
+
+            #region Objects
+            this.O_Company = new CompanyData();
+            #endregion
         }
 
         public WorkExperienceData(string Position,
@@ -44,21 +49,15 @@ namespace Data.Company.Employment
             #endregion
 
             #region Variables
-            this.Position = Position.Trim();
-            this.StartDate = StartDate;
-            this.EndDate = EndDate;
-            this.Description = Description.Trim();
-            this.Company = Company;
+            this.V_Position = Position.Trim();
+            this.V_StartDate = StartDate;
+            this.V_EndDate = EndDate;
+            this.V_Description = Description.Trim();
             #endregion
-        }
-        #endregion
 
-
-
-        #region Destroyer Method
-        ~WorkExperienceData()
-        {
-
+            #region Objects
+            this.O_Company = Company;
+            #endregion
         }
         #endregion
 
@@ -66,64 +65,62 @@ namespace Data.Company.Employment
 
         #region Getters and Setters
         #region Variables
-        public string GetPosition()
+        public string Position
         {
-            return this.Position;
+            get => V_Position;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Position = value.Trim();
+            }
         }
 
-        public void SetPosition(string Position)
+        public DateOnly StartDate
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Position);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Position);
-            
-            this.Position = Position.Trim();
+            get => this.V_StartDate;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
+                    value: value,
+                    other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                );
+
+                this.V_StartDate = value;
+            }
         }
 
-        public DateOnly GetStartDate()
+        public DateOnly? EndDate
         {
-            return this.StartDate;
+            get => this.V_EndDate;
+            set
+            {
+                this.V_EndDate = value;
+            }
         }
 
-        public void SetStartDate(DateOnly StartDate)
+        public string Description
         {
-            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: StartDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
-            
-            this.StartDate = StartDate;
-        }
+            get => this.V_Description;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
 
-        public DateOnly? GetEndDate()
-        {
-            return this.EndDate;
-        }
-
-        public void SetEndDate(DateOnly EndDate)
-        {
-            this.EndDate = EndDate;
-        }
-
-        public string GetDescription()
-        {
-            return this.Description;
-        }
-
-        public void SetDescription(string Description)
-        {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Description);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Description);
-            
-            this.Description = Description.Trim();
+                this.V_Description = value.Trim();
+            }
         }
         #endregion
 
         #region Object
-        public CompanyData GetCompany()
+        public CompanyData Company
         {
-            return this.Company;
-        }
-
-        public void SetCompany(CompanyData Company)
-        {
-            this.Company = Company;
+            get => this.O_Company;
+            set
+            {
+                this.O_Company = value;
+            }
         }
         #endregion
         #endregion

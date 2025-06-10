@@ -2,11 +2,11 @@
 
 namespace Data.Company.Employment
 {
-    public sealed class JobData
+    public sealed record JobData
     {
         #region Variables
-        private string Name { get; set; }
-        private string? Description { get; set; }
+        private string V_Name;
+        private string? V_Description;
         #endregion
 
 
@@ -15,8 +15,8 @@ namespace Data.Company.Employment
         public JobData()
             : base()
         {
-            this.Name = string.Empty;
-            this.Description = null;
+            this.V_Name = string.Empty;
+            this.V_Description = null;
         }
 
         public JobData(string Name,
@@ -28,45 +28,34 @@ namespace Data.Company.Employment
             #endregion
 
             #region Variables
-            this.Name = Name.Trim();
-            this.Description = Description?.Trim();
+            this.V_Name = Name.Trim();
+            this.V_Description = Description?.Trim();
             #endregion
         }
         #endregion
 
 
 
-        #region Destroyer Method
-        ~JobData()
-        {
-
-        }
-        #endregion
-
-
-
         #region Getters and Setters
-        public string GetName()
+        public string Name
         {
-            return this.Name;
+            get => this.V_Name;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Name = value.Trim();
+            }
         }
 
-        public void SetName(string Name)
+        public string? Description
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
-
-            this.Name = Name.Trim();
-        }
-
-        public string? GetDescription()
-        {
-            return this.Description;
-        }
-
-        public void SetDescription(string? Description)
-        {
-            this.Description = Description?.Trim();
+            get => this.V_Description;
+            set
+            {
+                this.V_Description = value?.Trim();
+            }
         }
         #endregion
     }
