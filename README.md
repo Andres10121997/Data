@@ -5,13 +5,13 @@
 ## Description | Descripción
 ### <ins>English</ins>
 
-This package provides **structured and reusable data classes** for representing information in an organized manner across different projects. Its purpose is to **standardize variable management**, grouping them logically for ease of use and maintenance. By defining **common and reusable structures**, consistency in data handling within applications is improved, promoting **modularity** and **code clarity**.
+This package provides **structured and reusable data classes** (data models -DTOs-) to represent information in an organized manner across different projects. Its purpose is to **standardize variable management**, grouping them logically for ease of use and maintenance. By defining **common and reusable structures**, consistency in data handling within applications is improved, promoting **modularity** and **code clarity**.
 
 This project is designed to be flexible and scalable, allowing for integration with a variety of applications and systems.
 
 ### <ins>Spanish</ins>
 
-Este paquete proporciona **clases de datos estructuradas y reutilizables** para representar información de manera organizada en distintos proyectos. Su propósito es **estandarizar la gestión de variables**, agrupándolas de forma lógica para facilitar su uso y mantenimiento. Al definir **estructuras comunes y reutilizables**, se mejora la coherencia en el manejo de datos dentro de las aplicaciones, promoviendo la **modularidad** y la **claridad en el código**.
+Este paquete proporciona **clases de datos estructuradas y reutilizables** (modelos de datos -DTOs-) para representar información de manera organizada en distintos proyectos. Su propósito es **estandarizar la gestión de variables**, agrupándolas de forma lógica para facilitar su uso y mantenimiento. Al definir **estructuras comunes y reutilizables**, se mejora la coherencia en el manejo de datos dentro de las aplicaciones, promoviendo la **modularidad** y la **claridad en el código**.
 
 Este proyecto está diseñado para ser flexible y escalable, permitiendo su integración con una variedad de aplicaciones y sistemas.
 
@@ -33,9 +33,13 @@ Este proyecto está diseñado para ser flexible y escalable, permitiendo su inte
 ---
 
 ## Pattern to use | Patrón a utilizar
+### <ins>English</ins>
+
+This project uses the DTO design pattern.
+
 ### <ins>Spanish</ins>
 
-En este proyecto se utiliza el Patrón Bean, Bean Pattern en inglés, también conocido como JavaBeans.
+En este proyecto se utiliza el patrón de diseño DTO.
 
 ---
 
