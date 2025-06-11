@@ -1,23 +1,23 @@
 ﻿namespace Data.Property.Highlights
 {
-    public sealed class EquipmentData
+    public sealed record EquipmentData
     {
         #region Variables
-        private bool HasChimney { get; set; } // Chimenea
-        private bool HasGym { get; set; } // Gimnasio
-        private bool HasJacuzzi { get; set; } // Jacuzzi
-        private bool HasVisitorParking { get; set; } // Visitor parking
-        private bool HasCinemaArea { get; set; } // Área de cine
-        private bool HasChildrensPlayArea { get; set; } // Área de juegos infantiles | Children's play area
-        private bool HasWithGreenArea { get; set; } // Con área verde
-        private bool HasElevator { get; set; } // Ascensor
-        private bool HasBasketballCourt { get; set; } // Cancha de básquetbol
-        private bool HasSoccerField { get; set; } // Cancha de fútbol
-        private bool HasPaddleCourt { get; set; } // Cancha de paddle
-        private bool HasTennisCourt { get; set; } // Cancha de tenis
-        private bool HasMultiSportCourt { get; set; } // Cancha polideportiva | Multi-sport court
-        private bool HasPartyHall { get; set; } // Salón de fiestas
-        private bool HasSauna { get; set; } // Sauna
+        private bool V_HasChimney; // Chimenea
+        private bool V_HasGym; // Gimnasio
+        private bool V_HasJacuzzi; // Jacuzzi
+        private bool V_HasVisitorParking; // Visitor parking
+        private bool V_HasCinemaArea; // Área de cine
+        private bool V_HasChildrensPlayArea; // Área de juegos infantiles | Children's play area
+        private bool V_HasWithGreenArea; // Con área verde
+        private bool V_HasElevator; // Ascensor
+        private bool V_HasBasketballCourt; // Cancha de básquetbol
+        private bool V_HasSoccerField; // Cancha de fútbol
+        private bool V_HasPaddleCourt; // Cancha de paddle
+        private bool V_HasTennisCourt; // Cancha de tenis
+        private bool V_HasMultiSportCourt; // Cancha polideportiva | Multi-sport court
+        private bool V_HasPartyHall; // Salón de fiestas
+        private bool V_HasSauna; // Sauna
         #endregion
 
 
@@ -26,21 +26,21 @@
         public EquipmentData()
             : base()
         {
-            this.HasChimney             = false;
-            this.HasGym                 = false;
-            this.HasJacuzzi             = false;
-            this.HasVisitorParking      = false;
-            this.HasCinemaArea          = false;
-            this.HasChildrensPlayArea   = false;
-            this.HasWithGreenArea       = false;
-            this.HasElevator            = false;
-            this.HasBasketballCourt     = false;
-            this.HasSoccerField         = false;
-            this.HasPaddleCourt         = false;
-            this.HasTennisCourt         = false;
-            this.HasMultiSportCourt     = false;
-            this.HasPartyHall           = false;
-            this.HasSauna               = false;
+            this.V_HasChimney = false;
+            this.V_HasGym = false;
+            this.V_HasJacuzzi = false;
+            this.V_HasVisitorParking = false;
+            this.V_HasCinemaArea = false;
+            this.V_HasChildrensPlayArea = false;
+            this.V_HasWithGreenArea = false;
+            this.V_HasElevator = false;
+            this.V_HasBasketballCourt = false;
+            this.V_HasSoccerField = false;
+            this.V_HasPaddleCourt = false;
+            this.V_HasTennisCourt = false;
+            this.V_HasMultiSportCourt = false;
+            this.V_HasPartyHall = false;
+            this.V_HasSauna = false;
         }
 
         public EquipmentData(bool HasChimney,
@@ -60,184 +60,160 @@
                              bool HasSauna)
             : base()
         {
-            this.HasChimney             = HasChimney;
-            this.HasGym                 = HasGym;
-            this.HasJacuzzi             = HasJacuzzi;
-            this.HasVisitorParking      = HasVisitorParking;
-            this.HasCinemaArea          = HasCinemaArea;
-            this.HasChildrensPlayArea   = HasChildrensPlayArea;
-            this.HasWithGreenArea       = HasWithGreenArea;
-            this.HasElevator            = HasElevator;
-            this.HasBasketballCourt     = HasBasketballCourt;
-            this.HasSoccerField         = HasSoccerField;
-            this.HasPaddleCourt         = HasPaddleCourt;
-            this.HasTennisCourt         = HasTennisCourt;
-            this.HasMultiSportCourt     = HasMultiSportCourt;
-            this.HasPartyHall           = HasPartyHall;
-            this.HasSauna               = HasSauna;
-        }
-        #endregion
-
-
-
-        #region Destructor Methods
-        ~EquipmentData()
-        {
-
+            this.V_HasChimney = HasChimney;
+            this.V_HasGym = HasGym;
+            this.V_HasJacuzzi = HasJacuzzi;
+            this.V_HasVisitorParking = HasVisitorParking;
+            this.V_HasCinemaArea = HasCinemaArea;
+            this.V_HasChildrensPlayArea = HasChildrensPlayArea;
+            this.V_HasWithGreenArea = HasWithGreenArea;
+            this.V_HasElevator = HasElevator;
+            this.V_HasBasketballCourt = HasBasketballCourt;
+            this.V_HasSoccerField = HasSoccerField;
+            this.V_HasPaddleCourt = HasPaddleCourt;
+            this.V_HasTennisCourt = HasTennisCourt;
+            this.V_HasMultiSportCourt = HasMultiSportCourt;
+            this.V_HasPartyHall = HasPartyHall;
+            this.V_HasSauna = HasSauna;
         }
         #endregion
 
 
 
         #region Getters and Setters
-        public bool GetHasChimney()
+        public bool HasChimney
         {
-            return this.HasChimney;
+            get => this.V_HasChimney;
+            set
+            {
+                this.V_HasChimney = value;
+            }
         }
 
-        public void SetHasChimney(bool HasChimney)
+        public bool HasGym
         {
-            this.HasChimney = HasChimney;
+            get => this.V_HasGym;
+            set
+            {
+                this.V_HasGym = value;
+            }
         }
 
-        public bool GetHasGym()
+        public bool HasJacuzzi
         {
-            return this.HasGym;
+            get => this.V_HasJacuzzi;
+            set
+            {
+                this.V_HasJacuzzi = value;
+            }
         }
 
-        public void SetHasGym(bool HasGym)
+        public bool HasVisitorParking
         {
-            this.HasGym = HasGym;
+            get => this.V_HasVisitorParking;
+            set
+            {
+                this.V_HasVisitorParking = value;
+            }
         }
 
-        public bool GetHasJacuzzi()
+        public bool HasCinemaArea
         {
-            return this.HasJacuzzi;
+            get => this.V_HasCinemaArea;
+            set
+            {
+                this.V_HasCinemaArea = value;
+            }
         }
 
-        public void SetHasJacuzzi(bool HasJacuzzi)
+        public bool HasChildrensPlayArea
         {
-            this.HasJacuzzi = HasJacuzzi;
+            get => this.V_HasChildrensPlayArea;
+            set
+            {
+                this.V_HasChildrensPlayArea = value;
+            }
         }
 
-        public bool GetHasVisitorParking()
+        public bool HasWithGreenArea
         {
-            return this.HasVisitorParking;
+            get => this.V_HasWithGreenArea;
+            set
+            {
+                this.V_HasWithGreenArea = value;
+            }
         }
 
-        public void SetHasVisitorParking(bool HasVisitorParking)
+        public bool HasElevator
         {
-            this.HasVisitorParking = HasVisitorParking;
+            get => this.V_HasElevator;
+            set
+            {
+                this.V_HasElevator = value;
+            }
         }
 
-        public bool GetHasCinemaArea()
+        public bool HasBasketballCourt
         {
-            return this.HasCinemaArea;
+            get => this.V_HasBasketballCourt;
+            set
+            {
+                this.V_HasBasketballCourt = value;
+            }
         }
 
-        public void SetHasCinemaArea(bool HasCinemaArea)
+        public bool HasSoccerField
         {
-            this.HasCinemaArea = HasCinemaArea;
+            get => this.V_HasSoccerField;
+            set
+            {
+                this.V_HasSoccerField = value;
+            }
         }
 
-        public bool GetHasChildrensPlayArea()
+        public bool HasPaddleCourt
         {
-            return this.HasChildrensPlayArea;
+            get => this.V_HasPaddleCourt;
+            set
+            {
+                this.V_HasPaddleCourt = value;
+            }
         }
 
-        public void SetHasChildrensPlayArea(bool HasChildrensPlayArea)
+        public bool HasTennisCourt
         {
-            this.HasChildrensPlayArea = HasChildrensPlayArea;
+            get => this.V_HasTennisCourt;
+            set
+            {
+                this.V_HasTennisCourt = value;
+            }
         }
 
-        public bool GetHasWithGreenArea()
+        public bool HasMultiSportCourt
         {
-            return this.HasWithGreenArea;
+            get => this.V_HasMultiSportCourt;
+            set
+            {
+                this.V_HasMultiSportCourt = value;
+            }
         }
 
-        public void SetIsThereWithGreenArea(bool HasWithGreenArea)
+        public bool HasPartyHall
         {
-            this.HasWithGreenArea = HasWithGreenArea;
+            get => this.V_HasPartyHall;
+            set
+            {
+                this.V_HasPartyHall = value;
+            }
         }
 
-        public bool GetHasElevator()
+        public bool HasSauna
         {
-            return this.HasElevator;
-        }
-
-        public void SetHasElevator(bool HasElevator)
-        {
-            this.HasElevator = HasElevator;
-        }
-
-        public bool GetHasBasketballCourt()
-        {
-            return this.HasBasketballCourt;
-        }
-
-        public void SetHasBasketballCourt(bool HasBasketballCourt)
-        {
-            this.HasBasketballCourt = HasBasketballCourt;
-        }
-
-        public bool GetHasSoccerField()
-        {
-            return this.HasSoccerField;
-        }
-
-        public void SetHasSoccerField(bool HasSoccerField)
-        {
-            this.HasSoccerField = HasSoccerField;
-        }
-
-        public bool GetHasPaddleCourt()
-        {
-            return this.HasPaddleCourt;
-        }
-
-        public void SetHasPaddleCourt(bool HasPaddleCourt)
-        {
-            this.HasPaddleCourt = HasPaddleCourt;
-        }
-
-        public bool GetHasTennisCourt()
-        {
-            return this.HasTennisCourt;
-        }
-
-        public void SetHasTennisCourt(bool HasTennisCourt)
-        {
-            this.HasTennisCourt = HasTennisCourt;
-        }
-
-        public bool GetHasMultiSportCourt()
-        {
-            return this.HasMultiSportCourt;
-        }
-
-        public void SetHasMultiSportCourt(bool HasMultiSportCourt)
-        {
-            this.HasMultiSportCourt = HasMultiSportCourt;
-        }
-
-        public bool GetHasPartyHall()
-        {
-            return this.HasPartyHall;
-        }
-
-        public void SetHasPartyHall(bool HasPartyHall)
-        {
-            this.HasPartyHall = HasPartyHall;
-        }
-
-        public bool GetHasSauna()
-        {
-            return this.HasSauna;
-        }
-
-        public void SetHasSauna(bool HasSauna)
-        {
-            this.HasSauna = HasSauna;
+            get => this.V_HasSauna;
+            set
+            {
+                this.V_HasSauna = value;
+            }
         }
         #endregion
     }

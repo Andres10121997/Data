@@ -1,28 +1,28 @@
 ﻿namespace Data.Property.Highlights
 {
-    public sealed class EnvironmentData // Ambientes
+    public sealed record EnvironmentData // Ambientes
     {
         #region Variables
-        private bool HasGrill { get; set; } // Parrilla
-        private bool HasPool { get; set; } // Piscina
-        private bool HasCloset { get; set; }
-        private bool HasGuestBathroom { get; set; } // Baño de visitas
-        private bool HasTerrace { get; set; } // Terraza
-        private bool HasDiningRoom { get; set; } // Comedor
-        private bool HasWalkInCloset { get; set; } // Vestidor
-        private bool HasHomeoffice { get; set; } // Oficina en casa
-        private bool HasLiving { get; set; }
-        private bool HasYard { get; set; } // Patio
-        private bool HasBedroomDuite { get; set; } // Dormitorio en suite
-        private bool HasBalcony { get; set; } // Balcón
-        private bool HasMansard { get; set; } // Mansarda
-        private bool HasGarden { get; set; } // Jardín
-        private bool HasKitchen { get; set; } // Cocina
-        private bool HasServiceBedroom { get; set; } // Dormitorio de servicio
-        private bool HasServiceBathroom { get; set; } // Baño de servicio
-        private bool HasPlayroom { get; set; } // Cuarto de juego
-        private bool HasWithLodge { get; set; } // Con logia
-        private bool HasEverydayDiningRoom { get; set; } // Comedor de diario
+        private bool V_HasGrill; // Parrilla
+        private bool V_HasPool; // Piscina
+        private bool V_HasCloset;
+        private bool V_HasGuestBathroom; // Baño de visitas
+        private bool V_HasTerrace; // Terraza
+        private bool V_HasDiningRoom; // Comedor
+        private bool V_HasWalkInCloset; // Vestidor
+        private bool V_HasHomeoffice; // Oficina en casa
+        private bool V_HasLiving;
+        private bool V_HasYard; // Patio
+        private bool V_HasBedroomDuite; // Dormitorio en suite
+        private bool V_HasBalcony; // Balcón
+        private bool V_HasMansard; // Mansarda
+        private bool V_HasGarden; // Jardín
+        private bool V_HasKitchen; // Cocina
+        private bool V_HasServiceBedroom; // Dormitorio de servicio
+        private bool V_HasServiceBathroom; // Baño de servicio
+        private bool V_HasPlayroom; // Cuarto de juego
+        private bool V_HasWithLodge; // Con logia
+        private bool V_HasEverydayDiningRoom; // Comedor de diario
         #endregion
 
 
@@ -31,26 +31,26 @@
         public EnvironmentData()
             : base()
         {
-            this.HasGrill = false;
-            this.HasPool = false;
-            this.HasCloset = false;
-            this.HasGuestBathroom = false;
-            this.HasTerrace = false;
-            this.HasDiningRoom = false;
-            this.HasWalkInCloset = false;
-            this.HasHomeoffice = false;
-            this.HasLiving = false;
-            this.HasYard = false;
-            this.HasBedroomDuite = false;
-            this.HasBalcony = false;
-            this.HasMansard = false;
-            this.HasGarden = false;
-            this.HasKitchen = false;
-            this.HasServiceBedroom = false;
-            this.HasServiceBathroom = false;
-            this.HasPlayroom = false;
-            this.HasWithLodge = false;
-            this.HasEverydayDiningRoom = false;
+            this.V_HasGrill = false;
+            this.V_HasPool = false;
+            this.V_HasCloset = false;
+            this.V_HasGuestBathroom = false;
+            this.V_HasTerrace = false;
+            this.V_HasDiningRoom = false;
+            this.V_HasWalkInCloset = false;
+            this.V_HasHomeoffice = false;
+            this.V_HasLiving = false;
+            this.V_HasYard = false;
+            this.V_HasBedroomDuite = false;
+            this.V_HasBalcony = false;
+            this.V_HasMansard = false;
+            this.V_HasGarden = false;
+            this.V_HasKitchen = false;
+            this.V_HasServiceBedroom = false;
+            this.V_HasServiceBathroom = false;
+            this.V_HasPlayroom = false;
+            this.V_HasWithLodge = false;
+            this.V_HasEverydayDiningRoom = false;
         }
 
         public EnvironmentData(bool HasGrill,
@@ -75,239 +75,210 @@
                                bool HasEverydayDiningRoom)
             : base()
         {
-            this.HasGrill               = HasGrill;
-            this.HasPool                = HasPool;
-            this.HasCloset              = HasCloset;
-            this.HasGuestBathroom       = HasGuestBathroom;
-            this.HasTerrace             = HasTerrace;
-            this.HasDiningRoom          = HasDiningRoom;
-            this.HasWalkInCloset        = HasWalkInCloset;
-            this.HasHomeoffice          = HasHomeoffice;
-            this.HasLiving              = HasLiving;
-            this.HasYard                = HasYard;
-            this.HasBedroomDuite        = HasBedroomDuite;
-            this.HasBalcony             = HasBalcony;
-            this.HasMansard             = HasMansard;
-            this.HasGarden              = HasGarden;
-            this.HasKitchen             = HasKitchen;
-            this.HasServiceBedroom      = HasServiceBedroom;
-            this.HasServiceBathroom     = HasServiceBathroom;
-            this.HasPlayroom            = HasPlayroom;
-            this.HasWithLodge           = HasWithLodge;
-            this.HasEverydayDiningRoom  = HasEverydayDiningRoom;
-        }
-        #endregion
-
-
-
-        #region Destructor Methods
-        ~EnvironmentData()
-        {
-
+            this.V_HasGrill = HasGrill;
+            this.V_HasPool = HasPool;
+            this.V_HasCloset = HasCloset;
+            this.V_HasGuestBathroom = HasGuestBathroom;
+            this.V_HasTerrace = HasTerrace;
+            this.V_HasDiningRoom = HasDiningRoom;
+            this.V_HasWalkInCloset = HasWalkInCloset;
+            this.V_HasHomeoffice = HasHomeoffice;
+            this.V_HasLiving = HasLiving;
+            this.V_HasYard = HasYard;
+            this.V_HasBedroomDuite = HasBedroomDuite;
+            this.V_HasBalcony = HasBalcony;
+            this.V_HasMansard = HasMansard;
+            this.V_HasGarden = HasGarden;
+            this.V_HasKitchen = HasKitchen;
+            this.V_HasServiceBedroom = HasServiceBedroom;
+            this.V_HasServiceBathroom = HasServiceBathroom;
+            this.V_HasPlayroom = HasPlayroom;
+            this.V_HasWithLodge = HasWithLodge;
+            this.V_HasEverydayDiningRoom = HasEverydayDiningRoom;
         }
         #endregion
 
 
 
         #region Getters and Setters
-        public bool GetHasGrill()
+        public bool HasGrill
         {
-            return this.HasGrill;
+            get => this.V_HasGrill;
+            set
+            {
+                this.V_HasGrill = value;
+            }
         }
 
-        public void SetHasGrill(bool HasGrill)
+        public bool HasPool
         {
-            this.HasGrill = HasGrill;
+            get => V_HasPool;
+            set
+            {
+                this.V_HasPool = value;
+            }
         }
 
-        public bool GetHasPool()
+        public bool HasCloset
         {
-            return this.HasPool;
+            get => this.V_HasCloset;
+            set
+            {
+                this.V_HasCloset = value;
+            }
         }
 
-        public void SetHasPool(bool HasPool)
+        public bool HasGuestBathroom
         {
-            this.HasPool = HasPool;
+            get => this.V_HasGuestBathroom;
+            set
+            {
+                this.V_HasGuestBathroom = value;
+            }
         }
 
-        public bool GetHasCloset()
+        public bool HasTerrace
         {
-            return this.HasCloset;
+            get => this.V_HasTerrace;
+            set
+            {
+                this.V_HasTerrace = value;
+            }
         }
 
-        public void SetHasCloset(bool HasCloset)
+        public bool HasDiningRoom
         {
-            this.HasCloset = HasCloset;
+            get => V_HasDiningRoom;
+            set
+            {
+                this.V_HasDiningRoom = value;
+            }
         }
 
-        public bool GetHasGuestBathroom()
+        public bool HasWalkInCloset
         {
-            return this.HasGuestBathroom;
+            get => this.V_HasWalkInCloset;
+            set
+            {
+                this.V_HasWalkInCloset = value;
+            }
         }
 
-        public void SetHasGuestBathroom(bool HasGuestBathroom)
+        public bool HasHomeoffice
         {
-            this.HasGuestBathroom = HasGuestBathroom;
+            get => this.V_HasHomeoffice;
+            set
+            {
+                this.V_HasHomeoffice = value;
+            }
         }
 
-        public bool GetHasTerrace()
+        public bool HasLiving
         {
-            return this.HasTerrace;
+            get => this.V_HasLiving;
+            set
+            {
+                this.V_HasLiving = value;
+            }
         }
 
-        public void SetHasTerrace(bool HasTerrace)
+        public bool HasYard
         {
-            this.HasTerrace = HasTerrace;
+            get => this.V_HasYard;
+            set
+            {
+                this.V_HasYard = value;
+            }
         }
 
-        public bool GetHasDiningRoom()
+        public bool HasBedroomDuite
         {
-            return this.HasDiningRoom;
+            get => this.V_HasBedroomDuite;
+            set
+            {
+                this.V_HasBedroomDuite = value;
+            }
         }
 
-        public void SetHasDiningRoom(bool HasDiningRoom)
+        public bool HasBalcony
         {
-            this.HasDiningRoom = HasDiningRoom;
+            get => this.V_HasBalcony;
+            set
+            {
+                this.V_HasBalcony = value;
+            }
         }
 
-        public bool GetHasWalkInCloset()
+        public bool HasMansard
         {
-            return this.HasWalkInCloset;
+            get => this.V_HasMansard;
+            set
+            {
+                this.V_HasMansard = value;
+            }
         }
 
-        public void SetHasWalkInCloset(bool HasWalkInCloset)
+        public bool HasGarden
         {
-            this.HasWalkInCloset = HasWalkInCloset;
+            get => this.V_HasGarden;
+            set
+            {
+                this.V_HasGarden = value;
+            }
         }
 
-        public bool GetHasHomeoffice()
+        public bool HasKitchen
         {
-            return this.HasHomeoffice;
+            get => this.V_HasKitchen;
+            set
+            {
+                this.V_HasKitchen = value;
+            }
         }
 
-        public void SetHasHomeoffice(bool HasHomeoffice)
+        public bool HasServiceBedroom
         {
-            this.HasHomeoffice = HasHomeoffice;
+            get => this.V_HasServiceBedroom;
+            set
+            {
+                this.V_HasServiceBedroom = value;
+            }
         }
 
-        public bool GetHasLiving()
+        public bool HasServiceBathroom
         {
-            return this.HasLiving;
+            get => this.V_HasServiceBathroom;
+            set
+            {
+                this.V_HasServiceBathroom = value;
+            }
         }
 
-        public void SetHasLiving(bool HasLiving)
+        public bool HasPlayroom
         {
-            this.HasLiving = HasLiving;
+            get => this.V_HasPlayroom;
+            set
+            {
+                this.V_HasPlayroom = value;
+            }
         }
 
-        public bool GetHasYard()
+        public bool HasWithLodge
         {
-            return this.HasYard;
+            get => this.V_HasWithLodge;
+            set
+            {
+                this.V_HasWithLodge = value;
+            }
         }
 
-        public void SetHasYard(bool HasYard)
+        public bool HasEverydayDiningRoom
         {
-            this.HasYard = HasYard;
-        }
-
-        public bool GetHasBedroomDuite()
-        {
-            return this.HasBedroomDuite;
-        }
-
-        public void SetHasBedroomDuite(bool HasBedroomDuite)
-        {
-            this.HasBedroomDuite = HasBedroomDuite;
-        }
-
-        public bool GetHasBalcony()
-        {
-            return this.HasBalcony;
-        }
-
-        public void SetHasBalcony(bool HasBalcony)
-        {
-            this.HasBalcony = HasBalcony;
-        }
-
-        public bool GetHasMansard()
-        {
-            return this.HasMansard;
-        }
-
-        public void SetHasMansard(bool HasMansard)
-        {
-            this.HasMansard = HasMansard;
-        }
-
-        public bool GetHasGarden()
-        {
-            return this.HasGarden;
-        }
-
-        public void SetHasGarden(bool HasGarden)
-        {
-            this.HasGarden = HasGarden;
-        }
-
-        public bool GetHasKitchen()
-        {
-            return this.HasKitchen;
-        }
-
-        public void SetHasKitchen(bool HasKitchen)
-        {
-            this.HasKitchen = HasKitchen;
-        }
-
-        public bool GetHasServiceBedroom()
-        {
-            return this.HasServiceBedroom;
-        }
-
-        public void SetHasServiceBedroom(bool HasServiceBedroom)
-        {
-            this.HasServiceBedroom = HasServiceBedroom;
-        }
-
-        public bool GetHasServiceBathroom()
-        {
-            return this.HasServiceBathroom;
-        }
-
-        public void SetHasServiceBathroom(bool HasServiceBathroom)
-        {
-            this.HasServiceBathroom = HasServiceBathroom;
-        }
-
-        public bool GetHasPlayroom()
-        {
-            return this.HasPlayroom;
-        }
-
-        public void SetHasPlayroom(bool HasPlayroom)
-        {
-            this.HasPlayroom = HasPlayroom;
-        }
-
-        public bool GetHasWithLodge()
-        {
-            return this.HasWithLodge;
-        }
-
-        public void SetHasWithLodge(bool HasWithLodge)
-        {
-            this.HasWithLodge = HasWithLodge;
-        }
-
-        public bool GetHasEverydayDiningRoom()
-        {
-            return this.HasEverydayDiningRoom;
-        }
-
-        public void SetHasEverydayDiningRoom(bool HasEverydayDiningRoom)
-        {
-            this.HasEverydayDiningRoom = HasEverydayDiningRoom;
+            get => this.V_HasEverydayDiningRoom;
+            set
+            {
+                this.V_HasEverydayDiningRoom = value;
+            }
         }
         #endregion
     }

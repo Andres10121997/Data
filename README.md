@@ -32,7 +32,7 @@ Este proyecto está diseñado para ser flexible y escalable, permitiendo su inte
 
 ---
 
-## Pattern to use | Patrón a utilizar
+## Design Pattern | Patrón de Diseño
 ### <ins>English</ins>
 
 This project uses the DTO design pattern.
