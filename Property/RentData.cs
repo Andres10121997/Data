@@ -6,15 +6,15 @@ namespace Data.Property
     public sealed class RentData
     {
         #region Variables
-        private DateOnly StartDate { get; set; }
-        private DateOnly EndDate { get; set; }
-        private float RentAmount { get; set; }
-        private float DepositAmount { get; set; }
+        private DateOnly V_StartDate;
+        private DateOnly V_EndDate;
+        private float V_RentAmount;
+        private float V_DepositAmount;
         #endregion
 
         #region Objects
-        private PersonData Person { get; set; }
-        private PropertyData Property { get; set; }
+        private PersonData O_Person;
+        private PropertyData O_Property;
         #endregion
 
 
@@ -31,8 +31,8 @@ namespace Data.Property
             #endregion
 
             #region Objects
-            this.Person = new PersonData();
-            this.Property = new PropertyData();
+            this.O_Person = new PersonData();
+            this.O_Property = new PropertyData();
             #endregion
         }
 
@@ -44,11 +44,6 @@ namespace Data.Property
                         PropertyData Property)
             : base()
         {
-            #region Exception
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: RentAmount);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: DepositAmount);
-            #endregion
-
             #region Variables
             this.StartDate = StartDate;
             this.EndDate = EndDate;
@@ -57,18 +52,9 @@ namespace Data.Property
             #endregion
 
             #region Objects
-            this.Person = Person;
-            this.Property = Property;
+            this.O_Person = Person;
+            this.O_Property = Property;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destructor Methods
-        ~RentData()
-        {
-
         }
         #endregion
 
@@ -76,76 +62,56 @@ namespace Data.Property
 
         #region Getters and Setters
         #region Variables
-        public DateOnly GetStartDate()
+        public DateOnly StartDate
         {
-            return this.StartDate;
-        }
-        
-        public void SetStartDate(DateOnly StartDate)
-        {
-            this.StartDate = StartDate;
+            get => this.V_StartDate;
+            set => this.V_StartDate = value;
         }
 
-        public DateOnly GetEndDate()
+        public DateOnly EndDate
         {
-            return this.EndDate;
-        }
-        
-        public void SetEndDate(DateOnly EndDate)
-        {
-            this.EndDate = EndDate;
+            get => this.V_EndDate;
+            set => this.V_EndDate = value;
         }
 
-        public float GetRentAmount()
+        public float RentAmount
         {
-            return this.RentAmount;
-        }
-
-        public void SetRentAmount(float RentAmount)
-        {
-            if (float.IsNaN(f: RentAmount))
+            get => this.V_RentAmount;
+            set
             {
-                throw new ArgumentNullException(paramName: nameof(RentAmount),
-                                                message: $"The parameter \"{nameof(RentAmount)}\", of the \"{nameof(RentData)}\" class, cannot be {float.NaN}.");
+                ArgumentOutOfRangeException.ThrowIfEqual<float>(
+                    value: value,
+                    other: float.NaN
+                );
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<float>(value: value);
+
+                this.V_RentAmount = value;
             }
-
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: RentAmount);
-
-            this.RentAmount = RentAmount;
         }
 
-        public float GetDepositAmount()
+        public float DepositAmount
         {
-            return this.DepositAmount;
-        }
+            get => this.V_DepositAmount;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: value);
 
-        public void SetDepositAmount(float DepositAmount)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: DepositAmount);
-            
-            this.DepositAmount = DepositAmount;
+                this.V_DepositAmount = value;
+            }
         }
         #endregion
 
         #region Objects
-        public PersonData GetPerson()
+        public PersonData Person
         {
-            return this.Person;
+            get => this.O_Person;
+            set => this.O_Person = value;
         }
 
-        public void SetPerson(PersonData Person)
+        public PropertyData Property
         {
-            this.Person = Person;
-        }
-
-        public PropertyData GetProperty()
-        {
-            return this.Property;
-        }
-
-        public void SetProperty(PropertyData Property)
-        {
-            this.Property = Property;
+            get => this.O_Property;
+            set => this.O_Property = value;
         }
         #endregion
         #endregion

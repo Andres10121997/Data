@@ -172,13 +172,13 @@ namespace Data.Account
                                ?
                                this.FirstName
                                :
-                               $"{this.FirstName} {this.MiddleName}";
+                               string.Concat(str0: this.FirstName, str1: " ", str2: this.MiddleName);
 
         private string LastName => string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
                                    ?
                                    this.FirstLastName
                                    :
-                                   $"{this.FirstLastName} {this.SecondLastName}";
+                                   string.Concat(str0: this.FirstLastName, str1: " ", str2: this.SecondLastName);
 
         public string FullName() => string.Concat(str0: this.Name, str1: " ", str2: LastName);
 

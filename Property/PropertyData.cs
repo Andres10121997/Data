@@ -6,21 +6,21 @@ namespace Data.Property
     public sealed class PropertyData
     {
         #region Variables
-        private ushort UsableArea { get; set; }
-        private ushort TotalArea { get; set; }
-        private byte NumberOfBedrooms { get; set; }
-        private byte NumberOfBathrooms { get; set; }
-        private byte NumberOfWarehouses { get; set; }
-        private byte NumberOfParkingSpaces { get; set; }
-        private byte NumberOfFloors { get; set; }
-        private PropertyTypeEnum PropertyType { get; set; }
+        private ushort V_UsableArea;
+        private ushort V_TotalArea;
+        private byte V_NumberOfBedrooms;
+        private byte V_NumberOfBathrooms;
+        private byte V_NumberOfWarehouses;
+        private byte V_NumberOfParkingSpaces;
+        private byte V_NumberOfFloors;
+        private PropertyTypeEnum V_PropertyType;
         #endregion
 
         #region Objects
-        private SecurityData Security { get; set; }
-        private ServiceData Service { get; set; }
-        private EnvironmentData Environment { get; set; }
-        private EquipmentData Equipment { get; set; }
+        private SecurityData O_Security;
+        private ServiceData O_Service;
+        private EnvironmentData O_Environment;
+        private EquipmentData O_Equipment;
         #endregion
 
         #region Enum
@@ -58,10 +58,10 @@ namespace Data.Property
             #endregion
 
             #region Objects
-            this.Security = new SecurityData();
-            this.Service = new ServiceData();
-            this.Environment = new EnvironmentData();
-            this.Equipment = new EquipmentData();
+            this.O_Security = new SecurityData();
+            this.O_Service = new ServiceData();
+            this.O_Environment = new EnvironmentData();
+            this.O_Equipment = new EquipmentData();
             #endregion
         }
 
@@ -79,13 +79,6 @@ namespace Data.Property
                             EquipmentData Equipment)
             : base()
         {
-            #region Exception
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: UsableArea);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: TotalArea);
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: UsableArea, other: TotalArea);
-            ArgumentOutOfRangeException.ThrowIfLessThan(value: TotalArea, other: UsableArea);
-            #endregion
-
             #region Variables
             this.UsableArea = UsableArea;
             this.TotalArea = TotalArea;
@@ -98,20 +91,11 @@ namespace Data.Property
             #endregion
 
             #region Objects
-            this.Security = Security;
-            this.Service = Service;
-            this.Environment = Environment;
-            this.Equipment = Equipment;
+            this.O_Security = Security;
+            this.O_Service = Service;
+            this.O_Environment = Environment;
+            this.O_Equipment = Equipment;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destructor Methods
-        ~PropertyData()
-        {
-
         }
         #endregion
 
@@ -119,132 +103,96 @@ namespace Data.Property
 
         #region Getters and Setters
         #region Variables
-        public ushort GetUsableArea()
+        public ushort UsableArea
         {
-            return this.UsableArea;
+            get => this.V_UsableArea;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: value);
+                ArgumentOutOfRangeException.ThrowIfGreaterThan(
+                    value: value,
+                    other: this.TotalArea
+                );
+
+                this.V_UsableArea = value;
+            }
         }
 
-        public void SetUsableArea(ushort UsableArea)
+        public ushort TotalArea
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: UsableArea);
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: UsableArea, other: this.TotalArea);
-            
-            this.UsableArea = UsableArea;
+            get => this.V_TotalArea;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: value);
+                ArgumentOutOfRangeException.ThrowIfLessThan(
+                    value: value,
+                    other: this.UsableArea
+                );
+
+                this.V_TotalArea = value;
+            }
         }
 
-        public ushort GetTotalArea()
+        public byte NumberOfBedrooms
         {
-            return this.TotalArea;
+            get => this.V_NumberOfBedrooms;
+            set => this.V_NumberOfBedrooms = value;
         }
 
-        public void SetTotalArea(ushort TotalArea)
+        public byte NumberOfBathrooms
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: TotalArea);
-            ArgumentOutOfRangeException.ThrowIfLessThan(value: TotalArea, other: this.UsableArea);
-            
-            this.TotalArea = TotalArea;
+            get => this.V_NumberOfBathrooms;
+            set => this.V_NumberOfBathrooms = value;
         }
 
-        public byte GetNumberOfBedrooms()
+        public byte NumberOfWarehouses
         {
-            return this.NumberOfBedrooms;
+            get => this.V_NumberOfWarehouses;
+            set => this.V_NumberOfWarehouses = value;
         }
 
-        public void SetNumberOfBedrooms(byte NumberOfBedrooms)
+        public byte NumberOfParkingSpaces
         {
-            this.NumberOfBedrooms = NumberOfBedrooms;
+            get => this.V_NumberOfParkingSpaces;
+            set => this.V_NumberOfParkingSpaces = value;
         }
 
-        public byte GetNumberOfBathrooms()
+        public byte NumberOfFloors
         {
-            return this.NumberOfBathrooms;
+            get => this.V_NumberOfFloors;
+            set => this.V_NumberOfFloors = value;
         }
 
-        public void SetNumberOfBathrooms(byte NumberOfBathrooms)
+        public PropertyTypeEnum PropertyType
         {
-            this.NumberOfBathrooms = NumberOfBathrooms;
-        }
-
-        public byte GetNumberOfWarehouses()
-        {
-            return this.NumberOfWarehouses;
-        }
-
-        public void SetNumberOfWarehouses(byte NumberOfWarehouses)
-        {
-            this.NumberOfWarehouses = NumberOfWarehouses;
-        }
-
-        public byte GetNumberOfParkingSpaces()
-        {
-            return this.NumberOfParkingSpaces;
-        }
-
-        public void SetNumberOfParkingSpaces(byte NumberOfParkingSpaces)
-        {
-            this.NumberOfParkingSpaces = NumberOfParkingSpaces;
-        }
-
-        public byte GetNumberOfFloors()
-        {
-            return this.NumberOfFloors;
-        }
-
-        public void SetNumberOfFloors(byte NumberOfFloors)
-        {
-            this.NumberOfFloors = NumberOfFloors;
-        }
-
-        public PropertyTypeEnum GetPropertyType()
-        {
-            return this.PropertyType;
-        }
-
-        public void SetPropertyType(PropertyTypeEnum PropertyType)
-        {
-            this.PropertyType = PropertyType;
+            get => this.V_PropertyType;
+            set => this.V_PropertyType = value;
         }
         #endregion
 
         #region Objects
-        public SecurityData GetSecurity()
+        public SecurityData Security
         {
-            return this.Security;
+            get => this.O_Security;
+            set => this.O_Security = value;
         }
 
-        public void SetSecurity(SecurityData Security)
+        public ServiceData Service
         {
-            this.Security = Security;
+            get => this.O_Service;
+            set => this.O_Service = value;
         }
 
-        public ServiceData GetService()
+        public EnvironmentData Environment
         {
-            return this.Service;
+            get => this.O_Environment;
+            set => this.O_Environment = value;
         }
 
-        public void SetService(ServiceData Service)
+        public EquipmentData Equipment
         {
-            this.Service = Service;
-        }
-
-        public EnvironmentData GetEnvironment()
-        {
-            return this.Environment;
-        }
-
-        public void SetEnvironment(EnvironmentData Environment)
-        {
-            this.Environment = Environment;
-        }
-
-        public EquipmentData GetEquipment()
-        {
-            return this.Equipment;
-        }
-
-        public void SetEquipment(EquipmentData Equipment)
-        {
-            this.Equipment = Equipment;
+            get => this.O_Equipment;
+            set => this.O_Equipment = value;
         }
         #endregion
         #endregion

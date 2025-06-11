@@ -31,26 +31,26 @@
         public EnvironmentData()
             : base()
         {
-            this.V_HasGrill = false;
-            this.V_HasPool = false;
-            this.V_HasCloset = false;
-            this.V_HasGuestBathroom = false;
-            this.V_HasTerrace = false;
-            this.V_HasDiningRoom = false;
-            this.V_HasWalkInCloset = false;
-            this.V_HasHomeoffice = false;
-            this.V_HasLiving = false;
-            this.V_HasYard = false;
-            this.V_HasBedroomDuite = false;
-            this.V_HasBalcony = false;
-            this.V_HasMansard = false;
-            this.V_HasGarden = false;
-            this.V_HasKitchen = false;
-            this.V_HasServiceBedroom = false;
-            this.V_HasServiceBathroom = false;
-            this.V_HasPlayroom = false;
-            this.V_HasWithLodge = false;
-            this.V_HasEverydayDiningRoom = false;
+            this.HasGrill = false;
+            this.HasPool = false;
+            this.HasCloset = false;
+            this.HasGuestBathroom = false;
+            this.HasTerrace = false;
+            this.HasDiningRoom = false;
+            this.HasWalkInCloset = false;
+            this.HasHomeoffice = false;
+            this.HasLiving = false;
+            this.HasYard = false;
+            this.HasBedroomDuite = false;
+            this.HasBalcony = false;
+            this.HasMansard = false;
+            this.HasGarden = false;
+            this.HasKitchen = false;
+            this.HasServiceBedroom = false;
+            this.HasServiceBathroom = false;
+            this.HasPlayroom = false;
+            this.HasWithLodge = false;
+            this.HasEverydayDiningRoom = false;
         }
 
         public EnvironmentData(bool HasGrill,
@@ -75,26 +75,26 @@
                                bool HasEverydayDiningRoom)
             : base()
         {
-            this.V_HasGrill = HasGrill;
-            this.V_HasPool = HasPool;
-            this.V_HasCloset = HasCloset;
-            this.V_HasGuestBathroom = HasGuestBathroom;
-            this.V_HasTerrace = HasTerrace;
-            this.V_HasDiningRoom = HasDiningRoom;
-            this.V_HasWalkInCloset = HasWalkInCloset;
-            this.V_HasHomeoffice = HasHomeoffice;
-            this.V_HasLiving = HasLiving;
-            this.V_HasYard = HasYard;
-            this.V_HasBedroomDuite = HasBedroomDuite;
-            this.V_HasBalcony = HasBalcony;
-            this.V_HasMansard = HasMansard;
-            this.V_HasGarden = HasGarden;
-            this.V_HasKitchen = HasKitchen;
-            this.V_HasServiceBedroom = HasServiceBedroom;
-            this.V_HasServiceBathroom = HasServiceBathroom;
-            this.V_HasPlayroom = HasPlayroom;
-            this.V_HasWithLodge = HasWithLodge;
-            this.V_HasEverydayDiningRoom = HasEverydayDiningRoom;
+            this.HasGrill = HasGrill;
+            this.HasPool = HasPool;
+            this.HasCloset = HasCloset;
+            this.HasGuestBathroom = HasGuestBathroom;
+            this.HasTerrace = HasTerrace;
+            this.HasDiningRoom = HasDiningRoom;
+            this.HasWalkInCloset = HasWalkInCloset;
+            this.HasHomeoffice = HasHomeoffice;
+            this.HasLiving = HasLiving;
+            this.HasYard = HasYard;
+            this.HasBedroomDuite = HasBedroomDuite;
+            this.HasBalcony = HasBalcony;
+            this.HasMansard = HasMansard;
+            this.HasGarden = HasGarden;
+            this.HasKitchen = HasKitchen;
+            this.HasServiceBedroom = HasServiceBedroom;
+            this.HasServiceBathroom = HasServiceBathroom;
+            this.HasPlayroom = HasPlayroom;
+            this.HasWithLodge = HasWithLodge;
+            this.HasEverydayDiningRoom = HasEverydayDiningRoom;
         }
         #endregion
 

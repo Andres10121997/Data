@@ -26,21 +26,21 @@
         public EquipmentData()
             : base()
         {
-            this.V_HasChimney = false;
-            this.V_HasGym = false;
-            this.V_HasJacuzzi = false;
-            this.V_HasVisitorParking = false;
-            this.V_HasCinemaArea = false;
-            this.V_HasChildrensPlayArea = false;
-            this.V_HasWithGreenArea = false;
-            this.V_HasElevator = false;
-            this.V_HasBasketballCourt = false;
-            this.V_HasSoccerField = false;
-            this.V_HasPaddleCourt = false;
-            this.V_HasTennisCourt = false;
-            this.V_HasMultiSportCourt = false;
-            this.V_HasPartyHall = false;
-            this.V_HasSauna = false;
+            this.HasChimney = false;
+            this.HasGym = false;
+            this.HasJacuzzi = false;
+            this.HasVisitorParking = false;
+            this.HasCinemaArea = false;
+            this.HasChildrensPlayArea = false;
+            this.HasWithGreenArea = false;
+            this.HasElevator = false;
+            this.HasBasketballCourt = false;
+            this.HasSoccerField = false;
+            this.HasPaddleCourt = false;
+            this.HasTennisCourt = false;
+            this.HasMultiSportCourt = false;
+            this.HasPartyHall = false;
+            this.HasSauna = false;
         }
 
         public EquipmentData(bool HasChimney,
@@ -60,21 +60,21 @@
                              bool HasSauna)
             : base()
         {
-            this.V_HasChimney = HasChimney;
-            this.V_HasGym = HasGym;
-            this.V_HasJacuzzi = HasJacuzzi;
-            this.V_HasVisitorParking = HasVisitorParking;
-            this.V_HasCinemaArea = HasCinemaArea;
-            this.V_HasChildrensPlayArea = HasChildrensPlayArea;
-            this.V_HasWithGreenArea = HasWithGreenArea;
-            this.V_HasElevator = HasElevator;
-            this.V_HasBasketballCourt = HasBasketballCourt;
-            this.V_HasSoccerField = HasSoccerField;
-            this.V_HasPaddleCourt = HasPaddleCourt;
-            this.V_HasTennisCourt = HasTennisCourt;
-            this.V_HasMultiSportCourt = HasMultiSportCourt;
-            this.V_HasPartyHall = HasPartyHall;
-            this.V_HasSauna = HasSauna;
+            this.HasChimney = HasChimney;
+            this.HasGym = HasGym;
+            this.HasJacuzzi = HasJacuzzi;
+            this.HasVisitorParking = HasVisitorParking;
+            this.HasCinemaArea = HasCinemaArea;
+            this.HasChildrensPlayArea = HasChildrensPlayArea;
+            this.HasWithGreenArea = HasWithGreenArea;
+            this.HasElevator = HasElevator;
+            this.HasBasketballCourt = HasBasketballCourt;
+            this.HasSoccerField = HasSoccerField;
+            this.HasPaddleCourt = HasPaddleCourt;
+            this.HasTennisCourt = HasTennisCourt;
+            this.HasMultiSportCourt = HasMultiSportCourt;
+            this.HasPartyHall = HasPartyHall;
+            this.HasSauna = HasSauna;
         }
         #endregion
 

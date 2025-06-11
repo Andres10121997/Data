@@ -19,12 +19,12 @@ namespace Data.Property.Highlights
         public SecurityData()
             : base()
         {
-            this.V_HasAlarm = false;
-            this.V_HasConcierge = false;
-            this.V_HasAutomaticGate = false;
+            this.HasAlarm = false;
+            this.HasConcierge = false;
+            this.HasAutomaticGate = false;
             this.V_SecurityType = string.Empty;
-            this.V_HasWithClosedCondominium = false;
-            this.V_HasControlledAccess = false;
+            this.HasWithClosedCondominium = false;
+            this.HasControlledAccess = false;
         }
 
         public SecurityData(bool HasAlarm,
@@ -41,12 +41,12 @@ namespace Data.Property.Highlights
             #endregion
 
             #region Variables
-            this.V_HasAlarm = HasAlarm;
-            this.V_HasConcierge = HasConcierge;
-            this.V_HasAutomaticGate = HasAutomaticGate;
+            this.HasAlarm = HasAlarm;
+            this.HasConcierge = HasConcierge;
+            this.HasAutomaticGate = HasAutomaticGate;
             this.V_SecurityType = SecurityType;
-            this.V_HasWithClosedCondominium = HasWithClosedCondominium;
-            this.V_HasControlledAccess = HasControlledAccess;
+            this.HasWithClosedCondominium = HasWithClosedCondominium;
+            this.HasControlledAccess = HasControlledAccess;
             #endregion
         }
         #endregion
