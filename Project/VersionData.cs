@@ -13,7 +13,7 @@ namespace Data.Project
         #endregion
 
         #region Object
-        private Version O_Version { get; set; }
+        private Version O_Version;
         #endregion
 
 
@@ -86,7 +86,7 @@ namespace Data.Project
             get => this.V_UpdateDate;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfGreaterThan(
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
                     value: value,
                     other: DateOnly.FromDateTime(dateTime: DateTime.Now)
                 );

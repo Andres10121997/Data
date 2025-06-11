@@ -67,7 +67,7 @@ namespace Data.Company.Employment
         #region Variables
         public string Position
         {
-            get => V_Position;
+            get => V_Position.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -94,15 +94,12 @@ namespace Data.Company.Employment
         public DateOnly? EndDate
         {
             get => this.V_EndDate;
-            set
-            {
-                this.V_EndDate = value;
-            }
+            set => this.V_EndDate = value;
         }
 
         public string Description
         {
-            get => this.V_Description;
+            get => this.V_Description.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -117,10 +114,7 @@ namespace Data.Company.Employment
         public CompanyData Company
         {
             get => this.O_Company;
-            set
-            {
-                this.O_Company = value;
-            }
+            set => this.O_Company = value;
         }
         #endregion
         #endregion

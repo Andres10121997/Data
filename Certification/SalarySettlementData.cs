@@ -30,10 +30,7 @@ namespace Data.Certification
         public EmployeeData Employee
         {
             get => this.O_Employee;
-            set
-            {
-                this.O_Employee = value;
-            }
+            set => this.O_Employee = value;
         }
         #endregion
     }

@@ -66,7 +66,7 @@ namespace Data.Company
         #region Getters and Setters
         public string Name
         {
-            get => this.V_Name;
+            get => this.V_Name.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -92,7 +92,7 @@ namespace Data.Company
 
         public string EconomicActivity
         {
-            get => this.V_EconomicActivity;
+            get => this.V_EconomicActivity.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -105,10 +105,7 @@ namespace Data.Company
         public CompanyTypeEnum CompanyType
         {
             get => this.V_CompanyType;
-            set
-            {
-                this.V_CompanyType = value;
-            }
+            set => this.V_CompanyType = value;
         }
         #endregion
     }

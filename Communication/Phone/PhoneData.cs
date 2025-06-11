@@ -51,24 +51,21 @@ namespace Data.Communication.Phone
         #region Variables
         public string PhoneNumber
         {
-            get => this.V_PhoneNumber;
+            get => this.V_PhoneNumber.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
                 ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
-                ArgumentOutOfRangeException.ThrowIfZero(value: value.Length);
+                ArgumentOutOfRangeException.ThrowIfZero<int>(value: value.Length);
 
-                this.V_PhoneNumber = value;
+                this.V_PhoneNumber = value.Trim();
             }
         }
 
         public PhoneTypeEnum PhoneType
         {
             get => this.V_PhoneType;
-            set
-            {
-                this.V_PhoneType = value;
-            }
+            set => this.V_PhoneType = value;
         }
         #endregion
         #endregion

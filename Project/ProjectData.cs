@@ -100,7 +100,7 @@ namespace Data.Project
             get => this.V_CreationDate;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfGreaterThan(
+                ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(
                     value: value,
                     other: DateOnly.FromDateTime(dateTime: DateTime.Now)
                 );

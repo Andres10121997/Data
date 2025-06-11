@@ -132,10 +132,7 @@ namespace Data.Company.HumanResources
         public DateOnly? ContractEndDate
         {
             get => this.V_ContractEndDate;
-            set
-            {
-                this.V_ContractEndDate = value;
-            }
+            set => this.V_ContractEndDate = value;
         }
         #endregion
 
@@ -143,28 +140,19 @@ namespace Data.Company.HumanResources
         public DepartmentData Department
         {
             get => this.O_Department;
-            set
-            {
-                this.O_Department = value;
-            }
+            set => this.O_Department = value;
         }
 
         public JobData Job
         {
             get => this.O_Job;
-            set
-            {
-                this.O_Job = value;
-            }
+            set => this.O_Job = value;
         }
 
         public SalaryData Salary
         {
             get => this.O_Salary;
-            set
-            {
-                this.O_Salary = value;
-            }
+            set => this.O_Salary = value;
         }
         #endregion
 
@@ -172,10 +160,7 @@ namespace Data.Company.HumanResources
         public SalaryData[]? SalaryHistory
         {
             get => this.A_SalaryHistory;
-            set
-            {
-                this.A_SalaryHistory = value;
-            }
+            set => this.A_SalaryHistory = value;
         }
         #endregion
         #endregion

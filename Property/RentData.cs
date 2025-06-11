@@ -67,7 +67,7 @@ namespace Data.Property
             get => this.V_StartDate;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(
+                ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual<DateOnly>(
                     value: value,
                     other: this.EndDate
                 );
@@ -81,7 +81,7 @@ namespace Data.Property
             get => this.V_EndDate;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(
+                ArgumentOutOfRangeException.ThrowIfLessThanOrEqual<DateOnly>(
                     value: value,
                     other: this.StartDate
                 );

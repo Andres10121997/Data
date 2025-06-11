@@ -39,7 +39,7 @@ namespace Data.Company.Employment
         #region Getters and Setters
         public string Name
         {
-            get => this.V_Name;
+            get => this.V_Name.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -51,11 +51,8 @@ namespace Data.Company.Employment
 
         public string? Description
         {
-            get => this.V_Description;
-            set
-            {
-                this.V_Description = value?.Trim();
-            }
+            get => this.V_Description?.Trim();
+            set => this.V_Description = value?.Trim();
         }
         #endregion
     }

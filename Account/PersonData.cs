@@ -77,7 +77,17 @@ namespace Data.Account
                 Prompt = "Enter first name here.", // Ingrese aquí el primer nombre
                 ShortName = "First name"
             ),
-            Required
+            MaxLength(
+                length: 30
+            ),
+            MinLength(
+                length: 1
+            ),
+            Required,
+            StringLength(
+                maximumLength: 30,
+                MinimumLength = 1
+            )
         ]
         public string FirstName
         {

@@ -52,12 +52,12 @@ namespace Data.Communication.Email
         #region Variables
         public string Email
         {
-            get => this.V_Email;
+            get => this.V_Email.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
                 ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
-                ArgumentOutOfRangeException.ThrowIfZero(value: value.Length);
+                ArgumentOutOfRangeException.ThrowIfZero<int>(value: value.Length);
 
                 this.V_Email = value.Trim();
             }
@@ -66,10 +66,7 @@ namespace Data.Communication.Email
         public EmailAddressTypeEnum EmailType
         {
             get => this.V_EmailType;
-            set
-            {
-                this.V_EmailType = value;
-            }
+            set => this.V_EmailType = value;
         }
         #endregion
         #endregion

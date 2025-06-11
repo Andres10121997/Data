@@ -61,7 +61,7 @@ namespace Data.GameEngine
             get => this.V_QuantityOfLife;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfNegative(value: value);
+                ArgumentOutOfRangeException.ThrowIfNegative<byte>(value: value);
 
                 this.V_QuantityOfLife = value;
             }
@@ -72,7 +72,7 @@ namespace Data.GameEngine
             get => this.V_AmountOfDamage;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfNegative(value: value);
+                ArgumentOutOfRangeException.ThrowIfNegative<byte>(value: value);
 
                 this.V_AmountOfDamage = value;
             }

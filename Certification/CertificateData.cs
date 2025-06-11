@@ -49,7 +49,7 @@ namespace Data.Certification
         #region Getters and Setters
         public string Title
         {
-            get => this.V_Title;
+            get => this.V_Title.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);

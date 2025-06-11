@@ -131,7 +131,7 @@ namespace Data.Account
         #region Variables
         public required string IP
         {
-            get => this.V_IP;
+            get => this.V_IP.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -143,7 +143,7 @@ namespace Data.Account
 
         public required string Login
         {
-            get => this.V_Login;
+            get => this.V_Login.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -155,7 +155,7 @@ namespace Data.Account
 
         public required string Username
         {
-            get => this.V_Username;
+            get => this.V_Username.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -182,10 +182,7 @@ namespace Data.Account
         public required TimeOnly CreationTime
         {
             get => this.V_CreationTime;
-            set
-            {
-                this.V_CreationTime = value;
-            }
+            set => this.V_CreationTime = value;
         }
         #endregion
 
@@ -193,28 +190,19 @@ namespace Data.Account
         public EmailAddressData EmailAddress
         {
             get => this.O_EmailAddress;
-            set
-            {
-                this.O_EmailAddress = value;
-            }
+            set => this.O_EmailAddress = value;
         }
 
         public PhoneData Phone
         {
             get => this.O_Phone;
-            set
-            {
-                this.O_Phone = value;
-            }
+            set => this.O_Phone = value;
         }
 
         public CountryData Country
         {
             get => this.O_Country;
-            set
-            {
-                this.O_Country = value;
-            }
+            set => this.O_Country = value;
         }
         #endregion
         #endregion

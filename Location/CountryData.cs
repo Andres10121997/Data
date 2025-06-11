@@ -61,19 +61,19 @@ namespace Data.Location
         #region Variables
         public string Name
         {
-            get => this.V_Name;
+            get => this.V_Name.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
                 ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
 
-                this.V_Name = value;
+                this.V_Name = value.Trim();
             }
         }
 
         public string Iso
         {
-            get => this.V_Iso;
+            get => this.V_Iso.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -83,13 +83,13 @@ namespace Data.Location
                     other: 2
                 );
 
-                this.V_Iso = value;
+                this.V_Iso = value.Trim();
             }
         }
 
         public string Iso3
         {
-            get => this.V_Iso3;
+            get => this.V_Iso3.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -99,7 +99,7 @@ namespace Data.Location
                     other: 3
                 );
 
-                this.V_Iso3 = value;
+                this.V_Iso3 = value.Trim();
             }
         }
 

@@ -49,19 +49,13 @@ namespace Data.Location
         public ContinentEnum Name
         {
             get => this.V_Name;
-            set
-            {
-                this.V_Name = value;
-            }
+            set => this.V_Name = value;
         }
 
         public CountryData[] ListOfCountries
         {
             get => this.A_ListOfCountries;
-            set
-            {
-                this.A_ListOfCountries = value;
-            }
+            set => this.A_ListOfCountries = value;
         }
         #endregion
     }

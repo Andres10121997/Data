@@ -130,19 +130,13 @@ namespace Data.Company.HumanResources
         public DateOnly StartDate
         {
             get => this.V_StartDate;
-            set
-            {
-                this.V_StartDate = value;
-            }
+            set => this.V_StartDate = value;
         }
 
         public DateOnly? EndDate
         {
             get => this.V_EndDate;
-            set
-            {
-                this.V_EndDate = value;
-            }
+            set => this.V_EndDate = value;
         }
 
         public float IncomeTax

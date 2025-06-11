@@ -69,32 +69,26 @@ namespace Data.Company
         #region Variables
         public string Name
         {
-            get => this.V_Name;
+            get => this.V_Name.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
                 ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
 
-                this.V_Name = value;
+                this.V_Name = value.Trim();
             }
         }
 
         public string? Description
         {
-            get => this.V_Description;
-            set
-            {
-                this.V_Description = value;
-            }
+            get => this.V_Description?.Trim();
+            set => this.V_Description = value?.Trim();
         }
 
         public DepartmentTypeEnum DepartmentType
         {
             get => this.V_DepartmentType;
-            set
-            {
-                this.V_DepartmentType = value;
-            }
+            set => this.V_DepartmentType = value;
         }
         #endregion
 
@@ -102,10 +96,7 @@ namespace Data.Company
         public DepartmentData SubDepartment
         {
             get => this.O_SubDepartment;
-            set
-            {
-                this.O_SubDepartment = value;
-            }
+            set => this.O_SubDepartment = value;
         }
         #endregion
         #endregion
