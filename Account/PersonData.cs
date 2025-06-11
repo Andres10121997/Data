@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,14 +48,6 @@ namespace Data.Account
                           SexEnum Sex)
             : base()
         {
-            #region Exception
-            ArgumentException.ThrowIfNullOrEmpty(argument: FirstName);
-            ArgumentException.ThrowIfNullOrWhiteSpace(argument: FirstName);
-            ArgumentException.ThrowIfNullOrEmpty(argument: FirstLastName);
-            ArgumentException.ThrowIfNullOrWhiteSpace(argument: FirstLastName);
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: BirthDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
-            #endregion
-
             #region Variables
             this.V_FirstName = FirstName;
             this.V_MiddleName = MiddleName;
@@ -70,13 +63,29 @@ namespace Data.Account
 
         #region Getters and Setters
         #region Variables
+        [
+            DataType(
+                dataType: DataType.Text
+            ),
+            Display(
+                AutoGenerateField = false,
+                AutoGenerateFilter = false,
+                Description = "",
+                GroupName = nameof(PersonData),
+                Name = "First name",
+                Order = 1,
+                Prompt = "Enter first name here.", // Ingrese aquí el primer nombre
+                ShortName = "First name"
+            ),
+            Required
+        ]
         public string FirstName
         {
             get => this.V_FirstName.Trim();
             set
             {
-                ArgumentException.ThrowIfNullOrEmpty(argument: value);
-                ArgumentException.ThrowIfNullOrWhiteSpace(argument: value);
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
 
                 this.V_FirstName = value.Trim();
             }
@@ -144,9 +153,7 @@ namespace Data.Account
 
             Today = DateOnly.FromDateTime(dateTime: DateTime.Now);
 
-            ArgumentOutOfRangeException.ThrowIfGreaterThan<DateOnly>(value: this.BirthDate, other: Today);
-
-            Age = Convert.ToByte(value: Today.Year - this.BirthDate.Year);
+            Age = Convert.ToByte(value: this.BirthDate.Year - Today.Year);
 
             ListOfValidations = new bool[2]
             {

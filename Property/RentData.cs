@@ -65,13 +65,29 @@ namespace Data.Property
         public DateOnly StartDate
         {
             get => this.V_StartDate;
-            set => this.V_StartDate = value;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(
+                    value: value,
+                    other: this.EndDate
+                );
+                
+                this.V_StartDate = value;
+            }
         }
 
         public DateOnly EndDate
         {
             get => this.V_EndDate;
-            set => this.V_EndDate = value;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(
+                    value: value,
+                    other: this.StartDate
+                );
+                
+                this.V_EndDate = value;
+            }
         }
 
         public float RentAmount
@@ -94,7 +110,11 @@ namespace Data.Property
             get => this.V_DepositAmount;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value: value);
+                ArgumentOutOfRangeException.ThrowIfEqual<float>(
+                    value: value,
+                    other: float.NaN
+                );
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<float>(value: value);
 
                 this.V_DepositAmount = value;
             }

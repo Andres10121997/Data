@@ -129,7 +129,7 @@ namespace Data.Account
 
         #region Getters and Setters
         #region Variables
-        public string IP
+        public required string IP
         {
             get => this.V_IP;
             set
@@ -141,7 +141,7 @@ namespace Data.Account
             }
         }
 
-        public string Login
+        public required string Login
         {
             get => this.V_Login;
             set
@@ -153,7 +153,7 @@ namespace Data.Account
             }
         }
 
-        public string Username
+        public required string Username
         {
             get => this.V_Username;
             set
@@ -165,7 +165,7 @@ namespace Data.Account
             }
         }
 
-        public DateOnly CreationDate
+        public required DateOnly CreationDate
         {
             get => this.V_CreationDate;
             set
@@ -179,7 +179,7 @@ namespace Data.Account
             }
         }
 
-        public TimeOnly CreationTime
+        public required TimeOnly CreationTime
         {
             get => this.V_CreationTime;
             set

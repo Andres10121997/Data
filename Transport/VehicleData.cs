@@ -5,11 +5,11 @@ namespace Data.Transport
     public sealed class VehicleData
     {
         #region Variables
-        private byte NumberOfDoors { get; set; }
-        private byte NumberOfWheels { get; set; }
-        private ushort OverallLength { get; set; } // Longitud general
-        private ushort OverallWidth { get; set; } // Anchura general
-        private ushort OverallHeight { get; set; } // Altura general
+        private byte V_NumberOfDoors;
+        private byte V_NumberOfWheels;
+        private ushort V_OverallLength; // Longitud general
+        private ushort V_OverallWidth; // Anchura general
+        private ushort V_OverallHeight; // Altura general
         #endregion
 
 
@@ -32,14 +32,6 @@ namespace Data.Transport
                            ushort OverallHeight)
             : base()
         {
-            #region Exception
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfDoors);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfWheels);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallLength);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallWidth);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallHeight);
-            #endregion
-
             #region Variables
             this.NumberOfDoors = NumberOfDoors;
             this.NumberOfWheels = NumberOfWheels;
@@ -52,74 +44,60 @@ namespace Data.Transport
 
 
 
-        #region Destructor methods
-        ~VehicleData()
-        {
-
-        }
-        #endregion
-
-
-
         #region Getters and Setters
-        public byte GetNumberOfDoors()
+        public byte NumberOfDoors
         {
-            return this.NumberOfDoors;
+            get => this.V_NumberOfDoors;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: value);
+
+                this.V_NumberOfDoors = value;
+            }
         }
 
-        public void SetNumberOfDoors(byte NumberOfDoors)
+        public byte NumberOfWheels
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfDoors);
-            
-            this.NumberOfDoors = NumberOfDoors;
+            get => this.V_NumberOfWheels;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: value);
+
+                this.V_NumberOfWheels = value;
+            }
         }
 
-        public byte GetNumberOfWheels()
+        public ushort OverallLength
         {
-            return this.NumberOfWheels;
+            get => this.V_OverallLength;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: value);
+
+                this.V_OverallLength = value;
+            }
         }
 
-        public void SetNumberOfWheels(byte NumberOfWheels)
+        public ushort OverallWidth
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<byte>(value: NumberOfWheels);
-            
-            this.NumberOfWheels = NumberOfWheels;
+            get => V_OverallWidth;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: value);
+
+                this.V_OverallWidth = value;
+            }
         }
 
-        public ushort GetOverallLength()
+        public ushort OverallHeight
         {
-            return this.OverallLength;
-        }
+            get => this.V_OverallHeight;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: value);
 
-        public void SetOverallLength(ushort OverallLength)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallLength);
-            
-            this.OverallLength = OverallLength;
-        }
-
-        public ushort GetOverallWidth()
-        {
-            return this.OverallWidth;
-        }
-
-        public void SetOverallWidth(ushort OverallWidth)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallWidth);
-            
-            this.OverallWidth = OverallWidth;
-        }
-
-        public ushort GetOverallHeight()
-        {
-            return this.OverallHeight;
-        }
-
-        public void SetOverallHeight(ushort OverallHeight)
-        {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero<ushort>(value: OverallHeight);
-            
-            this.OverallHeight = OverallHeight;
+                this.V_OverallHeight = value;
+            }
         }
         #endregion
     }
