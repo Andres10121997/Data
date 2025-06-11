@@ -3,14 +3,14 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public sealed class ProjectData
+    public sealed record ProjectData
     {
         #region Variables
-        private string Name { get; set; }
-        private string? Description { get; set; }
-        private DateOnly CreationDate { get; set; }
-        private TimeOnly CreationTime { get; set; }
-        private AccessLevelEnum AccessLevel { get; set; }
+        private string V_Name;
+        private string? V_Description;
+        private DateOnly V_CreationDate;
+        private TimeOnly V_CreationTime;
+        private AccessLevelEnum V_AccessLevel;
         #endregion
 
         #region Enum
@@ -23,7 +23,7 @@ namespace Data.Project
         #endregion
 
         #region Objects
-        private VersionData Version { get; set; }
+        private VersionData O_Version;
         #endregion
 
 
@@ -33,15 +33,15 @@ namespace Data.Project
             : base()
         {
             #region Variables
-            this.Name = string.Empty;
-            this.Description = null;
-            this.CreationDate = new DateOnly();
-            this.CreationTime = new TimeOnly();
-            this.AccessLevel = AccessLevelEnum.Private;
+            this.V_Name = string.Empty;
+            this.V_Description = null;
+            this.V_CreationDate = new DateOnly();
+            this.V_CreationTime = new TimeOnly();
+            this.V_AccessLevel = AccessLevelEnum.Private;
             #endregion
 
             #region Objects
-            this.Version = new VersionData();
+            this.O_Version = new VersionData();
             #endregion
         }
 
@@ -60,25 +60,16 @@ namespace Data.Project
             #endregion
 
             #region Variables
-            this.Name = Name.Trim();
-            this.Description = Description?.Trim();
-            this.CreationDate = CreationDate;
-            this.CreationTime = CreationTime;
-            this.AccessLevel = AccessLevel;
+            this.V_Name = Name.Trim();
+            this.V_Description = Description?.Trim();
+            this.V_CreationDate = CreationDate;
+            this.V_CreationTime = CreationTime;
+            this.V_AccessLevel = AccessLevel;
             #endregion
 
             #region Objects
-            this.Version = Version;
+            this.O_Version = Version;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destructor Methods
-        ~ProjectData()
-        {
-
         }
         #endregion
 
@@ -86,71 +77,68 @@ namespace Data.Project
 
         #region Getters and Setters
         #region Variables
-        public string GetName()
+        public string Name
         {
-            return this.Name;
+            get => this.V_Name;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Name = value.Trim();
+            }
         }
 
-        public void SetName(string Name)
+        public string? Description
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Name);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Name);
-
-            this.Name = Name.Trim();
+            get => this.V_Description;
+            set
+            {
+                this.V_Description = value?.Trim();
+            }
         }
 
-        public string? GetDescription()
+        public DateOnly CreationDate
         {
-            return this.Description;
+            get => this.V_CreationDate;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfGreaterThan(
+                    value: value,
+                    other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                );
+
+                this.V_CreationDate = value;
+            }
         }
 
-        public void SetDescription(string? Description)
+        public TimeOnly CreationTime
         {
-            this.Description = Description?.Trim();
+            get => this.V_CreationTime;
+            set
+            {
+                this.V_CreationTime = value;
+            }
         }
 
-        public DateOnly GetCreationDate()
+        public AccessLevelEnum AccessLevel
         {
-            return this.CreationDate;
-        }
-
-        public void SetCreationDate(DateOnly CreationDate)
-        {
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(value: CreationDate, other: DateOnly.FromDateTime(dateTime: DateTime.Now));
-
-            this.CreationDate = CreationDate;
-        }
-
-        public TimeOnly GetCreationTime()
-        {
-            return this.CreationTime;
-        }
-
-        public void SetCreationTime(TimeOnly CreationTime)
-        {
-            this.CreationTime = CreationTime;
-        }
-
-        public AccessLevelEnum GetAccessLevel()
-        {
-            return this.AccessLevel;
-        }
-
-        public void SetAccessLevel(AccessLevelEnum AccessLevel)
-        {
-            this.AccessLevel = AccessLevel;
+            get => this.V_AccessLevel;
+            set
+            {
+                this.V_AccessLevel = value;
+            }
         }
         #endregion
 
         #region Objects
-        public VersionData GetVersion()
+        public VersionData Version
         {
-            return this.Version;
-        }
-
-        public void SetVersion(VersionData Version)
-        {
-            this.Version = Version;
+            get => this.O_Version;
+            set
+            {
+                this.O_Version = value;
+            }
         }
         #endregion
         #endregion

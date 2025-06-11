@@ -3,17 +3,17 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public sealed class VersionData
+    public sealed record VersionData
     {
         #region Variables
-        private string? PreRelease { get; set; } // Ej. "alpha", "beta", "rc1"
-        private string Description { get; set; }
-        private DateOnly UpdateDate { get; set; }
-        private TimeOnly UpdateTime { get; set; }
+        private string? V_PreRelease; // Ej. "alpha", "beta", "rc1"
+        private string V_Description;
+        private DateOnly V_UpdateDate;
+        private TimeOnly V_UpdateTime;
         #endregion
 
         #region Object
-        private Version OVersion { get; set; }
+        private Version O_Version { get; set; }
         #endregion
 
 
@@ -23,14 +23,14 @@ namespace Data.Project
             : base()
         {
             #region Variables
-            this.PreRelease = null;
-            this.Description = string.Empty;
-            this.UpdateDate = new DateOnly();
-            this.UpdateTime = new TimeOnly();
+            this.V_PreRelease = null;
+            this.V_Description = string.Empty;
+            this.V_UpdateDate = new DateOnly();
+            this.V_UpdateTime = new TimeOnly();
             #endregion
 
             #region Object
-            this.OVersion = new Version();
+            this.O_Version = new Version();
             #endregion
         }
 
@@ -47,24 +47,15 @@ namespace Data.Project
             #endregion
 
             #region Variables
-            this.PreRelease = PreRelease;
-            this.Description = Description;
-            this.UpdateDate = UpdateDate;
-            this.UpdateTime = UpdateTime;
+            this.V_PreRelease = PreRelease;
+            this.V_Description = Description;
+            this.V_UpdateDate = UpdateDate;
+            this.V_UpdateTime = UpdateTime;
             #endregion
 
             #region Object
-            this.OVersion = OVersion;
+            this.O_Version = OVersion;
             #endregion
-        }
-        #endregion
-
-
-
-        #region Destructor Methods
-        ~VersionData()
-        {
-
         }
         #endregion
 
@@ -72,59 +63,59 @@ namespace Data.Project
 
         #region Getters and Setters
         #region Variables
-        public string? GetPreRelease()
+        public string? PreRelease
         {
-            return this.PreRelease;
+            get => this.V_PreRelease;
+            set
+            {
+                V_PreRelease = value;
+            }
         }
 
-        public void SetPreRelease(string? PreRelease)
+        public string Description
         {
-            this.PreRelease = PreRelease;
+            get => this.V_Description;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_Description = value;
+            }
         }
 
-        public string GetDescription()
+        public DateOnly UpdateDate
         {
-            return this.Description;
+            get => this.V_UpdateDate;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfGreaterThan(
+                    value: value,
+                    other: DateOnly.FromDateTime(dateTime: DateTime.Now)
+                );
+                
+                this.V_UpdateDate = value;
+            }
         }
 
-        public void SetDescription(string Description)
+        public TimeOnly UpdateTime
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: Description);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: Description);
-            
-            this.Description = Description;
-        }
-
-        public DateOnly GetUpdateDate()
-        {
-            return this.UpdateDate;
-        }
-
-        public void SetUpdateDate(DateOnly UpdateDate)
-        {
-            this.UpdateDate = UpdateDate;
-        }
-
-        public TimeOnly GetUpdateTime()
-        {
-            return this.UpdateTime;
-        }
-
-        public void SetUpdateTime(TimeOnly UpdateTime)
-        {
-            this.UpdateTime = UpdateTime;
+            get => this.V_UpdateTime;
+            set
+            {
+                this.V_UpdateTime = value;
+            }
         }
         #endregion
 
         #region Object
-        public Version GetOVersion()
+        public Version version
         {
-            return this.OVersion;
-        }
-
-        public void SetOVersion(Version OVersion)
-        {
-            this.OVersion = OVersion;
+            get => this.O_Version;
+            set
+            {
+                this.O_Version = value;
+            }
         }
         #endregion
         #endregion
@@ -154,7 +145,7 @@ namespace Data.Project
         {
             string Version;
 
-            Version = $"{this.OVersion.Major}.{this.OVersion.Minor}.{this.OVersion.Build}.{this.OVersion.Revision}";
+            Version = $"{this.version.Major}.{this.version.Minor}.{this.version.Build}.{this.version.Revision}";
 
             if (!string.IsNullOrWhiteSpace(value: PreRelease))
             {
