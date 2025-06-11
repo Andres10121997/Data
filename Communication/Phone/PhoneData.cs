@@ -2,7 +2,7 @@
 
 namespace Data.Communication.Phone
 {
-    public sealed record PhoneData
+    public sealed class PhoneData
     {
         #region Variables
         private string V_PhoneNumber;

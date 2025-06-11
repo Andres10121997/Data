@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Data.Account
 {
-    public record PersonData
+    public class PersonData
     {
         #region Variables
         private string V_FirstName;
@@ -72,8 +72,7 @@ namespace Data.Account
         #region Variables
         public string FirstName
         {
-            get => this.V_FirstName;
-
+            get => this.V_FirstName.Trim();
             set
             {
                 ArgumentException.ThrowIfNullOrEmpty(argument: value);
@@ -85,16 +84,13 @@ namespace Data.Account
 
         public string? MiddleName
         {
-            get => this.V_MiddleName;
-            set
-            {
-                this.V_MiddleName = value?.Trim();
-            }
+            get => this.V_MiddleName?.Trim();
+            set => this.V_MiddleName = value?.Trim();
         }
 
         public string FirstLastName
         {
-            get => this.V_FirstLastName;
+            get => this.V_FirstLastName.Trim();
             set
             {
                 ArgumentException.ThrowIfNullOrEmpty(argument: value);
@@ -106,11 +102,8 @@ namespace Data.Account
 
         public string? SecondLastName
         {
-            get => this.V_SecondLastName;
-            set
-            {
-                this.V_SecondLastName = value?.Trim();
-            }
+            get => this.V_SecondLastName?.Trim();
+            set => this.V_SecondLastName = value?.Trim();
         }
         
         public DateOnly BirthDate
@@ -130,10 +123,7 @@ namespace Data.Account
         public SexEnum Sex
         {
             get => this.V_Sex;
-            set
-            {
-                this.V_Sex = value;
-            }
+            set => this.V_Sex = value;
         }
         #endregion
         #endregion
@@ -172,64 +162,27 @@ namespace Data.Account
             return Age;
         }
 
-        public async Task<byte> AgeAsync()
-        {
-            return await Task.FromResult<byte>(result: this.Age());
-        }
+        public async Task<byte> AgeAsync() => await Task.FromResult<byte>(result: this.Age());
         #endregion
 
 
 
         #region Full Name
-        private string Name
-        {
-            get
-            {
-                string Name;
+        private string Name => string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
+                               ?
+                               this.FirstName
+                               :
+                               $"{this.FirstName} {this.MiddleName}";
 
-                Name = (
-                    string.IsNullOrEmpty(value: this.MiddleName) || string.IsNullOrWhiteSpace(value: this.MiddleName)
-                    ?
-                    this.FirstName.Trim()
-                    :
-                    $"{this.FirstName.Trim()} {this.MiddleName.Trim()}"
-                ).Trim();
+        private string LastName => string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
+                                   ?
+                                   this.FirstLastName
+                                   :
+                                   $"{this.FirstLastName} {this.SecondLastName}";
 
-                return Name;
-            }
-        }
+        public string FullName() => string.Concat(str0: this.Name, str1: " ", str2: LastName);
 
-        private string LastName
-        {
-            get
-            {
-                string LastName;
-
-                LastName = (
-                    string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
-                    ?
-                    this.FirstLastName.Trim()
-                    :
-                    $"{this.FirstLastName.Trim()} {this.SecondLastName.Trim()}"
-                ).Trim();
-
-                return LastName;
-            }
-        }
-
-        public string FullName()
-        {
-            string FullName;
-
-            FullName = string.Concat(str0: this.Name, str1: " ", str2: LastName);
-
-            return FullName;
-        }
-
-        public async Task<string> FullNameAsync()
-        {
-            return await Task.FromResult(result: this.FullName());
-        }
+        public async Task<string> FullNameAsync() => await Task.FromResult<string>(result: this.FullName());
         #endregion
     }
 }

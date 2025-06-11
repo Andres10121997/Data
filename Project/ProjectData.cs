@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public sealed record ProjectData
+    public sealed class ProjectData
     {
         #region Variables
         private string V_Name;
@@ -79,7 +79,7 @@ namespace Data.Project
         #region Variables
         public string Name
         {
-            get => this.V_Name;
+            get => this.V_Name.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
@@ -91,11 +91,8 @@ namespace Data.Project
 
         public string? Description
         {
-            get => this.V_Description;
-            set
-            {
-                this.V_Description = value?.Trim();
-            }
+            get => this.V_Description?.Trim();
+            set => this.V_Description = value?.Trim();
         }
 
         public DateOnly CreationDate
@@ -115,19 +112,13 @@ namespace Data.Project
         public TimeOnly CreationTime
         {
             get => this.V_CreationTime;
-            set
-            {
-                this.V_CreationTime = value;
-            }
+            set => this.V_CreationTime = value;
         }
 
         public AccessLevelEnum AccessLevel
         {
             get => this.V_AccessLevel;
-            set
-            {
-                this.V_AccessLevel = value;
-            }
+            set => this.V_AccessLevel = value;
         }
         #endregion
 
@@ -135,10 +126,7 @@ namespace Data.Project
         public VersionData Version
         {
             get => this.O_Version;
-            set
-            {
-                this.O_Version = value;
-            }
+            set => this.O_Version = value;
         }
         #endregion
         #endregion

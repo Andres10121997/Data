@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public sealed record VersionData
+    public sealed class VersionData
     {
         #region Variables
         private string? V_PreRelease; // Ej. "alpha", "beta", "rc1"
@@ -65,22 +65,19 @@ namespace Data.Project
         #region Variables
         public string? PreRelease
         {
-            get => this.V_PreRelease;
-            set
-            {
-                V_PreRelease = value;
-            }
+            get => this.V_PreRelease?.Trim();
+            set => this.V_PreRelease = value?.Trim();
         }
 
         public string Description
         {
-            get => this.V_Description;
+            get => this.V_Description.Trim();
             set
             {
                 ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
                 ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
 
-                this.V_Description = value;
+                this.V_Description = value.Trim();
             }
         }
 
@@ -101,10 +98,7 @@ namespace Data.Project
         public TimeOnly UpdateTime
         {
             get => this.V_UpdateTime;
-            set
-            {
-                this.V_UpdateTime = value;
-            }
+            set => this.V_UpdateTime = value;
         }
         #endregion
 
@@ -112,10 +106,7 @@ namespace Data.Project
         public Version version
         {
             get => this.O_Version;
-            set
-            {
-                this.O_Version = value;
-            }
+            set => this.O_Version = value;
         }
         #endregion
         #endregion

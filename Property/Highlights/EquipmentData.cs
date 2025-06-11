@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public sealed record EquipmentData
+    public sealed class EquipmentData
     {
         #region Variables
         private bool V_HasChimney; // Chimenea
@@ -84,136 +84,91 @@
         public bool HasChimney
         {
             get => this.V_HasChimney;
-            set
-            {
-                this.V_HasChimney = value;
-            }
+            set => this.V_HasChimney = value;
         }
 
         public bool HasGym
         {
             get => this.V_HasGym;
-            set
-            {
-                this.V_HasGym = value;
-            }
+            set => this.V_HasGym = value;
         }
 
         public bool HasJacuzzi
         {
             get => this.V_HasJacuzzi;
-            set
-            {
-                this.V_HasJacuzzi = value;
-            }
+            set => this.V_HasJacuzzi = value;
         }
 
         public bool HasVisitorParking
         {
             get => this.V_HasVisitorParking;
-            set
-            {
-                this.V_HasVisitorParking = value;
-            }
+            set => this.V_HasVisitorParking = value;
         }
 
         public bool HasCinemaArea
         {
             get => this.V_HasCinemaArea;
-            set
-            {
-                this.V_HasCinemaArea = value;
-            }
+            set => this.V_HasCinemaArea = value;
         }
 
         public bool HasChildrensPlayArea
         {
             get => this.V_HasChildrensPlayArea;
-            set
-            {
-                this.V_HasChildrensPlayArea = value;
-            }
+            set => this.V_HasChildrensPlayArea = value;
         }
 
         public bool HasWithGreenArea
         {
             get => this.V_HasWithGreenArea;
-            set
-            {
-                this.V_HasWithGreenArea = value;
-            }
+            set => this.V_HasWithGreenArea = value;
         }
 
         public bool HasElevator
         {
             get => this.V_HasElevator;
-            set
-            {
-                this.V_HasElevator = value;
-            }
+            set => this.V_HasElevator = value;
         }
 
         public bool HasBasketballCourt
         {
             get => this.V_HasBasketballCourt;
-            set
-            {
-                this.V_HasBasketballCourt = value;
-            }
+            set => this.V_HasBasketballCourt = value;
         }
 
         public bool HasSoccerField
         {
             get => this.V_HasSoccerField;
-            set
-            {
-                this.V_HasSoccerField = value;
-            }
+            set => this.V_HasSoccerField = value;
         }
 
         public bool HasPaddleCourt
         {
             get => this.V_HasPaddleCourt;
-            set
-            {
-                this.V_HasPaddleCourt = value;
-            }
+            set => this.V_HasPaddleCourt = value;
         }
 
         public bool HasTennisCourt
         {
             get => this.V_HasTennisCourt;
-            set
-            {
-                this.V_HasTennisCourt = value;
-            }
+            set => this.V_HasTennisCourt = value;
         }
 
         public bool HasMultiSportCourt
         {
             get => this.V_HasMultiSportCourt;
-            set
-            {
-                this.V_HasMultiSportCourt = value;
-            }
+            set => this.V_HasMultiSportCourt = value;
         }
 
         public bool HasPartyHall
         {
             get => this.V_HasPartyHall;
-            set
-            {
-                this.V_HasPartyHall = value;
-            }
+            set => this.V_HasPartyHall = value;
         }
 
         public bool HasSauna
         {
             get => this.V_HasSauna;
-            set
-            {
-                this.V_HasSauna = value;
-            }
+            set => this.V_HasSauna = value;
         }
         #endregion
     }

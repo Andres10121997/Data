@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Data.Mathematics.Geometry.TwoDimensions
 {
-    public sealed record PolygonData
+    public sealed class PolygonData
     {
         #region Variables
         private byte V_NumberOfEdges; // Cantidad de Aristas.

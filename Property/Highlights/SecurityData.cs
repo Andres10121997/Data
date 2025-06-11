@@ -5,12 +5,12 @@ namespace Data.Property.Highlights
     public sealed class SecurityData
     {
         #region Variables
-        private bool HasAlarm { get; set; } // Alarma
-        private bool HasConcierge { get; set; } // Conserjería
-        private bool HasAutomaticGate { get; set; } // Portón automático
-        private string SecurityType { get; set; } // Tipo de seguridad (vigilancia con camaras municipales y guardia)
-        private bool HasWithClosedCondominium { get; set; } // Con condominio cerrado
-        private bool HasControlledAccess { get; set; } // Acceso controlado
+        private bool V_HasAlarm; // Alarma
+        private bool V_HasConcierge; // Conserjería
+        private bool V_HasAutomaticGate; // Portón automático
+        private string V_SecurityType; // Tipo de seguridad (vigilancia con camaras municipales y guardia)
+        private bool V_HasWithClosedCondominium; // Con condominio cerrado
+        private bool V_HasControlledAccess; // Acceso controlado
         #endregion
 
 
@@ -19,12 +19,12 @@ namespace Data.Property.Highlights
         public SecurityData()
             : base()
         {
-            this.HasAlarm                   = false;
-            this.HasConcierge               = false;
-            this.HasAutomaticGate           = false;
-            this.SecurityType               = string.Empty;
-            this.HasWithClosedCondominium   = false;
-            this.HasControlledAccess        = false;
+            this.V_HasAlarm = false;
+            this.V_HasConcierge = false;
+            this.V_HasAutomaticGate = false;
+            this.V_SecurityType = string.Empty;
+            this.V_HasWithClosedCondominium = false;
+            this.V_HasControlledAccess = false;
         }
 
         public SecurityData(bool HasAlarm,
@@ -41,89 +41,59 @@ namespace Data.Property.Highlights
             #endregion
 
             #region Variables
-            this.HasAlarm                   = HasAlarm;
-            this.HasConcierge               = HasConcierge;
-            this.HasAutomaticGate           = HasAutomaticGate;
-            this.SecurityType               = SecurityType;
-            this.HasWithClosedCondominium   = HasWithClosedCondominium;
-            this.HasControlledAccess        = HasControlledAccess;
+            this.V_HasAlarm = HasAlarm;
+            this.V_HasConcierge = HasConcierge;
+            this.V_HasAutomaticGate = HasAutomaticGate;
+            this.V_SecurityType = SecurityType;
+            this.V_HasWithClosedCondominium = HasWithClosedCondominium;
+            this.V_HasControlledAccess = HasControlledAccess;
             #endregion
         }
         #endregion
 
 
 
-        #region Destructor Methods
-        ~SecurityData()
-        {
-
-        }
-        #endregion
-
-
-
         #region Getters and Setters
-        public bool GetHasAlarm()
+        public bool HasAlarm
         {
-            return this.HasAlarm;
+            get => this.V_HasAlarm;
+            set => this.V_HasAlarm = value;
         }
 
-        public void SetHasAlarm(bool HasAlarm)
+        public bool HasConcierge
         {
-            this.HasAlarm = HasAlarm;
+            get => this.V_HasConcierge;
+            set => this.V_HasConcierge = value;
         }
 
-        public bool GetHasConcierge()
+        public bool HasAutomaticGate
         {
-            return this.HasConcierge;
+            get => this.V_HasAutomaticGate;
+            set => this.V_HasAutomaticGate = value;
         }
 
-        public void SetHasConcierge(bool HasConcierge)
+        public string SecurityType
         {
-            this.HasConcierge = HasConcierge;
+            get => V_SecurityType;
+            set
+            {
+                ArgumentNullException.ThrowIfNullOrEmpty(argument: value);
+                ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: value);
+
+                this.V_SecurityType = value;
+            }
         }
 
-        public bool GetHasAutomaticGate()
+        public bool HasWithClosedCondominium
         {
-            return this.HasAutomaticGate;
+            get => this.V_HasWithClosedCondominium;
+            set => this.V_HasWithClosedCondominium = value;
         }
 
-        public void SetHasAutomaticGate(bool HasAutomaticGate)
+        public bool HasControlledAccess
         {
-            this.HasAutomaticGate = HasAutomaticGate;
-        }
-
-        public string GetSecurityType()
-        {
-            return this.SecurityType;
-        }
-
-        public void SetSecurityType(string SecurityType)
-        {
-            ArgumentNullException.ThrowIfNullOrEmpty(argument: SecurityType);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(argument: SecurityType);
-            
-            this.SecurityType = SecurityType;
-        }
-
-        public bool GetHasWithClosedCondominium()
-        {
-            return this.HasWithClosedCondominium;
-        }
-
-        public void SetHasWithClosedCondominium(bool HasWithClosedCondominium)
-        {
-            this.HasWithClosedCondominium = HasWithClosedCondominium;
-        }
-
-        public bool GetHasControlledAccess()
-        {
-            return this.HasControlledAccess;
-        }
-
-        public void SetHasControlledAccess(bool HasControlledAccess)
-        {
-            this.HasControlledAccess = HasControlledAccess;
+            get => this.V_HasControlledAccess;
+            set => this.V_HasControlledAccess = value;
         }
         #endregion
     }

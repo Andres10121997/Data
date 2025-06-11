@@ -2,7 +2,7 @@
 
 namespace Data.Company.HumanResources
 {
-    public sealed record SalaryData
+    public sealed class SalaryData
     {
         #region Variables
         private float V_BaseSalary;

@@ -2,7 +2,7 @@
 
 namespace Data.GameEngine
 {
-    public sealed record CharacterData
+    public sealed class CharacterData
     {
         #region Variables
         private string V_Name;

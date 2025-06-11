@@ -3,18 +3,18 @@
     public sealed class ServiceData
     {
         #region Variables
-        private bool HasInternetAccess { get; set; } // Acceso a internet
-        private bool HasAirConditioning { get; set; } // Aire acondicionado
-        private bool HasHeating { get; set; } // Calefacción
-        private bool HasCableTV { get; set; } // TV por cable
-        private bool HasTelephoneLine { get; set; } // Línea telefónica
-        private bool HasNaturalGas { get; set; } // Gas natural
-        private bool HasElectricGenerator { get; set; } // Generador eléctrico
-        private bool HasSolarPowered { get; set; } // Con energia solar
-        private bool HasWashingMachineConnection { get; set; } // Con conexión para lavarropas
-        private bool HasRunningWater { get; set; } // Agua corriente
-        private bool HasTank { get; set; } // Cisterna
-        private bool HasBoiler { get; set; } // Caldera
+        private bool V_HasInternetAccess; // Acceso a internet
+        private bool V_HasAirConditioning; // Aire acondicionado
+        private bool V_HasHeating; // Calefacción
+        private bool V_HasCableTV; // TV por cable
+        private bool V_HasTelephoneLine; // Línea telefónica
+        private bool V_HasNaturalGas; // Gas natural
+        private bool V_HasElectricGenerator; // Generador eléctrico
+        private bool V_HasSolarPowered; // Con energia solar
+        private bool V_HasWashingMachineConnection; // Con conexión para lavarropas
+        private bool V_HasRunningWater; // Agua corriente
+        private bool V_HasTank; // Cisterna
+        private bool V_HasBoiler; // Caldera
         #endregion
 
 
@@ -23,18 +23,18 @@
         public ServiceData()
             : base()
         {
-            this.HasInternetAccess              = false;
-            this.HasAirConditioning             = false;
-            this.HasHeating                     = false;
-            this.HasCableTV                     = false;
-            this.HasTelephoneLine               = false;
-            this.HasNaturalGas                  = false;
-            this.HasElectricGenerator           = false;
-            this.HasSolarPowered                = false;
-            this.HasWashingMachineConnection    = false;
-            this.HasRunningWater                = false;
-            this.HasTank                        = false;
-            this.HasBoiler                      = false;
+            this.V_HasInternetAccess = false;
+            this.V_HasAirConditioning = false;
+            this.V_HasHeating = false;
+            this.V_HasCableTV = false;
+            this.V_HasTelephoneLine = false;
+            this.V_HasNaturalGas = false;
+            this.V_HasElectricGenerator = false;
+            this.V_HasSolarPowered = false;
+            this.V_HasWashingMachineConnection = false;
+            this.V_HasRunningWater = false;
+            this.V_HasTank = false;
+            this.V_HasBoiler = false;
         }
 
         public ServiceData(bool HasInternetAccess,
@@ -51,151 +51,94 @@
                            bool HasBoiler)
             : base()
         {
-            this.HasInternetAccess              = HasInternetAccess;
-            this.HasAirConditioning             = HasAirConditioning;
-            this.HasHeating                     = HasHeating;
-            this.HasCableTV                     = HasCableTV;
-            this.HasTelephoneLine               = HasTelephoneLine;
-            this.HasNaturalGas                  = HasNaturalGas;
-            this.HasElectricGenerator           = HasElectricGenerator;
-            this.HasSolarPowered                = HasSolarPowered;
-            this.HasWashingMachineConnection    = HasWashingMachineConnection;
-            this.HasRunningWater                = HasRunningWater;
-            this.HasTank                        = HasTank;
-            this.HasBoiler                      = HasBoiler;
-        }
-        #endregion
-
-
-
-        #region Destructor Methods
-        ~ServiceData()
-        {
-
+            this.V_HasInternetAccess = HasInternetAccess;
+            this.V_HasAirConditioning = HasAirConditioning;
+            this.V_HasHeating = HasHeating;
+            this.V_HasCableTV = HasCableTV;
+            this.V_HasTelephoneLine = HasTelephoneLine;
+            this.V_HasNaturalGas = HasNaturalGas;
+            this.V_HasElectricGenerator = HasElectricGenerator;
+            this.V_HasSolarPowered = HasSolarPowered;
+            this.V_HasWashingMachineConnection = HasWashingMachineConnection;
+            this.V_HasRunningWater = HasRunningWater;
+            this.V_HasTank = HasTank;
+            this.V_HasBoiler = HasBoiler;
         }
         #endregion
 
 
 
         #region Getters and Setters
-        public bool GetHasInternetAccess()
+        public bool HasInternetAccess
         {
-            return this.HasInternetAccess;
+            get => this.V_HasInternetAccess;
+            set => this.V_HasInternetAccess = value;
         }
 
-        public void SetHasInternetAccess(bool HasInternetAccess)
+        public bool HasAirConditioning
         {
-            this.HasInternetAccess = HasInternetAccess;
+            get => this.V_HasAirConditioning;
+            set => this.V_HasAirConditioning = value;
         }
 
-        public bool GetHasAirConditioning()
+        public bool HasHeating
         {
-            return this.HasAirConditioning;
+            get => this.V_HasHeating;
+            set => this.V_HasHeating = value;
         }
 
-        public void SetHasAirConditioning(bool HasAirConditioning)
+        public bool HasCableTV
         {
-            this.HasAirConditioning = HasAirConditioning;
+            get => V_HasCableTV;
+            set => V_HasCableTV = value;
         }
 
-        public bool GetHasHeating()
+        public bool HasTelephoneLine
         {
-            return this.HasHeating;
+            get => V_HasTelephoneLine;
+            set => V_HasTelephoneLine = value;
         }
 
-        public void SetHasHeating(bool HasHeating)
+        public bool HasNaturalGas
         {
-            this.HasHeating = HasHeating;
+            get => V_HasNaturalGas;
+            set => V_HasNaturalGas = value;
         }
 
-        public bool GetHasCableTV()
+        public bool HasElectricGenerator
         {
-            return this.HasCableTV;
+            get => this.V_HasElectricGenerator;
+            set => this.V_HasElectricGenerator = value;
         }
 
-        public void SetHasCableTV(bool HasCableTV)
+        public bool HasSolarPowered
         {
-            this.HasCableTV = HasCableTV;
+            get => this.V_HasSolarPowered;
+            set => this.V_HasSolarPowered = value;
         }
 
-        public bool GetHasTelephoneLine()
+        public bool HasWashingMachineConnection
         {
-            return this.HasTelephoneLine;
+            get => this.V_HasWashingMachineConnection;
+            set => this.V_HasWashingMachineConnection = value;
         }
 
-        public void SetHasTelephoneLine(bool HasTelephoneLine)
+        public bool HasRunningWater
         {
-            this.HasTelephoneLine = HasTelephoneLine;
+            get => this.V_HasRunningWater;
+            set => this.V_HasRunningWater = value;
         }
 
-        public bool GetHasNaturalGas()
+        public bool HasTank
         {
-            return this.HasNaturalGas;
+            get => this.V_HasTank;
+            set => this.V_HasTank = value;
         }
 
-        public void SetHasNaturalGas(bool HasNaturalGas)
+        public bool HasBoiler
         {
-            this.HasNaturalGas = HasNaturalGas;
-        }
-
-        public bool GetHasElectricGenerator()
-        {
-            return this.HasElectricGenerator;
-        }
-
-        public void SetHasElectricGenerator(bool HasElectricGenerator)
-        {
-            this.HasElectricGenerator = HasElectricGenerator;
-        }
-
-        public bool GetHasSolarPowered()
-        {
-            return this.HasSolarPowered;
-        }
-
-        public void SetHasSolarPowered(bool HasSolarPowered)
-        {
-            this.HasSolarPowered = HasSolarPowered;
-        }
-
-        public bool GetHasWashingMachineConnection()
-        {
-            return this.HasWashingMachineConnection;
-        }
-
-        public void SetHasWashingMachineConnection(bool HasWashingMachineConnection)
-        {
-            this.HasWashingMachineConnection = HasWashingMachineConnection;
-        }
-
-        public bool GetHasRunningWater()
-        {
-            return this.HasRunningWater;
-        }
-
-        public void SetHasRunningWater(bool HasRunningWater)
-        {
-            this.HasRunningWater = HasRunningWater;
-        }
-
-        public bool GetHasTank()
-        {
-            return this.HasTank;
-        }
-
-        public void SetHasTank(bool HasTank)
-        {
-            this.HasTank = HasTank;
-        }
-
-        public bool GetHasBoiler()
-        {
-            return this.HasBoiler;
-        }
-
-        public void SetHasBoiler(bool HasBoiler)
-        {
-            this.HasBoiler = HasBoiler;
+            get => this.V_HasBoiler;
+            set => this.V_HasBoiler = value;
         }
         #endregion
     }

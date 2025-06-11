@@ -2,7 +2,7 @@
 
 namespace Data.Certification
 {
-    public record CertificateData
+    public class CertificateData
     {
         #region Variables
         private string V_Title;

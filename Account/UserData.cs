@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.Account
 {
-    public sealed record UserData : PersonData
+    public sealed class UserData : PersonData
     {
         #region Variables
         private string V_IP;

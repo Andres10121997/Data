@@ -2,7 +2,7 @@
 
 namespace Data.Communication.Email
 {
-    public sealed record EmailAddressData
+    public sealed class EmailAddressData
     {
         #region Variables
         private string V_Email;

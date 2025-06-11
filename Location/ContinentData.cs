@@ -2,7 +2,7 @@
 
 namespace Data.Location
 {
-    public sealed record ContinentData
+    public sealed class ContinentData
     {
         #region Variables
         private ContinentEnum V_Name;

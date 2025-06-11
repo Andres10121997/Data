@@ -2,7 +2,7 @@
 
 namespace Data.Location
 {
-    public sealed record CountryData
+    public sealed class CountryData
     {
         #region Variables
         private string V_Name;

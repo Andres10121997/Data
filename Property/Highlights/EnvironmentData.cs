@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public sealed record EnvironmentData // Ambientes
+    public sealed class EnvironmentData // Ambientes
     {
         #region Variables
         private bool V_HasGrill; // Parrilla
@@ -104,181 +104,121 @@
         public bool HasGrill
         {
             get => this.V_HasGrill;
-            set
-            {
-                this.V_HasGrill = value;
-            }
+            set => this.V_HasGrill = value;
         }
 
         public bool HasPool
         {
             get => V_HasPool;
-            set
-            {
-                this.V_HasPool = value;
-            }
+            set => this.V_HasPool = value;
         }
 
         public bool HasCloset
         {
             get => this.V_HasCloset;
-            set
-            {
-                this.V_HasCloset = value;
-            }
+            set => this.V_HasCloset = value;
         }
 
         public bool HasGuestBathroom
         {
             get => this.V_HasGuestBathroom;
-            set
-            {
-                this.V_HasGuestBathroom = value;
-            }
+            set => this.V_HasGuestBathroom = value;
         }
 
         public bool HasTerrace
         {
             get => this.V_HasTerrace;
-            set
-            {
-                this.V_HasTerrace = value;
-            }
+            set => this.V_HasTerrace = value;
         }
 
         public bool HasDiningRoom
         {
             get => V_HasDiningRoom;
-            set
-            {
-                this.V_HasDiningRoom = value;
-            }
+            set => this.V_HasDiningRoom = value;
         }
 
         public bool HasWalkInCloset
         {
             get => this.V_HasWalkInCloset;
-            set
-            {
-                this.V_HasWalkInCloset = value;
-            }
+            set => this.V_HasWalkInCloset = value;
         }
 
         public bool HasHomeoffice
         {
             get => this.V_HasHomeoffice;
-            set
-            {
-                this.V_HasHomeoffice = value;
-            }
+            set => this.V_HasHomeoffice = value;
         }
 
         public bool HasLiving
         {
             get => this.V_HasLiving;
-            set
-            {
-                this.V_HasLiving = value;
-            }
+            set => this.V_HasLiving = value;
         }
 
         public bool HasYard
         {
             get => this.V_HasYard;
-            set
-            {
-                this.V_HasYard = value;
-            }
+            set => this.V_HasYard = value;
         }
 
         public bool HasBedroomDuite
         {
             get => this.V_HasBedroomDuite;
-            set
-            {
-                this.V_HasBedroomDuite = value;
-            }
+            set => this.V_HasBedroomDuite = value;
         }
 
         public bool HasBalcony
         {
             get => this.V_HasBalcony;
-            set
-            {
-                this.V_HasBalcony = value;
-            }
+            set => this.V_HasBalcony = value;
         }
 
         public bool HasMansard
         {
             get => this.V_HasMansard;
-            set
-            {
-                this.V_HasMansard = value;
-            }
+            set => this.V_HasMansard = value;
         }
 
         public bool HasGarden
         {
             get => this.V_HasGarden;
-            set
-            {
-                this.V_HasGarden = value;
-            }
+            set => this.V_HasGarden = value;
         }
 
         public bool HasKitchen
         {
             get => this.V_HasKitchen;
-            set
-            {
-                this.V_HasKitchen = value;
-            }
+            set => this.V_HasKitchen = value;
         }
 
         public bool HasServiceBedroom
         {
             get => this.V_HasServiceBedroom;
-            set
-            {
-                this.V_HasServiceBedroom = value;
-            }
+            set => this.V_HasServiceBedroom = value;
         }
 
         public bool HasServiceBathroom
         {
             get => this.V_HasServiceBathroom;
-            set
-            {
-                this.V_HasServiceBathroom = value;
-            }
+            set => this.V_HasServiceBathroom = value;
         }
 
         public bool HasPlayroom
         {
             get => this.V_HasPlayroom;
-            set
-            {
-                this.V_HasPlayroom = value;
-            }
+            set => this.V_HasPlayroom = value;
         }
 
         public bool HasWithLodge
         {
             get => this.V_HasWithLodge;
-            set
-            {
-                this.V_HasWithLodge = value;
-            }
+            set => this.V_HasWithLodge = value;
         }
 
         public bool HasEverydayDiningRoom
         {
             get => this.V_HasEverydayDiningRoom;
-            set
-            {
-                this.V_HasEverydayDiningRoom = value;
-            }
+            set => this.V_HasEverydayDiningRoom = value;
         }
         #endregion
     }
