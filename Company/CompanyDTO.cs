@@ -2,7 +2,7 @@
 
 namespace Data.Company
 {
-    public sealed class CompanyData
+    public sealed class CompanyDTO
     {
         #region Variables
         private string V_Name;
@@ -29,7 +29,7 @@ namespace Data.Company
 
 
         #region Constructor Method
-        public CompanyData()
+        public CompanyDTO()
             : base()
         {
             this.V_Name = string.Empty;
@@ -38,7 +38,7 @@ namespace Data.Company
             this.V_CompanyType = CompanyTypeEnum.None;
         }
 
-        public CompanyData(string Name,
+        public CompanyDTO(string Name,
                            DateOnly CreationDate,
                            string EconomicActivity,
                            CompanyTypeEnum CompanyType)

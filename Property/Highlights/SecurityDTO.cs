@@ -2,7 +2,7 @@
 
 namespace Data.Property.Highlights
 {
-    public sealed class SecurityData
+    public sealed class SecurityDTO
     {
         #region Variables
         private bool V_HasAlarm; // Alarma
@@ -16,7 +16,7 @@ namespace Data.Property.Highlights
 
 
         #region Constructor Methods
-        public SecurityData()
+        public SecurityDTO()
             : base()
         {
             this.HasAlarm = false;
@@ -27,7 +27,7 @@ namespace Data.Property.Highlights
             this.HasControlledAccess = false;
         }
 
-        public SecurityData(bool HasAlarm,
+        public SecurityDTO(bool HasAlarm,
                             bool HasConcierge,
                             bool HasAutomaticGate,
                             string SecurityType,

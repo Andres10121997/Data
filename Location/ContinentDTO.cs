@@ -2,14 +2,14 @@
 
 namespace Data.Location
 {
-    public sealed class ContinentData
+    public sealed class ContinentDTO
     {
         #region Variables
         private ContinentEnum V_Name;
         #endregion
 
         #region Arrays
-        CountryData[] A_ListOfCountries;
+        CountryDTO[] A_ListOfCountries;
         #endregion
 
         #region Enums
@@ -27,15 +27,15 @@ namespace Data.Location
 
 
         #region Constructor Method
-        public ContinentData()
+        public ContinentDTO()
             : base()
         {
             this.V_Name = ContinentEnum.America;
-            this.A_ListOfCountries = Array.Empty<CountryData>();
+            this.A_ListOfCountries = Array.Empty<CountryDTO>();
         }
 
-        public ContinentData(ContinentEnum Name,
-                             CountryData[] ListOfCountries)
+        public ContinentDTO(ContinentEnum Name,
+                             CountryDTO[] ListOfCountries)
             : base()
         {
             this.V_Name = Name;
@@ -52,7 +52,7 @@ namespace Data.Location
             set => this.V_Name = value;
         }
 
-        public CountryData[] ListOfCountries
+        public CountryDTO[] ListOfCountries
         {
             get => this.A_ListOfCountries;
             set => this.A_ListOfCountries = value;

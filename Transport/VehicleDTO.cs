@@ -2,7 +2,7 @@
 
 namespace Data.Transport
 {
-    public sealed class VehicleData
+    public sealed class VehicleDTO
     {
         #region Variables
         private byte V_NumberOfDoors;
@@ -15,7 +15,7 @@ namespace Data.Transport
 
 
         #region Constructor methods
-        public VehicleData()
+        public VehicleDTO()
             : base()
         {
             this.NumberOfDoors = byte.MinValue;
@@ -25,7 +25,7 @@ namespace Data.Transport
             this.OverallHeight = ushort.MinValue;
         }
 
-        public VehicleData(byte NumberOfDoors,
+        public VehicleDTO(byte NumberOfDoors,
                            byte NumberOfWheels,
                            ushort OverallLength,
                            ushort OverallWidth,

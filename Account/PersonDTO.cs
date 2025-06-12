@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Data.Account
 {
-    public class PersonData
+    public class PersonDTO
     {
         #region Variables
         private string V_FirstName;
@@ -27,7 +27,7 @@ namespace Data.Account
 
 
         #region Constructor Method
-        public PersonData()
+        public PersonDTO()
             : base()
         {
             #region Variables
@@ -40,7 +40,7 @@ namespace Data.Account
             #endregion
         }
 
-        public PersonData(string FirstName,
+        public PersonDTO(string FirstName,
                           string? MiddleName,
                           string FirstLastName,
                           string? SecondLastName,
@@ -71,7 +71,7 @@ namespace Data.Account
                 AutoGenerateField = false,
                 AutoGenerateFilter = false,
                 Description = "",
-                GroupName = nameof(PersonData),
+                GroupName = nameof(PersonDTO),
                 Name = "First name",
                 Order = 1,
                 Prompt = "Enter first name here.", // Ingrese aquí el primer nombre
@@ -109,7 +109,7 @@ namespace Data.Account
                 AutoGenerateField = false,
                 AutoGenerateFilter = false,
                 Description = "",
-                GroupName = nameof(PersonData),
+                GroupName = nameof(PersonDTO),
                 Name = "Middle name",
                 Order = 2,
                 Prompt = "Enter middle name here.", // Ingrese aquí el segundo nombre
@@ -140,7 +140,7 @@ namespace Data.Account
                 AutoGenerateField = false,
                 AutoGenerateFilter = false,
                 Description = "",
-                GroupName = nameof(PersonData),
+                GroupName = nameof(PersonDTO),
                 Name = "First last name",
                 Order = 3,
                 Prompt = "Enter first last name here.", // Ingrese aquí el primer apellido
@@ -178,7 +178,7 @@ namespace Data.Account
                 AutoGenerateField = false,
                 AutoGenerateFilter = false,
                 Description = "",
-                GroupName = nameof(PersonData),
+                GroupName = nameof(PersonDTO),
                 Name = "Second last name",
                 Order = 4,
                 Prompt = "Enter second last name here.", // Ingrese aquí el segundo apellido
@@ -209,7 +209,7 @@ namespace Data.Account
                 AutoGenerateField = false,
                 AutoGenerateFilter = false,
                 Description = "",
-                GroupName = nameof(PersonData),
+                GroupName = nameof(PersonDTO),
                 Name = "Birth date",
                 Order = 4,
                 Prompt = "Enter birth date here.", // Ingrese aquí la fecha de nacimiento
@@ -239,7 +239,7 @@ namespace Data.Account
                 AutoGenerateField = false,
                 AutoGenerateFilter = false,
                 Description = "",
-                GroupName = nameof(PersonData),
+                GroupName = nameof(PersonDTO),
                 Name = "Sex",
                 Order = 4,
                 Prompt = "Enter sex here.", // Ingrese aquí el sexo
@@ -296,15 +296,15 @@ namespace Data.Account
                                ?
                                this.FirstName
                                :
-                               string.Concat(str0: this.FirstName, str1: " ", str2: this.MiddleName);
+                               string.Join(separator: " ", this.FirstName, this.MiddleName);
 
         private string LastName => string.IsNullOrEmpty(value: this.SecondLastName) || string.IsNullOrWhiteSpace(value: this.SecondLastName)
                                    ?
                                    this.FirstLastName
                                    :
-                                   string.Concat(str0: this.FirstLastName, str1: " ", str2: this.SecondLastName);
+                                   string.Join(separator: " ", this.FirstLastName, this.SecondLastName);
 
-        public string FullName() => string.Concat(str0: this.Name, str1: " ", str2: LastName);
+        public string FullName() => string.Join(separator: " ", this.Name, this.LastName);
 
         public async Task<string> FullNameAsync() => await Task.FromResult<string>(result: this.FullName());
         #endregion

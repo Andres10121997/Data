@@ -2,7 +2,7 @@
 
 namespace Data.Communication.Email
 {
-    public sealed class EmailAddressData
+    public sealed class EmailAddressDTO
     {
         #region Variables
         private string V_Email;
@@ -22,14 +22,14 @@ namespace Data.Communication.Email
 
 
         #region Constructor Method
-        public EmailAddressData()
+        public EmailAddressDTO()
             : base()
         {
             this.V_Email = string.Empty;
             this.V_EmailType = EmailAddressTypeEnum.None;
         }
 
-        public EmailAddressData(string Email,
+        public EmailAddressDTO(string Email,
                                 EmailAddressTypeEnum EmailType)
             : base()
         {

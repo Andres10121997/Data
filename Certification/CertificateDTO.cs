@@ -2,7 +2,7 @@
 
 namespace Data.Certification
 {
-    public class CertificateData
+    public class CertificateDTO
     {
         #region Variables
         private string V_Title;
@@ -13,7 +13,7 @@ namespace Data.Certification
 
 
         #region Constructor Method
-        public CertificateData()
+        public CertificateDTO()
             : base()
         {
             #region Variables
@@ -23,7 +23,7 @@ namespace Data.Certification
             #endregion
         }
 
-        public CertificateData(string Title,
+        public CertificateDTO(string Title,
                                uint Folio,
                                float Price)
             : base()

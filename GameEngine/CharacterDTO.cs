@@ -2,7 +2,7 @@
 
 namespace Data.GameEngine
 {
-    public sealed class CharacterData
+    public sealed class CharacterDTO
     {
         #region Variables
         private string V_Name;
@@ -13,7 +13,7 @@ namespace Data.GameEngine
 
 
         #region Constructor Method
-        public CharacterData()
+        public CharacterDTO()
             : base()
         {
             this.V_Name = string.Empty;
@@ -21,7 +21,7 @@ namespace Data.GameEngine
             this.V_AmountOfDamage = byte.MinValue;
         }
 
-        public CharacterData(string Name,
+        public CharacterDTO(string Name,
                              byte QuantityOfLife,
                              byte AmountOfDamage)
             : base()

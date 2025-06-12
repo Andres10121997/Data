@@ -2,7 +2,7 @@
 
 namespace Data.Company.HumanResources
 {
-    public sealed class SalaryData
+    public sealed class SalaryDTO
     {
         #region Variables
         private float V_BaseSalary;
@@ -21,7 +21,7 @@ namespace Data.Company.HumanResources
 
 
         #region Constructor Method
-        public SalaryData()
+        public SalaryDTO()
             : base()
         {
             #region Variables
@@ -39,7 +39,7 @@ namespace Data.Company.HumanResources
             #endregion
         }
 
-        public SalaryData(float BaseSalary,
+        public SalaryDTO(float BaseSalary,
                           float Gratification,
                           float SnackBonus,
                           float MobilizationBonus,

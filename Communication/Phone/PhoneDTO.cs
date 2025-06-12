@@ -2,7 +2,7 @@
 
 namespace Data.Communication.Phone
 {
-    public sealed class PhoneData
+    public sealed class PhoneDTO
     {
         #region Variables
         private string V_PhoneNumber;
@@ -21,14 +21,14 @@ namespace Data.Communication.Phone
 
 
         #region Constructor Method
-        public PhoneData()
+        public PhoneDTO()
             : base()
         {
             this.V_PhoneNumber = string.Empty;
             this.V_PhoneType = PhoneTypeEnum.None;
         }
 
-        public PhoneData(string PhoneNumber,
+        public PhoneDTO(string PhoneNumber,
                          PhoneTypeEnum PhoneType)
             : base()
         {

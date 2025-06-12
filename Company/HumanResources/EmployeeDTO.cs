@@ -4,7 +4,7 @@ using System;
 
 namespace Data.Company.HumanResources
 {
-    public sealed class EmployeeData : PersonData
+    public sealed class EmployeeDTO : PersonDTO
     {
         #region Variables
         private DateOnly V_HiringDate;
@@ -12,19 +12,19 @@ namespace Data.Company.HumanResources
         #endregion
 
         #region Objects
-        private DepartmentData O_Department;
-        private JobData O_Job;
-        private SalaryData O_Salary;
+        private DepartmentDTO O_Department;
+        private JobDTO O_Job;
+        private SalaryDTO O_Salary;
         #endregion
 
         #region Arrays
-        private SalaryData[]? A_SalaryHistory;
+        private SalaryDTO[]? A_SalaryHistory;
         #endregion
 
 
 
         #region Constructor Method
-        public EmployeeData()
+        public EmployeeDTO()
             : base()
         {
             #region Variables
@@ -33,9 +33,9 @@ namespace Data.Company.HumanResources
             #endregion
 
             #region Objects
-            this.O_Department = new DepartmentData();
-            this.O_Job = new JobData();
-            this.O_Salary = new SalaryData();
+            this.O_Department = new DepartmentDTO();
+            this.O_Job = new JobDTO();
+            this.O_Salary = new SalaryDTO();
             #endregion
 
             #region Arrays
@@ -43,12 +43,12 @@ namespace Data.Company.HumanResources
             #endregion
         }
 
-        public EmployeeData(DateOnly HiringDate,
+        public EmployeeDTO(DateOnly HiringDate,
                             DateOnly? ContractEndDate,
-                            DepartmentData Department,
-                            JobData Job,
-                            SalaryData Salary,
-                            SalaryData[]? SalaryHistory)
+                            DepartmentDTO Department,
+                            JobDTO Job,
+                            SalaryDTO Salary,
+                            SalaryDTO[]? SalaryHistory)
             : base()
         {
             #region Exception
@@ -71,7 +71,7 @@ namespace Data.Company.HumanResources
             #endregion
         }
 
-        public EmployeeData(string FirstName,
+        public EmployeeDTO(string FirstName,
                             string? MiddleName,
                             string FirstLastName,
                             string? SecondLastName,
@@ -79,10 +79,10 @@ namespace Data.Company.HumanResources
                             SexEnum Sex,
                             DateOnly HiringDate,
                             DateOnly? ContractEndDate,
-                            DepartmentData Department,
-                            JobData Job,
-                            SalaryData Salary,
-                            SalaryData[]? SalaryHistory)
+                            DepartmentDTO Department,
+                            JobDTO Job,
+                            SalaryDTO Salary,
+                            SalaryDTO[]? SalaryHistory)
             : base(FirstName: FirstName,
                    MiddleName: MiddleName,
                    FirstLastName: FirstLastName,
@@ -137,19 +137,19 @@ namespace Data.Company.HumanResources
         #endregion
 
         #region Objects
-        public DepartmentData Department
+        public DepartmentDTO Department
         {
             get => this.O_Department;
             set => this.O_Department = value;
         }
 
-        public JobData Job
+        public JobDTO Job
         {
             get => this.O_Job;
             set => this.O_Job = value;
         }
 
-        public SalaryData Salary
+        public SalaryDTO Salary
         {
             get => this.O_Salary;
             set => this.O_Salary = value;
@@ -157,7 +157,7 @@ namespace Data.Company.HumanResources
         #endregion
 
         #region Arrays
-        public SalaryData[]? SalaryHistory
+        public SalaryDTO[]? SalaryHistory
         {
             get => this.A_SalaryHistory;
             set => this.A_SalaryHistory = value;

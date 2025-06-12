@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public sealed class VersionData
+    public sealed class VersionDTO
     {
         #region Variables
         private string? V_PreRelease; // Ej. "alpha", "beta", "rc1"
@@ -19,7 +19,7 @@ namespace Data.Project
 
 
         #region Constructor Methods
-        public VersionData()
+        public VersionDTO()
             : base()
         {
             #region Variables
@@ -34,7 +34,7 @@ namespace Data.Project
             #endregion
         }
 
-        public VersionData(string? PreRelease,
+        public VersionDTO(string? PreRelease,
                            string Description,
                            DateOnly UpdateDate,
                            TimeOnly UpdateTime,

@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public sealed class EnvironmentData // Ambientes
+    public sealed class EnvironmentDTO // Ambientes
     {
         #region Variables
         private bool V_HasGrill; // Parrilla
@@ -28,7 +28,7 @@
 
 
         #region Constructor Methods
-        public EnvironmentData()
+        public EnvironmentDTO()
             : base()
         {
             this.HasGrill = false;
@@ -53,7 +53,7 @@
             this.HasEverydayDiningRoom = false;
         }
 
-        public EnvironmentData(bool HasGrill,
+        public EnvironmentDTO(bool HasGrill,
                                bool HasPool,
                                bool HasCloset,
                                bool HasGuestBathroom,

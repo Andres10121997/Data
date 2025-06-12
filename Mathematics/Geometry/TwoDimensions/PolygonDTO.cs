@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Data.Mathematics.Geometry.TwoDimensions
 {
-    public sealed class PolygonData
+    public sealed class PolygonDTO
     {
         #region Variables
         private byte V_NumberOfEdges; // Cantidad de Aristas.
@@ -16,14 +16,14 @@ namespace Data.Mathematics.Geometry.TwoDimensions
 
 
         #region Constructor Methods
-        public PolygonData()
+        public PolygonDTO()
             : base()
         {
             this.V_NumberOfEdges = byte.MinValue;
             this.A_LengthOfEdges = Array.Empty<ushort>();
         }
 
-        public PolygonData(byte NumberOfEdges,
+        public PolygonDTO(byte NumberOfEdges,
                            ushort[] LengthOfEdges)
             : base()
         {

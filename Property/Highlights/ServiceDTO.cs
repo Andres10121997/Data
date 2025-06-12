@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public sealed class ServiceData
+    public sealed class ServiceDTO
     {
         #region Variables
         private bool V_HasInternetAccess; // Acceso a internet
@@ -20,7 +20,7 @@
 
 
         #region Constructor Methods
-        public ServiceData()
+        public ServiceDTO()
             : base()
         {
             this.HasInternetAccess = false;
@@ -37,7 +37,7 @@
             this.HasBoiler = false;
         }
 
-        public ServiceData(bool HasInternetAccess,
+        public ServiceDTO(bool HasInternetAccess,
                            bool HasAirConditioning,
                            bool HasHeating,
                            bool HasCableTV,

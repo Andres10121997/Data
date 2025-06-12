@@ -2,7 +2,7 @@
 
 namespace Data.Company
 {
-    public sealed class DepartmentData
+    public sealed class DepartmentDTO
     {
         #region Variables
         private string V_Name;
@@ -11,7 +11,7 @@ namespace Data.Company
         #endregion
 
         #region Objects
-        private DepartmentData O_SubDepartment;
+        private DepartmentDTO O_SubDepartment;
         #endregion
 
         #region Enum
@@ -26,7 +26,7 @@ namespace Data.Company
 
 
         #region Constructor Method
-        public DepartmentData()
+        public DepartmentDTO()
             : base()
         {
             #region Variables
@@ -36,14 +36,14 @@ namespace Data.Company
             #endregion
 
             #region Objects
-            this.O_SubDepartment = new DepartmentData();
+            this.O_SubDepartment = new DepartmentDTO();
             #endregion
         }
 
-        public DepartmentData(string Name,
+        public DepartmentDTO(string Name,
                               string? Description,
                               DepartmentTypeEnum DepartmentType,
-                              DepartmentData SubDepartment)
+                              DepartmentDTO SubDepartment)
             : base()
         {
             #region Exception
@@ -93,7 +93,7 @@ namespace Data.Company
         #endregion
 
         #region Objects
-        public DepartmentData SubDepartment
+        public DepartmentDTO SubDepartment
         {
             get => this.O_SubDepartment;
             set => this.O_SubDepartment = value;

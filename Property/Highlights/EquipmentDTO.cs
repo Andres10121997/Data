@@ -1,6 +1,6 @@
 ﻿namespace Data.Property.Highlights
 {
-    public sealed class EquipmentData
+    public sealed class EquipmentDTO
     {
         #region Variables
         private bool V_HasChimney; // Chimenea
@@ -23,7 +23,7 @@
 
 
         #region Constructor Methods
-        public EquipmentData()
+        public EquipmentDTO()
             : base()
         {
             this.HasChimney = false;
@@ -43,7 +43,7 @@
             this.HasSauna = false;
         }
 
-        public EquipmentData(bool HasChimney,
+        public EquipmentDTO(bool HasChimney,
                              bool HasGym,
                              bool HasJacuzzi,
                              bool HasVisitorParking,

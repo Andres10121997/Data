@@ -3,7 +3,7 @@ using System;
 
 namespace Data.Property
 {
-    public sealed class RentData
+    public sealed class RentDTO
     {
         #region Variables
         private DateOnly V_StartDate;
@@ -13,14 +13,14 @@ namespace Data.Property
         #endregion
 
         #region Objects
-        private PersonData O_Person;
-        private PropertyData O_Property;
+        private PersonDTO O_Person;
+        private PropertyDTO O_Property;
         #endregion
 
 
 
         #region Constructor Methods
-        public RentData()
+        public RentDTO()
             : base()
         {
             #region Variables
@@ -31,17 +31,17 @@ namespace Data.Property
             #endregion
 
             #region Objects
-            this.O_Person = new PersonData();
-            this.O_Property = new PropertyData();
+            this.O_Person = new PersonDTO();
+            this.O_Property = new PropertyDTO();
             #endregion
         }
 
-        public RentData(DateOnly StartDate,
+        public RentDTO(DateOnly StartDate,
                         DateOnly EndDate,
                         float RentAmount,
                         float DepositAmount,
-                        PersonData Person,
-                        PropertyData Property)
+                        PersonDTO Person,
+                        PropertyDTO Property)
             : base()
         {
             #region Variables
@@ -122,13 +122,13 @@ namespace Data.Property
         #endregion
 
         #region Objects
-        public PersonData Person
+        public PersonDTO Person
         {
             get => this.O_Person;
             set => this.O_Person = value;
         }
 
-        public PropertyData Property
+        public PropertyDTO Property
         {
             get => this.O_Property;
             set => this.O_Property = value;

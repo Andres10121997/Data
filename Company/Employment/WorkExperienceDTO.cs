@@ -2,7 +2,7 @@
 
 namespace Data.Company.Employment
 {
-    public sealed class WorkExperienceData
+    public sealed class WorkExperienceDTO
     {
         #region Variables
         private string V_Position;
@@ -12,13 +12,13 @@ namespace Data.Company.Employment
         #endregion
 
         #region Object
-        private CompanyData O_Company;
+        private CompanyDTO O_Company;
         #endregion
 
 
 
         #region Constructor Method
-        public WorkExperienceData()
+        public WorkExperienceDTO()
             : base()
         {
             #region Variables
@@ -29,15 +29,15 @@ namespace Data.Company.Employment
             #endregion
 
             #region Objects
-            this.O_Company = new CompanyData();
+            this.O_Company = new CompanyDTO();
             #endregion
         }
 
-        public WorkExperienceData(string Position,
+        public WorkExperienceDTO(string Position,
                                   DateOnly StartDate,
                                   DateOnly? EndDate,
                                   string Description,
-                                  CompanyData Company)
+                                  CompanyDTO Company)
             : base()
         {
             #region Exception
@@ -111,7 +111,7 @@ namespace Data.Company.Employment
         #endregion
 
         #region Object
-        public CompanyData Company
+        public CompanyDTO Company
         {
             get => this.O_Company;
             set => this.O_Company = value;

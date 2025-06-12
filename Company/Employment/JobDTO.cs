@@ -2,7 +2,7 @@
 
 namespace Data.Company.Employment
 {
-    public sealed class JobData
+    public sealed class JobDTO
     {
         #region Variables
         private string V_Name;
@@ -12,14 +12,14 @@ namespace Data.Company.Employment
 
 
         #region Constructor Method
-        public JobData()
+        public JobDTO()
             : base()
         {
             this.V_Name = string.Empty;
             this.V_Description = null;
         }
 
-        public JobData(string Name,
+        public JobDTO(string Name,
                        string? Description)
         {
             #region Exception

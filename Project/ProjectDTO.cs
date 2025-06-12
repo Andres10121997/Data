@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Data.Project
 {
-    public sealed class ProjectData
+    public sealed class ProjectDTO
     {
         #region Variables
         private string V_Name;
@@ -23,13 +23,13 @@ namespace Data.Project
         #endregion
 
         #region Objects
-        private VersionData O_Version;
+        private VersionDTO O_Version;
         #endregion
 
 
 
         #region Constructor Methods
-        public ProjectData()
+        public ProjectDTO()
             : base()
         {
             #region Variables
@@ -41,16 +41,16 @@ namespace Data.Project
             #endregion
 
             #region Objects
-            this.O_Version = new VersionData();
+            this.O_Version = new VersionDTO();
             #endregion
         }
 
-        public ProjectData(string Name,
+        public ProjectDTO(string Name,
                            string? Description,
                            DateOnly CreationDate,
                            TimeOnly CreationTime,
                            AccessLevelEnum AccessLevel,
-                           VersionData Version)
+                           VersionDTO Version)
             : base()
         {
             #region Exception
@@ -123,7 +123,7 @@ namespace Data.Project
         #endregion
 
         #region Objects
-        public VersionData Version
+        public VersionDTO Version
         {
             get => this.O_Version;
             set => this.O_Version = value;

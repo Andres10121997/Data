@@ -2,22 +2,22 @@
 
 namespace Data.Certification
 {
-    public sealed class SalarySettlementData : CertificateData
+    public sealed class SalarySettlementDTO : CertificateDTO
     {
         #region Objects
-        private EmployeeData O_Employee;
+        private EmployeeDTO O_Employee;
         #endregion
 
 
 
         #region Constructor Method
-        public SalarySettlementData()
+        public SalarySettlementDTO()
             : base()
         {
-            this.O_Employee = new EmployeeData();
+            this.O_Employee = new EmployeeDTO();
         }
 
-        public SalarySettlementData(EmployeeData Employee)
+        public SalarySettlementDTO(EmployeeDTO Employee)
             : base()
         {
             this.O_Employee = Employee;
@@ -27,7 +27,7 @@ namespace Data.Certification
 
 
         #region Getters and Setters
-        public EmployeeData Employee
+        public EmployeeDTO Employee
         {
             get => this.O_Employee;
             set => this.O_Employee = value;

@@ -3,7 +3,7 @@ using System;
 
 namespace Data.Property
 {
-    public sealed class PropertyData
+    public sealed class PropertyDTO
     {
         #region Variables
         private ushort V_UsableArea;
@@ -17,10 +17,10 @@ namespace Data.Property
         #endregion
 
         #region Objects
-        private SecurityData O_Security;
-        private ServiceData O_Service;
-        private EnvironmentData O_Environment;
-        private EquipmentData O_Equipment;
+        private SecurityDTO O_Security;
+        private ServiceDTO O_Service;
+        private EnvironmentDTO O_Environment;
+        private EquipmentDTO O_Equipment;
         #endregion
 
         #region Enum
@@ -43,7 +43,7 @@ namespace Data.Property
 
 
         #region Constructor Methods
-        public PropertyData()
+        public PropertyDTO()
             : base()
         {
             #region Variables
@@ -58,14 +58,14 @@ namespace Data.Property
             #endregion
 
             #region Objects
-            this.O_Security = new SecurityData();
-            this.O_Service = new ServiceData();
-            this.O_Environment = new EnvironmentData();
-            this.O_Equipment = new EquipmentData();
+            this.O_Security = new SecurityDTO();
+            this.O_Service = new ServiceDTO();
+            this.O_Environment = new EnvironmentDTO();
+            this.O_Equipment = new EquipmentDTO();
             #endregion
         }
 
-        public PropertyData(ushort UsableArea,
+        public PropertyDTO(ushort UsableArea,
                             ushort TotalArea,
                             byte NumberOfBedrooms,
                             byte NumberOfBathrooms,
@@ -73,10 +73,10 @@ namespace Data.Property
                             byte NumberOfParkingSpaces,
                             byte NumberOfFloors,
                             PropertyTypeEnum PropertyType,
-                            SecurityData Security,
-                            ServiceData Service,
-                            EnvironmentData Environment,
-                            EquipmentData Equipment)
+                            SecurityDTO Security,
+                            ServiceDTO Service,
+                            EnvironmentDTO Environment,
+                            EquipmentDTO Equipment)
             : base()
         {
             #region Variables
@@ -171,25 +171,25 @@ namespace Data.Property
         #endregion
 
         #region Objects
-        public SecurityData Security
+        public SecurityDTO Security
         {
             get => this.O_Security;
             set => this.O_Security = value;
         }
 
-        public ServiceData Service
+        public ServiceDTO Service
         {
             get => this.O_Service;
             set => this.O_Service = value;
         }
 
-        public EnvironmentData Environment
+        public EnvironmentDTO Environment
         {
             get => this.O_Environment;
             set => this.O_Environment = value;
         }
 
-        public EquipmentData Equipment
+        public EquipmentDTO Equipment
         {
             get => this.O_Equipment;
             set => this.O_Equipment = value;

@@ -2,7 +2,7 @@
 
 namespace Data.Location
 {
-    public sealed class CountryData
+    public sealed class CountryDTO
     {
         #region Variables
         private string V_Name;
@@ -15,7 +15,7 @@ namespace Data.Location
 
 
         #region Constructor Method
-        public CountryData()
+        public CountryDTO()
             : base()
         {
             #region Variables
@@ -27,7 +27,7 @@ namespace Data.Location
             #endregion
         }
 
-        public CountryData(string Name,
+        public CountryDTO(string Name,
                            string Iso,
                            string Iso3,
                            uint Numcode,

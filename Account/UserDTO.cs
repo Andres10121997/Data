@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.Account
 {
-    public sealed class UserData : PersonData
+    public sealed class UserDTO : PersonDTO
     {
         #region Variables
         private string V_IP;
@@ -17,15 +17,15 @@ namespace Data.Account
         #endregion
 
         #region Objects
-        private EmailAddressData O_EmailAddress;
-        private PhoneData O_Phone;
-        private CountryData O_Country;
+        private EmailAddressDTO O_EmailAddress;
+        private PhoneDTO O_Phone;
+        private CountryDTO O_Country;
         #endregion
 
 
 
         #region Constructor Method
-        public UserData()
+        public UserDTO()
             : base()
         {
             #region Variables
@@ -37,20 +37,20 @@ namespace Data.Account
             #endregion
 
             #region Objects
-            this.O_EmailAddress = new EmailAddressData();
-            this.O_Phone = new PhoneData();
-            this.O_Country = new CountryData();
+            this.O_EmailAddress = new EmailAddressDTO();
+            this.O_Phone = new PhoneDTO();
+            this.O_Country = new CountryDTO();
             #endregion
         }
 
-        public UserData(string IP,
+        public UserDTO(string IP,
                         string Login,
                         string Username,
                         DateOnly CreationDate,
                         TimeOnly CreationTime,
-                        EmailAddressData EmailAddress,
-                        PhoneData Phone,
-                        CountryData Country)
+                        EmailAddressDTO EmailAddress,
+                        PhoneDTO Phone,
+                        CountryDTO Country)
             : base()
         {
             #region Exception
@@ -78,7 +78,7 @@ namespace Data.Account
             #endregion
         }
 
-        public UserData(string FirstName,
+        public UserDTO(string FirstName,
                         string? MiddleName,
                         string FirstLastName,
                         string? SecondLastName,
@@ -89,9 +89,9 @@ namespace Data.Account
                         string Username,
                         DateOnly CreationDate,
                         TimeOnly CreationTime,
-                        EmailAddressData EmailAddress,
-                        PhoneData Phone,
-                        CountryData Country)
+                        EmailAddressDTO EmailAddress,
+                        PhoneDTO Phone,
+                        CountryDTO Country)
             : base(FirstName: FirstName.Trim(),
                    MiddleName: MiddleName?.Trim(),
                    FirstLastName: FirstLastName.Trim(),
@@ -187,19 +187,19 @@ namespace Data.Account
         #endregion
 
         #region Objects
-        public EmailAddressData EmailAddress
+        public EmailAddressDTO EmailAddress
         {
             get => this.O_EmailAddress;
             set => this.O_EmailAddress = value;
         }
 
-        public PhoneData Phone
+        public PhoneDTO Phone
         {
             get => this.O_Phone;
             set => this.O_Phone = value;
         }
 
-        public CountryData Country
+        public CountryDTO Country
         {
             get => this.O_Country;
             set => this.O_Country = value;
