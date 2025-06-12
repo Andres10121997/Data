@@ -101,12 +101,63 @@ namespace Data.Account
             }
         }
 
+        [
+            DataType(
+                dataType: DataType.Text
+            ),
+            Display(
+                AutoGenerateField = false,
+                AutoGenerateFilter = false,
+                Description = "",
+                GroupName = nameof(PersonData),
+                Name = "Middle name",
+                Order = 2,
+                Prompt = "Enter middle name here.", // Ingrese aquí el segundo nombre
+                ShortName = "Middle name"
+            ),
+            MaxLength(
+                length: 30
+            ),
+            MinLength(
+                length: 0
+            ),
+            StringLength(
+                maximumLength: 30,
+                MinimumLength = 0
+            )
+        ]
         public string? MiddleName
         {
             get => this.V_MiddleName?.Trim();
             set => this.V_MiddleName = value?.Trim();
         }
 
+        [
+            DataType(
+                dataType: DataType.Text
+            ),
+            Display(
+                AutoGenerateField = false,
+                AutoGenerateFilter = false,
+                Description = "",
+                GroupName = nameof(PersonData),
+                Name = "First last name",
+                Order = 3,
+                Prompt = "Enter first last name here.", // Ingrese aquí el primer apellido
+                ShortName = "First last name"
+            ),
+            MaxLength(
+                length: 30
+            ),
+            MinLength(
+                length: 1
+            ),
+            Required,
+            StringLength(
+                maximumLength: 30,
+                MinimumLength = 1
+            )
+        ]
         public string FirstLastName
         {
             get => this.V_FirstLastName.Trim();
@@ -119,12 +170,53 @@ namespace Data.Account
             }
         }
 
+        [
+            DataType(
+                dataType: DataType.Text
+            ),
+            Display(
+                AutoGenerateField = false,
+                AutoGenerateFilter = false,
+                Description = "",
+                GroupName = nameof(PersonData),
+                Name = "Second last name",
+                Order = 4,
+                Prompt = "Enter second last name here.", // Ingrese aquí el segundo apellido
+                ShortName = "Second last name"
+            ),
+            MaxLength(
+                length: 30
+            ),
+            MinLength(
+                length: 0
+            ),
+            StringLength(
+                maximumLength: 30,
+                MinimumLength = 0
+            )
+        ]
         public string? SecondLastName
         {
             get => this.V_SecondLastName?.Trim();
             set => this.V_SecondLastName = value?.Trim();
         }
-        
+
+        [
+            DataType(
+                dataType: DataType.Date
+            ),
+            Display(
+                AutoGenerateField = false,
+                AutoGenerateFilter = false,
+                Description = "",
+                GroupName = nameof(PersonData),
+                Name = "Birth date",
+                Order = 4,
+                Prompt = "Enter birth date here.", // Ingrese aquí la fecha de nacimiento
+                ShortName = "Birth date"
+            ),
+            Required
+        ]
         public DateOnly BirthDate
         {
             get => this.V_BirthDate;
@@ -139,6 +231,21 @@ namespace Data.Account
             }
         }
 
+        [
+            DataType(
+                dataType: DataType.Custom
+            ),
+            Display(
+                AutoGenerateField = false,
+                AutoGenerateFilter = false,
+                Description = "",
+                GroupName = nameof(PersonData),
+                Name = "Sex",
+                Order = 4,
+                Prompt = "Enter sex here.", // Ingrese aquí el sexo
+                ShortName = "Sex"
+            )
+        ]
         public SexEnum Sex
         {
             get => this.V_Sex;
