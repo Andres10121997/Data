@@ -2,6 +2,7 @@
 using Data.Communication.Phone;
 using Data.Location;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace Data.Account
@@ -129,6 +130,22 @@ namespace Data.Account
 
         #region Getters and Setters
         #region Variables
+        [
+            DataType(
+                dataType:DataType.Text
+            ),
+            Display(
+                AutoGenerateField = false,
+                AutoGenerateFilter = false,
+                Description = "",
+                GroupName = nameof(UserDTO),
+                Name = "IP",
+                Order = 1,
+                Prompt = "",
+                ShortName = "IP"
+            ),
+            Required
+        ]
         public required string IP
         {
             get => this.V_IP.Trim();

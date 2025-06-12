@@ -211,7 +211,7 @@ namespace Data.Account
                 Description = "",
                 GroupName = nameof(PersonDTO),
                 Name = "Birth date",
-                Order = 4,
+                Order = 5,
                 Prompt = "Enter birth date here.", // Ingrese aquí la fecha de nacimiento
                 ShortName = "Birth date"
             ),
@@ -241,10 +241,11 @@ namespace Data.Account
                 Description = "",
                 GroupName = nameof(PersonDTO),
                 Name = "Sex",
-                Order = 4,
+                Order = 6,
                 Prompt = "Enter sex here.", // Ingrese aquí el sexo
                 ShortName = "Sex"
-            )
+            ),
+            Required
         ]
         public SexEnum Sex
         {
