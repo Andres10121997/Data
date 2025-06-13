@@ -286,8 +286,6 @@ namespace Data.Account
 
             return Age;
         }
-
-        public async Task<byte> AgeAsync() => await Task.FromResult<byte>(result: this.Age());
         #endregion
 
 
@@ -305,9 +303,7 @@ namespace Data.Account
                                    :
                                    string.Join(separator: " ", this.FirstLastName, this.SecondLastName);
 
-        public string FullName() => string.Join(separator: " ", this.Name, this.LastName);
-
-        public async Task<string> FullNameAsync() => await Task.FromResult<string>(result: this.FullName());
+        public string FullName => string.Join(separator: " ", this.Name, this.LastName);
         #endregion
     }
 }

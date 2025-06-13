@@ -227,19 +227,7 @@ namespace Data.Account
 
 
         #region To
-        public DateTime ToCreationDateTime()
-        {
-            DateTime CreationDateTime;
-
-            CreationDateTime = this.CreationDate.ToDateTime(time: this.CreationTime);
-
-            return CreationDateTime;
-        }
-
-        public async Task<DateTime> ToCreationDateTimeAsync()
-        {
-            return await Task.FromResult<DateTime>(result: this.ToCreationDateTime());
-        }
+        public DateTime ToCreationDateTime() => this.CreationDate.ToDateTime(time: this.CreationTime);
         #endregion
     }
 }
