@@ -4,12 +4,15 @@ namespace Data.Economy
 {
     public sealed class CurrencyDTO
     {
+        #region Variables
         private DateOnly V_Date;
         private string V_WeekdayName;
         private float V_Currency;
+        #endregion
 
 
 
+        #region Constructor Method
         public CurrencyDTO()
             : base()
         {
@@ -17,9 +20,11 @@ namespace Data.Economy
             this.V_WeekdayName = string.Empty;
             this.V_Currency = 0;
         }
+        #endregion
 
 
 
+        #region Getters and Setters
         public required DateOnly Date
         {
             get => this.V_Date;
@@ -48,5 +53,6 @@ namespace Data.Economy
                 this.V_Currency = value;
             }
         }
+        #endregion
     }
 }
